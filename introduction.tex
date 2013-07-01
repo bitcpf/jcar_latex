@@ -1,0 +1,44 @@
+
+\section{Introduction}
+\label{sec:introduction}
+
+% Background multiband networks, hetergeneous networks, vehicular applications
+% Introduction of white spcae.
+FCC is working on adopting rules to allow unlicensed radio transmitters to operate in the white space freed from TV band since 2010~\cite{fccwhitespace}. White space is popularly referred to unused portions of the UHF and VHF spactrum includes, but not limited to {FIXME}. These bands provides superior propagation and building penetration compared to licensed wifi bands like the 2.4 and 5GHz bands, holding rich poetntial for expanding broadband capacity and improving access for wireless users. 
+% User benefits
+Point to point users may entend their connecting range in white space and avoiding excessive competing in their licened bands.
+Users in a networks can enjoy multiple benefits through multihop links combining white space and licensed bands. However, access to these advantages of white space bands also comes with both technical and commerical challenges. A direct request from the users would be the rules to assign the channels in different band according to their characteristics. 
+More benefits could be obtained by multihop networks users. However, in a multihop networks, the problem becomes complex with tons of options come from multiple bands and multiple relay nodes combination as a NP-Hard problem.
+
+
+%Fairness
+To have a piece of partial optimization of this NP-Hard problem, some research has been working on different requirements. researchers works for on-demand optimization. and some multi-channel works also answer part of the channel assignment problem..
+
+
+% Paper focusing
+This paper is focusing on approaching multiband-multihop channel assignment and link selection optimization.
+%Contribution
+
+The main contributions of our work are as follows:
+\begin{itemize}
+\item We first develop a framework for multiband adaptation using both historical information and instantaneous measurements. This framework is broad enough to study adaptation across licensed, and unlicensed band including white space frequency bands.  
+
+\item We propose two different machine-learning-based adaptive algorithms. The 
+first machine learning algorithm, which we refer to as the \emph{Location-based 
+Look-up Algorithm}, 
+is based on the idea of $k-$nearest-neighbor classification. The second machine-learing-based 
+algorithm uses \emph{decision trees} for classification. 
+For comparison, we also create two baseline adaptation algorithms which attempt to make the optimal band selection based on only: {\it (i)}~historical 
+performance data, and {\it (ii)}~instantaneous SNR measurements across 
+various bands. 
+
+\item We perform extensive outdoor V-2-V experiments to evaluate the proposed algorithms.
+Our results indicate that the proposed machine learning algorithms outperform 
+these baseline methods in throughput by up to $49.3\%$.
+
+\end{itemize}
+
+
+
+%The remainder of this paper is organized as follows. In Section II, we present the multiband adaptation problem and proposed algorithms. Section III discusses experimental evaluation of the multiband algorithms. We conclude in Section IV.
+
