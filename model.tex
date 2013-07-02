@@ -8,10 +8,13 @@ in multiband networks and introduce the context information
 that we use. We then propose {FIXME} multiband channel assignment algorithms for multihop networks. For comparison, we also propose {FIXME} baseline assignment methods based on existing solutions.
 
 \subsection{Problem Formulation}
-%The focus of this paper is on a context-based multiband adaptation algorithm as:
-%The problem we are going to resolve is to find a band has the best throughput in multiple available options as:
-Consider a system with~$n$ frequency bands, represented by an index set~$\{1,2, \ldots, n\}$. 
-The objective is to select the optimal band,~$b_{best}$, to transmit at each time instant that maximizes a desired objective function such as throughput. The throughput~$r_i$ on band~$i$ depends on several factors such as received signal power~$P_R^i$, noise power~$P_N^i$, the activity/occupancy level~$B^i$, the velocity of the transmitter,~$v_{tx}$, the velocity of the receiver,~$v_{rx}$, and other factors such as location and contextual information. This relationship is represented in general as~$r_i = f(P_R^i,P_N^i,B^i,v_{tx},v_{rx},$context-information$)$. The objective can be stated as
+% The problem we are going to resolve is to find a band has the best throughput in multiple available options as:
+% Try to express the problem in math words
+Consider a network with~nodes equipped radios in $n$ frequency bands, represented by an index set~$\{1,2, \ldots, n\}$. 
+Each node will share a frequency band with neighbor nodes in time $T_s$.
+The objective is to achieve higher assign the frequency bands to the nodes subject to fair time sharing,~$b_{best}$,
+to transmit at each time instant that maximizes a desired objective function such as throughput. 
+The throughput~$r_i$ on band~$i$ depends on several factors such as received signal power~$P_R^i$, noise power~$P_N^i$, the activity/occupancy level~$B^i$, the velocity of the transmitter,~$v_{tx}$, the velocity of the receiver,~$v_{rx}$, and other factors such as location and contextual information. This relationship is represented in general as~$r_i = f(P_R^i,P_N^i,B^i,v_{tx},v_{rx},$context-information$)$. The objective can be stated as
 \begin{equation}
 b_{best}= \arg \max_i r_i 
 \end{equation}
