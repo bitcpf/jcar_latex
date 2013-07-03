@@ -4,30 +4,33 @@
 
 % Background multiband networks, hetergeneous networks, vehicular applications
 % Introduction of white spcae.
-FCC is working on adopting rules to allow unlicensed radio transmitters to operate in the white space freed from TV band since 2010~\cite{fccwhitespace}. White space is popularly referred to unused portions of the UHF and VHF spactrum includes, but not limited to {FIXME}. These bands provides superior propagation and building penetration compared to licensed wifi bands like the 2.4 and 5GHz bands, holding rich poetntial for expanding broadband capacity and improving access for wireless users. 
+FCC adopted rules to allow unlicensed radio transmitters to operate in the white space freed from TV band since 2010~\cite{fccwhitespace}. White space is popularly referred to unused portions of the UHF and VHF spactrum includes, but not limited to 54M-72MHz,76M-88MHz,174M-216MHz,470M-608MHz,and 614M-806MHz ~\cite{whitespacewiki}.
+To use these band, FCC ruling requires white space devices(WSDs) to learn of spectrum availability at their respective locations from a database of incumbents. For example, in Dallas/Fort Worth, TX, 482M-488MHz band should be yielded for TV channels, in Chicago, IL 470M-482MHz band is reserved for TV channels. ~\cite{boradband}
+ These bands provides superior propagation and building penetration compared to licensed ISM Wifi bands like the 2.4 and 5GHz bands, holding rich poetntial for expanding broadband capacity and improving access for wireless users.
+
 % Wireless mesh networks
+Wireless mesh network is able to provide broadband Internet access to large contiguous areas through less mesh nodes equipped with WSD due to the propagation characteristic of ISM bands. 
+Mesh deployment requires selecting the number and locations to place mesh nodes to cover the whole area and the nodes are inter-connected in order to access to Internet gateway points.
+Unfortunately, prior white space mesh placement research fails to address the compatibility of current existing devices, for instance, iPhone, Mac Laptop do not have white space radios to access white space gateway points. For a realistic mesh network, the end hop to the client need to be able to work in ISM Wifi band. 
 
-
-
-% Metrics
-Point to point users may entend their connecting range in white space and avoiding excessive competing in their licened bands.
-Users in a networks can enjoy multiple benefits through multihop links combining white space and licensed bands. However, access to these advantages of white space bands also comes with both technical and commerical challenges. A direct request from the users would be the rules to assign the channels in different band according to their characteristics. 
-More benefits could be obtained by multihop networks users. However, in a multihop networks, the problem becomes complex with tons of options come from multiple bands and multiple relay nodes combination as a NP-Hard problem.
+% Paper focusing
+This work focus on improving the wireless mesh network capacity combing with existing wifi nodes.
+We present FIXME mesh node placement algorithms so as to minimize the deployed nodes, guarantee the coverage, and mesh node inter-connectivity.
 
 
 % 
 
-% Paper focusing
-This paper is focusing on approaching multiband-multihop channel assignment and link selection optimization subject to time fairness.
 % Contribution
 % problem/environment propose
 % algorithms
 % 
 The main contributions of our work are as follows:
 \begin{itemize}
-\item We first develop a framework for multiband channel assignment using both historical information and instantaneous measurements. This framework is broad enough to study adaptation across licensed, and unlicensed band including white space frequency bands.  
+\item We formulate the hetergeneous mesh node placement problem as a FIXME problem.  
 
-\item We propose a methodology to leverage the infulence of white space in wireless communication subject to time fairness.
+\item We propose a methodology to leverage the infulence of white space in mesh networks.
+
+\item We .
 
 \item We perform extensive outdoor experiments from multiple environments and simulations to evaluate the proposed algorithms.
 

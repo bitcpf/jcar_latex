@@ -10,42 +10,42 @@ Database file #1: whitemesh.bib
 Done.
 You've used 7 entries,
             3917 wiz_defined-function locations,
-            823 strings with 8236 characters,
-and the built_in function-call counts, 5524 in all, are:
-= -- 436
-> -- 141
-< -- 47
-+ -- 73
-- -- 25
-* -- 279
-:= -- 845
+            822 strings with 8182 characters,
+and the built_in function-call counts, 4978 in all, are:
+= -- 384
+> -- 128
+< -- 36
++ -- 65
+- -- 24
+* -- 245
+:= -- 775
 add.period$ -- 17
 call.type$ -- 7
 change.case$ -- 7
-chr.to.int$ -- 105
+chr.to.int$ -- 81
 cite$ -- 7
-duplicate$ -- 397
-empty$ -- 433
-format.name$ -- 31
-if$ -- 1254
+duplicate$ -- 366
+empty$ -- 409
+format.name$ -- 29
+if$ -- 1124
 int.to.chr$ -- 0
 int.to.str$ -- 7
-missing$ -- 73
+missing$ -- 71
 newline$ -- 41
 num.names$ -- 7
-pop$ -- 169
+pop$ -- 173
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 401
+skip$ -- 360
 stack$ -- 0
-substring$ -- 251
-swap$ -- 325
-text.length$ -- 12
+substring$ -- 195
+swap$ -- 284
+text.length$ -- 9
 text.prefix$ -- 0
 top$ -- 5
 type$ -- 0
 warning$ -- 0
-while$ -- 31
+while$ -- 27
 width$ -- 8
-write$ -- 87
+write$ -- 84
