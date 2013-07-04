@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 \providecommand{\url}[1]{#1}
 \def\UrlFont{\rmfamily}
 \providecommand{\newblock}{\relax}
@@ -23,8 +23,29 @@ FCC, ``White space,'' \url{http://www.fcc.gov/topic/white-space}, 2012.
 
 \bibitem{whitespacewiki}
 Wiki, ``White space(radio),''
-  \url{$http://http://en.wikipedia.org/wiki/White\_spaces\_(radio)\#United\_St%
-ates$}, 2013.
+  \url{http://en.wikipedia.org/wiki/White\_spaces\_(radio)\#United\_States},
+  2013.
+
+\bibitem{broadband}
+B.~W. Consulting, ``Tv white space,''
+  \url{http://www.broadband-mapping.com/tv-white-spaces.html}, 2013.
+
+\bibitem{camp2006measurement}
+J.~Camp, J.~Robinson, C.~Steger, and E.~Knightly, ``Measurement driven
+  deployment of a two-tier urban mesh access network,'' in \emph{Proceedings of
+  the 4th international conference on Mobile systems, applications and
+  services}.\hskip 1em plus 0.5em minus 0.4em\relax ACM, 2006, pp. 96--109.
+
+\bibitem{arkoulis2013optimal}
+S.~Arkoulis, E.~Anifantis, V.~Karyotis, S.~Papavassiliou, and N.~Mitrou, ``On
+  the optimal, fair and channel-aware cognitive radio network
+  reconfiguration,'' \emph{Computer Networks}, 2013.
+
+\bibitem{meikle2012global}
+R.~Meikle and J.~Camp, ``A global measurement study of context-based
+  propagation and user mobility,'' in \emph{Proceedings of the 4th ACM
+  international workshop on Hot topics in planet-scale measurement}.\hskip 1em
+  plus 0.5em minus 0.4em\relax ACM, 2012, pp. 21--26.
 
 \bibitem{kim2008fast}
 H.~Kim and K.~G. Shin, ``Fast discovery of spectrum opportunities in cognitive
