@@ -8,28 +8,31 @@ with propagation, connectivity and QOS constrainr of multiband sceniario.
 We then propose {FIXME} white mesh deployment algorithms for multiband multihop networks. For comparison, we also propose {FIXME} baseline assignment methods based on existing solutions.
 
 \subsection{Problem Formulation}
-% The problem we are going to resolve is to find a band has the best throughput in multiple available options as:
-% Try to express the problem in math words
-Consider a network make of $\{1,2,\ldots,m\}$ nodes equipped radios of $n$ frequency bands, represented by an index set~$\{1,2, \ldots, n\}$. 
-% Time sharing
-Each node will share a frequency band with neighborhood nodes in time $T_s{mn}$, means a node can use this part of the time slot for transmitting. Each node in the network has the right to share the wireless resource with its neighbors, if a number of nodes in the same click of a band, they should share the channel of the band equally in time occupancy. For instance, if in a click there are 3 nodes all fully backlogged, each of them should have one third time sharing of this band. The time fairness is what we hold for all nodes in channel assignment. 
-% Fully backlogged source nodes
-We assume the source nodes are fully backlogged. 
 % Objective
-The objective of the work is to achieve higher thoughput through assigning the bands to the nodes subject to fair time sharing,~$T_s{best}$,
-% Factors may influence throughput 
-In a network, the throughput~$r_m$ of a node~$m$ depends on several factors, such as in a single band $i$, the received signal power~$P_R^{mi}$, noise power~$P_N^mi$, the activity/occupancy level~$B^i$, the time sharing of a band, and other factors such as location and contextual information. 
-This relationship is represented in general as~$r_m =\sum_n{f(P_R^i,P_N^i,B^i,context-information)}$. The objective can be stated as
-\begin{equation}
-T_s\{best\}= \arg \max_{T_s} r_m 
-\end{equation}
+The objective of the mesh node placement problem in multiband scenario is to minimize the number of deployed mesh nodes and relay nodes with the constraint of full coverage of the target area and connectivity to the Internet existing users. 
+% Input & Output
+The set fo potential mesh node accessing to Internet locations, $M$, is assumed know. 
+Discrete locations for mesh nodes follows naturally from pratical constraints on deployment, such as the availability of wired connection store or other infrastructure for mesh node installation.
+The coverage area of the mesh network is discretized into small grid of coverage locations $G$. The center of each grid is the point output the received signal justifying the connection and channel capacity.
+Relay nodes $R$  are defined as nodes do not have direcet Internet access but can connect to the mesh node and provide Wi-fi coverage of a number of grid.
+The vertex set of the input is defined as $V=M\cupG$,the union of  coverage grid and the potential mesh nodes location. 
+The solution of the problem could tell which mesh node will be built and where should a relay node be added. The set of chosen mesh nodes is represented as $M_b$. 
+The output of the problem is the nodes location and number of wireless nodes $R\cupM_b$, the union of mesh nodes chosen from potential locations and the relay nodes. 
 
+\subsection{Propagation across Bands}
 % FIXME Propagation of multiband
 For a multiband wireless network, 
 The received signal power is represented as $P_{dBm}(d)=P_{dBm}-10\alpha log_{10}(\frac{d}{d_0})+\epsilon$. Pathloss exponent $\alpha$ in outdoor environments range from 2 to 5, higher frequency has a heavier pathloss. \cite{camp2006measurement}. 
 The propagation of frequency becomes an important characteristic since the pathloss exponent varies with the wavelength. The propagation difference makes the performance of radios vary from band to band in the same location. The propagation alternation brings the advantages of providing more possible path for multihop network without increase interference of their neighbors. 
 However, to employ the propagation advantages also bring a NP-hard problem to arrive the optimal solution~\cite{arkoulis2013optimal}. To approach the optimal solution we have FIXME frameworks to solve part of the problem subject to time fairness of each node.
 
+
+% Factors may influence throughput 
+In a network, the throughput~$r_m$ of a node~$m$ depends on several factors, such as in a single band $i$, the received signal power~$P_R^{mi}$, noise power~$P_N^mi$, the activity/occupancy level~$B^i$, the time sharing of a band, and other factors such as location and contextual information. 
+This relationship is represented in general as~$r_m =\sum_n{f(P_R^i,P_N^i,B^i,context-information)}$. The objective can be stated as
+\begin{equation}
+T_s\{best\}= \arg \max_{T_s} r_m 
+\end{equation}
 % Factors in a single band
 The framework allows us to 
 separate the interference from other nodes using the same technology via the busy time and the interference from nodes using other technologies in the same and via the noise level~$P_N^i$. 
@@ -40,25 +43,17 @@ e.g.,  $B^i$, $P_N^i$, $P_R^i$
 could be extracted and help make decisions
 for multiband adaptation in a similar context~\cite{meikle2012global}.
 
-% Defination of busy time FIXME should we keep the busy time?
-To represent the utilization level of the channel, we define \emph{busy time}, $B$,
-as the percentage of time when the channel is occupied by 
-all competing sources $x_j ( j = 1, 2, 3, ...)$ other than the intended transmitter $y$. 
-For 802.11-based transmissions, the busy time on band $i$ is defined as:
-\begin{equation}
-\label{eqn:80211activity}
-B^i = \frac{\sum_j{\sum_k{\frac{L_k^{x_j}}{R_k^{x_j}}}}}{\sum_k{\frac{L_k^y}{R_k^y}}+\sum_j{\sum_k{\frac{L_k^{x_j}}{R_k^{x_j}}}}+S\sigma}
-\end{equation}
-where $L_k^{x_j}$ and $R_k^{x_j}$ represent, respectively, the packet length in bits and the data
-rate at which that packet is transmitted, for external sources $x_j$;
-$S$ and $\sigma$ are the idle slots and the slot duration. 
-When considering the activity level of non-802.11 users 
-(e.g., the bands currently licensed to TV and other non-802.11 devices), 
-%whether the signal level from these
-we use the received signal level from non-802.11 interference sources $P_N^i$ 
-on band $i$ as an input to our algorithms. 
+% Coverage costraint
 
-\subsection{Multiband Channel Assignment Algorithms}
+
+% Connectivity constraint
+
+
+
+% Capacity constraint
+
+
+
 % Framework introduction
 In order to evaluate the proposed multiband adaptation algorithms, 
 we construct two baseline multiband channel assignment methods: (1) We assign the
