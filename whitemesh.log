@@ -1,4 +1,4 @@
-This is pdfeTeX, Version 3.141592-1.21a-2.2 (Web2C 7.5.4) (format=latex 2012.4.6)  4 JUL 2013 10:01
+This is pdfeTeX, Version 3.141592-1.21a-2.2 (Web2C 7.5.4) (format=latex 2012.4.6)  4 JUL 2013 17:30
 entering extended mode
 **whitemesh
 (./whitemesh.tex
@@ -309,17 +309,12 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 33.
 
 (/usr/share/texmf/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2002/01/19 v2.2g AMS font definitions
-)) (./model.tex
-Underfull \hbox (badness 1888) in paragraph at lines 13--23
-\OT1/ptm/m/n/10 ra-dios of $\OML/cmm/m/it/10 n$ \OT1/ptm/m/n/10 fre-quency band
-s, rep-re-sented by an in-dex
- []
-
-[1
+)) (./model.tex [1
 
 
-]) (./related.tex) (./whitemesh.bbl
-Overfull \hbox (69.66057pt too wide) in paragraph at lines 25--28
+])
+(./wmalgorithms.tex) (./whitemesh.bbl
+Overfull \hbox (65.66057pt too wide) in paragraph at lines 25--28
 []\OT1/ptm/m/n/8 Wiki, ``White space(radio),'' http://en.wikipedia.org/wiki/Whi
 te[]spaces[](radio)#United[]States,
  []
@@ -343,12 +338,12 @@ Before submitting the final camera ready copy, remember to:
 
 [2] (./whitemesh.aux) ) 
 Here is how much of TeX's memory you used:
- 2736 strings out of 94501
- 37937 string characters out of 1176790
+ 2730 strings out of 94501
+ 37843 string characters out of 1176790
  91923 words of memory out of 1000000
- 5866 multiletter control sequences out of 10000+50000
+ 5860 multiletter control sequences out of 10000+50000
  27373 words of font info for 66 fonts, out of 500000 for 2000
  580 hyphenation exceptions out of 1000
  27i,8n,24p,917b,303s stack positions out of 1500i,500n,5000p,200000b,5000s
 
-Output written on whitemesh.dvi (2 pages, 16556 bytes).
+Output written on whitemesh.dvi (2 pages, 12544 bytes).

@@ -13,70 +13,43 @@ The objective of the mesh node placement problem in multiband scenario is to min
 % Input & Output
 The set fo potential mesh node accessing to Internet locations, $M$, is assumed know. 
 Discrete locations for mesh nodes follows naturally from pratical constraints on deployment, such as the availability of wired connection store or other infrastructure for mesh node installation.
-The coverage area of the mesh network is discretized into small grid of coverage locations $G$. The center of each grid is the point output the received signal justifying the connection and channel capacity.
+The coverage area of the mesh network is discretized into small grid of coverage locations $N$. The center of each grid is the point output the received signal justifying the connection and channel capacity.
 Relay nodes $R$  are defined as nodes do not have direcet Internet access but can connect to the mesh node and provide Wi-fi coverage of a number of grid.
-The vertex set of the input is defined as $V=M\cupG$,the union of  coverage grid and the potential mesh nodes location. 
+The vertex set of the input is defined as $V=M\cup N$,the union of  coverage grid and the potential mesh nodes location. 
 The solution of the problem could tell which mesh node will be built and where should a relay node be added. The set of chosen mesh nodes is represented as $M_b$. 
-The output of the problem is the nodes location and number of wireless nodes $R\cupM_b$, the union of mesh nodes chosen from potential locations and the relay nodes. 
+The output of the problem is the nodes location and number of wireless nodes $R\cup M_b$, the union of mesh nodes chosen from potential locations and the relay nodes. 
+
+% Connectivity constraint
+\subsection{Connectivity Constraint}
+\label{subsec:ccconstraint}
+The connctivity graph represented as $G=(V,E)$ could indicate the existence of usable links. This formulation encodes the signal quality of each link independently can represent the link quality diversity across bands.
+The links set, $E$, from the coverage grids to either relay nodes or mesh node, corresponding to the estimated or measured signal strength is abouve a signal strength threshold. 
+More formally, the connectivity graph where both target coverage locations and potential mesh node locations form a unified connectivity graph.
+The mesh network have to satisfy the coverage of each grid through an edge $E$ from either a mesh node or a relay node.
+
+
+
+
 
 \subsection{Propagation across Bands}
 % FIXME Propagation of multiband
-For a multiband wireless network, 
-The received signal power is represented as $P_{dBm}(d)=P_{dBm}-10\alpha log_{10}(\frac{d}{d_0})+\epsilon$. Pathloss exponent $\alpha$ in outdoor environments range from 2 to 5, higher frequency has a heavier pathloss. \cite{camp2006measurement}. 
-The propagation of frequency becomes an important characteristic since the pathloss exponent varies with the wavelength. The propagation difference makes the performance of radios vary from band to band in the same location. The propagation alternation brings the advantages of providing more possible path for multihop network without increase interference of their neighbors. 
-However, to employ the propagation advantages also bring a NP-hard problem to arrive the optimal solution~\cite{arkoulis2013optimal}. To approach the optimal solution we have FIXME frameworks to solve part of the problem subject to time fairness of each node.
+ For wireless networks, the received signal power of a node is represented as $P_{dBm}(d)=P_{dBm}-10\alpha log_{10}(\frac{d}{d_0})+\epsilon$. Pathloss exponent $\alpha$ in outdoor environments range from 2 to 5, higher frequency has a heavier pathloss. \cite{camp2006measurement}. 
+The propagation of frequency becomes an important characteristic since the pathloss exponent varies with channel frequency. The propagation difference makes the performance of radios vary from band to band in the same location. 
+Specifying each link individually enables us to encode non-uniform propagation. In other words, each grid can be covered by an arbitrary node.  
+The propagation alternation brings the advantages of providing more possible path for multihop network without increase interference of their neighbors. 
 
 
-% Factors may influence throughput 
-In a network, the throughput~$r_m$ of a node~$m$ depends on several factors, such as in a single band $i$, the received signal power~$P_R^{mi}$, noise power~$P_N^mi$, the activity/occupancy level~$B^i$, the time sharing of a band, and other factors such as location and contextual information. 
-This relationship is represented in general as~$r_m =\sum_n{f(P_R^i,P_N^i,B^i,context-information)}$. The objective can be stated as
-\begin{equation}
-T_s\{best\}= \arg \max_{T_s} r_m 
-\end{equation}
-% Factors in a single band
-The framework allows us to 
-separate the interference from other nodes using the same technology via the busy time and the interference from nodes using other technologies in the same and via the noise level~$P_N^i$. 
-For instance, an 802.11 node can observe the packets of other 802.11 nodes but only the increase noise levels from other Zigbee/Bluetooth nodes.
-The existing pattern embedded in the historical data connecting 
-the performance of different bands and collected context information 
-e.g.,  $B^i$, $P_N^i$, $P_R^i$ 
-could be extracted and help make decisions
-for multiband adaptation in a similar context~\cite{meikle2012global}.
-
-% Coverage costraint
-
-
-% Connectivity constraint
+\subsection{Capacity Constraint}
+Wireless bandwidth is shared among all clients and mesh nodes, as a result, it is offen desirable to limit the number of potential sharers of the scarce wireless spectrum. 
+The link $E$ \ref{subsec:ccconstraint} could gurantee the minimum bandwidth sharing for the client, however, it could not represent the quality of the service. Our formulation enforces this by imposing a maximum degree $b_v$ on the connectivity of a mesh node, represented the downlink/uplink capacity of the mesh node to clients. More complete capacity of formulations in other research take into account on-demands and fairness ~\cite{arkoulis2013optimal}, but we do not get into these scenarios in this paper.
 
 
 
-% Capacity constraint
 
 
-
-% Framework introduction
-In order to evaluate the proposed multiband adaptation algorithms, 
-we construct two baseline multiband channel assignment methods: (1) We assign the
-time sharing randomly to the nodes. (2) For each node, we try to transmit in all the time without considering the interferance of the networks: 
-
-% FIXME should we keep this?
-%% Throughput calculation
-%The way we simulate the throughput of a single band through the 
-%\begin{align}
-%&\max_i T_{ideal}^i\times(1-B^i),
-%\label{eq:baseline2}
-%\end{align}
-%The throughput $T_{ideal}$ is measured with Azimuth ACE-MX channel emulator~\cite{AzimuthACE}. 
-%The details of system setup and data collection are discussed in Section~\ref{sec:experiment design}. 
-
-% Framework1 start from assigning the highest band
+To employ the propagation advantages brings a NP-hard problem to arrive the optimal solution~\cite{arkoulis2013optimal}. 
+To approach the optimal solution we have FIXME frameworks to solve part of the problem subject to time fairness of each node.
 
 
-
-% Framework2 start from assigning the loweset band
-
-
-
-% Framework3 assign all the bands at one time
 
 
