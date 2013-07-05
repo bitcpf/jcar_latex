@@ -4,6 +4,9 @@
 
 % Background multiband networks, hetergeneous networks, vehicular applications
 % Introduction of white spcae.
+% Process:
+% Clearify the channel in different cities
+% Introduce 2 possible gain: 1. reduce # mesh nodes 2. given topology get average capacity 
 FCC adopted rules to allow unlicensed radio transmitters to operate in the white space freed from TV band since 2010~\cite{fccwhitespace}. White space is popularly referred to unused portions of the UHF and VHF spactrum includes, but not limited to 54M-72MHz,76M-88MHz,174M-216MHz,470M-608MHz,and 614M-806MHz ~\cite{whitespacewiki}.
 To use these band, FCC ruling requires white space devices(WSDs) to learn of spectrum availability at their respective locations from a database of incumbents. For example, in Dallas/Fort Worth, TX, 482M-488MHz band should be yielded for TV channels, in Chicago, IL 470M-482MHz band is reserved for TV channels. ~\cite{broadband}
  These bands provides superior propagation and building penetration compared to licensed ISM Wifi bands like the 2.4 and 5GHz bands, holding rich poetntial for expanding broadband capacity and improving access for wireless users.
@@ -16,6 +19,7 @@ Mesh deployment requires selecting the number and locations to place mesh nodes 
 Unfortunately, prior white space mesh placement research fails to address the compatibility of current existing devices, for instance, iPhone, Mac Laptop do not have white space radios to access white space gateway points. For a realistic mesh network, the end hop to the client need to be able to work in ISM Wifi band. 
 To appreciate the multiband mesh deployment problem, it is important to understand the differences between white spaces and the popular ISM bands where Wifi devices operate. First, in FCC rules, users in white space band have to yield primary users.Before enter a white space channel, users have to detect the channel occupation. Second, white space band may suffer some unknown interference such as wireless Mic. Such devices may turn on at anytime without warning. Third, white space is cleaner than ISM bands since most of the TV stations have stopped using the bands. And also since in white space is in lower band, the coverage of these band is larger than higher frequency ISM band which could help to reduce the mesh nodes. According to these advantages and disadvantages, the balance between white space bands and ISM bands is possible to provide imporvement of mesh network. 
 
+% AP location estimate 
 
 % Paper focusing
 This work focus on minimize the mesh nodes when gurantee the coverage and connectivity of the network.
