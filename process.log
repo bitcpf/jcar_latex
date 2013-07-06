@@ -1,15 +1,26 @@
 Need to clearify:
 
 Problem formulation
+	Describe the gains in model.tex
+
 Coverage metric
+	Percents?
 Connection metric
+	RSSI threshold
 Input info
+	WiEye data in 2.4 getting information of different cities
+	Local data to link ISM bands and UHF bands
+Variable:
+	Propagation
+	White space band
+
 Algorithms
+
 Experiment design
+	Talk about the AP searching
+	Propagation estimate from AP and measured data
 
-
-
-Metric/Variable:
+Metric/:
 
 Connectivity
 Nodes amount

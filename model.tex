@@ -4,12 +4,17 @@
 % Organization of the Sec
 In this section, we first formulate the 
 white mesh deployment problem
-with propagation, connectivity and QOS constrainr of multiband sceniario.
-We then propose {FIXME} white mesh deployment algorithms for multiband multihop networks. For comparison, we also propose {FIXME} baseline assignment methods based on existing solutions.
+with propagation, connectivity and QOS constraint of multiband sceniario.
+We then propose {FIXME} white mesh deployment algorithms for multiband multihop networks objectives.
+%trageting to improve the network capacity with the same topology and reduce the mesh nodes for the same coverage of an area. 
+For comparison, we also propose {FIXME} baseline assignment methods based on existing solutions.
 
 \subsection{Problem Formulation}
 % Objective
-The objective of the mesh node placement problem in multiband scenario is to minimize the number of deployed mesh nodes and relay nodes with the constraint of full coverage of the target area and connectivity to the Internet existing users. 
+The objective of the mesh node placement problem in multiband scenario could either be 
+to minimize the number of deployed mesh nodes and relay nodes with the constraint of fulfilling coverage of the target area and connectivity to the Internet existing users. 
+or to maximize the capacity of existing mesh network topology with replacing ISM Wifi nodes to white space nodes.
+
 % Input & Output
 The set fo potential mesh node accessing to Internet locations, $M$, is assumed know. 
 Discrete locations for mesh nodes follows naturally from pratical constraints on deployment, such as the availability of wired connection store or other infrastructure for mesh node installation.
@@ -18,6 +23,7 @@ Relay nodes $R$  are defined as nodes do not have direcet Internet access but ca
 The vertex set of the input is defined as $V=M\cup N$,the union of  coverage grid and the potential mesh nodes location. 
 The solution of the problem could tell which mesh node will be built and where should a relay node be added. The set of chosen mesh nodes is represented as $M_b$. 
 The output of the problem is the nodes location and number of wireless nodes $R\cup M_b$, the union of mesh nodes chosen from potential locations and the relay nodes. 
+
 
 % Connectivity constraint
 \subsection{Connectivity Constraint}
@@ -44,6 +50,9 @@ Wireless bandwidth is shared among all clients and mesh nodes, as a result, it i
 The link $E$ \ref{subsec:ccconstraint} could gurantee the minimum bandwidth sharing for the client, however, it could not represent the quality of the service. Our formulation enforces this by imposing a maximum degree $b_v$ on the connectivity of a mesh node, represented the downlink/uplink capacity of the mesh node to clients. More complete capacity of formulations in other research take into account on-demands and fairness ~\cite{arkoulis2013optimal}, but we do not get into these scenarios in this paper.
 
 
+% Note the capacity gain of putting white space nodes
+
+% Note the gain of reducing mesh nodes
 
 
 
