@@ -5,11 +5,33 @@ In this section,
 % Creation of virtual cities 
 To evaluate our algorithms, four scenarios mapping four different kinds of cities are involved in our experiments. FIXME 
 
+\subsection{Local Multiband Measurement}
+To discover the propagation diversity, we measure 4 different bands, 450MHz, 900MHz, 2.4GHz, and 5.8GHz on our off-shelf multiband platform. 
+The measurement platform is made of Gateworks 2358 with GPS, Smartbridge 450MHz radio, Ubiquite XR2, XR5, and XR9 radios. 
+The software on the platform is Linux based Openwrt with several third party applications such as Iperf, TCPdump.
+We bring 2 of this platform on cars and run Iperf at the transmitter with GPS records to generate traffic on the four bands simultaneously sending through the radios on the platform.
+The TCPdump running on the receiver side sniffs the packets and report the SNR with GPS information.
 
-
+% Measurement processing
+Comparing the GPS records on both side help to grab the distance between the transmitter and receiver with time stamps. The SNR and distance could be synchronized according to the time stamps.
+The propagation relationship of four different bands could be found through the curve fitting.
+% WiEye measurements
+\subsection{WiEye Measurement}
+WiEye is an Android application help users to measure the ~\emph{Access Point} signal strength provided by SMU ~\emph{Wireless Networks Group} for free. It also help ~\emph{Wireless Networks Group} collecting measurement data of signal strength to leverage the propogation characteristics on large scale ~\cite{meikle2012global}.
+Due to the hardware limitation, most of the cellphones can only work on 2.4GHz, most of the measurement data is on 2.4GHz. 
+The data from WiEye helps to get the propogation of a city in 2.4GHz and according our 2.4GHz multiband measurements, we map the propogation in other bands of the cities. 
 
 % Find AP location methodology
+An issue of the WiEye measurement is that the ~\emph{Wifi Access Points} are unknown of the users. To overcome the issue, we propose a methodology to estimate the ~\emph{Access Point} through multiple measurement.
+The ~\emph{Path Loss Exponent} varies from 2 to 5 in different environment ~\cite{camp2006measurement}. 
+First we grab measurements in the same area, pull out their location information and signal strength information.
+Then, we assume the area have a small ~\emph{Path Loss Exponent}. If there are ~\emph{Access Points} at the location of the users, their connectivity circle click will cover the actual ~\emph{Access Point}. The area covered by the most virtual click is believed to be the plane contain the ~\emph{Access Point}.
+Third, we increase the ~\emph{Pass Loss Exponent} to decrease the click of the virtual click getting close to the ~\emph{Access Point} in the plane of the last step. We iteratively repeat the process to narrow the possible location of the ~\emph{Access Point} till there are only two virtual click cover the same location in the previous step plane. 
+Then the location is believed as the ~\emph{Access Point}.
 
+Base upon the estimation, the distance from the ~\emph{Access Point} to the users could be calculated and mapping to the SNR for propagation estimation.
+
+FIXME{Add diagram to describe the process}
 
 
 

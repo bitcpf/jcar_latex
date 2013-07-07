@@ -41,6 +41,12 @@ S.~Arkoulis, E.~Anifantis, V.~Karyotis, S.~Papavassiliou, and N.~Mitrou, ``On
   the optimal, fair and channel-aware cognitive radio network
   reconfiguration,'' \emph{Computer Networks}, 2013.
 
+\bibitem{meikle2012global}
+R.~Meikle and J.~Camp, ``A global measurement study of context-based
+  propagation and user mobility,'' in \emph{Proceedings of the 4th ACM
+  international workshop on Hot topics in planet-scale measurement}.\hskip 1em
+  plus 0.5em minus 0.4em\relax ACM, 2012, pp. 21--26.
+
 \bibitem{kim2008fast}
 H.~Kim and K.~G. Shin, ``Fast discovery of spectrum opportunities in cognitive
   radio networks,'' in \emph{New Frontiers in Dynamic Spectrum Access Networks,
