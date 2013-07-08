@@ -1,9 +1,7 @@
 \section{Experimental Analysis for Prediction Algorithms}
 \label{sec:experiment_design}
-In this section, 
-
-% Creation of virtual cities 
-To evaluate our algorithms, four scenarios mapping four different kinds of cities are involved in our experiments. FIXME 
+In this section, we introduce the experimental set up for ~\emph{Multiband Mesh Network}. There are two set of experiments for characteristic leveraging of multiple scenarios presented ~\ref{sec:propogation}. 
+One is the ~\emph{local Multiband Measurement} grab propogation information across bands; the other is ~\emph{WiEye} helps to find the propogation relationship of multiple cities. The methodology to process the data is also introduced.
 
 \subsection{Local Multiband Measurement}
 To discover the propagation diversity, we measure 4 different bands, 450MHz, 900MHz, 2.4GHz, and 5.8GHz on our off-shelf multiband platform. 
@@ -17,6 +15,7 @@ Comparing the GPS records on both side help to grab the distance between the tra
 The propagation relationship of four different bands could be found through the curve fitting.
 % WiEye measurements
 \subsection{WiEye Measurement}
+% FIXME add Wieye intro from Web
 WiEye is an Android application help users to measure the ~\emph{Access Point} signal strength provided by SMU ~\emph{Wireless Networks Group} for free. It also help ~\emph{Wireless Networks Group} collecting measurement data of signal strength to leverage the propogation characteristics on large scale ~\cite{meikle2012global}.
 Due to the hardware limitation, most of the cellphones can only work on 2.4GHz, most of the measurement data is on 2.4GHz. 
 The data from WiEye helps to get the propogation of a city in 2.4GHz and according our 2.4GHz multiband measurements, we map the propogation in other bands of the cities. 
