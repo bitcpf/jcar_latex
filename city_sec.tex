@@ -1,15 +1,38 @@
-\section{Propogation of Typical Cities}
+\section{Whte Mesh of Typical Cities}
 \label{sec:cities}
-% Intro different scenarios, should we keep it or merge it to the previous SEC...
+% Need to check the WiEye database to see if the propagation character is correct
 
+% Intro different scenarios, should we keep it or merge it to the previous SEC...
 
 To access to the white space usability, FCC rules have to be obeyed. 
 FCC has assigned white space with different bandwidth according to the population density and geographical condition across US.
-There are cities which reserve a narrow white space band for TV and release more bandwidth for research and other utility.
-There are also cities reserver more white space band for TV and only release few bandwidth for research and other utility.
+There are cities which have strict rule for white space usability, such as in New York, there is no white space band available ~\cite{googlespectrumdatabase}. 
+In Dallas, the available spectrum is 2 channels, 12MHz which is much smaller than Tuscon, AZ as 16 channels, 96MHz ~\cite{googlespectrumdatabase}. 
 
-Combined with the propagation characteristics, there are four scenarios we are trying to leverage the influence of the white space mesh deployment.
-more white space band and lower propagation; less white space band and lower propagation; more white space band and higher propagation; less white space band and higher propagation.
-These are the scenarios we are going to deal with for FIXME algorithms.
+The gain of a mesh network deployment varies of these cities due to the FCC ruled bandwidth.
+Propagation is another factor for deploying mesh network in these cities as mentioned in ~\ref{sec:propagation}.
+Combined with the propagation characteristics of different environment in these cities, there are four scenarios in large scale we are trying to leverage the influence of the white space mesh deployment.
+
+\subsection{More bandwidth Low propagation}
+The first kind of cities are with lower path loss exponent and wide FCC approved white space band, such as Tuscon, AZ. We measured the propogation as FIXME through WiEye will discuss in ~\ref{sec:experiment_design}.
+In such cities, the advantage white space band has larger coverage and less interference bringing substantial gain of white space.
+
+
+\subsection{More bandwidth High propagation}
+The second kind of cities we are considering are high path loss exponent due to geographical conditions or buildings, but have wide FCC approved white space band, such as Austin with 15 channels, 90MHz white bandwidth. FIXME{Check the WiEye database}
+
+More bandwidth inject to a networks would bring gains for capacity, but the reduction of the cost for deployment does not benifet a lot from the white band.
+
+\subsection{Less bandwidth Low propagation}
+A third kind of cities which may benefit for the larger coverage of white space mesh nodes but the capacity is sitll limited by the bandwidth such as Houston FIXME
+
+
+
+\subsection{Less bandwidth High propagation}
+Cities like Dallas who has few available channels, 2 channels, 12MHz, but high propagation in its downtown area are the fourth scenario we are trying to deal with.
+
+In such cities, the advantages of white space band is the least across all these cities, but we still could see some gain from white mesh node deployment.
+
+
 
 
