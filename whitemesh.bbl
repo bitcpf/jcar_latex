@@ -30,16 +30,16 @@ Wiki, ``White space(radio),''
 B.~W. Consulting, ``Tv white space,''
   \url{http://www.broadband-mapping.com/tv-white-spaces.html}, 2013.
 
+\bibitem{arkoulis2013optimal}
+S.~Arkoulis, E.~Anifantis, V.~Karyotis, S.~Papavassiliou, and N.~Mitrou, ``On
+  the optimal, fair and channel-aware cognitive radio network
+  reconfiguration,'' \emph{Computer Networks}, 2013.
+
 \bibitem{camp2006measurement}
 J.~Camp, J.~Robinson, C.~Steger, and E.~Knightly, ``Measurement driven
   deployment of a two-tier urban mesh access network,'' in \emph{Proceedings of
   the 4th international conference on Mobile systems, applications and
   services}.\hskip 1em plus 0.5em minus 0.4em\relax ACM, 2006, pp. 96--109.
-
-\bibitem{arkoulis2013optimal}
-S.~Arkoulis, E.~Anifantis, V.~Karyotis, S.~Papavassiliou, and N.~Mitrou, ``On
-  the optimal, fair and channel-aware cognitive radio network
-  reconfiguration,'' \emph{Computer Networks}, 2013.
 
 \bibitem{meikle2012global}
 R.~Meikle and J.~Camp, ``A global measurement study of context-based

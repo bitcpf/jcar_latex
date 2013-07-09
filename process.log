@@ -1,7 +1,10 @@
 Need to clearify:
 
 FCC approved white space channels in different cities
-	Emailed Mat for administor issue
+
+Capacity calucation. In Robinson's paper, what's the demand from the measurement?
+
+Should merge the virtual cities and propagation in one sec? Or actually the virtual cities just different propagation area with different bandwidth which is not actual cities.
 
 Problem formulation
 	Describe the gains in model.tex

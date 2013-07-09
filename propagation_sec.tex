@@ -1,0 +1,25 @@
+\section{Propagation in Multiband Mesh Network}
+\label{sec:propagation}
+
+In this section, we introduce the concept of propagation and the parameter of propagation.
+
+% Concept of propagation, factors of the environment and so on
+Wireless propagation is the behavior of the signals loss characteritics when they are transmitted, or propagated from one point to another.
+The factors rule radio propagation are complex and diverse, and in most propagation models three basic propagation mechanisms: reflection, diffraction, and scattering ~\cite{andersen1995propagation}.
+Wireless propagation could be affected by the daily changes of environment, weather, and atmosphere changes due to cosmos activities. 
+Understanding the effects of varying conditions on wireless propagation has many practical applications for wireless network, from choosing frequencies, to designing multihop routing, to avoiding interference, to frequency reusing.
+
+% propagation fomular, explain the band influence
+Usually in wireless networks, the received signal power of a node is represented as $P_{dBm}(d)=P_{dBm}-10\alpha log_{10}(\frac{d}{d_0})+\epsilon$. Pathloss exponent $\alpha$ in outdoor environments range from 2 to 5, higher frequency has a heavier pathloss. \cite{camp2006measurement}. 
+The propagation of frequency becomes an important characteristic in multiband network since the pathloss exponent varies with channel frequency. 
+The propagation difference makes the performance of radios vary from band to band in the same location with the same configuration.
+
+% Make multiband networks interesting 
+Specifying each link individually enables us to encode propagation characteristics of different bands $B$. In other words, each grid can be covered by an arbitrary node through specific band.  
+The propagation alternation brings the advantages of providing more possible path for multihop network without increase interference of their neighbors. 
+
+% Different environment
+The path loss exponent varies from urban area to rural area and from plane to mountains make the question which band is fit for the environment interesting for wireless network deployment.
+A lower band node may have more coverage with a small path loss to decrease the cost of wireless network deployment. However a higher band may have more network capacity through frequency reuse.
+
+To answer the question when white space network should be chosen we choose the area with different propagation characteristics and evaluate the FIXME algorithms to leverage the propagation influence for network deployment and network capacity.

@@ -4,7 +4,7 @@
 % Organization of the Sec
 In this section, we first formulate the 
 white mesh deployment problem
-with propagation, connectivity and QOS constraint of multiband sceniario.
+with propagation, connectivity and QOS constraint of multiband scenarios.
 We then propose {FIXME} white mesh deployment algorithms for multiband multihop networks objectives.
 %trageting to improve the network capacity with the same topology and reduce the mesh nodes for the same coverage of an area. 
 For comparison, we also propose {FIXME} baseline assignment methods based on existing solutions.
@@ -17,9 +17,9 @@ or to maximize the capacity of existing mesh network topology with replacing ISM
 
 % Input & Output
 The set of potential mesh node accessing to Internet locations, $M$, is assumed know. 
-Discrete locations for mesh nodes follows naturally from pratical constraints on deployment, such as the availability of wired connection store or other infrastructure for mesh node installation.
-The coverage area of the mesh network is discretized into small grid of coverage locations $N$. The center of each grid is the point output the received signal justifying the connection and channel capacity.
-Relay nodes $R$  are defined as nodes do not have direcet Internet access but can connect to the mesh node and provide Wi-fi coverage of a number of grid.
+Discrete locations for mesh nodes follows naturally from practical constraints on deployment, such as the availability of wired connection store or other infrastructure for mesh node installation.
+The coverage area of the mesh network is discredited into small grid of coverage locations $N$. The center of each grid is the point output the received signal justifying the connection and channel capacity.
+Relay nodes $R$  are defined as nodes do not have direct Internet access but can connect to the mesh node and provide Wi-fi coverage of a number of grid.
 Relay nodes and mesh nodes could work in white space band and ISM Wifi band represented as bands set $B$.
 The vertex set of the input is defined as $O=M\cup N$,the union of  coverage grid and the potential mesh nodes location. 
 The solution of the problem could tell which mesh node will be built and where should a relay node be added. The set of chosen mesh nodes is represented as $M_b$. 
@@ -29,13 +29,13 @@ The output of the problem is the nodes location and number of wireless nodes $R\
 % Connectivity constraint
 \subsection{Coverage Constraint}
 \label{subsec:ccconstraint}
-The connctivity graph represented as $G=(V,E)$ could indicate the existence of usable links. This formulation encodes the signal quality of each link independently can represent the link quality diversity across bands.
+The connectivity graph represented as $G=(V,E)$ could indicate the existence of usable links. This formulation encodes the signal quality of each link independently can represent the link quality diversity across bands.
 The links set, $E$, from the coverage grids $V$ to either relay nodes or mesh node $O$, corresponding to the estimated or measured signal strength is above a signal strength threshold. 
 More formally, the connectivity graph where both target coverage locations and potential mesh node locations form a unified connectivity graph.
 The mesh network have to satisfy the coverage of each grid through an edge $E$ from either a mesh node or a relay node $O$.
 Each coverage grid $v_i\in {V}$ has $E_{B_j},{B_j}\in {B}$ valued ${0,1}$, which represents the signal strength is below threshold as 0 or above threshold as 1 in band $B_j$.
 The sum of $E$ in band is also valued $(0,1)$, which means the grid has connection or not.
-According to the defination of $E$, mapping to the connectivity constraint, it should satisfy $\sum{E}\geq V$.
+According to the definition of $E$, mapping to the connectivity constraint, it should satisfy $\sum{E}\geq V$.
 
 
 
@@ -43,8 +43,8 @@ According to the defination of $E$, mapping to the connectivity constraint, it s
 
 
 \subsection{Mesh Network Capacity}
-Wireless bandwidth is shared among all clients and mesh nodes, as a result, it is offen desirable to limit the number of potential sharers of the scarce wireless spectrum. 
-The link $E$ \ref{subsec:ccconstraint} could gurantee the minimum bandwidth sharing for the client, however, it could not represent the quality of the service. Our formulation enforces this by imposing a maximum degree $b_v=f(E,P_{rB})$ on the connectivity of a mesh node, represented the downlink/uplink capacity of the mesh node to clients. More complete capacity of formulations in other research take into account on-demands and fairness ~\cite{arkoulis2013optimal}, but we do not get into these scenarios in this paper.
+Wireless bandwidth is shared among all clients and mesh nodes, as a result, it is usually desirable to limit the number of potential sharers of the scarce wireless spectrum. 
+The link $E$ \ref{subsec:ccconstraint} could guarantee the minimum bandwidth sharing for the client, however, it could not represent the quality of the service. Our formulation enforces this by imposing a maximum degree $b_v=f(E,P_{rB})$ on the connectivity of a mesh node, represented the down-link/up-link capacity of the mesh node to clients. More complete capacity of formulations in other research take into account on-demands and fairness ~\cite{arkoulis2013optimal}, but we do not get into these scenarios in this paper.
 
 
 % Note the capacity gain of putting white space nodes
