@@ -16,14 +16,14 @@ to minimize the number of deployed mesh nodes and relay nodes with the constrain
 or to maximize the capacity of existing mesh network topology with replacing ISM Wifi nodes to white space nodes.
 
 % Input & Output
-The set of potential mesh node accessing to Internet locations, $M$, is assumed know. 
-Discrete locations for mesh nodes follows naturally from practical constraints on deployment, such as the availability of wired connection store or other infrastructure for mesh node installation.
+The set of potential gateway node accessing to Internet locations, $M$, is assumed know. 
+Discrete locations for gateway nodes follows naturally from practical constraints on deployment, such as the availability of wired connection store or other infrastructure for gateway node installation.
 The coverage area of the mesh network is discredited into small grid of coverage locations $N$. The center of each grid is the point output the received signal justifying the connection and channel capacity.
-Relay nodes $R$  are defined as nodes do not have direct Internet access but can connect to the mesh node and provide Wi-fi coverage of a number of grid.
-Relay nodes and mesh nodes could work in white space band and ISM Wifi band represented as bands set $B$.
-The vertex set of the input is defined as $O=M\cup N$,the union of  coverage grid and the potential mesh nodes location. 
-The solution of the problem could tell which mesh node will be built and where should a relay node be added. The set of chosen mesh nodes is represented as $M_b$. 
-The output of the problem is the nodes location and number of wireless nodes $R\cup M_b$, the union of mesh nodes chosen from potential locations and the relay nodes. 
+Mesh nodes $R$  are defined as nodes do not have direct Internet access but can connect to the mesh node and provide Wi-fi coverage of a number of grid.
+Mesh nodes and gateway nodes could work in white space band and ISM Wifi band represented as bands set $B$.
+The vertex set of the input is defined as $O=M\cup N$,the union of  coverage grid and the potential gateway nodes location. 
+The solution of the problem could tell which gateway node will be built and where should a mesh node be added. The set of chosen gateway nodes is represented as $M_b$. 
+The output of the problem is the nodes location and number of wireless nodes $R\cup M_b$, the union of gateway nodes chosen from potential locations and the mesh nodes. 
 
 
 % Connectivity constraint
@@ -43,12 +43,24 @@ According to the definition of $E$, mapping to the connectivity constraint, it s
 
 
 \subsection{Mesh Network Capacity}
-Wireless bandwidth is shared among all clients and mesh nodes, as a result, it is usually desirable to limit the number of potential sharers of the scarce wireless spectrum. 
+Wireless bandwidth is shared among all clients and mesh nodes, as a result, it is usually desirable to limit the number of potential shares of the scarce wireless spectrum. 
 The link $E$ \ref{subsec:ccconstraint} could guarantee the minimum bandwidth sharing for the client, however, it could not represent the quality of the service. Our formulation enforces this by imposing a maximum degree $b_v=f(E,P_{rB})$ on the connectivity of a mesh node, represented the down-link/up-link capacity of the mesh node to clients. More complete capacity of formulations in other research take into account on-demands and fairness ~\cite{arkoulis2013optimal}, but we do not get into these scenarios in this paper.
 
 
 % Note the capacity gain of putting white space nodes
 Subject to the ~\emph{Coverage Constraint} \ref{subsec:ccconstraint}, the capacity of mesh network is the sum of bandwidth assigned for each grid $\sum{b_v}$. If the metric would be the capacity of mesh network, as the ISM Wifi mesh network has capacity $C_{ISM}$, white space mesh network has capacity $C_{ws}$, the capacity gain could be noted as $C_{ws}-C{ISM}$.
+
+% Capacity-calculation
+We carry the capacity calculation from ~\cite{robinson2008adding} of access networks where all traffic to and from clients must traverse a gateway. The calculation considers gateway multi-hop deferring to ongoing transmissions in contention range. 
+The ~\emph{gateway limited fair capacity} ~\cite{robinson2008adding} is defined as a functioon of the airtime utilization of gateways, which depends on the routes used and amount of time the routes lead to a gateway deferring. From the definition, the capacity is affected by fairness. The calculation impose a fairness constraint of each mesh node to receive their fair share of the wireless airtime at the gateway nodes. 
+We improve the calculation to adopt the multiband situation.
+
+
+
+
+
+
+
 % Note the gain of reducing mesh nodes
 The gain of minimize deployment mesh node could be noted as the nodes amount of ISM Wifi mesh network $A_{ISM}$ minus the nodes amount of mesh network with white space nodes $A_{ws}$, $G_a=A_{ISM}-A_{ws}$.
 
