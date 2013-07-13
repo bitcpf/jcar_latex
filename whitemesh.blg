@@ -8,44 +8,44 @@ Database file #1: whitemesh.bib
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
 
 Done.
-You've used 11 entries,
+You've used 14 entries,
             3917 wiz_defined-function locations,
-            842 strings with 8973 characters,
-and the built_in function-call counts, 7469 in all, are:
-= -- 572
-> -- 192
-< -- 51
-+ -- 98
-- -- 36
-* -- 357
-:= -- 1158
-add.period$ -- 27
-call.type$ -- 11
-change.case$ -- 11
-chr.to.int$ -- 120
-cite$ -- 11
-duplicate$ -- 558
-empty$ -- 635
-format.name$ -- 44
-if$ -- 1696
+            858 strings with 9483 characters,
+and the built_in function-call counts, 9674 in all, are:
+= -- 751
+> -- 242
+< -- 71
++ -- 126
+- -- 44
+* -- 459
+:= -- 1487
+add.period$ -- 34
+call.type$ -- 14
+change.case$ -- 14
+chr.to.int$ -- 168
+cite$ -- 14
+duplicate$ -- 718
+empty$ -- 813
+format.name$ -- 54
+if$ -- 2205
 int.to.chr$ -- 0
-int.to.str$ -- 11
-missing$ -- 107
-newline$ -- 53
-num.names$ -- 11
-pop$ -- 270
+int.to.str$ -- 14
+missing$ -- 135
+newline$ -- 62
+num.names$ -- 14
+pop$ -- 336
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 542
+skip$ -- 709
 stack$ -- 0
-substring$ -- 289
-swap$ -- 420
-text.length$ -- 11
+substring$ -- 404
+swap$ -- 551
+text.length$ -- 15
 text.prefix$ -- 0
 top$ -- 5
 type$ -- 0
 warning$ -- 0
-while$ -- 39
-width$ -- 13
-write$ -- 118
+while$ -- 50
+width$ -- 16
+write$ -- 146

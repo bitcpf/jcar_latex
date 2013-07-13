@@ -16,8 +16,8 @@ to minimize the number of deployed mesh nodes and relay nodes with the constrain
 or to maximize the capacity of existing mesh network topology with replacing ISM Wifi nodes to white space nodes.
 
 % Input & Output
-The set of potential gateway node accessing to Internet locations, $M$, is assumed know. 
-Discrete locations for gateway nodes follows naturally from practical constraints on deployment, such as the availability of wired connection store or other infrastructure for gateway node installation.
+The set of potential gateway node accessing to Internet and relay nodes locations, $O$, is assumed know. 
+Discrete locations for mesh nodes follows naturally from practical constraints on deployment, such as the availability of wired connection store or other infrastructure for gateway node installation.
 The coverage area of the mesh network is discredited into small grid of coverage locations $N$. The center of each grid is the point output the received signal justifying the connection and channel capacity.
 Mesh nodes $R$  are defined as nodes do not have direct Internet access but can connect to the mesh node and provide Wi-fi coverage of a number of grid.
 Mesh nodes and gateway nodes could work in white space band and ISM Wifi band represented as bands set $B$.
@@ -55,9 +55,16 @@ We carry the capacity calculation from ~\cite{robinson2008adding} of access netw
 The ~\emph{gateway limited fair capacity} ~\cite{robinson2008adding} is defined as a functioon of the airtime utilization of gateways, which depends on the routes used and amount of time the routes lead to a gateway deferring. From the definition, the capacity is affected by fairness. The calculation impose a fairness constraint of each mesh node to receive their fair share of the wireless airtime at the gateway nodes. 
 We improve the calculation to adopt the multiband situation.
 
+Multiband will bring more wireless links between two nodes which is only for single channel ~\cite{robinson2008adding}. Mesh node $i$ has a traffic demand $d[i]$ represents the aggregate demand of all the edn-clients associated with it. 
 
 
+% Just outlines need to add more
+The capacity of a wireless is limited by its contention in worst case. 
+Wireless network is able to increase the capacity through decreasing the contention or increase the contention to deploy less nodes for an arbitary network.
+Multiband network provide a solution of decreasing the contention and deploy less nodes simultaneously. 
+The question comes out how could a 
 
+Knowing potential location, assign a new gateway and resolve a knapsack problem.
 
 
 
