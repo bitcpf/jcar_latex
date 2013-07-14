@@ -51,16 +51,43 @@ The link $E$ \ref{subsec:ccconstraint} could guarantee the minimum bandwidth sha
 Subject to the ~\emph{Coverage Constraint} \ref{subsec:ccconstraint}, the capacity of mesh network is the sum of bandwidth assigned for each grid $\sum{b_v}$. If the metric would be the capacity of mesh network, as the ISM Wifi mesh network has capacity $C_{ISM}$, white space mesh network has capacity $C_{ws}$, the capacity gain could be noted as $C_{ws}-C{ISM}$.
 
 % Capacity-calculation
-We carry the capacity calculation from ~\cite{robinson2008adding} of access networks where all traffic to and from clients must traverse a gateway. The calculation considers gateway multi-hop deferring to ongoing transmissions in contention range. 
+We carry the capacity calculation from ~\cite{robinson2008adding} of access networks where all traffic to and from clients must traverse a gateway. 
+The calculation considers gateway multi-hop deferring to ongoing transmissions in contention range. 
 The ~\emph{gateway limited fair capacity} ~\cite{robinson2008adding} is defined as a functioon of the airtime utilization of gateways, which depends on the routes used and amount of time the routes lead to a gateway deferring. From the definition, the capacity is affected by fairness. The calculation impose a fairness constraint of each mesh node to receive their fair share of the wireless airtime at the gateway nodes. 
-We improve the calculation to adopt the multiband situation.
+We re-define the capacity calculation for single band in ~\cite{robinson2008adding} to adopt multiband scenario.
 
-Multiband will bring more wireless links between two nodes which is only for single channel ~\cite{robinson2008adding}. Mesh node $i$ has a traffic demand $d[i]$ represents the aggregate demand of all the edn-clients associated with it. 
+% Record the rough idea, need more care
+Mesh node $i$ has a traffic demand $d[i]$ represents the aggregate demand of all the edn-clients associated with it. 
+We present the routes used by each mesh node to reach one or more gateways as a 3 dimensional matrix $R$, where $R[i,j,k]$ indicates the amount of node $i$'s demand that traverses physical link $j$ on band $k$. 
+$src(i)$ is designated as the access tier link for mesh node $i$ and assign $R[i,src(i)]=d[i]$. The calculation ensure fairness by requiring that $\lambda d[i]$ units of mesh nodes $ i$'s demand are served by gateways.
+And $R$ matrix as solution to a transhipment problem optimizing capacity, potentially allowing multipath routing ~\cite{robinson2008adding}.
+The contention caused by each physical link $j$ on band $k$ three-dimensional matrix $I$, where $I[i,j,k]$ indicates if physical link $j$  in contention range of node $i$ of band $k$.
 
+A link induces contention equal to the number of mesh nodes that cannot be actively transmitting or receiving when the link is active in the band.
+Contention is used as a simplification of interference only happens in the same band 
+
+The total contention on a gateway node $g\in G$ caused by link $j$ in band $k$ is $\sum_{i=1}^nR[i,j,k] \times I[g,j,k]$. the total contention on gateway $g$, $v_g$ is then given by:
+\begin{equation}
+v_{gk}=\sum_{j=1}^m \sum_{i=1}^n R[i,j,k]\times I[g,j,k]
+\end{equation}
+
+Gateway $g$ services total demand $s_g$ which is the smu of demands on al links incident to gateway $g$, denoted as the link subset $link(gk)$ which has connection of the gateway node in band $k$:
+\begin{equation}
+s_{gk}=\sum_{j\in link(gk)} \sum_{i=1}^n R[i,j,k]\times I[g,j,k]
+\end{equation}
+ 
+The capacity of gateway $g$ as the amount of wireless time $v_g$ required to server $s_g$ units of time for internet service.
+\begin{equation}
+u_{g}=\sum_{k\in B} s_{gk}/v_{gk}
+\end{equation}
+
+% Add more introduce the characters of the calculation
+The sum is a the worst case for mesh network due to double-counting of contention with the gateway.
 
 % Just outlines need to add more
 The capacity of a wireless is limited by its contention in worst case. 
-Wireless network is able to increase the capacity through decreasing the contention or increase the contention to deploy less nodes for an arbitary network.
+Wireless network is able to increase the capacity through decreasing the contention or increase the contention to deploy less nodes for an arbitary network. 
+
 Multiband network provide a solution of decreasing the contention and deploy less nodes simultaneously. 
 The question comes out how could a 
 
