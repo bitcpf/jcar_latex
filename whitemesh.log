@@ -1,4 +1,4 @@
-This is pdfeTeX, Version 3.141592-1.21a-2.2 (Web2C 7.5.4) (format=latex 2012.4.6)  13 JUL 2013 23:17
+This is pdfeTeX, Version 3.141592-1.21a-2.2 (Web2C 7.5.4) (format=latex 2012.4.6)  15 JUL 2013 12:42
 entering extended mode
 **whitemesh
 (./whitemesh.tex
@@ -313,13 +313,13 @@ File: umsb.fd 2002/01/19 v2.2g AMS font definitions
 
 
 ])
-(./propagation_sec.tex [2]) (./city_sec.tex) (./wmalgorithms.tex)
+(./propagation_sec.tex [2]) (./city_sec.tex) (./wmalgorithms.tex [3])
 (./experiment_design.tex
 
-LaTeX Warning: Reference `sec:propogation' on page 3 undefined on input line 3.
+LaTeX Warning: Reference `sec:propogation' on page 4 undefined on input line 3.
 
 
-[3]) (./related.tex) (./whitemesh.bbl
+) (./related.tex [4]) (./whitemesh.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 29--31
 []\OT1/ptm/m/n/8 B. W. Con-sult-ing, ``Tv white space,'' http://www.broadband-
  []
@@ -342,18 +342,20 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[4] (./whitemesh.aux)
+[5
+
+] (./whitemesh.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 2756 strings out of 94501
- 38289 string characters out of 1176790
+ 2759 strings out of 94501
+ 38361 string characters out of 1176790
  91923 words of memory out of 1000000
- 5874 multiletter control sequences out of 10000+50000
+ 5877 multiletter control sequences out of 10000+50000
  27373 words of font info for 66 fonts, out of 500000 for 2000
  580 hyphenation exceptions out of 1000
  27i,8n,24p,575b,303s stack positions out of 1500i,500n,5000p,200000b,5000s
 
-Output written on whitemesh.dvi (4 pages, 33124 bytes).
+Output written on whitemesh.dvi (5 pages, 38752 bytes).

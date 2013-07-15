@@ -15,20 +15,34 @@ The placement problem is difficult since it has multiple subproblems, such as ga
 
 \subsection{Local Search Approaching}
 Previous work has found that the problem could be expressed as an integer program. J, Robinson proposed two ~\emph{Local search algorithms} to optimize the capacity for single band mesh network deployment ~\cite{robinson2008adding}.
-We therefore develop the ~\emph{Local Search Algorithms}
+We therefore develop the ~\emph{Local Search Algorithms} to adpot multiband scenario.
+
 
 % Foreach all mesh nodes
+The available gateway locations are $W$, which is a specific subset of all mesh node locations. $G$ represent the set of installed gateway locations throughout the execution of the algorithm, meaning if there is a gateway node in the location, $G[i]=1$.
+We start from an designed deployment single mesh placement, since there are tons of methods for a single band mesh deployment ~\cite{akyildiz2005wireless}.
 
+We perform ~\emph{add(), assign(), open() and, close()}, to output a deployment of mesh network. 
+To terminate the process, we require that each step lowers the cost by at least $c(S)/p(n,\varepsilon)$, $S$ is the deployment for this step, $p(n,\varepsilon)$ is a chosen polynomial in $n$ and $1/ \varepsilon$.
 
-% Have a network already build or built a single band network
+$add(s)$ installs a multiband mesh node at potential location $s$, $assign(s,T)$ install a gateway at node $s$ and discover the coverage of different band, assign the band to different mesh nodes according to the demands and fairshare of the nodes. $open(s,T)$ installs a gateway at location $s$ and removes all the gateway nodes in set $T$, and $close(s,T)$ removes the gateway at location $s$ and installs gateway nodes at all nodes in set $T$.
 
+As found in ~\cite{robinson2008adding} all possible combinations for set $T$ can not be evaluated in polynomial time, we inherited the methodology of solving a knapsack problem for the set $T$ discovering. $T$ is found as the set of items to put in the knapsack which has an arbitrary capacity.
+The details of the operation is described as:
+
+% FIXME need to change the type as 
 % Add a node
-
+add(s) for all non-gateway nodes $s$, evaluate the cost to open a gateway at $s \in W$. This cost evaluation requires solving a transhipment problem to find optimal routing matrix $R$ for the set of all installed gateways in $G \cap \{s\}$
 % Connect to all gateway nodes to see if can remove them according
 
+assign(s,T) Assign the bands to the nodes in coverage according to the demands and contention. Distribute the capacity of a multiband gateway node to mesh nodes. 
+We first assign the lower band for remote mesh nodes and then the higher band for the close nodes. If we have more bandwidth than required for the first step, then we assign the remaining higher bandwidth to close nodes and then the lower bands for all nodes in coverage since the nodes close to the gateway may suffer more contention.
+
+ 
 % Try to keep the demand and remove relay node
+open(s,T) Install gateway at location $s \in W$ and remove gateways in set $T \subseteq G-\{s\}$, transfer the traffic on $T$ to teh gateway nodes $s$. Gateway $s$ could be a node with some unused capacity.
 
-
+close(s,T) Remove $s \in G$ and install a set of gateways $T \subseteq W-\{s\}$. Then reassign routes destined to $s$ to gateways in $T$ without any effect on mesh nodes served by other gateways. $T$ should be gateway nodes have unused capacity.
 % calculate the capacity
 
 % Calculate the cost

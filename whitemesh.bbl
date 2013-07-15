@@ -55,6 +55,10 @@ J.~Camp, J.~Robinson, C.~Steger, and E.~Knightly, ``Measurement driven
 Google, ``Spectrum database,''
   \url{http://www.google.org/spectrum/whitespace/}, 2013.
 
+\bibitem{akyildiz2005wireless}
+I.~F. Akyildiz, X.~Wang, and W.~Wang, ``Wireless mesh networks: a survey,''
+  \emph{Computer networks}, vol.~47, no.~4, pp. 445--487, 2005.
+
 \bibitem{meikle2012global}
 R.~Meikle and J.~Camp, ``A global measurement study of context-based
   propagation and user mobility,'' in \emph{Proceedings of the 4th ACM
@@ -88,5 +92,11 @@ B.~Radunovic, D.~Gunawardena, P.~Key, A.~Proutiere, N.~Singh, V.~Balan, and
 J.~Robinson, M.~Singh, R.~Swaminathan, and E.~Knightly, ``Deploying mesh nodes
   under non-uniform propagation,'' in \emph{INFOCOM, 2010 Proceedings
   IEEE}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, 2010, pp. 1--9.
+
+\bibitem{robinson2007performance}
+J.~Robinson and E.~W. Knightly, ``A performance study of deployment factors in
+  wireless mesh networks,'' in \emph{INFOCOM 2007. 26th IEEE International
+  Conference on Computer Communications. IEEE}.\hskip 1em plus 0.5em minus
+  0.4em\relax IEEE, 2007, pp. 2054--2062.
 
 \end{thebibliography}
