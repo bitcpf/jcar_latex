@@ -1,6 +1,9 @@
 Need to clearify:
 
-July 9th Morning, try to find FCC rules.
+Two tier mesh networks
+Focus on backhaul but need to consider the access tier interference
+Add capacity calculation validating form Robinson
+
 
 
 FCC approved white space channels in different cities
@@ -61,4 +64,7 @@ V 	Results results
 
 Difference from Robison:
 1. Multiband vs single channel
-2. Multihop vs Single hop
+
+
+Experiments:
+Resove the tranship and knapsack problem
