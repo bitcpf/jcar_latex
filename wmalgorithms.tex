@@ -11,7 +11,7 @@ The total cost $C(G)$ of multiband mesh network installation can be represented 
 C(G)=\sum_{} f[i] \times G[i]
 \end{equation}
 
-The placement problem is difficult since it has multiple subproblems, such as gateway selection, client assignment to gateways. 
+The placement problem is difficult since it has multiple dynamic subproblems, such as gateway selection, client assignment to gateways. 
 
 \subsection{Local Search Approaching}
 Previous work has found that the problem could be expressed as an integer program. J, Robinson proposed two ~\emph{Local search algorithms} to optimize the capacity for single band mesh network deployment ~\cite{robinson2008adding}.
@@ -25,6 +25,7 @@ We start from an designed deployment single mesh placement, since there are tons
 We perform ~\emph{add(), assign(), open() and, close()}, to output a deployment of mesh network. 
 To terminate the process, we require that each step lowers the cost by at least $c(S)/p(n,\varepsilon)$, $S$ is the deployment for this step, $p(n,\varepsilon)$ is a chosen polynomial in $n$ and $1/ \varepsilon$.
 
+
 $add(s)$ installs a multiband mesh node at potential location $s$, $assign(s,T)$ install a gateway at node $s$ and discover the coverage of different band, assign the band to different mesh nodes according to the demands and fairshare of the nodes. $open(s,T)$ installs a gateway at location $s$ and removes all the gateway nodes in set $T$, and $close(s,T)$ removes the gateway at location $s$ and installs gateway nodes at all nodes in set $T$.
 
 As found in ~\cite{robinson2008adding} all possible combinations for set $T$ can not be evaluated in polynomial time, we inherited the methodology of solving a knapsack problem for the set $T$ discovering. $T$ is found as the set of items to put in the knapsack which has an arbitrary capacity.
@@ -37,6 +38,7 @@ add(s) for all non-gateway nodes $s$, evaluate the cost to open a gateway at $s 
 
 assign(s,T) Assign the bands to the nodes in coverage according to the demands and contention. Distribute the capacity of a multiband gateway node to mesh nodes. 
 We first assign the lower band for remote mesh nodes and then the higher band for the close nodes. If we have more bandwidth than required for the first step, then we assign the remaining higher bandwidth to close nodes and then the lower bands for all nodes in coverage since the nodes close to the gateway may suffer more contention.
+The operation adopt the propagation characteristics of different making the problem scale of transship and knapsack become smaller.
 
  
 % Try to keep the demand and remove relay node
@@ -44,7 +46,13 @@ open(s,T) Install gateway at location $s \in W$ and remove gateways in set $T \s
 
 close(s,T) Remove $s \in G$ and install a set of gateways $T \subseteq W-\{s\}$. Then reassign routes destined to $s$ to gateways in $T$ without any effect on mesh nodes served by other gateways. $T$ should be gateway nodes have unused capacity.
 % calculate the capacity
-
+\subsection{MinHop Count Cost}
+\label{subsec:hopcount}
+Hop count is a first-order approximation of the capacity. The relation between the capacity and the hop count is the decrease of the hop count will reduce the contention and increase the capacity in \ref{eq:contention}.
+The advantage of hop count as the cost function is that it preserves the triangle inequality, which provable the upbound of network capacity.
 % Calculate the cost
 
 % Update the deployment
+
+
+

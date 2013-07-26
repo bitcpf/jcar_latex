@@ -1,5 +1,11 @@
 Need to clearify:
 
+Ergen: Write down the experiemnt
+Wifi--> Propagation path loss exponent, how to match to other band
+otherwise situation will change!
+Describe the algorithm in more details
+Fully understand the regular grid simulation
+
 Two tier mesh networks
 Focus on backhaul but need to consider the access tier interference
 Add capacity calculation validating form Robinson
@@ -8,6 +14,23 @@ Knapsack problem
 Steiner Tree coverage
 Evaluation Set up
 Data Collection
+
+
+Inherit from Robinson
+
+Capacity calculation
+
+
+Difference from Robinson
+
+
+Have a assign process
+
+have different cost for building a mesh node according to radios, otherwise Robinson's local search algorithm could be implanted for multiband
+
+With the assign operation, the operation times could be decreased by an amount, could be claimed as contribution?
+
+Define an interference parameter for access tier which will reduce the sharing of ISM band for the mesh node
 
 
 FCC approved white space channels in different cities
