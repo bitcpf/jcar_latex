@@ -29,16 +29,21 @@ Wiki, ``White space(radio),'' \url{http://en.wikipedia.org/wiki/White\_spaces},
 B.~W. Consulting, ``Tv white space,''
   \url{http://www.broadband-mapping.com/tv-white-spaces.html}, 2013.
 
-\bibitem{arkoulis2013optimal}
-S.~Arkoulis, E.~Anifantis, V.~Karyotis, S.~Papavassiliou, and N.~Mitrou, ``On
-  the optimal, fair and channel-aware cognitive radio network
-  reconfiguration,'' \emph{Computer Networks}, 2013.
-
 \bibitem{robinson2008adding}
 J.~Robinson, M.~Uysal, R.~Swaminathan, and E.~Knightly, ``Adding capacity
   points to a wireless mesh network using local search,'' in \emph{INFOCOM
   2008. The 27th Conference on Computer Communications. IEEE}.\hskip 1em plus
   0.5em minus 0.4em\relax IEEE, 2008, pp. 1247--1255.
+
+\bibitem{jain2005impact}
+K.~Jain, J.~Padhye, V.~N. Padmanabhan, and L.~Qiu, ``Impact of interference on
+  multi-hop wireless network performance,'' \emph{Wireless networks}, vol.~11,
+  no.~4, pp. 471--487, 2005.
+
+\bibitem{arkoulis2013optimal}
+S.~Arkoulis, E.~Anifantis, V.~Karyotis, S.~Papavassiliou, and N.~Mitrou, ``On
+  the optimal, fair and channel-aware cognitive radio network
+  reconfiguration,'' \emph{Computer Networks}, 2013.
 
 \bibitem{andersen1995propagation}
 J.~B. Andersen, T.~S. Rappaport, and S.~Yoshida, ``Propagation measurements and

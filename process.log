@@ -1,25 +1,27 @@
 Need to clearify:
 
-Ergen: Write down the experiemnt
-Wifi--> Propagation path loss exponent, how to match to other band
-otherwise situation will change!
-Describe the algorithm in more details
-Fully understand the regular grid simulation
+Rewrite model.tex
+wmalgorithm in proper style
 
+Writing:
+Add the mocrosoft paper about the protocol model
+Try to understand Robinson second algorithm and implant to multiband
+Clearify the experiment and evaluation set up
+After understand Robinson's second algorithm, need to re-formulate the draft
+
+Coding and Simulation:
 Two tier mesh networks
 Focus on backhaul but need to consider the access tier interference
 Add capacity calculation validating form Robinson
 Transship problem
 Knapsack problem
-Steiner Tree coverage
 Evaluation Set up
 Data Collection
 
 
+
 Inherit from Robinson
-
-Capacity calculation
-
+Math model
 
 Difference from Robinson
 

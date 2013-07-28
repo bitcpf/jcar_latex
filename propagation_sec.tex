@@ -1,7 +1,7 @@
 \section{Propagation in Multiband Mesh Network}
 \label{sec:propagation}
 
-In this section, we introduce the concept of propagation and the parameter of propagation.
+In this section, we introduce the way propagation across bands influence mesh network.
 
 % Concept of propagation, factors of the environment and so on
 Wireless propagation is the behavior of the signals loss characteritics when they are transmitted, or propagated from one point to another.
@@ -15,13 +15,17 @@ The propagation of frequency becomes an important characteristic in multiband ne
 The propagation difference makes the performance of radios vary from band to band in the same location with the same configuration.
 
 % Make multiband networks interesting 
-Specifying each link individually enables us to encode propagation characteristics of different bands $B$. In other words, each grid can be covered by an arbitrary node through specific band.  
+Employing multiband gateway nodes bring 2 advantages for mesh network, 1) more bandwidth make the contention in the network lower,
+ 2) the propagation difference brings flexiable topology by increasing the communication range without more contention.
+
+Specifying each link individually enables us to encode propagation characteristics of different bands $k$. In other words, idealy without considersing cost, each grid can be covered by an arbitrary node through specific band.  
 The propagation alternation brings the advantages of providing more possible path for multihop network without increase interference of their neighbors. 
 
 % Different environment
 The path loss exponent varies from urban area to rural area and from plane to mountains make the question which band is fit for the environment interesting for wireless network deployment.
 A lower band node may have more coverage with a small path loss to decrease the cost of wireless network deployment. However a higher band may have more network capacity through frequency reuse.
 These characteristics make the white spcae mesh node have a role to get the gain either in reduce the cost for network deployment or increase the network capacity.
+Furthermore, FCC has different rule to balance white band utility in different areas and environment, the demand of evaluating the white band mesh network in different scenario for industry design request and FCC regulation is urgent.
 
 To answer the question when white space network should be chosen 
 we choose the area with different propagation characteristics and evaluate the FIXME algorithms to leverage the propagation influence for network deployment and network capacity.

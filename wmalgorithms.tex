@@ -1,58 +1,107 @@
-\section{White Mesh Algorithms}
+\section{Solving The Placement Problem}
 \label{sec:algorithms}
 
-\subsection{Multiband Gateway Placement Problem}
-\label{subsec:placementproblem}
+We propose two local search based algorithms with $Band Assign$ operation to adapt the multiband scenario. The gateway placement problem could be formulated as an integer program (IP), however, the solution based on IP has following disadvantages: (i) can not be solved exactly in polynomial time,
+   (ii) has an unbounded integrality gap
+   (iii) IP is not suitable for online computation ~\cite{robinson2008adding}.
 
-Multiband gateway placement problme could be defined as follows. Let $G$ be a (0,1)-vector of size n that indicates whether a given mesh node $i$ is a capacity point or not. $f[i]$ is the monetary cost of installing a gateway capacity point $i$.
-The total cost $C(G)$ of multiband mesh network installation can be represented as:
+   To approach the maximizing capacity, we switch to local search algorithms.
+   ~\emph{Local Search Algorithms} optimize one of the two major components of our capacity calculation: the size of the routes in $R$ or the the impact of contention in $I$ on mesh nodes.
 
-\begin{equation}
-C(G)=\sum_{} f[i] \times G[i]
-\end{equation}
+   Previous work J, Robinson proposed two ~\emph{Local search algorithms} to optimize the capacity for single band mesh network deployment ~\cite{robinson2008adding}.
+   We therefore develop the ~\emph{Local Search Algorithms} to adpot multiband scenario.
 
-The placement problem is difficult since it has multiple dynamic subproblems, such as gateway selection, client assignment to gateways. 
+   \subsection{Minimizeing Hop Count}
 
-\subsection{Local Search Approaching}
-Previous work has found that the problem could be expressed as an integer program. J, Robinson proposed two ~\emph{Local search algorithms} to optimize the capacity for single band mesh network deployment ~\cite{robinson2008adding}.
-We therefore develop the ~\emph{Local Search Algorithms} to adpot multiband scenario.
-
-
-% Foreach all mesh nodes
-The available gateway locations are $W$, which is a specific subset of all mesh node locations. $G$ represent the set of installed gateway locations throughout the execution of the algorithm, meaning if there is a gateway node in the location, $G[i]=1$.
-We start from an designed deployment single mesh placement, since there are tons of methods for a single band mesh deployment ~\cite{akyildiz2005wireless}.
-
-We perform ~\emph{add(), assign(), open() and, close()}, to output a deployment of mesh network. 
-To terminate the process, we require that each step lowers the cost by at least $c(S)/p(n,\varepsilon)$, $S$ is the deployment for this step, $p(n,\varepsilon)$ is a chosen polynomial in $n$ and $1/ \varepsilon$.
+   % Foreach all mesh nodes
+   The available gateway locations are $W$, which is a specific subset of all mesh node locations. $G$ represent the set of installed gateway with multiple radios work in different bands locations throughout the execution of the algorithm, meaning if there is a gateway node work in band $k$ in the location, $G[i,k]=1$.
+   We start to add network capacity from an designed deployment single mesh placement, since there are tons of methods for a single band mesh deployment ~\cite{akyildiz2005wireless}.
 
 
-$add(s)$ installs a multiband mesh node at potential location $s$, $assign(s,T)$ install a gateway at node $s$ and discover the coverage of different band, assign the band to different mesh nodes according to the demands and fairshare of the nodes. $open(s,T)$ installs a gateway at location $s$ and removes all the gateway nodes in set $T$, and $close(s,T)$ removes the gateway at location $s$ and installs gateway nodes at all nodes in set $T$.
+   We perform ~\emph{add(), assign(), open() and, close()}, to output a deployment of mesh network. 
+   To terminate the process, we require that each step lowers the cost by at least $c(S)/p(n,\varepsilon)$, $S$ is the deployment for this step, $p(n,\varepsilon)$ is a chosen polynomial in $n$ and $1/ \varepsilon$.
 
-As found in ~\cite{robinson2008adding} all possible combinations for set $T$ can not be evaluated in polynomial time, we inherited the methodology of solving a knapsack problem for the set $T$ discovering. $T$ is found as the set of items to put in the knapsack which has an arbitrary capacity.
-The details of the operation is described as:
 
-% FIXME need to change the type as 
-% Add a node
-add(s) for all non-gateway nodes $s$, evaluate the cost to open a gateway at $s \in W$. This cost evaluation requires solving a transhipment problem to find optimal routing matrix $R$ for the set of all installed gateways in $G \cap \{s\}$
-% Connect to all gateway nodes to see if can remove them according
+   $add(s)$ installs a multiband mesh node at potential location $s$, $assign(s,T)$ install a gateway at node $s$ and discover the coverage of different band, assign the band to different mesh nodes according to the demands and fairshare of the nodes. $open(s,T)$ installs a gateway at location $s$ and removes all the gateway nodes in set $T$, and $close(s,T)$ removes the gateway at location $s$ and installs gateway nodes at all nodes in set $T$.
 
-assign(s,T) Assign the bands to the nodes in coverage according to the demands and contention. Distribute the capacity of a multiband gateway node to mesh nodes. 
-We first assign the lower band for remote mesh nodes and then the higher band for the close nodes. If we have more bandwidth than required for the first step, then we assign the remaining higher bandwidth to close nodes and then the lower bands for all nodes in coverage since the nodes close to the gateway may suffer more contention.
-The operation adopt the propagation characteristics of different making the problem scale of transship and knapsack become smaller.
+   As found in ~\cite{robinson2008adding} all possible combinations for set $T$ can not be evaluated in polynomial time, we inherited the methodology of solving a knapsack problem for the set $T$ discovering. $T$ is found as the set of items to put in the knapsack which has an arbitrary capacity.
+   The details of the operation is described as:
 
- 
-% Try to keep the demand and remove relay node
-open(s,T) Install gateway at location $s \in W$ and remove gateways in set $T \subseteq G-\{s\}$, transfer the traffic on $T$ to teh gateway nodes $s$. Gateway $s$ could be a node with some unused capacity.
+   % FIXME need to change the type as 
 
-close(s,T) Remove $s \in G$ and install a set of gateways $T \subseteq W-\{s\}$. Then reassign routes destined to $s$ to gateways in $T$ without any effect on mesh nodes served by other gateways. $T$ should be gateway nodes have unused capacity.
-% calculate the capacity
-\subsection{MinHop Count Cost}
-\label{subsec:hopcount}
-Hop count is a first-order approximation of the capacity. The relation between the capacity and the hop count is the decrease of the hop count will reduce the contention and increase the capacity in \ref{eq:contention}.
-The advantage of hop count as the cost function is that it preserves the triangle inequality, which provable the upbound of network capacity.
-% Calculate the cost
+%FIXME should change the order of assign and add(s)
 
-% Update the deployment
+   % Add a node
+   \begin{itemize}
+   \item add(s) for all non-gateway nodes $s$, evaluate the cost to open a gateway at $s \in W$. This cost evaluation requires solving a transhipment problem to find optimal routing matrix $R$ for the set of all installed gateways in $G \cap \{s\}$
+   % Connect to all gateway nodes to see if can remove them according
+   \item assign(s,T) Assign the bands to the nodes in coverage according to the demands and contention. Distribute the capacity of a multiband gateway node to mesh nodes. 
+    We first assign the lower band for remote mesh nodes and then the higher band for the close nodes. If we have more bandwidth than required for the first step, then we assign the remaining higher bandwidth to close nodes and then the lower bands for all nodes in coverage since the nodes close to the gateway may suffer more contention. The process of assign helps to reduce the hop count/contention of the network.
+   The operation adopt the propagation characteristics of different making the problem scale of transship and knapsack become smaller.
+   % Try to keep the demand and remove relay node
+   \item open(s,T) Install gateway at location $s \in W$ and remove gateways in set $T \subseteq G-\{s\}$, transfer the traffic on $T$ to teh gateway nodes $s$. Gateway $s$ could be a node with some unused capacity.
+   \item close(s,T) Remove $s \in G$ and install a set of gateways $T \subseteq W-\{s\}$. Then reassign routes destined to $s$ to gateways in $T$ without any effect on mesh nodes served by other gateways. $T$ should be gateway nodes have unused capacity.
+   \end{itemize}
+  % calculate the capacity
+
+
+	  \begin{algorithm}
+          \small
+	  \caption{Multiband MinHopCount Algorithm}
+	  \label{algorithms: Minihop}
+	  \begin{algorithmic}[1]
+	  \REQUIRE  ~~\\
+		 $M$: The set of all mesh nodes\\
+		 $u_{init}[i]$: Initialize values of capacities
+\ENSURE ~~\\    
+$G$: Installed Gateway Locations \\
+Valid Here means satisfies budget \\
+Start with arbitrary, valid solution G
+\FORALL {$s \in M$} 
+\WHILE {$\sum_{i=1}^N u_{prev}[i]-u_{cur}[i] \ge \phi$}
+\WHILE {$\triangle cost \ge c(G)/p(n,\epsilon)$}
+\STATE Find valid add(s)
+\STATE Assign(s,T)
+\STATE Find valid open(s,T) \\
+where $T$ is solution to knapsack problem with knapsack size of u[s]
+\STATE  Find valid close(s,T) \\
+where $T$ is minimal covering kanpsack with knapsack size of u[s] \\
+Calculate $\triangle cost$ for all valid operations\\
+Apply operation to $G$ with best $\triangle cost$
+
+\ENDWHILE
+\\Output G as locally optimal solution\\
+Calculate capacities $\hat{u}[i]$ of placement G\\
+Update $u_{cur}[i]$ to new lower bound if $\hat{u}[i] < u_{prev}[i]$ \\
+\ENDWHILE 
+\ENDFOR
+Output G as Solution
+\end{algorithmic}
+\end{algorithm}
+
+      
+
+
+	Hop count is a first-order approximation of the capacity. The relation between the capacity and the hop count is the decrease of the hop count will reduce the contention and increase the capacity in \ref{eq:contention}.
+			The advantage of hop count as the cost function is that it preserves the triangle inequality, which provable the upbound of network capacity.
+The local search operations are not able to know a priori of the placement, we use lower bound estimates for the gateway capacities $u[i]$ and update the capacity every successful interation.
+The process will end when the current sum of the lower bound capacity estimate $u_{cur}[i]$ does not decrease by more than user-chosen parameter $\phi$ from the previouse estimate, $u_{prev}[i]$.
+In the process, subject to the lower capacity bound, we capture the optimal placement. The run time of the ~\emph{Multiband MinHopCount Algorithm} is polynomial in $\frac{1}{\epsilon}$ and $\frac{1}{\phi}$.
+
+			% Calculate the cost
+
+			% Update the deployment
+
+
+\subsection{MinContention}
+\label{subsec:mincontention}
+
+The second approaching, Multiband MinContention, finds the gateway placement that minimizes the average contention in the network.
+The main idea of the Multiband MinContention algorithm is to install $k$ gateways to minimize the average contention on the mesh nodes, related to the links contend with each node and how often these links are used in routes.
+We can not count the total contention on gateways, since the full gateway placement is not known in advance.
+The problem could be mapped to a $k$-median problem ~\cite{robinson2008adding}
+
+
 
 
 
