@@ -45,6 +45,15 @@ S.~Arkoulis, E.~Anifantis, V.~Karyotis, S.~Papavassiliou, and N.~Mitrou, ``On
   the optimal, fair and channel-aware cognitive radio network
   reconfiguration,'' \emph{Computer Networks}, 2013.
 
+\bibitem{akyildiz2005wireless}
+I.~F. Akyildiz, X.~Wang, and W.~Wang, ``Wireless mesh networks: a survey,''
+  \emph{Computer networks}, vol.~47, no.~4, pp. 445--487, 2005.
+
+\bibitem{arya2004local}
+V.~Arya, N.~Garg, R.~Khandekar, A.~Meyerson, K.~Munagala, and V.~Pandit,
+  ``Local search heuristics for k-median and facility location problems,''
+  \emph{SIAM Journal on Computing}, vol.~33, no.~3, pp. 544--562, 2004.
+
 \bibitem{andersen1995propagation}
 J.~B. Andersen, T.~S. Rappaport, and S.~Yoshida, ``Propagation measurements and
   models for wireless communications channels,'' \emph{Communications Magazine,
@@ -59,10 +68,6 @@ J.~Camp, J.~Robinson, C.~Steger, and E.~Knightly, ``Measurement driven
 \bibitem{googlespectrumdatabase}
 Google, ``Spectrum database,''
   \url{http://www.google.org/spectrum/whitespace/}, 2013.
-
-\bibitem{akyildiz2005wireless}
-I.~F. Akyildiz, X.~Wang, and W.~Wang, ``Wireless mesh networks: a survey,''
-  \emph{Computer networks}, vol.~47, no.~4, pp. 445--487, 2005.
 
 \bibitem{meikle2012global}
 R.~Meikle and J.~Camp, ``A global measurement study of context-based

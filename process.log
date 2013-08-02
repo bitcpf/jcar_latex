@@ -1,7 +1,7 @@
 Need to clearify:
 
 Rewrite model.tex
-wmalgorithm in proper style
+write experiments in detail
 
 Writing:
 Add the mocrosoft paper about the protocol model
@@ -18,6 +18,13 @@ Knapsack problem
 Evaluation Set up
 Data Collection
 
+July 30: Capacity calculation/ Brute force search
+
+
+Data Collection
+1. Already have
+Down, campus, park, neighborhood
+May need data of rural through wieye
 
 
 Inherit from Robinson
@@ -25,8 +32,6 @@ Math model
 
 Difference from Robinson
 
-
-Have a assign process
 
 have different cost for building a mesh node according to radios, otherwise Robinson's local search algorithm could be implanted for multiband
 

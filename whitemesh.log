@@ -1,4 +1,4 @@
-This is pdfeTeX, Version 3.141592-1.21a-2.2 (Web2C 7.5.4) (format=latex 2012.4.6)  28 JUL 2013 18:28
+This is pdfeTeX, Version 3.141592-1.21a-2.2 (Web2C 7.5.4) (format=latex 2012.4.6)  29 JUL 2013 14:39
 entering extended mode
 **whitemesh
 (./whitemesh.tex
@@ -319,23 +319,29 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 2409) has occurred while \output is active []
 
  [2])
-(./propagation_sec.tex) (./city_sec.tex [3]) (./wmalgorithms.tex
+(./wmalgorithms.tex
 Underfull \hbox (badness 2221) in paragraph at lines 4--7
 []\OT1/ptm/m/n/10 We pro-pose two lo-cal search based al-go-rithms with
  []
 
-[4]) (./experiment_design.tex
 
-LaTeX Warning: Reference `sec:propogation' on page 5 undefined on input line 3.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
+ [3])
+(./propagation_sec.tex [4]) (./city_sec.tex) (./experiment_design.tex
 
-) (./related.tex) (./whitemesh.bbl
+LaTeX Warning: Reference `sec:propogation' on page 5 undefined on input line 30
+.
+
+[5]
+File: figures/wieye_process.eps Graphic file (type eps)
+ <figures/wieye_process.eps>) (./related.tex) (./whitemesh.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 29--31
 []\OT1/ptm/m/n/8 B. W. Con-sult-ing, ``Tv white space,'' http://www.broadband-
  []
 
-[5]
-Overfull \hbox (9.91747pt too wide) in paragraph at lines 60--62
+[6]
+Overfull \hbox (9.91747pt too wide) in paragraph at lines 69--71
 []\OT1/ptm/m/n/8 Google, ``Spec-trum database,'' http://www.google.org/spectrum
 /whitespace/,
  []
@@ -352,7 +358,7 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[6
+[7
 
 ] (./whitemesh.aux)
 
@@ -360,12 +366,12 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 2812 strings out of 94501
- 38819 string characters out of 1176790
- 92923 words of memory out of 1000000
- 5917 multiletter control sequences out of 10000+50000
+ 2823 strings out of 94501
+ 38994 string characters out of 1176790
+ 93923 words of memory out of 1000000
+ 5925 multiletter control sequences out of 10000+50000
  30696 words of font info for 80 fonts, out of 500000 for 2000
  580 hyphenation exceptions out of 1000
  27i,8n,24p,482b,519s stack positions out of 1500i,500n,5000p,200000b,5000s
 
-Output written on whitemesh.dvi (6 pages, 46036 bytes).
+Output written on whitemesh.dvi (7 pages, 54244 bytes).

@@ -4,14 +4,15 @@
 
 % Intro different scenarios, should we keep it or merge it to the previous SEC...
 
-To access to the white space usability, FCC rules have to be obeyed. 
 FCC has assigned white space with different bandwidth according to the population density and geographical condition across US.
 There are cities which have strict rule for white space usability, such as in New York, there is no white space band available ~\cite{googlespectrumdatabase}. 
 In Dallas, the available spectrum is 2 channels, 12MHz which is much smaller than Tuscon, AZ as 16 channels, 96MHz ~\cite{googlespectrumdatabase}. 
 
 The gain of a mesh network deployment varies of these cities due to the FCC ruled bandwidth.
+Also, these cities have different environment, for instance, Arizona cities may have less influence from the trees, but in Dallas area, there are tons of plant will change the large scale propagation characteristics.
 Propagation is another factor for deploying mesh network in these cities as mentioned in ~\ref{sec:propagation}.
-Combined with the propagation characteristics of different environment in these cities, there are four scenarios in large scale we are trying to leverage the influence of the white space mesh deployment.
+An intuition is that with small propagation, the hop count for a mesh network would increase make the capacity decrease.
+Combined with the propagation characteristics of different environment in these cities, there are four scenarios in large scale we are trying to leverage for multiband mesh network placement.
 
 \subsection{More bandwidth Low propagation}
 The first kind of cities are with lower path loss exponent and wide FCC approved white space band, such as Tuscon, AZ. We measured the propogation as FIXME through WiEye will discuss in ~\ref{sec:experiment_design}.

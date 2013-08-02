@@ -99,9 +99,46 @@ In the process, subject to the lower capacity bound, we capture the optimal plac
 The second approaching, Multiband MinContention, finds the gateway placement that minimizes the average contention in the network.
 The main idea of the Multiband MinContention algorithm is to install $k$ gateways to minimize the average contention on the mesh nodes, related to the links contend with each node and how often these links are used in routes.
 We can not count the total contention on gateways, since the full gateway placement is not known in advance.
-The problem could be mapped to a $k$-median problem ~\cite{robinson2008adding}
+The problem could be mapped to a $k$-median problem ~\cite{robinson2008adding}.
+In this work, we introduce the k-median problem and propose a ~\emph{Multiband MinContention} local search algorithm. We find the placement with the lowest average contention region size.
+
+\subsubsection{k-median}
+The k-Median Problme is a variant of the facility location problem where there are only a fixed number k of facilities that can be opened. The objective is to minimize the cost of connecting all clients to a facility. 
+There is a local search algorithm for the uncapacitated k-median problem with a locality gap of $3+2/p$ ~\cite{arya2004local},
+where the locality gap is the maximum difference between the worst local optimum and the global optimum and the parameter $p$ controls the number of gateways the algorithm considers for simultaneous swapping. 
+This locality gap results in an approximation ratio of $3+\epsilon$. The algorithm repeatedxly swap $p$ open gateways for $p$ unopen gateways iuntil no swaps can improve the solution. Larger $p$ can improve the accuracy but result in exponential increase running time.
+
+For multiband scenario, to employ the local search algorithm, designer need to balance the contention among different bands. It happens that one band may reach the best contention placement but other bands are not in optimization status. The main difference from single band MinContention algorithm is that when we choose an additional gateway node, we try to assign the same number of one hop links for different band. To implement the equal assignment, we prefer to use higher frequency band since there click is smaller than lower frequency band. A similar process is designed to start from assigning higher band first and then lower band with interation.
+
+\subsubsection{Swap-Function}
+~\emph{ Swap-based Local Search}: The Multiband MinContention algorithm is summarized in ~\ref{algorithms:Mincontention}. THe cost of a placement is the sum of the active link weights, which are each sassigned to be the total number of mesh nodes in contention range of the link. 
 
 
+	  \begin{algorithm}
+          \small
+	  \caption{Multiband MinContention Algorithm}
+	  \label{algorithms:Mincontention}
+	  \begin{algorithmic}[1]
+	  \REQUIRE  ~~\\
+		 $M$: The set of all mesh nodes\\
+		 $u_{init}[i]$: Initialize values of capacities
+\ENSURE ~~\\    
+$G$: Installed Gateway Locations \\
+Valid Here means satisfies budget \\
+Start with arbitrary, valid solution G
+\WHILE {$\triangle cost \ge C(G)/p(n,\epsilon)$}
+\STATE Find all valid swap(S,T)\\
+where S is set of p gateways to open\\
+and T is set of p gateways to close
+\STATE Assign(S) \\
+Assign equal number of one hop mesh node for different band
+\STATE Calculate $\triangle cost$ for all valid operations\\
+\STATE Apply $swap$ with largest positive $\triangle cost$
+\ENDWHILE 
 
+Output G as locally optimal solution\\
+\end{algorithmic}
+\end{algorithm}
 
-
+\subsubsection{triangle}
+~\emph{Triangle Inequality for Contention} A simple example is a three nodes mesh network. The contention caused by link AB is less than the sum of the contention of links AC and BC. This characteristic is useful to find the minimum contention links.
