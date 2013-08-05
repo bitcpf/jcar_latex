@@ -4,14 +4,14 @@ Running Program:
 Brute forth on genuse30:6 save as max_cap_aug1
 
 
-Rewrite model.tex
 write experiments in detail
 
 Writing:
-Add the mocrosoft paper about the protocol model
 Try to understand Robinson second algorithm and implant to multiband
 Clearify the experiment and evaluation set up
 After understand Robinson's second algorithm, need to re-formulate the draft
+Analyze the complexity of the algorithms
+
 
 Coding and Simulation:
 Two tier mesh networks

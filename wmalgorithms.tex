@@ -8,7 +8,10 @@ We propose two local search based algorithms with $Band Assign$ operation to ada
    To approach the maximizing capacity, we switch to local search algorithms.
    ~\emph{Local Search Algorithms} optimize one of the two major components of our capacity calculation: the size of the routes in $R$ or the the impact of contention in $I$ on mesh nodes.
 
-   Previous work J, Robinson proposed two ~\emph{Local search algorithms} to optimize the capacity for single band mesh network deployment ~\cite{robinson2008adding}.
+   % Analyze the complexity of the algorithms, need to know about the two proposed algorithms
+In the worst case, without proper algorithms to approach the optimal placment, running the brute force algorithm to find the optimal placement is almost an impossible mission. The combination of placement in a $n$ nodes network is $2^n$, with the capacity of calculation for each node, the complexity is $O(n2^n)$. It is a nightmare even for a powerful server. That is why we have to approach the optimal placement verse finding the solution by traversing all possible options.
+
+   Previous work J, Robinson proposed two ~\emph{Local search algorithms} to optimize the capacity for single band mesh network deployment ~\cite{robinson2008adding}. 
    We therefore develop the ~\emph{Local Search Algorithms} to adpot multiband scenario.
 
    \subsection{Minimizeing Hop Count}
