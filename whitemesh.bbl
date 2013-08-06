@@ -75,38 +75,4 @@ R.~Meikle and J.~Camp, ``A global measurement study of context-based
   international workshop on Hot topics in planet-scale measurement}.\hskip 1em
   plus 0.5em minus 0.4em\relax ACM, 2012, pp. 21--26.
 
-\bibitem{kim2008fast}
-H.~Kim and K.~G. Shin, ``Fast discovery of spectrum opportunities in cognitive
-  radio networks,'' in \emph{New Frontiers in Dynamic Spectrum Access Networks,
-  2008. DySPAN 2008. 3rd IEEE Symposium on}.\hskip 1em plus 0.5em minus
-  0.4em\relax IEEE, 2008, pp. 1--12.
-
-\bibitem{bahl2009white}
-P.~Bahl, R.~Chandra, T.~Moscibroda, R.~Murty, and M.~Welsh, ``White space
-  networking with wi-fi like connectivity,'' \emph{ACM SIGCOMM Computer
-  Communication Review}, vol.~39, no.~4, pp. 27--38, 2009.
-
-\bibitem{murty2012senseless}
-R.~Murty, R.~Chandra, T.~Moscibroda, and P.~Bahl, ``Senseless: A
-  database-driven white spaces network,'' \emph{Mobile Computing, IEEE
-  Transactions on}, vol.~11, no.~2, pp. 189--203, 2012.
-
-\bibitem{radunovic2010rethinking}
-B.~Radunovic, D.~Gunawardena, P.~Key, A.~Proutiere, N.~Singh, V.~Balan, and
-  G.~Dejean, ``Rethinking indoor wireless mesh design: Low power, low
-  frequency, full-duplex,'' in \emph{Wireless Mesh Networks (WIMESH 2010), 2010
-  Fifth IEEE Workshop on}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, 2010,
-  pp. 1--6.
-
-\bibitem{robinson2010deploying}
-J.~Robinson, M.~Singh, R.~Swaminathan, and E.~Knightly, ``Deploying mesh nodes
-  under non-uniform propagation,'' in \emph{INFOCOM, 2010 Proceedings
-  IEEE}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, 2010, pp. 1--9.
-
-\bibitem{robinson2007performance}
-J.~Robinson and E.~W. Knightly, ``A performance study of deployment factors in
-  wireless mesh networks,'' in \emph{INFOCOM 2007. 26th IEEE International
-  Conference on Computer Communications. IEEE}.\hskip 1em plus 0.5em minus
-  0.4em\relax IEEE, 2007, pp. 2054--2062.
-
 \end{thebibliography}
