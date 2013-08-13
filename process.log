@@ -2,6 +2,23 @@ Need to clearify:
 
 Running Program:
 Brute forth on genuse30:6 save as max_cap_aug1
+May need to run multiband brute forth on another server
+Solve the Matlab+AMPL linear to solve transship problem, need to implement all the algorithm
+
+For single band:
+Brute force has done
+Greedy has done
+
+WinLab experiments:
+	Validate the capacity as in Robinson's paper
+	Get throughput of a fully backlogged whitespace band in WINLAB
+Infield experiment:
+	Map the propagation characteristics of local measurement
+
+
+How to show results: 
+	Metric capacity
+	Variable : # of adding nodes; # of bands; # of environment
 
 
 write experiments in detail

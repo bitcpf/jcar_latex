@@ -3,6 +3,7 @@
 % Need to check the WiEye database to see if the propagation character is correct
 
 % Intro different scenarios, should we keep it or merge it to the previous SEC...
+In this section, we introduce the multiband mesh network placement problem from policy regulation and our in-field measurement. 
 
 FCC has assigned white space with different bandwidth according to the population density and geographical condition across US.
 There are cities which have strict rule for white space usability, such as in New York, there is no white space band available ~\cite{googlespectrumdatabase}. 
@@ -12,7 +13,11 @@ The gain of a mesh network deployment varies of these cities due to the FCC rule
 Also, these cities have different environment, for instance, Arizona cities may have less influence from the trees, but in Dallas area, there are tons of plant will change the large scale propagation characteristics.
 Propagation is another factor for deploying mesh network in these cities as mentioned in ~\ref{sec:propagation}.
 An intuition is that with small propagation, the hop count for a mesh network would increase make the capacity decrease.
-Combined with the propagation characteristics of different environment in these cities, there are four scenarios in large scale we are trying to leverage for multiband mesh network placement.
+With the data collection in ~\ref{sec:experiment_design}, we leverge the propagation characteristics in different environments: Downtown, neighborhoods, urban area.
+The propagation difference exist among these areas, this difference change the topology of the network directly with different communication and contention click in the same frequency as introduced in ~\ref{sec:propagation}.
+
+Combined with the propagation characteristics of different environment in these cities, generally there are four scenarios in large scale we are trying to leverage for multiband mesh network placement fit for FCC regulation.
+
 
 \subsection{More bandwidth Low propagation}
 The first kind of cities are with lower path loss exponent and wide FCC approved white space band, such as Tuscon, AZ. We measured the propogation as FIXME through WiEye will discuss in ~\ref{sec:experiment_design}.

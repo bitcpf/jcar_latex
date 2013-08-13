@@ -29,6 +29,21 @@ Wiki, ``White space(radio),'' \url{http://en.wikipedia.org/wiki/White\_spaces},
 B.~W. Consulting, ``Tv white space,''
   \url{http://www.broadband-mapping.com/tv-white-spaces.html}, 2013.
 
+\bibitem{andersen1995propagation}
+J.~B. Andersen, T.~S. Rappaport, and S.~Yoshida, ``Propagation measurements and
+  models for wireless communications channels,'' \emph{Communications Magazine,
+  IEEE}, vol.~33, no.~1, pp. 42--49, 1995.
+
+\bibitem{camp2006measurement}
+J.~Camp, J.~Robinson, C.~Steger, and E.~Knightly, ``Measurement driven
+  deployment of a two-tier urban mesh access network,'' in \emph{Proceedings of
+  the 4th international conference on Mobile systems, applications and
+  services}.\hskip 1em plus 0.5em minus 0.4em\relax ACM, 2006, pp. 96--109.
+
+\bibitem{googlespectrumdatabase}
+Google, ``Spectrum database,''
+  \url{http://www.google.org/spectrum/whitespace/}, 2013.
+
 \bibitem{robinson2008adding}
 J.~Robinson, M.~Uysal, R.~Swaminathan, and E.~Knightly, ``Adding capacity
   points to a wireless mesh network using local search,'' in \emph{INFOCOM
@@ -53,21 +68,6 @@ I.~F. Akyildiz, X.~Wang, and W.~Wang, ``Wireless mesh networks: a survey,''
 V.~Arya, N.~Garg, R.~Khandekar, A.~Meyerson, K.~Munagala, and V.~Pandit,
   ``Local search heuristics for k-median and facility location problems,''
   \emph{SIAM Journal on Computing}, vol.~33, no.~3, pp. 544--562, 2004.
-
-\bibitem{andersen1995propagation}
-J.~B. Andersen, T.~S. Rappaport, and S.~Yoshida, ``Propagation measurements and
-  models for wireless communications channels,'' \emph{Communications Magazine,
-  IEEE}, vol.~33, no.~1, pp. 42--49, 1995.
-
-\bibitem{camp2006measurement}
-J.~Camp, J.~Robinson, C.~Steger, and E.~Knightly, ``Measurement driven
-  deployment of a two-tier urban mesh access network,'' in \emph{Proceedings of
-  the 4th international conference on Mobile systems, applications and
-  services}.\hskip 1em plus 0.5em minus 0.4em\relax ACM, 2006, pp. 96--109.
-
-\bibitem{googlespectrumdatabase}
-Google, ``Spectrum database,''
-  \url{http://www.google.org/spectrum/whitespace/}, 2013.
 
 \bibitem{meikle2012global}
 R.~Meikle and J.~Camp, ``A global measurement study of context-based

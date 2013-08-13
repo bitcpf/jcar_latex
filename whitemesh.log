@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=latex 2013.3.14)  5 AUG 2013 21:21
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=latex 2013.3.14)  13 AUG 2013 00:00
 entering extended mode
  %&-line parsing enabled.
 **whitemesh
@@ -315,23 +315,22 @@ File: umsb.fd 2002/01/19 v2.2g AMS font definitions
 ) [1
 
 
-]) (./model.tex [2])
-(./wmalgorithms.tex
+]) (./propagation_sec.tex)
+(./city_sec.tex [2]) (./model.tex [3]) (./wmalgorithms.tex
 Underfull \hbox (badness 2221) in paragraph at lines 4--7
 []\OT1/ptm/m/n/10 We pro-pose two lo-cal search based al-go-rithms with
  []
 
-[3]) (./propagation_sec.tex [4]) (./city_sec.tex) (./experiment_design.tex
-[5]
+[4]) (./experiment_design.tex [5]
 File: figures/wieye_process.eps Graphic file (type eps)
- <figures/wieye_process.eps>) (./results.tex) (./conclusion.tex)
-(./whitemesh.bbl [6]
+ <figures/wieye_process.eps>) (./results.tex
+[6]) (./conclusion.tex) (./whitemesh.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 29--31
 []\OT1/ptm/m/n/8 B. W. Con-sult-ing, ``Tv white space,'' http://www.broadband-
  []
 
 
-Overfull \hbox (9.91747pt too wide) in paragraph at lines 69--71
+Overfull \hbox (9.91747pt too wide) in paragraph at lines 44--46
 []\OT1/ptm/m/n/8 Google, ``Spec-trum database,'' http://www.google.org/spectrum
 /whitespace/,
  []
@@ -360,4 +359,4 @@ Here is how much of TeX's memory you used:
  645 hyphenation exceptions out of 8191
  27i,8n,24p,691b,519s stack positions out of 5000i,500n,6000p,200000b,15000s
 
-Output written on whitemesh.dvi (7 pages, 53632 bytes).
+Output written on whitemesh.dvi (7 pages, 54284 bytes).
