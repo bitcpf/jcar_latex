@@ -1,5 +1,14 @@
 Need to clearify:
 
+The capacity model may need to modified
+Greedy from this capacity model is not good.
+
+The data process of RSSI may try median value instead of average value
+
+Idea may try:
+Adjust the Minhop transship cost calculation
+
+
 Running Program:
 Brute forth on genuse30:6 save as max_cap_aug1
 May need to run multiband brute forth on another server

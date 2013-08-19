@@ -15,6 +15,7 @@ In the worst case, without proper algorithms to approach the optimal placment, r
    We therefore develop the ~\emph{Local Search Algorithms} to adpot multiband scenario.
 
    \subsection{Minimizeing Hop Count}
+   \label{subsec:minhop_intro}
 
    % Foreach all mesh nodes
    The available gateway locations are $W$, which is a specific subset of all mesh node locations. $G$ represent the set of installed gateway with multiple radios work in different bands locations throughout the execution of the algorithm, meaning if there is a gateway node work in band $k$ in the location, $G[i,k]=1$.
@@ -81,7 +82,6 @@ Update $u_{cur}[i]$ to new lower bound if $\hat{u}[i] < u_{prev}[i]$ \\
 Output G as Solution
 \end{algorithmic}
 \end{algorithm}
-
       
 
 
@@ -145,3 +145,8 @@ Output G as locally optimal solution\\
 
 \subsubsection{triangle}
 ~\emph{Triangle Inequality for Contention} A simple example is a three nodes mesh network. The contention caused by link AB is less than the sum of the contention of links AC and BC. This characteristic is useful to find the minimum contention links.
+
+
+bitcpf: ~\ref{subsec:minhop_intro}
+	  \ref{algorithms: Minihop}
+
