@@ -4,35 +4,39 @@
 % Background multiband networks, hetergeneous networks, vehicular applications
 % Introduction of white spcae.
 % Process:
-% Clearify the channel in different cities
+% Clearify the channel in different envrionment 
 % Introduce 2 possible gain: 1. reduce # mesh nodes 2. given topology get average capacity 
-FCC adopted rules to allow unlicensed radio transmitters to operate in the white space freed from TV band since 2010~\cite{fccwhitespace}. White space is popularly referred to unused portions of the UHF and VHF spectrum includes, but not limited to 54M-72MHz,76M-88MHz,174M-216MHz,470M-608MHz,and 614M-806MHz ~\cite{whitespacewiki}.
-To use these band, FCC ruling requires white space devices(WSDs) to learn of spectrum availability at their respective locations from a database of incumbents. For example, in Dallas/Fort Worth, TX, 482M-488MHz band should be yielded for TV channels, in Chicago, IL 470M-482MHz band is reserved for TV channels. ~\cite{broadband}
+FCC adopted rules to allow unlicensed radio transmitters to operate in the white space freed from TV band since 2010~\cite{fccwhitespace}. 
+White space is popularly referred to unused portions of the UHF and VHF spectrum includes, but not limited to 54M-72MHz,76M-88MHz,174M-216MHz,470M-608MHz,and 614M-806MHz ~\cite{whitespacewiki}.
+To use these band, FCC ruling requires white space devices(WSDs) to learn of spectrum availability at their respective locations from a database of incumbents. 
+For example, in Dallas/Fort Worth, TX, 482M-488MHz band should be yielded for TV channels, in Chicago, IL 470M-482MHz band is reserved for TV channels. ~\cite{broadband}
  These bands provides superior propagation and building penetration compared to licensed ISM Wifi bands like the 2.4 and 5GHz bands, holding rich potential for expanding broadband capacity and improving access for wireless users.
 
 % Differences among cities, tell something about the evaluation
 
 % Wireless mesh networks
 The advantages of white space equipment could be seen straight forward from using in ~\emph{Wireless mesh network}.
-Wireless mesh network is able to provide broadband Internet access to large contiguous areas through less mesh nodes equipped with WSDs due to the propagation characteristic of ISM bands. White space mesh is an economic way to provide back-haul Internet service in rural area or other low density area employing the propagation characteristics.
+Wireless mesh network is able to provide broadband Internet access to large contiguous areas through less mesh nodes equipped with WSDs due to the propagation characteristic of ISM bands. 
+White space mesh is an economic way to provide back-haul Internet service in neighborhood area employing the propagation characteristics.
 White space could also be used to improve the urban or high density area connectivity through lower interference channels. 
 
 Mesh deployment requires selecting the number and locations to place mesh nodes to cover the whole area and the nodes are inter-connected in order to access to Internet gateway points.
 Unfortunately, prior white space mesh placement research fails to address the compatibility of current existing devices, for instance, iPhone, Mac Laptop do not have white space radios to access white space gateway points. For a realistic mesh network, the end hop to the client need to be able to work in ISM Wifi band. 
 % White space band to reduce mesh nodes or improve the capacity
 So the practical way to employ white space could be creating Internet access backhual with less nodes or improve existing Wifi network by adding the frequency band, avoiding interference and reduce the hop relay among Wifi network.
-To appreciate the multiband mesh deployment problem, it is important to understand the differences between white spaces and the popular ISM bands where Wifi devices operate. First, in FCC rules, users in white space band have to yield primary users.
-Before enter a white space channel, users have to detect the channel occupation. 
-Second, white space band may suffer some unknown interference such as wireless speakers. Such devices may turn on at anytime without warning. 
-Third, white space is cleaner than ISM bands since most of the TV stations have stopped using the bands. 
-And also since in white space is in lower band, the coverage of these band is larger than higher frequency ISM band which could help to reduce the mesh nodes. 
+To approach the multiband mesh deployment problem, it is important to understand the differences between white spaces and the licensed ISM bands where Wifi devices operate. 
+First, in FCC rules, users in white space band have to yield primary users to improve individual performance.
+Before enter a white space channel, users have to detect the channel occupation ~\cite{cuileveraging,liu2012astra}
+Second, white space band may suffer some unknown interference such as wireless speakers. Such devices may turn on at anytime without warning ~\cite{nekovee2009survey}.
+Third, white space is cleaner than ISM bands since most of the TV stations have stopped using the bands and white space is in lower frequency, the coverage of these band is larger than higher frequency ISM band which could help to reduce the amount of mesh nodes~\cite{liang2008cognitive}.
 According to these advantages and disadvantages, the balance between white space bands and ISM bands is possible to provide improvement of mesh network by reducing the construction cost or grabbing more capacity. 
 
 
 % AP location estimate 
 
 % Paper focusing
-This work focus on improving the performance of mesh network with multiband gateways among multiple scenario of environment. As far as we know, there is no previous work has solution for the problem adding multiband capacity in a mesh network. Our work fomulate the problem and propose 2 algorithms approaching the optimal solution.
+This work focus on improving the performance of mesh network with multiband gateways and mesh nodes for neighborhood. As far as we know, there is no previous work has solution for the problem adding multiband capacity in a mesh network.
+Our work fomulate the problem and propose 2 algorithms approaching the optimal solution.
 We analysis the problem complexity through a regular grid network and evaluate our approaching in two in-field network placement. We also investigate the influence of the FCC regulation and environment parameters for multiband network placement.
 
 % 

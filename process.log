@@ -1,7 +1,10 @@
 Need to clearify:
 
-The capacity model may need to modified
-Greedy from this capacity model is not good.
+Ruby for Orbit lab
+Organize the experiment
+Modify the draft
+Implement the optimization AMPL codes
+
 
 The data process of RSSI may try median value instead of average value
 

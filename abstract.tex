@@ -1,14 +1,15 @@
 \begin{abstract} 
-Wireless mesh network deployments are low cost effective way to serve large populations internet connections. As the network usage grows, more mesh nodes may need to improve the performance of existing network. However, this may bring more contention for existing network. Since FCC freed UHF band for wireless communication, to deploy mesh node working in white band could bring additional capacity for existing capacity. 
+Wireless mesh network deployments are low cost effective way to serve large populations internet connections. As the network usage grows, more mesh networks may need to improve the performance serving the neighborhoods. 
+However, this may bring more contention for existing network. 
+Since FCC freed UHF band for wireless communication, to deploy mesh networks in white band could bring additional capacity for existing capacity. 
 In this paper, we study the problem of adding new capacity to an existing mesh network with multiband gateways.
-We first present a protocol model based multiband capacity calculation for gateway-limited fair capacity as a function of the contention at each gateway.
-Then, we present FIXME online gateway placement algorithms that use local search operations to maximize the capacity gain on existing network.
-The difficulty is that the capacity of the existing gateways related to the additional gateway node which would not be determined in advance. 
-And the multiband links make the network topology complex becoming a NP-hard problem. 
-The challenges are addressed with two placement algorithms with different approaches to estimating the unknown gateway capacities. The first placement algorithm, multiband MinHopCount is adapted from a solution to the facility location problem. 
-Multiband MinHopCount minimizes path lengths and iteratively estimates the wireless capacity of each gateway location. The second algorithm, multiband Minicontention is adapted from a solution to FIXME
-The performance of different bandwidth and propagation scenarios are investigated with in-field experiments and FCC regulation.
-The results show that the algorithms outperform the single band network by up to FIXME on realistic topologies.
+We first present a protocol model based multiband capacity calculation for gateway-limited fair capacity as a function of the networks.
+Then we introduce a global measurement strategy estimating link capacity saving tons of measurement work in neighborhoods.
+Then, we present multiband online gateway placement algorithms that use local search operations to joint assign channel and routing on multiband network.
+Multiband links make the network topology complex bringing a NP-hard problem. 
+The challenges are addressed with a placement algorithm with linear optimization.
+The algorithm is validate in single band scenario on Orbit grid.
+The results show that the algorithms outperform the FIXME (Heuristic IGW/ Degreebased) by up to FIXME on realistic topologies.
 
 \end{abstract}
 

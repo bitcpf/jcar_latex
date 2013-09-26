@@ -29,6 +29,29 @@ Wiki, ``White space(radio),'' \url{http://en.wikipedia.org/wiki/White\_spaces},
 B.~W. Consulting, ``Tv white space,''
   \url{http://www.broadband-mapping.com/tv-white-spaces.html}, 2013.
 
+\bibitem{cuileveraging}
+P.~Cui, H.~Liu, J.~He, O.~Altintas, R.~Vuyyuru, D.~Rajan, and J.~Camp,
+  ``Leveraging diverse propagation and context for multi-modal vehicular
+  applications.''
+
+\bibitem{liu2012astra}
+H.~Liu, J.~He, P.~Cui, J.~Camp, and D.~Rajan, ``Astra: Application of
+  sequential training to rate adaptation,'' in \emph{Sensor, Mesh and Ad Hoc
+  Communications and Networks (SECON), 2012 9th Annual IEEE Communications
+  Society Conference on}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, 2012,
+  pp. 443--451.
+
+\bibitem{nekovee2009survey}
+M.~Nekovee, ``A survey of cognitive radio access to tv white spaces,'' in
+  \emph{Ultra Modern Telecommunications \& Workshops, 2009. ICUMT'09.
+  International Conference on}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE,
+  2009, pp. 1--8.
+
+\bibitem{liang2008cognitive}
+Y.-C. Liang, A.~T. Hoang, and H.-H. Chen, ``Cognitive radio on tv bands: a new
+  approach to provide wireless connectivity for rural areas,'' \emph{Wireless
+  Communications, IEEE}, vol.~15, no.~3, pp. 16--22, 2008.
+
 \bibitem{andersen1995propagation}
 J.~B. Andersen, T.~S. Rappaport, and S.~Yoshida, ``Propagation measurements and
   models for wireless communications channels,'' \emph{Communications Magazine,
