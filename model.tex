@@ -17,12 +17,11 @@ Further, we focus on a multiradio, multiband backhual and access tier architectu
 \subsection{Problem Formulation}
 % Objective
 The objective of the wireless mesh node placement problem in multiband scenario is refered to
-minimize the number of deployed gateway nodes related to budget and mesh nodes adding capacity for existing network. 
-or to maximize the capacity of existing mesh network topology by given specified budget for adding multiradio capacity points in existing network.
+minimize the number of deployed gateway nodes to provide internet service according to the requirement for the clients. 
 
 % Input & Output
-It is defined as follows.
-The set of potential gateway node locations, $W$, is assumed know. 
+The problem is formulated as follows.
+The set of potential gateway node locations, $W$, is known due to the construction limitation, such as power supply limitation. 
 Let \emph{G} be a $k$ dimension binary $(0,1)$-vector of size $n$ that indicates whether a given mesh node $i$ in band $k$ is a capacity point or not. 
 Discrete locations for mesh nodes follows naturally from practical constraints on deployment, such as the availability of wired connection or other infrastructure for gateway nodes installation.
 On an operational multiband mesh network, $G[i,k]=1$, for all $i\in \emph{G}$, having active radio working in band $k$. Let the monetary cost of installing a capacity point be $f[i]+r(i)\times \sum_kG[i,k]$, $f(i)$ represent the cost for infrastructure, $r(i)$ is the cost for a single band, and \emph{$G_0$} represent the currently deployed capacity points.
