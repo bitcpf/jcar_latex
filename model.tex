@@ -5,24 +5,32 @@
 In this section, we first formulate the 
 white mesh deployment problem
 with propagation, connectivity and QOS constraint of multiband scenarios.
-Then introduce the \emph{Protocol Model} gateway-limited fair capacity of a white band mesh network modified from previous work ~\cite{robinson2008adding}. 
+Then introduce the \emph{Protocol Model} gateway-limited fair capacity of a white band mesh network modified from Robinson's work ~\cite{robinson2008adding}. 
 For ease of discussion, all capacity points are refered as "gateways" no matter how they get access to internet.
 
-In this paper, we consider two-tier wireless mesh networks, consisting of an access tier for connection between mesh nodes and clients, and a backhaul tier for interconnection between mesh nodes. 
-Since most of the clients have only ISM band wireless devices, we assume all the mesh node has the capacity in ISM band for clients. And for the backhaul tier mesh nodes have multiband capacity with different click range according to the propagation in each band.
+In this paper, we consider wireless mesh networks as two-tiers:
+Consisting of an access tier for clients to mesh nodes, and a backhaul tier for interconnection from mesh nodes to gateway nodes. 
+Most of the clients devices work in ISM band, such as iPhone, laptops, we assume all the mesh node has the capacity in ISM band for clients in access tier. And for the backhaul tier mesh nodes have multiband capacity with different click range according to the propagation in each band.
 
-Further, we focus on a multiradio, multiband backhual and access tier architecture. We let the user-specified cost of installing a physical wire or dedicated wireless connection be different for each location and allow non-uniform capacities at each location.
+Further, we focus on a multiradio, multiband backhual tier architecture. We let the user-specified cost of installing a physical wire or dedicated wireless connection be different for each location and allow non-uniform capacities at each location.
  
-
 \subsection{Problem Formulation}
 % Objective
 The objective of the wireless mesh node placement problem in multiband scenario is refered to
 minimize the number of deployed gateway nodes to provide internet service according to the requirement for the clients. 
 
 % Input & Output
-The problem is formulated as follows.
-The set of potential gateway node locations, $W$, is known due to the construction limitation, such as power supply limitation. 
-Let \emph{G} be a $k$ dimension binary $(0,1)$-vector of size $n$ that indicates whether a given mesh node $i$ in band $k$ is a capacity point or not. 
+The problem could be formulated as follows.
+The set of node locations, $N$, are known as mesh nodes due to the construction limitation, such as power supply limitation or policy. Gateway nodes are selected from these mesh nodes.
+In the target areas, $B$ represents the bands across ISM and white space band according to FCC policy.
+Given the demand of mesh nodes $N$ for the service area as up link demand $UD$ of and down link demand $DD$. And also the the link capacity between two mesh nodes $R$ on band $B$ according to the \emph{Protocol Model} and propagation character of each band.
+The cost of connect internet to mesh node making it a gateway node is given as $PT$, and the cost of installing radio of a band is given as $PC$.
+The target of the problem is to minimize the total cost of the network construction, including the gateway connection cost and new radio installing cost.
+
+Generally, the problem is a NP-hard problem only we traverse all the possible combination. To approach the optimization solution, we have a linear model to resolve the location and routing assignment of band and traffic at the same time.
+
+ 
+Let \emph{G} be a binary $(0,1)$-vector of size $n$ that indicates whether a given mesh node $i$ is built as a capacity point or not. 
 Discrete locations for mesh nodes follows naturally from practical constraints on deployment, such as the availability of wired connection or other infrastructure for gateway nodes installation.
 On an operational multiband mesh network, $G[i,k]=1$, for all $i\in \emph{G}$, having active radio working in band $k$. Let the monetary cost of installing a capacity point be $f[i]+r(i)\times \sum_kG[i,k]$, $f(i)$ represent the cost for infrastructure, $r(i)$ is the cost for a single band, and \emph{$G_0$} represent the currently deployed capacity points.
 We define the total cost, $C(G)$, of installing new capacity points in the mesh network as:
