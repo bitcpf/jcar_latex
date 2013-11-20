@@ -6,40 +6,32 @@
 % Process:
 % Clearify the channel in different envrionment 
 % Introduce 2 possible gain: 1. reduce # mesh nodes 2. given topology get average capacity 
-White space is popularly referred to unused portions of the UHF and VHF spectrum includes, but not limited to 54M-72MHz,76M-88MHz,174M-216MHz,470M-608MHz,and 614M-806MHz ~\cite{whitespacewiki}.
+\emph{White Space Bands} is popularly referred to unused portions of the UHF and VHF spectrum includes, but not limited to 54M-72MHz,76M-88MHz,174M-216MHz,470M-608MHz,and 614M-806MHz ~\cite{whitespacewiki}.
 FCC adopted rules to allow unlicensed radio transmitters to operate in the white space freed from TV band since 2010~\cite{fccwhitespace}. 
-%To use these band, FCC ruling requires white space devices(WSDs) to learn of spectrum availability at their respective locations from a database of incumbents. 
-%For example, in Dallas/Fort Worth, TX, 482M-488MHz band should be yielded for TV channels, in Chicago, IL 470M-482MHz band is reserved for TV channels. ~\cite{broadband}
  These bands provides superior propagation and building penetration compared to licensed ISM Wifi bands like the 2.4 and 5GHz bands, holding rich potential for expanding broadband capacity and improving access for wireless users.
-
 % Differences among cities, tell something about the evaluation
-
 % Wireless mesh networks
 The advantages of white space equipment could be seen straight forward from using in ~\emph{Wireless mesh network}.
-Wireless mesh network is able to provide broadband Internet access to large contiguous areas through less mesh nodes equipped with WSDs due to the propagation characteristic of ISM bands. 
+Wireless mesh network is able to provide broadband Internet access to large contiguous areas through less mesh nodes equipped with white space devices(WSDs) for the last-one-mile due to the propagation characteristic of ISM bands. 
 White space mesh is an economic way to provide back-haul Internet service in neighborhood area employing the propagation characteristics.
-White space could also be used to improve the urban or high density area connectivity through lower interference channels. 
+The propagation advantages White space could also be used to improve the urban or high density area connectivity through lower interference channels. 
 
-Mesh deployment requires selecting the number and locations to place mesh nodes to cover the whole area and the nodes are inter-connected in order to access to Internet gateway points.
-Unfortunately, prior white space mesh placement research fails to address the compatibility of current existing devices, for instance, iPhone, Mac Laptop do not have white space radios to access white space gateway points. For a realistic mesh network, the end hop to the client need to be able to work in ISM Wifi band. 
-% White space band to reduce mesh nodes or improve the capacity
-So the practical way to employ white space could be creating Internet access backhual with less nodes or improve existing Wifi network by adding the frequency band, avoiding interference and reduce the hop relay among Wifi network.
-To approach the multiband mesh deployment problem, it is important to understand the differences between white spaces and the licensed ISM bands where Wifi devices operate. 
-First, in FCC rules, users in white space band have to yield primary users to improve individual performance.
-Before enter a white space channel, users have to detect the channel occupation ~\cite{cuileveraging,liu2012astra}
-Second, white space band may suffer some unknown interference such as wireless speakers. Such devices may turn on at anytime without warning ~\cite{nekovee2009survey}.
-Third, white space is cleaner than ISM bands since most of the TV stations have stopped using the bands and white space is in lower frequency, the coverage of these band is larger than higher frequency ISM band which could help to reduce the amount of mesh nodes~\cite{liang2008cognitive}.
-According to these advantages and disadvantages, the balance between white space bands and ISM bands is possible to provide improvement of mesh network by reducing the construction cost or grabbing more capacity. 
+As a kind of multi-radio architecture, \emph{Multi-band Multi-radio Mesh Network} also has the same advantages of \emph{Multi-Channel Mesh Network} as increasing the network capacity. And also the challenges of reducing interference among active links is a main issue. 
+The problem of assign channels in mesh network has been proved as a NP-Hard problem.~\cite{jain2005impact}. 
+The performance challenges of \emph{Multi-channel Multi-radio Mesh Network} have long been recognized and have led to a lot of research on the traffic profiling, channel assignment, routing, and topology control. A vast array of channel assignment for \emph{Multichannel Mesh Network} have been proposed and reviewed in several articles.
+Ashish ~\cite{raniwala2004centralized} use \emph{Load Aware Channel Assignment} to approach the channel assignment optimization; Jian ~\cite{tang2005interference} employ a channel partion methodology to improve the channel assignment; In ~\cite{jain2005impact}, Kamal describe the up-bound and lower-band based on ~\emph{Conflict Graph}.
 
+This paper also deals with the problem of computing the optimal channel assignment of a mesh network, even more we deal with the influence of different propagation across multi-band. We give wireless network configuration specified as inputs. 
+The inputs have the node locations, available bands, ranges etc. We consider the ~\emph{Communication Range} and \emph{Interference Range} variety of bands as a new factor in our \emph{Multiband Multiradio Wireless Mesh Network} architecture.  
+With the new multiband factor, a single link could get a better RSSI with better throughput according to propagation models, such as Friis model; However, at the same time, the interference in the whole network increase too. 
+To balance the good and bad things, as Christelle proposed a framework in ~\cite{yuan2006cross}, we propose a linear optimization model to describe constraints of such a network with more detailed constraints. However, this model is still a NP-Hard which could not be resolved in a polynomial time. 
 
-% AP location estimate 
+%Describe algorithms
+To get an approaching channel assignment, we propose a ~\emph{Path Efficiency over Network} to evaluate each link and path in the network. Based on this parameter, we develop 2 novel channel assignment heuristic algorithms for the ~\emph{Multiband Multiradio Wireless Mesh Network}. The first algorithm is a tree grnerated process to reduce hop count avoiding interference. The second algorithm starts from the worst case then interated improve the \emph{Path Efficiency over Network}.
 
 % Paper focusing
-This work focus on improving the performance of mesh network with multiband gateways and mesh nodes for neighborhood. As far as we know, there is no previous work has solution for the problem adding multiband capacity in a mesh network.
-Our work fomulate the problem and propose 2 algorithms approaching the optimal solution.
-We analysis the problem complexity through a regular grid network and evaluate our approaching in two in-field network placement. We also investigate the influence of the FCC regulation and environment parameters for multiband network placement.
-
-% 
+This work focus on channel assignment of mesh network given multiband gateways and mesh nodes information.
+We analysis the problem and algorithm complexity through a regular grid network and evaluate our approaching in two in-field network placement. 
 
 % Contribution
 % problem/environment propose
@@ -47,22 +39,19 @@ We analysis the problem complexity through a regular grid network and evaluate o
 % 
 The main contributions of our work are as follows:
 \begin{itemize}
-\item We formulate the heterogeneous mesh node placement problem as a FIXME problem.  
+\item We formulate the heterogeneous multiband multiradio channel assignment problem with a linear optimization model.  
 
-\item We propose a methodology to leverage the influence of white space in mesh networks.
+\item We propose a parameter ~\emph{Path Efficiency over Network} to evaluate multi-hop path.
 
-\item We propose FIXME algorithms to minimize the number of deployed mesh nodes.
+\item We develop 2 heuristic algorithms to approach the optimized channel assignment.
 % Also should we consider the cost of different kind of nodes (1 radio, 2 radios, 3 radios )
 
-\item We perform extensive outdoor experiments from multiple environments and simulations to evaluate the proposed algorithms.
+\item We perform extensive simulation on regular grid network and in-field mesh network topology to evaluate our algorithms.
 
 
 \end{itemize}
 
-
-
-The remainder of this paper is organized as follows. In Section ~\ref{sec:model}, we present the multiband mesh network capacity model and analyze the characteristics of multiband network. 
-%Section ~\ref{sec:algorithms} discusses the algorithms approaching the optimal placment of a multiband netowrk. 
-%Section ~\ref{sec:propagation} and Section ~\ref{sec:cities} leverge the propagation and FCC regulation influence on a mesh network.
+The remainder of this paper is organized as follows. In Section ~\ref{sec:model}, we formulate the multiband wireless mesh network channel assignment model and analyze the factors of this architecture. 
+In Section ~\ref{sec:algorithms} discusses the algorithms approaching the optimal placment of a multiband netowrk. 
 %Then we present the experiment design in Section ~\ref{sec:experiment_design} and analyze the results in Section ~\ref{sec:results}.
 

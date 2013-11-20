@@ -6,49 +6,46 @@ Database file #1: whitemesh.bib
 -- IEEEtran.bst version 1.00 (2002/08/13) by Michael Shell.
 -- http://www.ctan.org/tex-archive/macros/latex/contrib/supported/IEEEtran/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
-Warning--empty journal in cuileveraging
-Warning--empty year in cuileveraging
 
 Done.
-You've used 16 entries,
+You've used 14 entries,
             3917 wiz_defined-function locations,
-            870 strings with 9810 characters,
-and the built_in function-call counts, 11301 in all, are:
-= -- 889
-> -- 286
-< -- 91
-+ -- 153
-- -- 51
-* -- 543
-:= -- 1725
-add.period$ -- 37
-call.type$ -- 16
-change.case$ -- 16
-chr.to.int$ -- 213
-cite$ -- 18
-duplicate$ -- 833
-empty$ -- 905
-format.name$ -- 62
-if$ -- 2570
+            862 strings with 9542 characters,
+and the built_in function-call counts, 10719 in all, are:
+= -- 866
+> -- 262
+< -- 97
++ -- 143
+- -- 44
+* -- 523
+:= -- 1623
+add.period$ -- 32
+call.type$ -- 14
+change.case$ -- 14
+chr.to.int$ -- 225
+cite$ -- 14
+duplicate$ -- 772
+empty$ -- 826
+format.name$ -- 55
+if$ -- 2446
 int.to.chr$ -- 0
-int.to.str$ -- 16
-missing$ -- 153
-newline$ -- 68
-num.names$ -- 16
-pop$ -- 372
+int.to.str$ -- 14
+missing$ -- 136
+newline$ -- 62
+num.names$ -- 14
+pop$ -- 313
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 829
+skip$ -- 793
 stack$ -- 0
-substring$ -- 512
-swap$ -- 658
-text.length$ -- 20
+substring$ -- 538
+swap$ -- 640
+text.length$ -- 22
 text.prefix$ -- 0
 top$ -- 5
 type$ -- 0
-warning$ -- 2
-while$ -- 56
-width$ -- 18
-write$ -- 165
-(There were 2 warnings)
+warning$ -- 0
+while$ -- 54
+width$ -- 16
+write$ -- 153
