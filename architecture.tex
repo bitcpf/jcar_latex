@@ -1,0 +1,127 @@
+\section{Multiband Mesh Architecture and Model}
+\label{sec:model}
+
+% Organization of the Sec
+In this section, we first introduce the 
+~\emph{Multiband Mesh Network Architecture}
+with white space band propagation, connectivity and interference characteristics.
+Then we analysis the architecture and formulate the architecture into a graph model with hypothesis.
+Based on the analyze a ~\emph{Mixed Linear Integer Model} is built to describe the problem. 
+To provide affordable solution for ~\emph{Channel Assignment Problem} in multiband scenario, a novel parameter ~\emph{Network Efficiency} is defined to represent the performance of multi-hop path in multiband mesh network.
+The influence of ~\emph{White Space Band} influence on the network is presented based on this parameter in this section.
+
+\subsection{Multiband Mesh Network Architecture}
+\label{subsec:architecture}
+Generally ~\emph{Wireless Mesh Network} is been described as two-tiers:
+Consisting of an access layer for clients to mesh nodes, and a backhaul layer for interconnection from mesh nodes to gateway nodes with wired Internet connection ~\cite{akyildiz2005wireless}.
+Our work focus on ~\emph{Wireless Mesh Network} with ~\emph{White Space Frequency} in backhual layer. 
+The clients devices in industrial, scientific and medical (ISM) band, such as iPhone, laptops, access to mesh node with independent channel of ISM band from backhual layer. 
+
+% Explain multiband vs multichannel
+A lot of efforts have been put on ~\emph{Multichannel Multiradio Mesh Network} architecture focusing on ~\emph{Gateway Placement, Channel Assignment, Multihop Routing} problems ~\cite{si2010overview}.
+~\emph{Multichannel} is a word mention different frequency channels with small gap, for instance the orthogonal WLAN channels in 2.4GHz from 2.412GHz to 2.484GHz with 22MHz gap.
+We refer ~\emph{Multiband} with a combination of different frequency of large gap, such as a set 2.4GHz and 900MHz whose propagation characteristics which will be analyzed in \ref{subsec:architecturemodel} are different.
+In multiband scenario, both wired ~\emph{Gateway Nodes} and ~\emph{Mesh Nodes} are equipped with multiple radios working in different frequency band, including ISM bands and white space bands. The radios could work simultaneously bringing more capacity to the network which is a evolution of ~\emph{Multi-channel Multi-Radio Mesh Network} with radios working in the same band in different channels.
+
+~\emph{Multiband} radios brings more flexibility for multi-hop selection. ~\emph{White Space Band} could help to reduce hop count of a path with more interference range in the network. To balance the larger communication range and larger interference range of white space band is a key issue in ~\emph{Multiband Mesh Network}.
+
+
+
+\subsection{Multiband Mesh Network Model}
+\label{subsec:architecturemodel}
+
+
+
+
+
+\subsection{Problem Formulation}
+
+\subsection{Linear Optimization Model}
+ 
+
+% Objective
+The objective of the wireless mesh node placement problem in multiband scenario is refered to
+minimize the number of deployed gateway nodes to provide internet service according to the requirement for the clients. 
+
+% Input & Output
+The problem could be formulated as follows.
+The set of node locations, $N$, are known as mesh nodes due to the construction limitation, such as power supply limitation or policy. Gateway nodes are selected from these mesh nodes.
+In the target areas, $B$ represents the bands across ISM and white space band according to FCC policy.
+Given the demand of mesh nodes $N$ for the service area as up link demand $UD$ of and down link demand $DD$. And also the the link capacity between two mesh nodes $R$ on band $B$ according to the \emph{Protocol Model} and propagation character of each band.
+The cost of connect internet to mesh node making it a gateway node is given as $PT$, and the cost of installing radio of a band is given as $PC$.
+The target of the problem is to minimize the total cost of the network construction, including the gateway connection cost and new radio installing cost.
+
+Generally, the problem is a NP-hard problem only we traverse all the possible combination. To approach the optimization solution, we have a linear model to resolve the location and routing assignment of band and traffic at the same time.
+
+ 
+Let \emph{G} be a binary $(0,1)$-vector of size $n$ that indicates whether a given mesh node $i$ is built as a capacity point or not. 
+Discrete locations for mesh nodes follows naturally from practical constraints on deployment, such as the availability of wired connection or other infrastructure for gateway nodes installation.
+On an operational multiband mesh network, $G[i,k]=1$, for all $i\in \emph{G}$, having active radio working in band $k$. Let the monetary cost of installing a capacity point be $f[i]+r(i)\times \sum_kG[i,k]$, $f(i)$ represent the cost for infrastructure, $r(i)$ is the cost for a single band, and \emph{$G_0$} represent the currently deployed capacity points.
+We define the total cost, $C(G)$, of installing new capacity points in the mesh network as:
+
+\begin{equation}
+\label{eq:cost}
+C(G)=\sum_{\forall i\notin G_0} (f(i)+r(i)\times \sum_kG[i,k]) \times sgn\{\sum_kG(i,k)\}
+\end{equation}
+
+
+
+
+
+\subsection{Mesh Network Capacity}
+\label{subsec:capacity}
+Wireless bandwidth is shared among all clients and mesh nodes, as a result, it is usually desirable to limit the number of potential shares of the scarce wireless spectrum. 
+In this work the capacity calculation based on ~\emph{Protocol Model}, a node can use the channel if the distance between the node and next relay nodes is less than the threshold and other nodes in the click is not transmitting. The model is good for 802.11-style MAC ~\cite{jain2005impact}.
+
+The capacity calculation in this paper considers access networks where all traffic to and from clients must traverse a gateway, making the gateways bottlenecks in the network. 
+Therefore, the performance of gateway nodes represent the capacity of the network. 
+More complete capacity of formulations in other research take into account on-demands and fairness ~\cite{arkoulis2013optimal}, but we do not get into these scenarios in this paper.
+The advantages of this model are 1) exact computation in polynomial time and 2) extension to local search algorithms by enabling tractable approximations which optimize over one of two components of capacity definition:route lengths or contention ~\cite{robinson2008adding}.
+
+% Capacity-calculation
+We carry the capacity calculation idea from ~\cite{robinson2008adding} to model the wireless interface of gateway as alternating its time between transmitting to one-hop neighbors, receiving from one-hop neighbors, and deferring to other neighbors within contention range. 
+The ~\emph{gateway limited fair capacity} is a functioon of the airtime utilization share of gateways, which depends on the routes used and amount of time the routes lead to a gateway deferring. From the definition, the capacity represent fairness for all nodes in the network. 
+The calculation impose a fairness constraint of each mesh node to receive their fair share of the wireless airtime at the gateway nodes. 
+For multiband scenario we re-define the expression of the capacity calculation.
+
+% Record the rough idea, need more care
+Mesh node $i$ has a traffic demand $d[i]$ represents the aggregate demand of all the edn-clients associated with it. 
+We present the routes used by each mesh node to reach one or more gateways as a 3 dimensional matrix $R$, where $R[i,j,k]$ indicates the amount of node $i$'s demand that traverses physical link $j$ on band $k$. 
+$src(i)$ is designated as the access tier link for mesh node $i$ and assign $R[i,src(i)]=d[i]$. The calculation ensure fairness by requiring that $\lambda d[i]$ units of mesh nodes $ i$'s demand are served by gateways.
+And $R$ matrix as solution to a transhipment problem optimizing capacity, potentially allowing multipath routing ~\cite{robinson2008adding}.
+The contention caused by each physical link $j$ on band $k$ three-dimensional matrix $I$, where $I[i,j,k]$ indicates if physical link $j$  in contention range of node $i$ of band $k$.
+
+A link induces contention equal to the number of mesh nodes that cannot be actively transmitting or receiving when the link is active in the band.
+Contention is used as a simplification of interference only happens in the same band 
+
+The total contention on a gateway node $g\in G$ caused by link $j$ in band $k$ is $\sum_{i=1}^nR[i,j,k] \times I[g,j,k]$. the total contention on gateway $g$, $v_g$ is then given by:
+\begin{equation}
+\label{eq:contention}
+v_{gk}=\sum_{j=1}^m \sum_{i=1}^n R[i,j,k]\times I[g,j,k]
+\end{equation}
+We assume the access tier and backhaul tier in the same ISM band choose different channels to avoid interference among the two tiers. For the backhaul tier the contension only comes from other mesh nodes.
+
+Gateway $g$ services total demand $s_g$ which is the smu of demands on al links incident to gateway $g$, denoted as the link subset $link(gk)$ which has connection of the gateway node in band $k$:
+\begin{equation}
+s_{gk}=\sum_{j\in link(gk)} \sum_{i=1}^n R[i,j,k]\times I[g,j,k]
+\end{equation}
+ 
+The capacity of gateway $g$ as the amount of wireless time $v_g$ required to server $s_g$ units of time for internet service, also a gateway node will provide capacity to the area it located in.
+\begin{equation}
+u_{g}=\sum_{k\in B} s_{gk}/v_{gk}+R[g,k]
+\end{equation}
+
+% Add more introduce the characters of the calculation
+The sum is a the worst case for mesh network due to double-counting of contention with the gateway.
+% Just outlines need to add more
+Wireless network is able to increase the capacity through decreasing the contention or increase the contention to deploy less nodes for an arbitary network. 
+Multiband network provide potential solutions of decreasing the contention and deploy less nodes simultaneously. 
+The question comes out how could a mesh network approaching the objective has the lowest cost for construction subject to the capacity request or achieve the highest capacity under a certain budget.
+
+
+% Note the gain of reducing mesh nodes
+The gain of minimize deployment mesh node could be noted as the nodes amount of ISM Wifi mesh network $A_{ISM}$ minus the nodes amount of mesh network with multiband nodes $A_{ws}$, $G_a=A_{ISM}-A_{ws}$.
+
+To employ the propagation advantages brings a NP-hard problem to arrive the optimal solution~\cite{arkoulis2013optimal}. 
+To approach the optimal solution we have FIXME frameworks to solve part of the problem subject to time fairness of each node.
+
