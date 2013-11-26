@@ -1,4 +1,4 @@
-This is pdfeTeX, Version 3.141592-1.21a-2.2 (Web2C 7.5.4) (format=latex 2012.4.6)  26 NOV 2013 12:02
+This is pdfeTeX, Version 3.141592-1.21a-2.2 (Web2C 7.5.4) (format=latex 2012.4.6)  26 NOV 2013 16:47
 entering extended mode
 **whitemesh
 (./whitemesh.tex
@@ -320,21 +320,35 @@ LaTeX Warning: Reference `sec:wmalgorithms' on page 1 undefined on input line 5
 ]) (./architecture.tex
 File: figures/interferencerange.eps Graphic file (type eps)
  <figures/interferencerange.eps> [2]) (./linearopt.tex
-Overfull \hbox (47.2744pt too wide) in paragraph at lines 14--37
-[] 
+Overfull \hbox (34.22568pt too wide) in paragraph at lines 29--37
+[][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 14--37
+Underfull \hbox (badness 10000) in paragraph at lines 29--37
 
  []
 
 
-Overfull \hbox (42.41109pt too wide) in paragraph at lines 14--37
-[]
+Overfull \hbox (60.45625pt too wide) in paragraph at lines 42--52
+[][]
  []
 
-[3]) (./conclusion.tex) (./whitemesh.bbl)
+
+Underfull \hbox (badness 10000) in paragraph at lines 57--58
+
+ []
+
+[3]) (./wmalgorithms.tex
+Underfull \hbox (badness 2221) in paragraph at lines 6--9
+[]\OT1/ptm/m/n/10 We pro-pose two lo-cal search based al-go-rithms with
+ []
+
+[4]
+
+LaTeX Warning: Reference `eq:contention' on page 5 undefined on input line 90.
+
+[5]) (./conclusion.tex) (./whitemesh.bbl)
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -346,20 +360,18 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[4
-
-] (./whitemesh.aux)
+[6] (./whitemesh.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 2756 strings out of 94501
- 38301 string characters out of 1176790
- 95923 words of memory out of 1000000
- 5880 multiletter control sequences out of 10000+50000
- 27373 words of font info for 66 fonts, out of 500000 for 2000
+ 2827 strings out of 94501
+ 38974 string characters out of 1176790
+ 98923 words of memory out of 1000000
+ 5935 multiletter control sequences out of 10000+50000
+ 30696 words of font info for 80 fonts, out of 500000 for 2000
  580 hyphenation exceptions out of 1000
- 27i,10n,24p,547b,303s stack positions out of 1500i,500n,5000p,200000b,5000s
+ 27i,10n,24p,691b,519s stack positions out of 1500i,500n,5000p,200000b,5000s
 
-Output written on whitemesh.dvi (4 pages, 30004 bytes).
+Output written on whitemesh.dvi (6 pages, 48672 bytes).

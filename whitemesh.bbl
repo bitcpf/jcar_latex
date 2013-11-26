@@ -94,4 +94,9 @@ J.~Robinson, M.~Uysal, R.~Swaminathan, and E.~Knightly, ``Adding capacity
   2008. The 27th Conference on Computer Communications. IEEE}.\hskip 1em plus
   0.5em minus 0.4em\relax IEEE, 2008, pp. 1247--1255.
 
+\bibitem{arya2004local}
+V.~Arya, N.~Garg, R.~Khandekar, A.~Meyerson, K.~Munagala, and V.~Pandit,
+  ``Local search heuristics for k-median and facility location problems,''
+  \emph{SIAM Journal on Computing}, vol.~33, no.~3, pp. 544--562, 2004.
+
 \end{thebibliography}
