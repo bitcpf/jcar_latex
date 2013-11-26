@@ -84,5 +84,13 @@ To approach the optimization channel assignment, we develop a mixed linear integ
 
 \subsection{Evaluation Metric}
 \label{subsec:metric}
-~\emph{Mesh Network} is designed to provide service for clients. The goal of a backhual network is to maximize its overall goodput within a unit time. This 
+~\emph{Mesh Network} is designed to provide service for clients. The goal of a backhual network is to maximize its overall goodput within a unit time. 
+This enables the network to support more end-user flows, and in turn more number of users. To evaluate the assignment, we use the idea of ~\emph{Gateway Goodput} of the network. The gateway goodput X of a network is defined as
+
+\begin{equation}
+\label{eq:goodput}
+X=\sum_{g \in G, v \in V}C(g,v)
+\end{equation}
+
+In ~\cite{robinson2008adding}, Robinson proves the bottle neck of mesh network capacity is the gateway wireless connection. The gateway goodput is the traffic arrive at the gateway node and relay to the wired Internet. The goodput performance is correlated with gateway placement, channel assignment and routing. Our work focus on the channel assignment after gateway placement done, binding with shortest path routing. Jointly optimize the problem is out of the paper topic.
 
