@@ -1,8 +1,55 @@
-\section{Mixed Linear Integer Solution}
+\section{Mixed integer Linear Solution}
 \label{sec:linearopt}
 
+First we present a ~\emph{Mixed integer linear Program} formulation. A linear program combine both channel assignment and routing solution together. 
+% Fixme if with more input it is still NP-hard
+Previous work has shown even in a simplified ~\emph{MultiChannel Model} a mixed integer linear program is NP-hard ~\cite{marina2010topology}. In this subsection we would like to formulate our channel assignment problem as an integer linear program and derive a upbound via its relaxation to an LP problem, such as omit the integrality requirement.
 
-Based on the analyze a ~\emph{Mixed Linear Integer Model} is built to describe the problem.                                        
+To keep the fairness constraint, we treat each mesh node with the same demand even generally the demand of the mesh node is random. So the goodput of a integer linear program is the summation of all the demand served by the gateway nodes. We assign a uplink demand variable $\lambda u$ and downlink demand $\lambda d$ to each node. The goodput of the network could be represented as $\sum_{n \in V}(\lambda u_n+ \lambda d_n)$, the linear program is givin to $Maximize\ Goodput$.
+
+We define a ~\emph{Time Share} variable to represent the time division of a single link as ~\emph{$\alpha_{i,j}^k$} which is the time share for link $i->j$ in band $k$. 
+Two flow variables are defined as uplink and downlink flow on a link $i->j$ for node $k$ in band $l$, $uy_{i,j,k}^l,dy_{i,j,k}^l$.
+
+\vspace{0.05in}
+The ILP is given as:
+\\
+Sets:\\
+\begin{tabular}{ll}
+$N$ & set of nodes \\
+$B$ & set of bands \\
+\end{tabular} 
+\\
+Parameters: \\
+\begin{tabular}{lll}
+$r_{i,j}^k$ & $(i,j) \in N, k \in B$ & capacity of link $(i,j)$ on band $k$ \\
+$I_{ij,lm}^k$ & $(i,j,l,m) \in N, k \in B $ & Interference of link $(i,j)$ on band $k$\\
+$g_i$ & $i \in N\ binary$ & Gateway placement
+\end{tabular}\\
+\\
+Variables:\\
+\begin{tabular}{lll}
+$\alpha_{ij}^k$ & $k\in B, (i,j) \in N$ & Time share of a link $(i,j)$ on band $k$\\ 
+$uy_{i,j,k}^l$ & $(i,j,k) \in N, l \in B$ & $i$ Uplink traffic on $(j,k)$ at band $l$ \\ 
+$dy_{i,j,k}^l$ & $(i,j,k) \in N, l \in B$ & $i$ Uplink traffic on $(j,k)$ at band $l$ \\ 
+\end{tabular}
+%\setcounter{equation}{0}\\
+Objective:
+\begin{align}
+\max \quad
+& \sum_{n \in V}(\lambda u_n+ \lambda d_n)
+\end{align}\\
+Constraints:
+\begin{align}
+& \text{Variable-Type Constraints:}\notag \\
+& \alpha _{i,j}^k \leq 1 \\
+& uy_{i,j,k}^l \geq 0 \\
+& dy_{i,j,k}^l \geq 0 \\
+& \text{Connectivity Constraints:} \notag \\
+& \sum_i \alpha_{i,j}^k + \sum_i \alpha_{j,i}^k + \sum_l\sum_m(\alpha_{l,m}^k \cdot I_{ij,lm}^k) \leq 1, i\neq j \\
+& \sum_i uy_{i,j,k}^l + \sum_i dy{i,j,k}^l \leq r_{j,k}^l \cdot \alpha_{j,k}^l \\
+& \end{align}
+ 
+                                        
 To provide affordable solution for ~\emph{Channel Assignment Problem} in multiband scenario, a novel parameter ~\emph{Network Efficiency} is defined to represent the performance of multi-hop path in multiband mesh network.
 The influence of ~\emph{White Space Band} influence on the network is presented based on this parameter in this section.
 

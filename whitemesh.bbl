@@ -56,32 +56,42 @@ W.~Si, S.~Selvakennedy, and A.~Y. Zomaya, ``An overview of channel assignment
   methods for multi-radio multi-channel wireless mesh networks,'' \emph{Journal
   of Parallel and Distributed Computing}, vol.~70, no.~5, pp. 505--524, 2010.
 
-\bibitem{arkoulis2013optimal}
-S.~Arkoulis, E.~Anifantis, V.~Karyotis, S.~Papavassiliou, and N.~Mitrou, ``On
-  the optimal, fair and channel-aware cognitive radio network
-  reconfiguration,'' \emph{Computer Networks}, 2013.
-
-\bibitem{robinson2008adding}
-J.~Robinson, M.~Uysal, R.~Swaminathan, and E.~Knightly, ``Adding capacity
-  points to a wireless mesh network using local search,'' in \emph{INFOCOM
-  2008. The 27th Conference on Computer Communications. IEEE}.\hskip 1em plus
-  0.5em minus 0.4em\relax IEEE, 2008, pp. 1247--1255.
-
-\bibitem{arya2004local}
-V.~Arya, N.~Garg, R.~Khandekar, A.~Meyerson, K.~Munagala, and V.~Pandit,
-  ``Local search heuristics for k-median and facility location problems,''
-  \emph{SIAM Journal on Computing}, vol.~33, no.~3, pp. 544--562, 2004.
-
-\bibitem{meikle2012global}
-R.~Meikle and J.~Camp, ``A global measurement study of context-based
-  propagation and user mobility,'' in \emph{Proceedings of the 4th ACM
-  international workshop on Hot topics in planet-scale measurement}.\hskip 1em
-  plus 0.5em minus 0.4em\relax ACM, 2012, pp. 21--26.
+\bibitem{andersen1995propagation}
+J.~B. Andersen, T.~S. Rappaport, and S.~Yoshida, ``Propagation measurements and
+  models for wireless communications channels,'' \emph{Communications Magazine,
+  IEEE}, vol.~33, no.~1, pp. 42--49, 1995.
 
 \bibitem{camp2006measurement}
 J.~Camp, J.~Robinson, C.~Steger, and E.~Knightly, ``Measurement driven
   deployment of a two-tier urban mesh access network,'' in \emph{Proceedings of
   the 4th international conference on Mobile systems, applications and
   services}.\hskip 1em plus 0.5em minus 0.4em\relax ACM, 2006, pp. 96--109.
+
+\bibitem{gupta2000capacity}
+P.~Gupta and P.~R. Kumar, ``The capacity of wireless networks,''
+  \emph{Information Theory, IEEE Transactions on}, vol.~46, no.~2, pp.
+  388--404, 2000.
+
+\bibitem{mishra2005weighted}
+A.~Mishra, S.~Banerjee, and W.~Arbaugh, ``Weighted coloring based channel
+  assignment for wlans,'' \emph{ACM SIGMOBILE Mobile Computing and
+  Communications Review}, vol.~9, no.~3, pp. 19--31, 2005.
+
+\bibitem{peng2012efficient}
+Y.~Peng, Y.~Yu, L.~Guo, D.~Jiang, and Q.~Gai, ``An efficient joint channel
+  assignment and qos routing protocol for ieee 802.11 multi-radio multi-channel
+  wireless mesh networks,'' \emph{Journal of Network and Computer
+  Applications}, 2012.
+
+\bibitem{marina2010topology}
+M.~K. Marina, S.~R. Das, and A.~P. Subramanian, ``A topology control approach
+  for utilizing multiple channels in multi-radio wireless mesh networks,''
+  \emph{Computer Networks}, vol.~54, no.~2, pp. 241--256, 2010.
+
+\bibitem{robinson2008adding}
+J.~Robinson, M.~Uysal, R.~Swaminathan, and E.~Knightly, ``Adding capacity
+  points to a wireless mesh network using local search,'' in \emph{INFOCOM
+  2008. The 27th Conference on Computer Communications. IEEE}.\hskip 1em plus
+  0.5em minus 0.4em\relax IEEE, 2008, pp. 1247--1255.
 
 \end{thebibliography}
