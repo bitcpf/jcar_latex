@@ -3,7 +3,8 @@
 
 First we present a ~\emph{Mixed integer linear Program} formulation. A linear program combine both channel assignment and routing solution together. 
 % Fixme if with more input it is still NP-hard
-Previous work has shown even in a simplified ~\emph{MultiChannel Model} a mixed integer linear program is NP-hard ~\cite{marina2010topology}. In this subsection we would like to formulate our channel assignment problem as an integer linear program and derive a upbound via its relaxation to an LP problem, such as omit the integrality requirement.
+Previous work has shown even in a simplified ~\emph{MultiChannel Model} a mixed integer linear program is NP-hard ~\cite{marina2010topology}. In this subsection we would like to formulate our channel assignment problem as an integer linear program and derive a upbound via its relaxation 
+in running time, iteration improvement, or even omit the integrality requirement.
 
 To keep the fairness constraint, we treat each mesh node with the same demand even generally the demand of the mesh node is random. So the goodput of a integer linear program is the summation of all the demand served by the gateway nodes. We assign a uplink demand variable $\lambda u$ and downlink demand $\lambda d$ to each node. The goodput of the network could be represented as $\sum_{n \in V}(\lambda u_n+ \lambda d_n)$, the linear program is givin to $Maximize\ Goodput$.
 
@@ -102,8 +103,7 @@ Constraints ~\ref{opt:8},~\ref{opt:9},
 ~\ref{opt:10},~\ref{opt:11}, ~\ref{opt:12}
 restrict the downlink behavior of the network nodes similar to the uplink constraints, for mesh nodes, the in-coming flows should be greated or equal the demand of node $i$, a gateway node has no out-coming traffic for itself; As relay nodes, out-coming traffic for others equals in-comming traffic from others, gateway node will provide all the downlink traffic from it self, we use the same trick $J$ to represent such constarints.
 
-The model resolve ~\emph{Channel Assignment} and ~\emph{Routing} problem simultaneously, the model itself is NP-hard could not get the optimization resuslt in polynomial time. But it helps to find a compariable result in a limited time window.
-% How to use the model
-To obtain a compariable result, we config the computer to run in a time window, such as 2 hours to get a partial optimization result.
+The model resolve ~\emph{Channel Assignment} and ~\emph{Routing} problem simultaneously. However the model itself is NP-hard could not get an optimization resuslt in polynomial time. But most of the solver has configuration to set the running time or iteration difference. It provides us a methodology to approach a reasonable results for channel assignment.
+% How to use the model talked in experiment design
 % FIXME
 

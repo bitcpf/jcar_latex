@@ -40,11 +40,11 @@ We analysis the problem and algorithm complexity through a regular grid network 
 % 
 The main contributions of our work are as follows:
 \begin{itemize}
-\item We formulate the heterogeneous multiband multi-radio channel assignment problem with a linear optimization model.  
+\item We formulate the heterogeneous ~\emph{Multiband Multi-radio} architecture with channel assignment problem and propose a ~\emph{Integer Linear Program} model for analyzing.  
 
-\item We propose a parameter ~\emph{Path Efficiency over Network} (PEN) to evaluate multi-hop path.
+\item We propose a  parameter ~\emph{Path Efficiency over Network} (PEN) to evaluate mixed ~\emph{Multiband Multi-hop Path}.
 
-\item We develop 2 heuristic algorithms to approach the optimized channel assignment.
+\item We develop 2 heuristic algorithms to approach the channel assignment solution.
 % Also should we consider the cost of different kind of nodes (1 radio, 2 radios, 3 radios )
 
 \item We perform extensive simulation on regular grid network and in-field mesh network topology to evaluate our algorithms.
@@ -52,7 +52,9 @@ The main contributions of our work are as follows:
 
 \end{itemize}
 
-The remainder of this paper is organized as follows. In Section ~\ref{sec:architecture}, we formulate the multiband wireless mesh network channel assignment model and analyze the factors relate to the performance of this architecture. 
-In Section ~\ref{sec:wmalgorithms} discusses the algorithms approaching the optimal channel assignment of a multiband network. 
-%Then we present the experiment design in Section ~\ref{sec:experiment_design} and analyze the results in Section ~\ref{sec:results}.
+The remainder of this paper is organized as follows. In Section ~\ref{sec:architecture}, we formulate the ~\emph{Multiband Wireless Mesh Network} architecture, describe the ~\emph{Channel Assignment} problem. We analyze the factors relate to the performance of this architecture. 
+~\ref{sec:linearopt} we represent the ~\emph{ILP} model and discuss its complexity with time window relaxization.
+In Section ~\ref{sec:wmalgorithms} discusses the mixed ~\emph{Multiband Multi-hop Path}, based on the discussion, we propose algorithms approaching the optimal channel assignment of a multiband network. 
+% FIXME
+%Then we design the experiment design in Section ~\ref{sec:experiment_design} and analyze the results in Section ~\ref{sec:results}.
 

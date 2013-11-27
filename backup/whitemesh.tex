@@ -1,0 +1,57 @@
+\documentclass[10pt,conference]{IEEEtran}
+%\documentclass[a4paper,12pt]{article}
+
+\usepackage{cite,latexsym,times,epsf,amsmath,amssymb,amsfonts,graphicx}
+\usepackage{epstopdf}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{multirow}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{verbatim}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\renewcommand{\baselinestretch}{0.95}
+\renewcommand{\algorithmicforall}{\textbf{Foreach}}
+\renewcommand{\algorithmicendfor}{\textbf{}}
+
+\begin{document}
+\title{WhiteMesh: Leveraging White Spaces in Multihop Wireless Topologies}
+\author{TBA \\
+Dinesh Rajan, and Joseph Camp\\ 
+%Department of Electrical Engineering,\\ Southern Methodist University (SMU), Dallas, TX \\
+%\{camp\}@smu.edu  \\
+}
+
+
+%\documentclass[10pt]{article}
+
+%\usepackage{xkvltxp}
+
+
+\maketitle
+
+
+\input{abstract}
+%
+% Introduce the background and problem, calim contribution
+\input{introduction}
+% Multiband architecture and interference model Linear optimization model
+\input{architecture}
+% Mixed Linear Optimization
+\input{linearopt}
+% Two heuristic algorithms
+\input{wmalgorithms}
+%
+%\input{experiment_design}
+%\input{results}
+%\input{related}
+\input{conclusion}
+
+
+\bibliographystyle{IEEEtran}
+
+\bibliography{whitemesh}
+
+\end{document}
+%This is never printed
