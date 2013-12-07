@@ -5,158 +5,135 @@
 In this section, we discuss the influence of ~\emph{Multiband} on ~\emph{Multihop Path} in mesh network. 
 Accodirng to these analysis, we develop two algorithms for ~\emph{Multiband Channel Assignment}.
 
+% PEN part 
 \input{networkefficiency}
 
 
+The previous discussion provide a way to evaluate different path. But the difficulty of channel assignment is that before the channel assignment has been done, we could not get a final conflict matrix, and we can not evaluate each path accurate.
+Since could not describe how the traffic flow will be assigned, we try to improve the $Minimum\ Path Efficiency over Network$ with at least one connection to the gateway for each mesh node.
+To approach the solution, we propose two local search based algorithms to adapt the multiband scenario. 
 
-Then ~\emph{Tree Generated Algorithm} and ~\emph{Heuristic Efficiency Improvement Algorithm} are introduced  
 
-We propose two local search based algorithms with $Band Assign$ operation to adapt the multiband scenario. The gateway placement problem could be formulated as an integer program (IP), however, the solution based on IP has following disadvantages: (i) can not be solved exactly in polynomial time,
-   (ii) has an unbounded integrality gap
-   (iii) IP is not suitable for online computation ~\cite{robinson2008adding}.
-
-   To approach the maximizing capacity, we switch to local search algorithms.
-   ~\emph{Local Search Algorithms} optimize one of the two major components of our capacity calculation: the size of the routes in $R$ or the the impact of contention in $I$ on mesh nodes.
-
+\subsection{Hop by Hop Tree Grow Algorithm}
+To improve efficiency of a path, one way is to reduce the hop count, another way is to reduce the conflict link counts.
+In a mesh network, gateway nodes always building in the most busy location ~\cite{robinson2008adding, he2008optimizing}.
+As the service tree rooted at a gateway grows, the links closer to the gateway, the more interference will happen.
+So a rule to reduce interference is to distribute the links to different channels. Typically a mesh network will be less populated near its edge, in these cases, reduce hop count through lower frequency may bring more benefit. 
+Then a second rule will be use higher freq first at the beginning of the service tree growing. The degree in ~\cite{he2008optimizing} is taken to evaluate the potential connectivity of a mesh node. 
+The mesh node with less degree will be served first since they may not have other options for connection.
+~\cite{ramachandran2006interference} has similar process, but their work focus on multichannel scenario without considering topology difference among bands.
    % Analyze the complexity of the algorithms, need to know about the two proposed algorithms
-In the worst case, without proper algorithms to approach the optimal placment, running the brute force algorithm to find the optimal placement is almost an impossible mission. The combination of placement in a $n$ nodes network is $2^n$, with the capacity of calculation for each node, the complexity is $O(n2^n)$. It is a nightmare even for a powerful server. That is why we have to approach the optimal placement verse finding the solution by traversing all possible options.
 
-   Previous work J, Robinson proposed two ~\emph{Local search algorithms} to optimize the capacity for single band mesh network deployment ~\cite{robinson2008adding}. 
-   We therefore develop the ~\emph{Local Search Algorithms} to adpot multiband scenario.
-
-   \subsection{Minimizeing Hop Count}
-   \label{subsec:minhop_intro}
-
-   % Foreach all mesh nodes
-   The available gateway locations are $W$, which is a specific subset of all mesh node locations. $G$ represent the set of installed gateway with multiple radios work in different bands locations throughout the execution of the algorithm, meaning if there is a gateway node work in band $k$ in the location, $G[i,k]=1$.
-   We start to add network capacity from an designed deployment single mesh placement, since there are tons of methods for a single band mesh deployment ~\cite{akyildiz2005wireless}.
+   We develop the ~\emph{Hop by Hop Tree Grow} algorithm as shown in ~\ref{algorithms:hoho}.
 
 
-   We perform ~\emph{add(), assign(), open() and, close()}, to output a deployment of mesh network. 
-   To terminate the process, we require that each step lowers the cost by at least $c(S)/p(n,\varepsilon)$, $S$ is the deployment for this step, $p(n,\varepsilon)$ is a chosen polynomial in $n$ and $1/ \varepsilon$.
+% Need to talk about how to improve the bottle neck links,
+%FIXME talk about BFS-CA 
 
 
-   $add(s)$ installs a multiband mesh node at potential location $s$, $assign(s,T)$ install a gateway at node $s$ and discover the coverage of different band, assign the band to different mesh nodes according to the demands and fairshare of the nodes. $open(s,T)$ installs a gateway at location $s$ and removes all the gateway nodes in set $T$, and $close(s,T)$ removes the gateway at location $s$ and installs gateway nodes at all nodes in set $T$.
-
-   As found in ~\cite{robinson2008adding} all possible combinations for set $T$ can not be evaluated in polynomial time, we inherited the methodology of solving a knapsack problem for the set $T$ discovering. $T$ is found as the set of items to put in the knapsack which has an arbitrary capacity.
-   The details of the operation is described as:
-
-   % FIXME need to change the type as 
-
-%FIXME should change the order of assign and add(s)
-
-   % Add a node
-   \begin{itemize}
-   \item add(s) for all non-gateway nodes $s$, evaluate the cost to open a gateway at $s \in W$. This cost evaluation requires solving a transhipment problem to find optimal routing matrix $R$ for the set of all installed gateways in $G \cap \{s\}$
-   % Connect to all gateway nodes to see if can remove them according
-   \item assign(s,T) Assign the bands to the nodes in coverage according to the demands and contention. Distribute the capacity of a multiband gateway node to mesh nodes. 
-    We first assign the lower band for remote mesh nodes and then the higher band for the close nodes. If we have more bandwidth than required for the first step, then we assign the remaining higher bandwidth to close nodes and then the lower bands for all nodes in coverage since the nodes close to the gateway may suffer more contention. The process of assign helps to reduce the hop count/contention of the network.
-   The operation adopt the propagation characteristics of different making the problem scale of transship and knapsack become smaller.
-   % Try to keep the demand and remove relay node
-   \item open(s,T) Install gateway at location $s \in W$ and remove gateways in set $T \subseteq G-\{s\}$, transfer the traffic on $T$ to teh gateway nodes $s$. Gateway $s$ could be a node with some unused capacity.
-   \item close(s,T) Remove $s \in G$ and install a set of gateways $T \subseteq W-\{s\}$. Then reassign routes destined to $s$ to gateways in $T$ without any effect on mesh nodes served by other gateways. $T$ should be gateway nodes have unused capacity.
-   \end{itemize}
-  % calculate the capacity
 
 
-	  \begin{algorithm}
-          \small
-	  \caption{Multiband MinHopCount Algorithm}
-	  \label{algorithms: Minihop}
-	  \begin{algorithmic}[1]
-	  \REQUIRE  ~~\\
-		 $M$: The set of all mesh nodes\\
-		 $u_{init}[i]$: Initialize values of capacities
+
+\begin{algorithm}
+    \small
+\caption{Multiband Hop by Hop Tree Grow Algorithm}
+\label{algorithms:hoho}
+\begin{algorithmic}[1]
+\REQUIRE  ~~\\
+	 $M$: The set of all mesh nodes\\
+	 $G$: The set of gateway nodes\\
+	 $C$: Communication graph of potential links among all nodes\\
+	 $I$: Interference matrix of all potential links \\
+	 $B$: Bands amount
 \ENSURE ~~\\    
-$G$: Installed Gateway Locations \\
-Valid Here means satisfies budget \\
-Start with arbitrary, valid solution G
-\FORALL {$s \in M$} 
-\WHILE {$\sum_{i=1}^N u_{prev}[i]-u_{cur}[i] \ge \phi$}
-\WHILE {$\triangle cost \ge c(G)/p(n,\epsilon)$}
-\STATE Find valid add(s)
-\STATE Assign(s,T)
-\STATE Find valid open(s,T) \\
-where $T$ is solution to knapsack problem with knapsack size of u[s]
-\STATE  Find valid close(s,T) \\
-where $T$ is minimal covering kanpsack with knapsack size of u[s] \\
-Calculate $\triangle cost$ for all valid operations\\
-Apply operation to $G$ with best $\triangle cost$
-
-\ENDWHILE
-\\Output G as locally optimal solution\\
-Calculate capacities $\hat{u}[i]$ of placement G\\
-Update $u_{cur}[i]$ to new lower bound if $\hat{u}[i] < u_{prev}[i]$ \\
-\ENDWHILE 
+$CA$: Channel Assignment from Gateway nodes to Mesh nodes\\
+\STATE Initial $S_{current}=G$, $N_{served}=\emptyset$, $N_{unserved}=M$,$I_{active}=\emptyset$
+\STATE Generate 2 hop Adjacency Matrix $A$ from $C$
+\FORALL {$s \in S_{current}$}
+	\STATE Find one-hop nodes $S_{Next}$
+	\STATE Sort $S_Next$ with connection degree, small degree first
+	\FORALL {$l \in S_{Next}$}
+		\STATE Calculate one-hop path efficiency from $s\rightarrow l$
+		\STATE Sort each channel, high frequency first if have same PEN
+		\STATE Assign(s,l) with the best channel to $OC$
+		\STATE Update $N_{served},N_{unserved}$
+		\STATE Update $I_{active}$ from $I$
+	\ENDFOR
+	\STATE $S_{current}=S_{Next}$
 \ENDFOR
-Output G as Solution
+% Round 2, resolve bottle neck problem
+% After above, all node has its shortest path, but exist bottle neck, at least have a connection
+% If could add band, add band to the high occupacied channel
+\STATE Initial $S_{current}=G$, $N_{served}=\emptyset$, $N_{unserved}=M$,$I_{active}=\emptyset$
+\STATE Depth tranverse all gateway rooted tree, calculated child node amount as load weight $W_{i,l}$ for each node
+\FORALL {$s \in S_{current}$}
+	\STATE Find one-hop nodes $S_{Next}$
+	\STATE Sort $S_Next$ with $W_i{i,l}$
+	\STATE Calculate load degree $\sum_{i}W_{i,l}$ of $S_{Next}$, and the percent of each node in $S_{Next}$ 
+	\STATE Let $N_{current}$ be the node with highest load weight
+	\STATE Find all links from high load tree to low weight load tree as $TL_{potential}$, denote the nodes of the links in the high load tree as $N_{high\ load}$
+	\STATE Find the shortest path to all the node of the substree from $N_{high\ load}$, calculate the average hop count $H_{average}$, calculate their average interference as $\bar{I}$
+	\STATE Mark each link in $TL_{potential}$ with $H_{average}$, plus the hop from the node on the link in low load tree to current subtree root
+	\STATE Calculate their PEN with the average $\bar{I}$
+	\STATE Compare the PEN with the PEN adding a channel assignment, then choose the maximum PEN to connect the high load tree and the low load tree
+	\STATE Iterate to the subtree and connect them.
+\ENDFOR
+
+
+\STATE  Find valid close(s,T) \\
+Output $Channel Assignment$ as Solution
 \end{algorithmic}
 \end{algorithm}
       
 
-
-	Hop count is a first-order approximation of the capacity. The relation between the capacity and the hop count is the decrease of the hop count will reduce the contention and increase the capacity in \ref{eq:contention}.
-			The advantage of hop count as the cost function is that it preserves the triangle inequality, which provable the upbound of network capacity.
-The local search operations are not able to know a priori of the placement, we use lower bound estimates for the gateway capacities $u[i]$ and update the capacity every successful interation.
-The process will end when the current sum of the lower bound capacity estimate $u_{cur}[i]$ does not decrease by more than user-chosen parameter $\phi$ from the previouse estimate, $u_{prev}[i]$.
-In the process, subject to the lower capacity bound, we capture the optimal placement. The run time of the ~\emph{Multiband MinHopCount Algorithm} is polynomial in $\frac{1}{\epsilon}$ and $\frac{1}{\phi}$.
-
-			% Calculate the cost
-
-			% Update the deployment
+%FIXME need more explaination of the tree growing algorithm
+The algorithm use the average $\bar{I}$ and average hop count to approach the channel assignment
+In ~\cite{robinson2008adding}, Robinson talked about the bottle neck of a network is the links neighbor to the gateway nodes.
 
 
-\subsection{MinContention}
-\label{subsec:mincontention}
-
-The second approaching, Multiband MinContention, finds the gateway placement that minimizes the average contention in the network.
-The main idea of the Multiband MinContention algorithm is to install $k$ gateways to minimize the average contention on the mesh nodes, related to the links contend with each node and how often these links are used in routes.
-We can not count the total contention on gateways, since the full gateway placement is not known in advance.
-The problem could be mapped to a $k$-median problem ~\cite{robinson2008adding}.
-In this work, we introduce the k-median problem and propose a ~\emph{Multiband MinContention} local search algorithm. We find the placement with the lowest average contention region size.
-
-\subsubsection{k-median}
-The k-Median Problme is a variant of the facility location problem where there are only a fixed number k of facilities that can be opened. The objective is to minimize the cost of connecting all clients to a facility. 
-There is a local search algorithm for the uncapacitated k-median problem with a locality gap of $3+2/p$ ~\cite{arya2004local},
-where the locality gap is the maximum difference between the worst local optimum and the global optimum and the parameter $p$ controls the number of gateways the algorithm considers for simultaneous swapping. 
-This locality gap results in an approximation ratio of $3+\epsilon$. The algorithm repeatedxly swap $p$ open gateways for $p$ unopen gateways iuntil no swaps can improve the solution. Larger $p$ can improve the accuracy but result in exponential increase running time.
-
-For multiband scenario, to employ the local search algorithm, designer need to balance the contention among different bands. It happens that one band may reach the best contention placement but other bands are not in optimization status. The main difference from single band MinContention algorithm is that when we choose an additional gateway node, we try to assign the same number of one hop links for different band. To implement the equal assignment, we prefer to use higher frequency band since there click is smaller than lower frequency band. A similar process is designed to start from assigning higher band first and then lower band with interation.
-
-\subsubsection{Swap-Function}
-~\emph{ Swap-based Local Search}: The Multiband MinContention algorithm is summarized in ~\ref{algorithms:Mincontention}. THe cost of a placement is the sum of the active link weights, which are each sassigned to be the total number of mesh nodes in contention range of the link. 
 
 
-	  \begin{algorithm}
-          \small
-	  \caption{Multiband MinContention Algorithm}
-	  \label{algorithms:Mincontention}
-	  \begin{algorithmic}[1]
-	  \REQUIRE  ~~\\
-		 $M$: The set of all mesh nodes\\
-		 $u_{init}[i]$: Initialize values of capacities
+
+\subsection{Sink To End Path Algorithm}
+\label{subsec:step}
+
+Based on the previous path efficiency analyze, the network efficiency is related to each link's interference and the distance to gateway nodes. To find a path for each mesh node, which could be converge to a shortest weight path detect
+We define weight for each link and improve Dijikstra's algorithm with ~\emph{PEN} weight to find the best path for each mesh node ~\cite{golden1976shortest}.
+To run Dijikstra's algorithm, we define two parameter of each link between two nodes. First is the existing interference of the link $I_w$, we mark the interference of bands as multiple links. 
+The second is the ~\emph{Load Weight} of a link $l_w$, which is the number of path chosen this link. In Dijikstra's algorithm, the weight is calculated as denominator of ~\emph{PEN}, since the numerator is the same among different bands.
+This parameter used to adjust the ~\emph{PEN} with bottle neck links.
+The weight of Dijikstra's algorithm is related to hop order $h_i$ according to the definition of ~\emph{PEN}, the weight is calculated as $I_w\times h_i \times \l_w$.
+We iterately find the best path of each node and update the parameters in the graph.
+
+
+
+
+
+\begin{algorithm}
+    \small
+\caption{Sink To End Path Algorithm}
+\label{algorithms:step}
+\begin{algorithmic}[1]
+\REQUIRE  ~~\\
+	$M$: The set of all mesh nodes\\
+	$G$: The set of gateway nodes\\
+	$C$: Communication graph of potential links among all nodes\\
+	$I$: Interference matrix of all potential links \\
+	$B$: Bands amount
 \ENSURE ~~\\    
-$G$: Installed Gateway Locations \\
-Valid Here means satisfies budget \\
-Start with arbitrary, valid solution G
-\WHILE {$\triangle cost \ge C(G)/p(n,\epsilon)$}
-\STATE Find all valid swap(S,T)\\
-where S is set of p gateways to open\\
-and T is set of p gateways to close
-\STATE Assign(S) \\
-Assign equal number of one hop mesh node for different band
+$CA$: Channel Assignment from Gateway nodes to Mesh nodes\\
+\WHILE {$notAllnodesVisited(M)$}
+\STATE Intialize $CA,I_w,l_w$\\
+		\STATE Run Dijistra's Algorithm with $C,I,B$ to all the Gateways
+		\STATE Compare the $PEN$ to all Gateway node
+		\STATE Choose the best one adding to $CA$
+		\STATE Update $I_w,l_w$
 \STATE Calculate $\triangle cost$ for all valid operations\\
 \STATE Apply $swap$ with largest positive $\triangle cost$
 \ENDWHILE 
 
-Output G as locally optimal solution\\
+Output $CA$ as locally optimal solution\\
 \end{algorithmic}
 \end{algorithm}
 
-\subsubsection{triangle}
-~\emph{Triangle Inequality for Contention} A simple example is a three nodes mesh network. The contention caused by link AB is less than the sum of the contention of links AC and BC. This characteristic is useful to find the minimum contention links.
-
-
-bitcpf: ~\ref{subsec:minhop_intro}
-	  \ref{algorithms: Minihop}
 

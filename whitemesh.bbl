@@ -94,9 +94,26 @@ J.~Robinson, M.~Uysal, R.~Swaminathan, and E.~Knightly, ``Adding capacity
   2008. The 27th Conference on Computer Communications. IEEE}.\hskip 1em plus
   0.5em minus 0.4em\relax IEEE, 2008, pp. 1247--1255.
 
-\bibitem{arya2004local}
-V.~Arya, N.~Garg, R.~Khandekar, A.~Meyerson, K.~Munagala, and V.~Pandit,
-  ``Local search heuristics for k-median and facility location problems,''
-  \emph{SIAM Journal on Computing}, vol.~33, no.~3, pp. 544--562, 2004.
+\bibitem{he2008optimizing}
+B.~He, B.~Xie, and D.~P. Agrawal, ``Optimizing deployment of internet gateway
+  in wireless mesh networks,'' \emph{Computer Communications}, vol.~31, no.~7,
+  pp. 1259--1275, 2008.
+
+\bibitem{ramachandran2006interference}
+K.~N. Ramachandran, E.~M. Belding-Royer, K.~C. Almeroth, and M.~M. Buddhikot,
+  ``Interference-aware channel assignment in multi-radio wireless mesh
+  networks.'' in \emph{INFOCOM}, vol.~6, 2006, pp. 1--12.
+
+\bibitem{golden1976shortest}
+B.~Golden, ``Shortest-path algorithms: A comparison,'' \emph{Operations
+  Research}, pp. 1164--1168, 1976.
+
+\bibitem{matlab}
+MATLAB, \emph{Matlab R2012b}.\hskip 1em plus 0.5em minus 0.4em\relax Natick,
+  Massachusetts: The MathWorks Inc., 2012.
+
+\bibitem{NS3}
+NS-3, \emph{NS-3 Version:3.18.1}.\hskip 1em plus 0.5em minus 0.4em\relax NS-3
+  Community, 2012.
 
 \end{thebibliography}

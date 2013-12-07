@@ -82,6 +82,7 @@ Gateway $g$ services total demand $s_g$ which is the smu of demands on al links 
 s_{gk}=\sum_{j\in link(gk)} \sum_{i=1}^n R[i,j,k]\times I[g,j,k]
 \end{equation}
  
+Previous work treat every link equally with ~\emph{Capacity Gain} with concurrent activite links ~\cite{amiri2010utility}, however, in mesh networks, the links close to the gateway nodes are bottle neck of the network ~\cite{robinson2008adding}.
 The capacity of gateway $g$ as the amount of wireless time $v_g$ required to server $s_g$ units of time for internet service, also a gateway node will provide capacity to the area it located in.
 \begin{equation}
 u_{g}=\sum_{k\in B} s_{gk}/v_{gk}+R[g,k]

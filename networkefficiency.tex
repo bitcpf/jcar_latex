@@ -1,3 +1,5 @@
+\subsection{Path Efficiency over Network}
+\label{subsec:PEN}
 % Talk about the network efficiency for multiband multihop mixed hop
 
 In ~\emph{Multiband Multiradio Network}, 
@@ -61,7 +63,7 @@ $\frac{hT}{c_1}\cdot I_1 + \frac{(h-1)T}{c_2}\cdot I_2 \cdots \frac{T}{c_h}\cdot
 
 \begin{equation}
 \label{eq:originpen}
-E_{PEN}=\frac{T}{\sum_{i \leq h}\frac{i\cdot T}{c_h}\cdot I_i }
+E_{PEN}=\frac{T}{\sum_{i \in h}\frac{(h-i+1)\cdot T}{c_i}\cdot I_i }
 \end{equation}
 
 With protocol model, if link exist, then they have the same capacity $c_1=c_2 \cdots =c_h=c$. 
@@ -71,7 +73,7 @@ The \emph{Path Efficiency over Network}could be represented as:
 
 \begin{equation}
 \label{eq:pen}
-E_{PEN}=(\frac{c}{1+\sum_{i \leq h} i\cdot I_i}
+E_{PEN}=\frac{c}{1+\sum_{i \in h} (h-i+1)\cdot I_i}
 \end{equation}
  
 
@@ -87,8 +89,8 @@ In a path, we use an average interference count $\bar{I}$ replace each interfere
 \frac{c}{1+\frac{h(h-1)}{2}\cdot \bar{I}+X} \geq \frac{c}{1+\frac{h(h+1)}{2}\cdot \bar{I}}
 \end{equation}
 
-From the inequation, when $X \leq 2\cdot h\bar{I}$ a lower band could be better. $X$ is also a function of hop order in the path, generally the path order lower, the threshold would be more strict; otherwise it could be loose. It matches the intuition the hop order is small, it close to the gateway, it should be more crowd for this link.
-It helps to tell the ranking of set of links and a path where we can start to resolve channel assignment problem.
+From the inequation, when $X \leq 2\cdot h\bar{I}$ a lower band could be better. $X$ is also a function of hop order in the path, generally the path order lower, the threshold would be more strict; otherwise it could be loose. It matches the intuition the hop order is small, it close to the gateway, it may interference more links so it needs a stricted constraint.
+It helps to tell the ranking of a set of links and a path where we can start to resolve channel assignment problem.
 
 
 
