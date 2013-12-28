@@ -110,11 +110,6 @@ B.~He, B.~Xie, and D.~P. Agrawal, ``Optimizing deployment of internet gateway
   in wireless mesh networks,'' \emph{Computer Communications}, vol.~31, no.~7,
   pp. 1259--1275, 2008.
 
-\bibitem{ramachandran2006interference}
-K.~N. Ramachandran, E.~M. Belding-Royer, K.~C. Almeroth, and M.~M. Buddhikot,
-  ``Interference-aware channel assignment in multi-radio wireless mesh
-  networks.'' in \emph{INFOCOM}, vol.~6, 2006, pp. 1--12.
-
 \bibitem{golden1976shortest}
 B.~Golden, ``Shortest-path algorithms: A comparison,'' \emph{Operations
   Research}, pp. 1164--1168, 1976.

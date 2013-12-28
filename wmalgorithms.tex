@@ -1,30 +1,31 @@
-\section{Mixed Multiband Multihop Path and Solutions}
+\section{Mixed Multiband Path Analysis}
 \label{sec:wmalgorithms}
 
 
 In this section, we discuss the influence of ~\emph{Multiband} on ~\emph{Multihop Path} in mesh network. 
-Accodirng to these analysis, we develop two algorithms for ~\emph{Multiband Channel Assignment}.
+Accodirng to these analysis, we develop two algorithms for ~\emph{Channel Assignment} in multi-band multi-radio scenario.
 
 % PEN part 
 \input{networkefficiency}
 
 
-The previous discussion provide a way to evaluate different path. But the difficulty of channel assignment is that before the channel assignment has been done, we could not get a final conflict matrix, and we can not evaluate each path accurate.
-Since could not describe how the traffic flow will be assigned, we try to improve the $Minimum\ Path Efficiency over Network$ with at least one connection to the gateway for each mesh node.
-To approach the solution, we propose two local search based algorithms to adapt the multiband scenario. 
+The discussion in \~ref{subsec:PEN} provide the methodology to improve channel assignment. But the difficulty of channel assignment is that before the process has been done, it could no be evaluated to tell which is better.
+To approach the solution, we propose two local search based heuristic algorithms to adapt the multiband scenario. 
 
 
-\subsection{Hop by Hop Tree Grow Algorithm}
-To improve efficiency of a path, one way is to reduce the hop count, another way is to reduce the conflict link counts.
+\subsection{Growing Spanning Tree Algorithm}
 In a mesh network, gateway nodes always building in the most busy location ~\cite{robinson2008adding, he2008optimizing}.
 As the service tree rooted at a gateway grows, the links closer to the gateway, the more interference will happen.
-So a rule to reduce interference is to distribute the links to different channels. Typically a mesh network will be less populated near its edge, in these cases, reduce hop count through lower frequency may bring more benefit. 
-Then a second rule will be use higher freq first at the beginning of the service tree growing. The degree in ~\cite{he2008optimizing} is taken to evaluate the potential connectivity of a mesh node. 
-The mesh node with less degree will be served first since they may not have other options for connection.
-~\cite{ramachandran2006interference} has similar process, but their work focus on multichannel scenario without considering topology difference among bands.
-   % Analyze the complexity of the algorithms, need to know about the two proposed algorithms
+And in the edge of the network, it is less populated in which cases reduce hop count through lower frequency may bring more benefit. 
+The main idea behind the ~\emph{Growing Spanning Tree} Algorithm is 
+to find the link has least interference on the network for each node in a greedy manner each step. The hop count for gateway nodes themselves are 0.
+We first initialize the mesh nodes ranking with the distance to all the gateway nodes. In the ranking order of the mesh nodes, the 1 hop links from gateway nodes ranking with the ~\emph{Path Interference}. Then select the lowest interferred link for this node and update the assignment information for next steps. 
+Iterate these steps to assign channels for all mesh nodes. This process is phase 1 of our algorithm which is similar to but not exactly the same as the breath first search channel assignment. 
 
-   We develop the ~\emph{Hop by Hop Tree Grow} algorithm as shown in ~\ref{algorithms:hoho}.
+In phase 2 of the algorithm, we sort the mesh nodes with their hop count to gateway nodes. 
+The algorithm traverses all the nodes whose hop count are less than the current node. If there are radio slots for the less hop nodes, it is possible to re-connect the mesh node to reduce the hop count. We rank all possible option with their path interference, then choose the lowest one re-connect the mesh node. If there exist new link has the same path interference, we count the number of nodes has connected to the gateway nodes, select the gateway has less node connected. Phase 2 process will be interated till no changes in the network.
+
+The ~\emph{Growing Spanning Tree} Algorithm is described in ~\ref{algorithms:gsp}.
 
 
 % Need to talk about how to improve the bottle neck links,
@@ -36,65 +37,61 @@ The mesh node with less degree will be served first since they may not have othe
 
 \begin{algorithm}
     \small
-\caption{Multiband Hop by Hop Tree Grow Algorithm}
-\label{algorithms:hoho}
+\caption{Multiband Growing Spanning Tree Algorithm}
+\label{algorithms:gsp}
 \begin{algorithmic}[1]
 \REQUIRE  ~~\\
 	 $M$: The set of all mesh nodes\\
 	 $G$: The set of gateway nodes\\
 	 $C$: Communication graph of potential links among all nodes\\
 	 $I$: Interference matrix of all potential links \\
-	 $B$: Bands amount
+	 $B$: Available frequency bands
 \ENSURE ~~\\    
-$CA$: Channel Assignment from Gateway nodes to Mesh nodes\\
+$CA$: Channel Assignment of the Network\\
 \STATE Initial $S_{current}=G$, $N_{served}=\emptyset$, $N_{unserved}=M$,$I_{active}=\emptyset$
-\STATE Generate 2 hop Adjacency Matrix $A$ from $C$
+\STATE Rank mesh nodes according to their distance to gateway nodes
+\WHILE {$N_{served}=M$}
 \FORALL {$s \in S_{current}$}
-	\STATE Find one-hop nodes $S_{Next}$
-	\STATE Sort $S_Next$ with connection degree, small degree first
+	\STATE Find one-hop nodes in $S_{Next}$
+	\STATE Sort $S_Next$ according to distance from gateway nodes, shorter distance first
 	\FORALL {$l \in S_{Next}$}
-		\STATE Calculate one-hop path efficiency from $s\rightarrow l$
-		\STATE Sort each channel, high frequency first if have same PEN
-		\STATE Assign(s,l) with the best channel to $OC$
+		\STATE Calculate one-hop path interference of link $s\rightarrow l$
+		\STATE Sort the links, choose the one has the least path interference
+		\STATE Assign(s,l) with the least interference link
 		\STATE Update $N_{served},N_{unserved}$
 		\STATE Update $I_{active}$ from $I$
 	\ENDFOR
 	\STATE $S_{current}=S_{Next}$
 \ENDFOR
+\ENDWHILE
 % Round 2, resolve bottle neck problem
 % After above, all node has its shortest path, but exist bottle neck, at least have a connection
 % If could add band, add band to the high occupacied channel
-\STATE Initial $S_{current}=G$, $N_{served}=\emptyset$, $N_{unserved}=M$,$I_{active}=\emptyset$
-\STATE Depth tranverse all gateway rooted tree, calculated child node amount as load weight $W_{i,l}$ for each node
-\FORALL {$s \in S_{current}$}
-	\STATE Find one-hop nodes $S_{Next}$
-	\STATE Sort $S_Next$ with $W_i{i,l}$
-	\STATE Calculate load degree $\sum_{i}W_{i,l}$ of $S_{Next}$, and the percent of each node in $S_{Next}$ 
-	\STATE Let $N_{current}$ be the node with highest load weight
-	\STATE Find all links from high load tree to low weight load tree as $TL_{potential}$, denote the nodes of the links in the high load tree as $N_{high\ load}$
-	\STATE Find the shortest path to all the node of the substree from $N_{high\ load}$, calculate the average hop count $H_{average}$, calculate their average interference as $\bar{I}$
-	\STATE Mark each link in $TL_{potential}$ with $H_{average}$, plus the hop from the node on the link in low load tree to current subtree root
-	\STATE Calculate their PEN with the average $\bar{I}$
-	\STATE Compare the PEN with the PEN adding a channel assignment, then choose the maximum PEN to connect the high load tree and the low load tree
-	\STATE Iterate to the subtree and connect them.
+\STATE Sort mesh nodes with their hop counts to gateway nodes $N_{sorted}$
+\WHILE {Change of Channel Assignment Exist} 
+\FORALL {$s \in N_{sorted}$}
+	\STATE Tranverse all the 1 hop arrived nodes have less hop count than node $s$ 
+	\STATE Check if these nodes have radio slots for node $s$
+	\STATE Sort path through possible nodes with the path interference
+	\STATE Choose a new path if it has less interference than the previous one
+	\STATE If more than one path has the same interference, choose the gateway node has least leaves nodes 
 \ENDFOR
+\ENDWHILE
 
-
-\STATE  Find valid close(s,T) \\
 Output $Channel Assignment$ as Solution
 \end{algorithmic}
 \end{algorithm}
       
 
 %FIXME need more explaination of the tree growing algorithm
-The algorithm use the average $\bar{I}$ and average hop count to approach the channel assignment
-In ~\cite{robinson2008adding}, Robinson talked about the bottle neck of a network is the links neighbor to the gateway nodes.
+%The algorithm use the average $\bar{I}$ and average hop count to approach the channel assignment
+%In ~\cite{robinson2008adding}, Robinson talked about the bottle neck of a network is the links neighbor to the gateway nodes.
 
 
 
 
 
-\subsection{Sink To End Path Algorithm}
+\subsection{Best Path Selection Algorithm}
 \label{subsec:step}
 
 Based on the previous path efficiency analyze, the network efficiency is related to each link's interference and the distance to gateway nodes. To find a path for each mesh node, which could be converge to a shortest weight path detect
