@@ -26,7 +26,7 @@ such as the daily changes of environment, weather, and atmosphere changes due to
 In most propagation models there are three basic propagation mechanisms: reflection, diffraction, and scattering ~\cite{andersen1995propagation}.
 For multiband mesh backhual network, the nodes are usually installed on the top of buildings or towers. That makes a line of sight propagation model is a reasonable hypotheses for multiband mesh.
 % propagation fomular, explain the band influence
-In \emph{Friis} propogation model, the received signal power of a node is represented as: 
+In \emph{Friis} propagation model, the received signal power of a node is represented as: 
 \begin{equation}
 \label{eq:friis}
 P_r=P_t+G_t+G_r+20log_{10}(\frac{\lambda}{4\pi R})
@@ -75,7 +75,7 @@ In ~\emph{Protocol Model}, the interference exist as conflict contention when th
 The ~\emph{Gateway Nodes} and ~\emph{Mesh Nodes} locations are given. 
 %In a network, ~\emph{Channel Assignment} naturally binds with a routing protocol for application, but have different target. We bind our model with a ~\emph{Shortest Path Routing} protocol for ~\emph{Channel Assignment} application and evaluation.
 Other input information includes, transmitting power, antenna gains, communication and interference threshold. From ~\emph{Friis Model}, we could get ~\emph{Communication Range} and ~\emph{Interference Range} of each link in different band. 
-Multiband multi-radio wireless network could be modelled as an undirected graph $G=(V,E)$ according to the communication range and interference range. $V$ is noted as the nodes, and $E$ marked as the links in the network.
+Multiband multi-radio wireless network could be formulated as an undirected graph $G=(V,E)$ according to the communication range and interference range. $V$ is noted as the nodes, and $E$ marked as the links in the network.
 
 The channel assignment is represented as ~\emph{Connectivity Graph}, $C=(V,L,B)$, $L$ denotes the set of links, $B$ denotes the set of frequency bands. 
 The capacity between two nodes in common channel is noted as $C_{lb}, l \in L,b \in B$. If they are physically located within each others communication range of a band, the value of $C_{lb}$ would be a constant value, otherwise, it is zero. 
@@ -93,8 +93,8 @@ To approach the optimization channel assignment, we develop a mixed linear integ
 
 \subsection{Evaluation Metric}
 \label{subsec:metric}
-~\emph{Mesh Network} is designed to provide service for clients. The goal of a backhual network is to maximize its overall goodput within a unit time. 
-This enables the network to support more end-user flows, and in turn more number of users. To evaluate the assignment, we use the idea of ~\emph{Gateway Goodput} of the network. The gateway goodput X of a network is defined as
+~\emph{Mesh Network} is designed to provide service for clients. The goal of a backhual network is to maximize its overall good put within a unit time. 
+This enables the network to support more end-user flows, and in turn more number of users. To evaluate the assignment, we use the idea of ~\emph{Gateway Good put} of the network. The gateway good put X of a network is defined as
 
 \begin{equation}
 \label{eq:goodput}
@@ -102,6 +102,6 @@ X=\sum_{g \in G, v \in V}C(g,v)
 \end{equation}
 
 In ~\cite{robinson2008adding}, Robinson proves the bottle neck of mesh network capacity is the gateway wireless connection. 
-The gateway goodput is the traffic arrive at the gateway node and relay to the wired Internet. The goodput performance is correlated with gateway placement, channel assignment and routing. 
-The calculation of ~\emph{Gateway Goodput} is described in ~\ref{sec:experiment design} .Jointly optimization of channel assignment, gateway placement, and routing is out of the scope of this paper.
+The gateway good put is the traffic arrive at the gateway node and relay to the wired Internet. The good put performance is correlated with gateway placement, channel assignment and routing. 
+The calculation of ~\emph{Gateway Good put} is described in ~\ref{sec:experiment design} .Jointly optimization of channel assignment, gateway placement, and routing is out of the scope of this paper.
 

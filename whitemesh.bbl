@@ -114,12 +114,52 @@ B.~He, B.~Xie, and D.~P. Agrawal, ``Optimizing deployment of internet gateway
 B.~Golden, ``Shortest-path algorithms: A comparison,'' \emph{Operations
   Research}, pp. 1164--1168, 1976.
 
-\bibitem{matlab}
-MATLAB, \emph{Matlab R2012b}.\hskip 1em plus 0.5em minus 0.4em\relax Natick,
-  Massachusetts: The MathWorks Inc., 2012.
+\bibitem{avallone2008channel}
+S.~Avallone and I.~F. Akyildiz, ``A channel assignment algorithm for
+  multi-radio wireless mesh networks,'' \emph{Computer Communications},
+  vol.~31, no.~7, pp. 1343--1353, 2008.
 
-\bibitem{NS3}
-NS-3, \emph{NS-3 Version:3.18.1}.\hskip 1em plus 0.5em minus 0.4em\relax NS-3
-  Community, 2012.
+\bibitem{robinson2010deploying}
+J.~Robinson, M.~Singh, R.~Swaminathan, and E.~Knightly, ``Deploying mesh nodes
+  under non-uniform propagation,'' in \emph{INFOCOM, 2010 Proceedings
+  IEEE}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, 2010, pp. 1--9.
+
+\bibitem{draves2004routing}
+R.~Draves, J.~Padhye, and B.~Zill, ``Routing in multi-radio, multi-hop wireless
+  mesh networks,'' in \emph{Proceedings of the 10th annual international
+  conference on Mobile computing and networking}.\hskip 1em plus 0.5em minus
+  0.4em\relax ACM, 2004, pp. 114--128.
+
+\bibitem{ramachandran2006interference}
+K.~N. Ramachandran, E.~M. Belding-Royer, K.~C. Almeroth, and M.~M. Buddhikot,
+  ``Interference-aware channel assignment in multi-radio wireless mesh
+  networks.'' in \emph{INFOCOM}, vol.~6, 2006, pp. 1--12.
+
+\bibitem{JaPaPaQi03}
+K.~Jain, J.~Padhye, V.~Padmanabhan, and L.~Qiu, ``Impact of interference on
+  multi-hop wireless network performance,'' in \emph{Proceedings of {ACM
+  MobiCom} '03}, San Diego, CA, Sept. 2003.
+
+\bibitem{subramanian2008minimum}
+A.~P. Subramanian, H.~Gupta, S.~R. Das, and J.~Cao, ``Minimum interference
+  channel assignment in multiradio wireless mesh networks,'' \emph{Mobile
+  Computing, IEEE Transactions on}, vol.~7, no.~12, pp. 1459--1473, 2008.
+
+\bibitem{wu2006analysis}
+X.~Wu, J.~Liu, and G.~Chen, ``Analysis of bottleneck delay and throughput in
+  wireless mesh networks,'' in \emph{Mobile Adhoc and Sensor Systems (MASS),
+  2006 IEEE International Conference on}.\hskip 1em plus 0.5em minus
+  0.4em\relax IEEE, 2006, pp. 765--770.
+
+\bibitem{raniwala2005architecture}
+A.~Raniwala and T.~Chiueh, ``Architecture and algorithms for an ieee
+  802.11-based multi-channel wireless mesh network,'' in \emph{INFOCOM 2005.
+  24th Annual Joint Conference of the IEEE Computer and Communications
+  Societies. Proceedings IEEE}, vol.~3.\hskip 1em plus 0.5em minus 0.4em\relax
+  Ieee, 2005, pp. 2223--2234.
+
+\bibitem{wang2010game}
+B.~Wang, Y.~Wu, and K.~Liu, ``Game theory for cognitive radio networks: An
+  overview,'' \emph{Computer Networks}, vol.~54, no.~14, pp. 2537--2561, 2010.
 
 \end{thebibliography}

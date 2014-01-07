@@ -9,7 +9,7 @@
 % Paper organization
 
 % Wireless Network
-~\emph{Wireless Mesh Network}(WMN) is typically mentioned as a multihop wireless network onsisting of a large number of wireless nodes, some of which have wired connection as gateway nodes. Many researchers paid attention to the potential applications of WMN, including last-mile broadband Internet access, last-mile smart grid terminals, neighborhood gaming, and so on ~\cite{bahl2004opportunities}.
+~\emph{Wireless Mesh Network}(WMN) is typically mentioned as a multihop wireless network consisting of a large number of wireless nodes, some of which have wired connection as gateway nodes. Many researchers paid attention to the potential applications of WMN, including last-mile broadband Internet access, last-mile smart grid terminals, neighborhood gaming, and so on ~\cite{bahl2004opportunities}.
 The bottleneck of the applications is that today's WMN still cannot offer enough capacity for customers. The maximum link-layer data rate falls quickly with increasing distance between the transmitter and receiver. The bandwidth problem is further aggravated for multi-hop scenarios because of interference from its neighbor links. Researchers have proposed several ~\emph{Multi-Radio} solutions for the bandwidth problem with the permission of using non-overlapping frequency channels simultaneously~\cite{raniwala2004centralized,tang2005interference,si2010overview}.
 However, these works only focus on increasing the bandwidth by reducing the interference in WMN. ~\emph{White Space Bands} provide opportunities to improve the performance through both reducing interference and building long distance links. 
 
@@ -27,7 +27,7 @@ Obviously, these white space band long distance link is an economic way to provi
 Also, as a kind of multi-radio architecture, \emph{Multi-band Multi-radio Mesh Network} has the advantages of \emph{Multi-Channel Mesh Network} who has more bandwidth to increase the network capacity. 
 Benefits and challenges of ~\emph{White Space Bands} are from these two characteristics in channel assignment. 
 
-~\emph{Channel assignment} is to build virtual links among different nodes according to their radios. A channel assignment has to keep several constraints, such as connection, radio amount limition, and so on.
+~\emph{Channel assignment} is to build virtual links among different nodes according to their radios. A channel assignment has to keep several constraints, such as connection, radio amount limitation, and so on.
 The problem is has been proved as a NP-Hard problem.~\cite{jain2005impact}. 
 Previous work in ~\emph{Multi-Channel Multi-Radios} scenarios could be seen as partial solution of ~\emph{Multi-band Multi-Radio} problem without considering the propagation difference of links in multiple bands.
 These works target on different objective with multiple methodology. Ashish ~\cite{raniwala2004centralized} use \emph{Load Aware Channel Assignment} to approach the channel assignment optimization in network capacity; Jian ~\cite{tang2005interference} employ a channel partition methodology to improve the interference of channel assignment; In ~\cite{jain2005impact}, Kamal describe the up-bound and lower-band based on ~\emph{Conflict Graph}.
@@ -43,10 +43,10 @@ Our hypothesis includes we have the node locations, available bands, path loss e
 Pearlman et. show that path load balancing provides negligible performance improvement, we limit each mesh node connect only one gateway nodes ~\cite{pearlman2000impact}.
 This work focus on the backhual layer, with the assumption the access layer is using different ISM channels from backhual layer.
 %Describe algorithms
-To get an approaching channel assignment, we propose a ~\emph{Path Interference over Network} (PEN) to evaluate each link and path in the network. Based on this parameter, we develop 2 novel channel assignment heuristic algorithms for the ~\emph{Multiband Multi-radio Wireless Mesh Network}. 
+To get an approaching channel assignment, we propose a ~\emph{Path Interference over Network} (PIN) to evaluate each link and path in the network. Based on this parameter, we develop 2 novel channel assignment heuristic algorithms for the ~\emph{Multiband Multi-radio Wireless Mesh Network}. 
 % Fix the name
-The first algorithm is a tree generated process to reduce hop count avoiding interference. The second algorithm starts from the furthest node then iteration improve the \emph{Path Interference over Network} (PEN) to improve the channel assignment.
-To better understand channel assignment problem, we propose a linear optimization model to describe constraints of such a network with more detailed constraints. Though, this model is NP-Hard which could not be resolved in a polynomial time, it helps to understandstand the performance of a multi-band multi-radio wireless network. 
+The first algorithm is a tree generated process to reduce hop count avoiding interference. The second algorithm starts from the furthest node then iteration improve the \emph{Path Interference over Network} (PIN) to improve the channel assignment.
+To better understand channel assignment problem, we propose a linear optimization model to describe constraints of such a network with more detailed constraints. Though, this model is NP-Hard which could not be resolved in a polynomial time, it helps to understand the performance of a multi-band multi-radio wireless network. 
 
 % Contribution
 % problem/environment propose
@@ -56,7 +56,7 @@ The main contributions of our work are as follows:
 \begin{itemize}
 \item We formulate the heterogeneous ~\emph{Multiband Multi-radio} architecture with channel assignment problem and propose a ~\emph{Integer Linear Program} model for analyzing.  
 
-\item We propose a  parameter ~\emph{Path Interference over Network} (PEN) to evaluate mixed ~\emph{Multiband Multi-hop Path}.
+\item We propose a  parameter ~\emph{Path Interference over Network} (PIN) to evaluate mixed ~\emph{Multiband Multi-hop Path}.
 
 \item We develop 2 heuristic algorithms,1,2, to approach the channel assignment solution.
 % Also should we consider the cost of different kind of nodes (1 radio, 2 radios, 3 radios )

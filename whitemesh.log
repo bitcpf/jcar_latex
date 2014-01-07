@@ -1,4 +1,4 @@
-This is pdfeTeX, Version 3.141592-1.21a-2.2 (Web2C 7.5.4) (format=latex 2012.4.6)  27 DEC 2013 23:23
+This is pdfeTeX, Version 3.141592-1.21a-2.2 (Web2C 7.5.4) (format=latex 2012.4.6)  5 JAN 2014 22:44
 entering extended mode
 **whitemesh
 (./whitemesh.tex
@@ -340,18 +340,16 @@ Overfull \hbox (48.21666pt too wide) in paragraph at lines 37--45
 []\OT1/ptm/m/n/10 Variables: [] 
  []
 
-
-Underfull \vbox (badness 2065) has occurred while \output is active []
-
- [3])
-(./wmalgorithms.tex (./networkefficiency.tex [4]
+[3]) (./wmalgorithms.tex (./networkefficiency.tex [4]
 File: figures/networkefficiency.eps Graphic file (type eps)
 
-<figures/networkefficiency.eps>) [5]
+<figures/networkefficiency.eps>) [5]) (./experiment.tex [6]
+File: figures/maxtpt.eps Graphic file (type eps)
 
-LaTeX Warning: Command \l invalid in math mode on input line 102.
-
-) (./experiment_design.tex) (./conclusion.tex) (./whitemesh.bbl [6])
+<figures/maxtpt.eps>
+File: figures/varysize.eps Graphic file (type eps)
+ <figures/varysize.eps>) (./related.tex) (./conclusion.tex) (./whitemesh.bbl [7
+])
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -363,20 +361,18 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[7
-
-] (./whitemesh.aux)
+[8] (./whitemesh.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 2844 strings out of 94501
- 39289 string characters out of 1176790
+ 2861 strings out of 94501
+ 39569 string characters out of 1176790
  98923 words of memory out of 1000000
- 5946 multiletter control sequences out of 10000+50000
+ 5958 multiletter control sequences out of 10000+50000
  30696 words of font info for 80 fonts, out of 500000 for 2000
  580 hyphenation exceptions out of 1000
  27i,10n,24p,627b,515s stack positions out of 1500i,500n,5000p,200000b,5000s
 
-Output written on whitemesh.dvi (7 pages, 54428 bytes).
+Output written on whitemesh.dvi (8 pages, 65496 bytes).

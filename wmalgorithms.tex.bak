@@ -1,0 +1,152 @@
+\section{Mixed Multiband Path Analysis}
+\label{sec:wmalgorithms}
+
+
+In this section, we discuss the influence of ~\emph{Multiband} on ~\emph{Multihop Path} in mesh network. 
+Accodirng to these analysis, we develop two algorithms for ~\emph{Channel Assignment} in multi-band multi-radio scenario.
+
+% PEN part 
+\input{networkefficiency}
+
+
+The discussion in \~ref{subsec:PEN} provide the methodology to improve channel assignment. But the difficulty of channel assignment is that before the process has been done, it could no be evaluated to tell which is better.
+To approach the solution, we propose two local search based heuristic algorithms to adapt the multiband scenario. 
+
+
+\subsection{Growing Spanning Tree Algorithm}
+In a mesh network, gateway nodes always building in the most busy location ~\cite{robinson2008adding, he2008optimizing}.
+As the service tree rooted at a gateway grows, the links closer to the gateway, the more interference will happen.
+And in the edge of the network, it is less populated in which cases reduce hop count through lower frequency may bring more benefit. 
+The main idea behind the ~\emph{Growing Spanning Tree} Algorithm is 
+to find the link has least interference on the network for each node in a greedy manner each step. The hop count for gateway nodes themselves are 0.
+We first initialize the mesh nodes ranking with the distance to all the gateway nodes. In the ranking order of the mesh nodes, the 1 hop links from gateway nodes ranking with the ~\emph{Path Interference}. Then select the lowest interferred link for this node and update the assignment information for next steps. 
+Iterate these steps to assign channels for all mesh nodes. This process is phase 1 of our algorithm which is similar to but not exactly the same as the breath first search channel assignment. 
+
+In phase 2 of the algorithm, we sort the mesh nodes with their hop count to gateway nodes. 
+The algorithm traverses all the nodes whose hop count are less than the current node. If there are radio slots for the less hop nodes, it is possible to re-connect the mesh node to reduce the hop count. We rank all possible option with their path interference, then choose the lowest one re-connect the mesh node. If there exist new link has the same path interference, we count the number of nodes has connected to the gateway nodes, select the gateway has less node connected. Phase 2 process will be interated till no changes in the network.
+
+The ~\emph{Growing Spanning Tree} Algorithm is described in ~\ref{algorithms:gsp}.
+
+
+% Need to talk about how to improve the bottle neck links,
+%FIXME talk about BFS-CA 
+
+
+
+
+
+\begin{algorithm}
+    \small
+\caption{Multiband Growing Spanning Tree Algorithm}
+\label{algorithms:gsp}
+\begin{algorithmic}[1]
+\REQUIRE  ~~\\
+	 $M$: The set of all mesh nodes\\
+	 $G$: The set of gateway nodes\\
+	 $C$: Communication graph of potential links among all nodes\\
+	 $I$: Interference matrix of all potential links \\
+	 $B$: Available frequency bands
+\ENSURE ~~\\    
+$CA$: Channel Assignment of the Network\\
+\STATE Initial $S_{current}=G$, $N_{served}=\emptyset$, $N_{unserved}=M$,$I_{active}=\emptyset$
+\STATE Rank mesh nodes according to their distance to gateway nodes
+\WHILE {$N_{served}=!M$}
+\FORALL {$s \in S_{current}$}
+	\STATE Find one-hop nodes in $S_{Next}$
+	\STATE Sort $S_Next$ according to distance from gateway nodes, shorter distance first
+	\FORALL {$l \in S_{Next}$}
+		\STATE Calculate one-hop path interference of link $s\rightarrow l$
+		\STATE Sort the links, choose the one has the least path interference
+		\STATE Assign(s,l) with the least interference link
+		\STATE Update $N_{served},N_{unserved}$
+		\STATE Update $I_{active}$ from $I$
+	\ENDFOR
+	\STATE $S_{current}=S_{Next}$
+\ENDFOR
+\ENDWHILE
+\STATE Sort mesh nodes with their hop counts to gateway nodes $N_{sorted}$
+\WHILE {Change of Channel Assignment Exist} 
+\FORALL {$s \in N_{sorted}$}
+	\STATE Tranverse all the 1 hop arrived nodes have less hop count than node $s$ 
+	\STATE Check if these nodes have radio slots for node $s$
+	\STATE Sort path through possible nodes with the path interference
+	\STATE Choose a new path if it has less interference than the previous one
+	\STATE If more than one path has the same interference, choose the gateway node has least leaves nodes 
+\ENDFOR
+\ENDWHILE
+
+Output $Channel Assignment$ as Solution
+\end{algorithmic}
+\end{algorithm}
+      
+
+
+% Talk a little bit about the tree growing and continue to the best path
+The ~\emph{Growing Spanning Tree} Algorithm greedy assign a single link to the network and balance the gateway load in the adjust process. The BFS complexity is $O(n^2)$, sorting of nodes is $O(nlogn)$. Hence assigning a node takes $O(n^2)$ time. Thus the complexity of the assignment is $O(n^3)$.
+
+
+
+
+
+
+
+
+
+\subsection{Best Path Selection Algorithm}
+\label{subsec:step}
+
+The ~\emph{Growing Sapanning Tree} Algorithm starts from the gateway nodes to generate the channel assignment, in contrast, ~\emph{Best Path Selection} Algorithm starts from the mesh node who has the largest distance from the gateway nodes.
+When a path is select for such a node, the relay node on the path is served. 
+The main idea behind the ~\emph{Best Path Selection} Algorithm is to improve the worst path in the network. 
+
+The algorithm first sort the mesh nodes in order of their distance to any gateway nodes. Then we select the mesh node has the furthest distance to gateway nodes. In the network, it is impossible tranverse all the path with different combination of bands from a mesh node to any gateway nodes. Based on the analysis in ~\ref{subsec:PEN}, if paths has the same bands combinations, a shortest path most of the time could have the best performance.
+In the same path under a bands combination, we will choose the link in a channel has the least interference.
+ In case two path has the same path interference, we choose the path who has more high frequency links for spacing re-use.
+Thus, the next step of the algorithm is to find the shortest path in different bands combinations. Comparing to the number of mesh nodes, the amount of channels $b$ in different bands is small. The time complexity of calculation the combination is $O(2^b)$. 
+The second path of finding the shortest path in Dijkstra algorithm will cost $O(E^2)$ ~\cite{golden1976shortest}, $E$ is the links in the network. So the total would be $O(E^2\cdot 2^b)$.
+Then the algorithm calculate the ~\emph{Path Interference} of the candidate path and select the path will bring the least interference to the network for the starting mesh node.
+
+After a path is assigned, the algorithm update the network assignment with served nodes, activated links, and nodes' radio information. Then we assign the next node till all the mesh nodes are connected in the network.
+
+The ~\emph{Best Path Selection} Algorithm is described in ~\ref{algorithms:bps}.
+
+\begin{algorithm}
+    \small
+\caption{Best Path Selection Algorithm}
+\label{algorithms:bps}
+\begin{algorithmic}[1]
+\REQUIRE  ~~\\
+	$M$: The set of all mesh nodes\\
+	$G$: The set of gateway nodes\\
+	$C$: Communication graph of potential links among all nodes\\
+	$I$: Interference matrix of all potential links \\
+	$B$: Available frequency bands
+\ENSURE ~~\\    
+$CA$: Channel Assignment of the Network\\
+\STATE Rank mesh nodes according to their distance to gateway nodes
+\STATE Initial $S_{current}=G$, $N_{served}=\emptyset$, $N_{unserved}=M$,$I_{active}=\emptyset$
+\WHILE {$N_{served}=!M$}
+\STATE Select the node has the largest distance to gateway nodes
+\STATE Find the Adjacency Matrix in different bands combinations $A_c$
+\FORALL{$A_{i}\in A_c$}
+\STATE Find the shortest path $SP_i$ in the mixed adjacency matrix A 
+\FORALL{Link $l \in SP_i$ in order from Gateway node to mesh node}
+\STATE Find the link has less interference
+\STATE If there are links have the same interference, choose high frequency
+\STATE Calculate the path interference of path $SP_i$
+\ENDFOR
+\STATE Store the shortest path $SP_i$ in as $SP$
+\ENDFOR
+\STATE Assign the path in the Network\\
+		\STATE Update $N_{served},N_{unserved}$
+		\STATE Update $I_{active}$ from $I$
+\ENDWHILE 
+
+Output $CA$ as locally optimal solution\\
+\end{algorithmic}
+\end{algorithm}
+
+The complexity of the assign a node would be $O(E^2\cdot2^b)$, which could be marked as $O(n^2\cdot2^b)$, $n$ is the mesh node number.
+ To assign all the node in the network, the complexity would be $O(n^3\cdot2^b)$.
+
+

@@ -1,29 +1,27 @@
 \section{Related Work}
 \label{sec:related}
 
-A number of papers have been published on the problem of channel assignment for a multi-hop mesh network.
+A number of papers have been published on the problem of channel assignment for a multi-hop mesh network. ~\cite{jain2005impact,akyildiz2005wireless,raniwala2004centralized}. 
+However, none of them is adaptive to the propagation difference in the wireless mesh network.
+Prior research could be classified as ~\emph{Static Channel Assignment} and ~\emph{Dynamic Channel Assignment}.
+The ~\emph{Static Channel Assignment} focus on assigning a network once with everything known of the network~\cite{subramanian2008minimum}.
+The ~\emph{Dynamic Channel Assignment} is to resolve the channel assignment according to dynamic parameters, such as demand, dynamic interference ~\cite{wu2006analysis,ramachandran2006interference}.
+
+A simple approach ~\emph{Common Channel Assignment} (CCA) for utilizing multi-radios network is
+presented in ~\cite{draves2004routing}, though the main purpose of the author is to have multi-raidos working for routing
+to benefit from multi-channel structure. 
+Further investigations include ~\cite{marina2010topology} and i~\cite{raniwala2004centralized} show that it is possible to improve the performance of multi-channel network by applying smart channel assignment algorithms. 
 
 
-
-
-Since FCC ruling obviated mandatory spectrum sensing in whtie spaces networks, prior research in UHF white spaces has focused on accurate detecting the primary user ~\cite{kim2008fast}; assigning white spaces channels ~\cite{bahl2009white}.
-In ~\cite{murty2012senseless}, database is applied to detect white space channel.
-Employing the energy advantage of UHF bands is proposed to improve the performance for indoor networks ~\cite{radunovic2010rethinking}.   
-
-
-In ~\cite{robinson2010deploying}, a placement algorithm for wireless mesh networks is proposed for white space bands.
-
-However, these works only focus on white space bands fails to connect the ISM bands and tons fo existing wireless devices for pratical application.
-
- %Multichannel works
- Tons of works have been done for multichannel multiradio.
-
- Cognitive Radios
-
-
-% Heternegeous networks
-
-
-% Multiradio disadvantage
-Previous works has shown that multiradios in the same band do not use the second radio efficiently ~\cite{robinson2007performance}.
+Assuming the knowledge of the set of connection request to be routed, both an optimal algorithm based on solving a Linear Programming an a simple heuristic are proposed to route such requests given the link bandwidth availability determined by the computed channel assignment in ~\cite{tang2005interference}. 
+These formulation are NP-hard problems, the authors solve the LP relaxation of the problem. The output is a network flow along with a possibly unfeasible channel assignment. 
  
+
+% Distributed
+Distributed channel assignment and routing algorithms are developed based on game theory ~\cite{raniwala2005architecture,wang2010game}.Nodes advertise their cost to reach the gateway they are currently associated with.
+Cost dynamically changes as it depends on residual bandwidth to achieve load balancing. If a node is notified of a less cost path towards another gateway, it starts a procedure to associate with that gateway. If the cost of a path is less than current occupacied path, the node starts evaluate wheather to associate the new path. 
+Since cost is dynamic, the strategy may leadd to route flaps and to a non convergent network behavior. Thus the equilibrium need to be carefully designed.
+
+
+
+% Game theory? 
