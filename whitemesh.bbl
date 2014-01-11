@@ -133,6 +133,23 @@ B.~He, B.~Xie, and D.~P. Agrawal, ``Optimizing deployment of internet gateway
 B.~Golden, ``Shortest-path algorithms: A comparison,'' \emph{Operations
   Research}, pp. 1164--1168, 1976.
 
+\bibitem{Ubnt}
+``Ubiquiti xtremerange series of radio,'' http://www.ubnt.com/, 2012.
+
+\bibitem{cui2013leveraging}
+P.~Cui, H.~Liu, J.~He, O.~Altintas, R.~Vuyyuru, D.~Rajan, and J.~Camp,
+  ``Leveraging diverse propagation and context for multi-modal vehicular
+  applications,'' in \emph{Wireless Vehicular Communications (WiVeC), 2013 IEEE
+  5th International Symposium on}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE,
+  2013, pp. 1--5.
+
+\bibitem{raniwala2005architecture}
+A.~Raniwala and T.~Chiueh, ``Architecture and algorithms for an ieee
+  802.11-based multi-channel wireless mesh network,'' in \emph{INFOCOM 2005.
+  24th Annual Joint Conference of the IEEE Computer and Communications
+  Societies. Proceedings IEEE}, vol.~3.\hskip 1em plus 0.5em minus 0.4em\relax
+  Ieee, 2005, pp. 2223--2234.
+
 \bibitem{avallone2008channel}
 S.~Avallone and I.~F. Akyildiz, ``A channel assignment algorithm for
   multi-radio wireless mesh networks,'' \emph{Computer Communications},
@@ -164,13 +181,6 @@ X.~Wu, J.~Liu, and G.~Chen, ``Analysis of bottleneck delay and throughput in
   wireless mesh networks,'' in \emph{Mobile Adhoc and Sensor Systems (MASS),
   2006 IEEE International Conference on}.\hskip 1em plus 0.5em minus
   0.4em\relax IEEE, 2006, pp. 765--770.
-
-\bibitem{raniwala2005architecture}
-A.~Raniwala and T.~Chiueh, ``Architecture and algorithms for an ieee
-  802.11-based multi-channel wireless mesh network,'' in \emph{INFOCOM 2005.
-  24th Annual Joint Conference of the IEEE Computer and Communications
-  Societies. Proceedings IEEE}, vol.~3.\hskip 1em plus 0.5em minus 0.4em\relax
-  Ieee, 2005, pp. 2223--2234.
 
 \bibitem{wang2010game}
 B.~Wang, Y.~Wu, and K.~Liu, ``Game theory for cognitive radio networks: An

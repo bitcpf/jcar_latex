@@ -1,4 +1,4 @@
-This is pdfeTeX, Version 3.141592-1.21a-2.2 (Web2C 7.5.4) (format=latex 2012.4.6)  10 JAN 2014 23:38
+This is pdfeTeX, Version 3.141592-1.21a-2.2 (Web2C 7.5.4) (format=latex 2012.4.6)  11 JAN 2014 11:59
 entering extended mode
 **whitemesh
 (./whitemesh.tex
@@ -367,17 +367,16 @@ File: figures/maxtpt.eps Graphic file (type eps)
 
 <figures/maxtpt.eps>
 File: figures/varysize.eps Graphic file (type eps)
- <figures/varysize.eps>
-Overfull \hbox (1.70097pt too wide) in paragraph at lines 72--93
- [][] 
- []
-
-[7]
-File: figures/varyradios.eps Graphic file (type eps)
- <figures/varyradios.eps>
+ <figures/varysize.eps> [7]
 File: figures/wifiws.eps Graphic file (type eps)
- <figures/wifiws.eps>) (./related.tex)
-(./conclusion.tex) (./whitemesh.bbl [8]
+ <figures/wifiws.eps>
+File: figures/varyradios.eps Graphic file (type eps)
+
+<figures/varyradios.eps>) (./related.tex
+Underfull \vbox (badness 8189) has occurred while \output is active []
+
+)
+(./conclusion.tex [8]) (./whitemesh.bbl
 Underfull \hbox (badness 4193) in paragraph at lines 30--35
 []\OT1/ptm/m/n/8 J. Cheng. (2008, May) Philadel-phia's mu-nic-i-
  []
@@ -401,12 +400,12 @@ Before submitting the final camera ready copy, remember to:
 
 [9] (./whitemesh.aux) ) 
 Here is how much of TeX's memory you used:
- 2944 strings out of 94501
- 40566 string characters out of 1176790
- 99315 words of memory out of 1000000
- 6028 multiletter control sequences out of 10000+50000
+ 2946 strings out of 94501
+ 40591 string characters out of 1176790
+ 99323 words of memory out of 1000000
+ 6030 multiletter control sequences out of 10000+50000
  33000 words of font info for 88 fonts, out of 500000 for 2000
  580 hyphenation exceptions out of 1000
  27i,10n,24p,576b,515s stack positions out of 1500i,500n,5000p,200000b,5000s
 
-Output written on whitemesh.dvi (9 pages, 73472 bytes).
+Output written on whitemesh.dvi (9 pages, 76516 bytes).
