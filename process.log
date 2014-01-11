@@ -6,4 +6,3 @@ Design experiment in NS3, no way to yield it
 
 1, Matlab build the network topology
 2, Matlab output the topology 
-3, NS3 take care of the throughput, delay and so on

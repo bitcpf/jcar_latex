@@ -1,6 +1,7 @@
 \section{Problem Formulation}
 \label{sec:problemformulation}
 
+
 % Organization of the Sec
 In this section, we describe the multi-band multi-radio wireless mesh network architecture, and formulate the key research issue channel assignment. 
 We propose a linear program to understand the architecture and illustrate the challenges of the problem.
@@ -38,12 +39,14 @@ This variation makes the performance of radios in multiple bands different even 
 
 %In multiband scenario, both wired ~\emph{Gateway Nodes} and ~\emph{Mesh Nodes} are equipped with multiple radios working in different frequency band, including ISM bands and white space bands. The radios could work simultaneously bringing more capacity to the network which is a evolution of ~\emph{Multi-channel Multi-Radio Mesh Network} with radios working in the same band in different channels.
 
+
+
 \begin{figure}                                                                                                                     
 %\vspace{-0.0in}
 \centering
 \includegraphics[width=74mm]{figures/interferencerange}
 \vspace{-0.1in}
-\caption{Multiband Communication and Interference Range}
+\caption{Varying Multiband Communication and Interference Range}
 \label{fig:interferencerange}
 %\vspace{-0.0in}
 \end{figure}
@@ -103,5 +106,5 @@ X=\sum_{g \in G, v \in V}C(g,v)
 
 In ~\cite{robinson2008adding}, Robinson proves the bottle neck of mesh network capacity is the gateway wireless connection. 
 The gateway good put is the traffic arrive at the gateway node and relay to the wired Internet. The good put performance is correlated with gateway placement, channel assignment and routing. 
-The calculation of ~\emph{Gateway Good put} is described in ~\ref{sec:experiment design} .Jointly optimization of channel assignment, gateway placement, and routing is out of the scope of this paper.
+The calculation of ~\emph{Gateway Good put} is described in ~\ref{sec:experimentdesign} .Jointly optimization of channel assignment, gateway placement, and routing is out of the scope of this paper.
 

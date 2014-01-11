@@ -18,9 +18,42 @@
 \fi
 #2}}
 
-\bibitem{bahl2004opportunities}
-P.~Bahl, ``Opportunities and challenges of community mesh networking,'' in
-  \emph{Keynote Presentation@ MICS Workshop in ETH Zurich}, 2004.
+\bibitem{cnet_aug07}
+\BIBentryALTinterwordspacing
+M.~Reardon. (2007, Aug.) {EarthLink} pays 5 million to delay houston {Wi-Fi}
+  buildout. [Online]. Available:
+  \url{http://news.cnet.com/8301-10784\_3-9768759-7.html}
+\BIBentrySTDinterwordspacing
+
+\bibitem{arstechnica_may08}
+\BIBentryALTinterwordspacing
+J.~Cheng. (2008, May) Philadelphia's municipal {WiFi} network to go dark.
+  [Online]. Available:
+  \url{http://arstechnica.com/gadgets/2008/05/philadelphias-municipal-wifi-net%
+work-to-go-dark}
+\BIBentrySTDinterwordspacing
+
+\bibitem{CRSK06}
+J.~Camp, J.~Robinson, C.~Steger, and E.~Knightly, ``Measurement driven
+  deployment of a two-tier urban mesh access network,'' in \emph{{ACM
+  MobiSys}}, Uppsala, Sweden, June 2006.
+
+\bibitem{google_imc08}
+M.~Afanasyev, T.~Chen, G.~Voelker, and A.~Snoeren, ``Analysis of a mixed-use
+  urban wifi network: When metropolitan becomes neapolitan,'' in \emph{Proc. of
+  {ACM} Internet Measurements Conference}, Vouliagmeni, Greece, Oct. 2008.
+
+\bibitem{taps}
+R.~Karrer, A.~Sabharwal, and E.~Knightly, ``Enabling large-scale wireless
+  broadband: the case for {TAPs},'' in \emph{Proceedings of HotNets-II},
+  Cambridge, MA, Nov. 2003.
+
+\bibitem{fccwhitespace}
+FCC, ``White space,'' \url{http://www.fcc.gov/topic/white-space}, 2012.
+
+\bibitem{balanis2012antenna}
+C.~A. Balanis, \emph{Antenna theory: analysis and design}.\hskip 1em plus 0.5em
+  minus 0.4em\relax John Wiley \& Sons, 2012.
 
 \bibitem{raniwala2004centralized}
 A.~Raniwala, K.~Gopalan, and T.-c. Chiueh, ``Centralized channel assignment and
@@ -39,24 +72,10 @@ W.~Si, S.~Selvakennedy, and A.~Y. Zomaya, ``An overview of channel assignment
   methods for multi-radio multi-channel wireless mesh networks,'' \emph{Journal
   of Parallel and Distributed Computing}, vol.~70, no.~5, pp. 505--524, 2010.
 
-\bibitem{whitespacewiki}
-Wiki, ``White space(radio),'' \url{http://en.wikipedia.org/wiki/White\_spaces},
-  2013.
-
-\bibitem{fccwhitespace}
-FCC, ``White space,'' \url{http://www.fcc.gov/topic/white-space}, 2012.
-
 \bibitem{jain2005impact}
 K.~Jain, J.~Padhye, V.~N. Padmanabhan, and L.~Qiu, ``Impact of interference on
   multi-hop wireless network performance,'' \emph{Wireless networks}, vol.~11,
   no.~4, pp. 471--487, 2005.
-
-\bibitem{pearlman2000impact}
-M.~R. Pearlman, Z.~J. Haas, P.~Sholander, and S.~S. Tabrizi, ``On the impact of
-  alternate path routing for load balancing in mobile ad hoc networks,'' in
-  \emph{Mobile and Ad Hoc Networking and Computing, 2000. MobiHOC. 2000 First
-  Annual Workshop on}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, 2000, pp.
-  3--10.
 
 \bibitem{akyildiz2005wireless}
 I.~F. Akyildiz, X.~Wang, and W.~Wang, ``Wireless mesh networks: a survey,''
@@ -134,11 +153,6 @@ R.~Draves, J.~Padhye, and B.~Zill, ``Routing in multi-radio, multi-hop wireless
 K.~N. Ramachandran, E.~M. Belding-Royer, K.~C. Almeroth, and M.~M. Buddhikot,
   ``Interference-aware channel assignment in multi-radio wireless mesh
   networks.'' in \emph{INFOCOM}, vol.~6, 2006, pp. 1--12.
-
-\bibitem{JaPaPaQi03}
-K.~Jain, J.~Padhye, V.~Padmanabhan, and L.~Qiu, ``Impact of interference on
-  multi-hop wireless network performance,'' in \emph{Proceedings of {ACM
-  MobiCom} '03}, San Diego, CA, Sept. 2003.
 
 \bibitem{subramanian2008minimum}
 A.~P. Subramanian, H.~Gupta, S.~R. Das, and J.~Cao, ``Minimum interference

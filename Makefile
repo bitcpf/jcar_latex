@@ -12,8 +12,12 @@ $(BASE).bbl: $(BASE).tex $(SRC)
 #	dvips -t letter -Pcmz -f $(BASE).dvi > $(BASE).ps
 	dvips -t letter -f $(BASE).dvi > $(BASE).ps
 	ps2pdf -dEmbedAllFonts=true -dSubsetFonts=true -dEPSCrop=true $(BASE).ps $(BASE).pdf
-	chmod 770 $(BASE).ps $(BASE).dvi $(BASE).aux $(BASE).bbl $(BASE).blg $(BASE).log $(BASE).pdf
-	chmod g+s $(BASE).ps $(BASE).dvi $(BASE).aux $(BASE).bbl $(BASE).blg $(BASE).log $(BASE).pdf
+	#chmod 770 $(BASE).ps $(BASE).dvi $(BASE).aux $(BASE).bbl $(BASE).blg $(BASE).log $(BASE).pdf
+	#chmod g+s $(BASE).ps $(BASE).dvi $(BASE).aux $(BASE).bbl $(BASE).blg $(BASE).log $(BASE).pdf
+	chmod 770 *
+	chmod 770 ./figures/*
+	chmod g+s *
+	chmod g+s ./figures/*
 	#chgrp wireless *
 
 $(BASE).ps : $(BASE).tex $(SRC)

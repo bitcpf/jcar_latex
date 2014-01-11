@@ -1,13 +1,39 @@
 \begin{abstract}
-Many efforts has been devoted to resolve the channel assignment problem for multi-channel multi-radio mesh network these years.
-The solutions of these works are focusing on the optimization for multi-radios network have channels working in close frequency.
-In this paper, we propose a multiband multiradio wireless mesh networking architecture has multiple channels with large gaps in frequency. In such a mesh network, each mesh node is equipped multiple radios work in a set of frequency with different propagation characteristics.
-Though multi-band multi-radio bring benefit for mesh network, the channel assignment problem is an NP-hard problem.
+Wireless mesh networks were previously thought to be an ideal solution for
+large-scale Internet connectivity in metropolitan areas.  However, in-field
+trials revealed that the node spacing required for WiFi propagation 
+induced a prohibitive cost model for network carriers to deploy. The digitization of TV 
+channels and new FCC regulations have reapportioned spectrum for data networks 
+with far greater range than WiFi due to lower carrier frequencies. In this work, 
+we consider how these white space bands can be leveraged in large-scale wireless 
+mesh network deployments.  In particular, we present an integer linear programming model 
+to leverage diverse propagation characteristics of white space and WiFi bands to 
+deploy optimal WhiteMesh networks.  Since such optimization is known to be NP-hard, 
+we design two heuristic algorithms, Growing Spanning Tree (GST) and Band-based Path 
+Selection (BPS), which we show approach the performance of the optimal solution 
+with reduced complexity.  We additionally compare the performance of GST and BPS 
+against two well-known multi-channel, multi-radio deployment algorithms across
+a range of scenarios spanning those typical for rural areas (FCC's target application)
+to urban areas (original target application for mesh). In doing so, we find gains of 
+up to 160\% over existing multi-channel, multi-radio algorithms which are agnostic 
+to diverse propagation characteristics across bands.  Moreover, we show that, with 
+similar channel resources and bandwidth, the joint use of WiFi and white space bands 
+can lead to a 140\% improvement in served user demand over mesh networks with 
+only WiFi bands or white space bands.
 
-To resolve this problem, we first 
-analyze the factors of the network and bring a novel parameter path efficiency over network to describe the network performance and present two algorithms according to the analysis to approach the optimized solution.
-Finally a performance study is carried out to access the effectiveness of our proposed algorithm. 
-The results shows that these two algorithms can resolve the problem in polynomial time with better performance over Common Channel Assignment and Breath First Search Channel Assignment.
+
+%Many efforts has been devoted to resolve the channel assignment problem for multi-channel multi-radio mesh network these years.
+%The solutions of these works have provide different solutions for multi-radios network have channels working in frequency having the same propagation characteristics. 
+%As white space bands are allowed to be used in communication, deploying ISP's wireless enterprise backbone network with these new bands become an new issue. 
+%In this paper, we propose a multiband multiradio wireless mesh networking architecture. 
+%In such a mesh network, each mesh node is equipped multiple radios work in a set of frequency with different propagation characteristics.
+%Channel assignment is a basic issue in such networks. Different channel assignment can lead to different network performance.
+%However previous work fails to leverage the benefit from low frequency white space band and the potential performance improvement on wireless mesh network. We present an integer linear programming model to approach the solution of the problem.
+%To leverage the influence of white space band in wireless mesh network, we analyze the factors of the new network architecture 
+%and bring a novel parameter path interference over network to describe the interference of network.
+%Then we present two heuristic algorithms to solve the problem according to the analysis to approach the optimized solution in multiband multiradio scenario.
+%Growing Spanning Tree Algorithm(GST) and Best Path Selection Algorithm(BPS) are centralized channel assignment algorithms for multiband wireless network.
+%The two algorithms provide methodology for resolving channel assignment aiming to minimize the interference over the network in the new multiband scenario.
+%Finally a performance study is carried out to access the effectiveness of our proposed algorithm.
+%The results shows that these two algorithms have performance over Common Channel Assignment and Breath First Search Channel Assignment in different scenario. In max throughput calculation, the Best Path Selection Algorithm improve the throughput by 160\% over Common Channel Assignment and 105\% over Breath First Channel Assignment on average.
 \end{abstract}
-
-
