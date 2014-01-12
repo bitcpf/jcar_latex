@@ -1,43 +1,42 @@
 \section{Problem Formulation}
 \label{sec:problemformulation}
 
+\input{notationtable}
 
 % Organization of the Sec
-In this section, we describe the multi-band multi-radio wireless mesh network architecture, and formulate the key research issue channel assignment. 
-We propose a linear program to understand the architecture and illustrate the challenges of the problem.
-Then we leverage the factors of the performance for multi-band wireless network.
+In this section, we describe the multi-band multi-radio wireless mesh network architecture, and formulate the key research issue in channel assignment. Then we propose a linear program to understand the architecture, illustrate the challenges of the problem.
+Then we leverage the influence of multi-band in wireless network.
  
 \subsection{Multiband Wireless Mesh Network Architecture}
 \label{subsec:architecture}
 ~\emph{Wireless Mesh Network} could be chopped as two-tiers:
-Access layer, consists of static traffic aggregation mesh nodes for clients, and backhual layer for interconnection from mesh nodes to gateway nodes with wired Internet connection ~\cite{akyildiz2005wireless}. 
-~\emph{Multiband Wireless Mesh Network} is for backhual layer, since access layer always need ISM band channels providing access to client's Wifi devices, such as iPhone, laptops. To simply the analysis, we assume the backhual layer uses different channels in ISM band from access layer.
+Access layer, consists of traffic aggregation mesh nodes for clients, and backhual layer for interconnection from mesh nodes to gateway nodes with wired Internet connection ~\cite{akyildiz2005wireless}. 
+In this paper, we talk ~\emph{Multiband Wireless Mesh Network} in the backhual layer, since access layer always need ISM band channels providing access to client's Wifi devices, such as iPhone and laptops. To simply the analysis, we assume the access layer uses different channels in ISM band.
 
 % Explain multiband vs multichannel
-A lot of efforts have been put on the similar architecture ~\emph{Multichannel Multi-radio Mesh Network} focusing on ~\emph{Channel Assignment, Multihop Routing, Gateway Placement} problems ~\cite{si2010overview}.
-In these works, ~\emph{Multichannel} is a word mention multiple frequency channels have the same propagation performance with small frequency gap, for instance the orthogonal WLAN channels in 2.4GHz from 2.412GHz to 2.484GHz with 22MHz gap.
-We refer ~\emph{Multiband} as a combination of different frequency of large gap whose propagation characteristics are different, such as a combination one channel in 2.4GHz and one channel in 900MHz.
+A lot of efforts have been put on the similar architecture Multichannel Multi-radio Mesh Network focusing in ~\emph{Channel Assignment, Multihop Routing, Gateway Placement} problems ~\cite{si2010overview}.
+These works, the definition of multi-channel is channels has small gap with the same propagation performance, for instance the orthogonal WLAN channels in 2.4GHz from 2.412GHz to 2.484GHz with 22MHz gap.
+We refer ~\emph{Multiband} as a combination of different channels with large gap whose propagation characteristics are different, such as a two channel set of one channel in 2.4GHz and one channel in 450MHz.
 
 %A node in ~\emph{Multiband Wireless Mesh Network} has limited multiple slots for installing radios working in different bands. 
 %Two nodes share the same link should have a common channel. The sum of the loads on the links should 
 % Explain propagation, factors of the environment and so on
-Wireless propagation is the behavior of the signal loss characteristics when they are transmitting from one point to another.
-The factors rule radio propagation are complex and diverse, 
+Wireless propagation is the behavior of the signal loss characteristics when wireless signals are transmitting from one point to another.
+The rules of radio propagation are complex and diverse, 
 such as the daily changes of environment, weather, and atmosphere changes due to cosmos activities. 
 In most propagation models there are three basic propagation mechanisms: reflection, diffraction, and scattering ~\cite{andersen1995propagation}.
-For multiband mesh backhual network, the nodes are usually installed on the top of buildings or towers. That makes a line of sight propagation model is a reasonable hypotheses for multiband mesh.
+For multiband mesh backhual network, the nodes are usually installed on the top of buildings or towers to get the best line of sight propagation. A line of sight propagation model is a reasonable hypotheses in wireless mesh network.
 % propagation fomular, explain the band influence
-In \emph{Friis} propagation model, the received signal power of a node is represented as: 
+In popular \emph{Friis} propagation model, the received signal power of a node is represented as: 
 \begin{equation}
 \label{eq:friis}
-P_r=P_t+G_t+G_r+20log_{10}(\frac{\lambda}{4\pi R})
+P_r=P_t+G_t+G_r+10\alpha log_{10}(\frac{\lambda}{4\pi R})
 \end{equation}
 
 Path-loss exponent \emph{$\alpha$} is used to describe the environment factors, typically in outdoor environments range from 2 to 5.\cite{camp2006measurement}. 
-In ~\ref{eq:friis}, the received signal could vary only due to the wavelength $\lambda$ represents band. 
-This variation makes the performance of radios in multiple bands different even under the same configuration in the same location. Since the radios have the same received signal threshold, lower frequency band could have a larger communication range $R$, and also a larger interference range $I_r$.
+In equation ~\ref{eq:friis}, in the specific environment with a common path-loss exponent and $P_t,G_t,G_r$ configuration, the received signal vary according to the band represented by wavelength $\lambda$. 
+Since wireless radios have the same received signal threshold, lower frequency band could have a larger communication range $R$, and also a larger interference range $I_r$.
 
-%In multiband scenario, both wired ~\emph{Gateway Nodes} and ~\emph{Mesh Nodes} are equipped with multiple radios working in different frequency band, including ISM bands and white space bands. The radios could work simultaneously bringing more capacity to the network which is a evolution of ~\emph{Multi-channel Multi-Radio Mesh Network} with radios working in the same band in different channels.
 
 
 
@@ -54,13 +53,13 @@ This variation makes the performance of radios in multiple bands different even 
 
 % Make multiband challenges
 The broadcast nature of the wireless medium makes it generate multiple access interference in wireless network.
-Employing ~\emph{White Space Band} in lower frequency brings advantages for mesh network, 1) more orthogonal bandwidth reduce the contention and conflict in the network,
+Employing White Space Band in lower frequency brings advantages for mesh network, 1) more orthogonal bandwidth reduce the contention and conflict in the network,
  2) the propagation variation brings flexible topology by reducing connection hop counts in the network.
-However, at the same time, links in ~\emph{White Space Band} also increase the interference range in the network making space reuse of the white space band channel difficult. 
-In \ref{fig:interferencerange}, node ~\emph{N1} could connect to node ~\emph{N3} through relay of node ~\emph{N2} in higher frequency band, or directly connect by lower frequency band channel with larger communication range.
-If under higher frequency band, link between node ~\emph{N4} and node ~\emph{N5} could reuse the higher frequency since they are out of the interference range of this high frequency band; 
-however, if \emph{N1} and ~\emph{N3} connected with lower frequency band in less hop counts, then ~\emph{N4} and ~\emph{N5} could not reuse these lower frequency channels due to the larger interference range.
-To balance the larger communication range and larger interference range of white space band is a key issue in ~\emph{Multiband Mesh Network Channel Assignment} different from ~\emph{Multichannel} scenario.
+However, at the same time, links in White Space Band also increase the interference range in the network making space reuse of the white space band channel difficult. 
+There is an example in figure \ref{fig:interferencerange}, node $A$  could connect to node $C$ through relay of node $B$ in higher frequency 2.4 GHz band, or directly connect by lower frequency 450 MHz band channel with larger communication range.
+If under higher frequency band, link between node $D,E$ could reuse the higher frequency since they are out of the interference range of this high frequency band; 
+however, if $A,C$ connected with lower frequency 450 MHz band in less hop counts, then the channel could not be reused for node $D,E$.
+To balance the larger communication range and interference range of white space band in mesh network is a key issue in ~\emph{Multiband Mesh Network} from ~\emph{Multiradio} scenario.
 
 \subsection{Model and Problem Formulation}
 \label{subsec:problem}

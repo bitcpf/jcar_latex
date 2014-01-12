@@ -1,4 +1,4 @@
-This is pdfeTeX, Version 3.141592-1.21a-2.2 (Web2C 7.5.4) (format=latex 2012.4.6)  11 JAN 2014 11:59
+This is pdfeTeX, Version 3.141592-1.21a-2.2 (Web2C 7.5.4) (format=latex 2012.4.6)  11 JAN 2014 23:24
 entering extended mode
 **whitemesh
 (./whitemesh.tex
@@ -300,7 +300,11 @@ Package: booktabs 2003/03/28 v1.618 publication quality tables
 \@thisruleclass=\count116
 \@lastruleclass=\count117
 \@thisrulewidth=\dimen153
-) (./whitemesh.aux)
+) (./whitemesh.aux
+
+LaTeX Warning: Label `tab:2channelcombination' multiply defined.
+
+)
 \openout1 = `whitemesh.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
@@ -315,13 +319,14 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
 LaTeX Font Info:    ... okay on input line 21.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
 LaTeX Font Info:    ... okay on input line 21.
-
-(./abstract.tex) (./introduction.tex
+ (./abstract.tex) (./introduction.tex
 LaTeX Font Info:    Try loading font information for U+lasy on input line 67.
- (/usr/share/texmf/tex/latex/base/ulasy.fd
+
+(/usr/share/texmf/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
 LaTeX Font Info:    Try loading font information for U+msa on input line 67.
+
 (/usr/share/texmf/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2002/01/19 v2.2g AMS font definitions
 )
@@ -333,9 +338,12 @@ File: umsb.fd 2002/01/19 v2.2g AMS font definitions
 
 
 ]) (./problemformulation.tex
-File: figures/interferencerange.eps Graphic file (type eps)
+(./notationtable.tex)
 
-<figures/interferencerange.eps> [2]) (./linearopt.tex
+LaTeX Warning: Reference `fig:interferencerange' on page 2 undefined on input l
+ine 59.
+
+[2]) (./linearopt.tex
 Underfull \hbox (badness 2197) in paragraph at lines 26--27
 []\OT1/ptm/m/n/10 UL of node $\OML/cmm/m/it/10 i$ \OT1/ptm/m/n/10 on
  []
@@ -373,10 +381,10 @@ File: figures/wifiws.eps Graphic file (type eps)
 File: figures/varyradios.eps Graphic file (type eps)
 
 <figures/varyradios.eps>) (./related.tex
-Underfull \vbox (badness 8189) has occurred while \output is active []
 
-)
-(./conclusion.tex [8]) (./whitemesh.bbl
+LaTeX Warning: Citation `FIXME' on page 8 undefined on input line 8.
+
+) (./conclusion.tex [8]) (./whitemesh.bbl
 Underfull \hbox (badness 4193) in paragraph at lines 30--35
 []\OT1/ptm/m/n/8 J. Cheng. (2008, May) Philadel-phia's mu-nic-i-
  []
@@ -386,7 +394,7 @@ Underfull \hbox (badness 1496) in paragraph at lines 30--35
 \OT1/ptm/m/n/8 pal WiFi net-work to go dark. [On-line]. Avail-
  []
 
-)
+[9])
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -398,14 +406,23 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[9] (./whitemesh.aux) ) 
+[10
+
+] (./whitemesh.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 2946 strings out of 94501
- 40591 string characters out of 1176790
- 99323 words of memory out of 1000000
+ 2948 strings out of 94501
+ 40597 string characters out of 1176790
+ 98354 words of memory out of 1000000
  6030 multiletter control sequences out of 10000+50000
  33000 words of font info for 88 fonts, out of 500000 for 2000
  580 hyphenation exceptions out of 1000
  27i,10n,24p,576b,515s stack positions out of 1500i,500n,5000p,200000b,5000s
 
-Output written on whitemesh.dvi (9 pages, 76516 bytes).
+Output written on whitemesh.dvi (10 pages, 77764 bytes).

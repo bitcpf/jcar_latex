@@ -5,6 +5,7 @@ Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Database file #1: whitemesh.bib
 Warning--string name "april" is undefined
 --line 1786 of file whitemesh.bib
+Warning--I didn't find a database entry for "FIXME"
 -- IEEEtran.bst version 1.00 (2002/08/13) by Michael Shell.
 -- http://www.ctan.org/tex-archive/macros/latex/contrib/supported/IEEEtran/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
@@ -12,7 +13,7 @@ Warning--string name "april" is undefined
 Done.
 You've used 32 entries,
             3917 wiz_defined-function locations,
-            960 strings with 12804 characters,
+            962 strings with 12814 characters,
 and the built_in function-call counts, 24792 in all, are:
 = -- 1997
 > -- 587
@@ -51,4 +52,4 @@ warning$ -- 0
 while$ -- 123
 width$ -- 34
 write$ -- 328
-(There was 1 warning)
+(There were 2 warnings)

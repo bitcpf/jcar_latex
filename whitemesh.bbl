@@ -171,6 +171,10 @@ K.~N. Ramachandran, E.~M. Belding-Royer, K.~C. Almeroth, and M.~M. Buddhikot,
   ``Interference-aware channel assignment in multi-radio wireless mesh
   networks.'' in \emph{INFOCOM}, vol.~6, 2006, pp. 1--12.
 
+\bibitem{wang2010game}
+B.~Wang, Y.~Wu, and K.~Liu, ``Game theory for cognitive radio networks: An
+  overview,'' \emph{Computer Networks}, vol.~54, no.~14, pp. 2537--2561, 2010.
+
 \bibitem{subramanian2008minimum}
 A.~P. Subramanian, H.~Gupta, S.~R. Das, and J.~Cao, ``Minimum interference
   channel assignment in multiradio wireless mesh networks,'' \emph{Mobile
@@ -181,9 +185,5 @@ X.~Wu, J.~Liu, and G.~Chen, ``Analysis of bottleneck delay and throughput in
   wireless mesh networks,'' in \emph{Mobile Adhoc and Sensor Systems (MASS),
   2006 IEEE International Conference on}.\hskip 1em plus 0.5em minus
   0.4em\relax IEEE, 2006, pp. 765--770.
-
-\bibitem{wang2010game}
-B.~Wang, Y.~Wu, and K.~Liu, ``Game theory for cognitive radio networks: An
-  overview,'' \emph{Computer Networks}, vol.~54, no.~14, pp. 2537--2561, 2010.
 
 \end{thebibliography}

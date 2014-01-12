@@ -1,26 +1,59 @@
 \section{Related Work}
 \label{sec:related}
 
-A number of papers have been published on the problem of channel assignment for a multi-hop mesh network. ~\cite{jain2005impact,akyildiz2005wireless,raniwala2004centralized}. 
-However, none of them is adaptive to the propagation difference in the wireless mesh network.
-Prior research could be classified as ~\emph{Static Channel Assignment} and ~\emph{Dynamic Channel Assignment}.
-The ~\emph{Static Channel Assignment} focus on assigning a network once with everything known of the network~\cite{subramanian2008minimum}.
-The ~\emph{Dynamic Channel Assignment} is to resolve the channel assignment according to dynamic parameters, such as demand, dynamic interference ~\cite{wu2006analysis,ramachandran2006interference}.
+{\bf Optimization and Game Theory.} Optimization frameworks based on linear programming
+have been used to determine the channel assignment in multihop wireless networks for given 
+link bandwidths and route requests~\cite{tang2005interference}.  Since these formulations 
+attempt to solve NP-hard problems, LP relaxation is commonly used to output network flows 
+that potentially are not feasible channel assignments~\cite{FIXME}. 
+Game theory has also been used to guide distributed channel assignment and routing 
+algorithms which attempt to balance the load of the network~\cite{raniwala2005architecture,
+wang2010game}.  In such a framework, nodes advertise their dynamically-changing costs 
+to reach their associated gateway according to the residual bandwidth. If a node learns of
+a less expensive path to the current gateway or another gateway, the appropriate action is
+taken to construct such a path, but hysteresis must be carefully considered to avoid route flapping.
 
-A simple approach ~\emph{Common Channel Assignment} (CCA) for utilizing multi-radios network is
-presented in ~\cite{draves2004routing}, though the main purpose of the author is to have multi-raidos working for routing
-to benefit from multi-channel structure. 
-Further investigations include ~\cite{marina2010topology} and i~\cite{raniwala2004centralized} show that it is possible to improve the performance of multi-channel network by applying smart channel assignment algorithms. 
+{\bf Multi-Channel, Multi-Radio Algorithms.} Many works have studied the channel assignment problem in multihop wireless
+networks~\cite{jain2005impact,akyildiz2005wireless,raniwala2004centralized}.
+In addition, multiple radios have been used to improve the routing in multi-channel
+scenarios~\cite{draves2004routing}. Still others have used static channel assignments
+where everything is known about the network parameters~\cite{subramanian2008minimum},
+which is in contrast to dynamic channel assignment where demand and interference are 
+not known {\it a priori}~\cite{wu2006analysis,ramachandran2006interference}. 
+%FIXME: where does this fit? Further investigations include ~\cite{marina2010topology} and i~\cite{raniwala2004centralized} show that it is possible to improve the performance of multi-channel network by applying smart channel assignment algorithms. 
+We have implemented such channel assignment algorithms (CCA from~\cite{draves2004routing} and 
+BFSCA from~\cite{ramachandran2006interference}) and shown significant gains.  
+Most importantly, all of the aforementioned works have not considered propagation 
+differences of the diverse frequency bands of white space and WiFi, which we show are 
+critical improving the performance of mesh networks.
+
+%FIXME
+{\bf White Space.} We need to cite some work by Microsoft on white spaces (SIGCOMM 2009 and other
+Ranveer Chandra papers).  Talk about databases for available white space channels and say that 
+in this work, we study the performance of mesh networks with varying number of available white 
+space channels at varying population densities (by adjusting the offered load), assuming such 
+white space databases and mechanisms are in place.
+
+%However, none of them is adaptive to the propagation difference in the wireless mesh network.
+%Prior research could be classified as ~\emph{Static Channel Assignment} and ~\emph{Dynamic Channel Assignment}.
+%The ~\emph{Static Channel Assignment} focus on assigning a network once with everything known of the network~\cite{subramanian2008minimum}.
+%The ~\emph{Dynamic Channel Assignment} is to resolve the channel assignment according to dynamic parameters, such as demand, dynamic interference ~\cite{wu2006analysis,ramachandran2006interference}.
+
+%A simple approach ~\emph{Common Channel Assignment} (CCA) for utilizing multi-radios network is
+%presented in ~\cite{draves2004routing}, though the main purpose of the author is to have multi-raidos working for routing
+%to benefit from multi-channel structure. 
+
+%Further investigations include ~\cite{marina2010topology} and i~\cite{raniwala2004centralized} show that it is possible to improve the performance of multi-channel network by applying smart channel assignment algorithms. 
 
 
-Assuming the knowledge of the set of connection request to be routed, both an optimal algorithm based on solving a Linear Programming an a simple heuristic are proposed to route such requests given the link bandwidth availability determined by the computed channel assignment in ~\cite{tang2005interference}. 
-These formulation are NP-hard problems, the authors solve the LP relaxation of the problem. The output is a network flow along with a possibly unfeasible channel assignment. 
+%Assuming the knowledge of the set of connection request to be routed, both an optimal algorithm based on solving a Linear Programming an a simple heuristic are proposed to route such requests given the link bandwidth availability determined by the computed channel assignment in ~\cite{tang2005interference}. 
+%These formulation are NP-hard problems, the authors solve the LP relaxation of the problem. The output is a network flow along with a possibly unfeasible channel assignment. 
  
 
 % Distributed
-Distributed channel assignment and routing algorithms are developed based on game theory ~\cite{raniwala2005architecture,wang2010game}.Nodes advertise their cost to reach the gateway they are currently associated with.
-Cost dynamically changes as it depends on residual bandwidth to achieve load balancing. If a node is notified of a less cost path towards another gateway, it starts a procedure to associate with that gateway. If the cost of a path is less than current occupacied path, the node starts evaluate wheather to associate the new path. 
-Since cost is dynamic, the strategy may leadd to route flaps and to a non convergent network behavior. Thus the equilibrium need to be carefully designed.
+%Distributed channel assignment and routing algorithms are developed based on game theory ~\cite{raniwala2005architecture,wang2010game}.Nodes advertise their cost to reach the gateway they are currently associated with.
+%Cost dynamically changes as it depends on residual bandwidth to achieve load balancing. If a node is notified of a less cost path towards another gateway, it starts a procedure to associate with that gateway. If the cost of a path is less than current occupacied path, the node starts evaluate wheather to associate the new path. 
+%Since cost is dynamic, the strategy may leadd to route flaps and to a non convergent network behavior. Thus the equilibrium need to be carefully designed.
 
 
 
