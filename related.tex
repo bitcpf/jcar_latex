@@ -5,7 +5,7 @@
 have been used to determine the channel assignment in multihop wireless networks for given 
 link bandwidths and route requests~\cite{tang2005interference}.  Since these formulations 
 attempt to solve NP-hard problems, LP relaxation is commonly used to output network flows 
-that potentially are not feasible channel assignments~\cite{FIXME}. 
+that potentially are not feasible channel assignments~\cite{si2010overview}. 
 Game theory has also been used to guide distributed channel assignment and routing 
 algorithms which attempt to balance the load of the network~\cite{raniwala2005architecture,
 wang2010game}.  In such a framework, nodes advertise their dynamically-changing costs 
@@ -26,13 +26,26 @@ BFSCA from~\cite{ramachandran2006interference}) and shown significant gains.
 Most importantly, all of the aforementioned works have not considered propagation 
 differences of the diverse frequency bands of white space and WiFi, which we show are 
 critical improving the performance of mesh networks.
-
+% 
+Coloring methodology assume all the color equal failing to process multiple topology generating by bands combination ~\cite{marina2010topology}. 
+% 
 %FIXME
-{\bf White Space.} We need to cite some work by Microsoft on white spaces (SIGCOMM 2009 and other
-Ranveer Chandra papers).  Talk about databases for available white space channels and say that 
-in this work, we study the performance of mesh networks with varying number of available white 
-space channels at varying population densities (by adjusting the offered load), assuming such 
-white space databases and mechanisms are in place.
+{\bf White Space.} 
+%We need to cite some work by Microsoft on white spaces (SIGCOMM 2009 and other
+%Ranveer Chandra papers).  Talk about databases for available white space channels and say that 
+%in this work, we study the performance of mesh networks with varying number of available white 
+%space channels at varying population densities (by adjusting the offered load), assuming such 
+%white space databases and mechanisms are in place.
+
+
+White space bands are fundamentally different from conventional Wi-Fi along spatial variation ~\cite{bahl2009white}. 
+Spatial variation gives rise to new challenges for implementing a wireless network in this band. 
+Government department FCC has licensed white space bands in US ~\cite{fccwhitespace}.
+Microsoft build ~\emph{Microsoft Research White Space databas} for white space application reference ~\cite{msdatabase}. 
+Google even visualize the licensed white space channels in cities all over US and provide API for research and commerical users ~\cite{googledatabase}.
+The white space potential and the open free spectrum database provide chance to improve the mesh network performance in combining
+ these UHF channels and Wi-Fi channels.
+ In this work, we study the performance of mesh network with varying number of available white space channels at varying population densities as offerload to offer solution for white space channel application in mesh networks. 
 
 %However, none of them is adaptive to the propagation difference in the wireless mesh network.
 %Prior research could be classified as ~\emph{Static Channel Assignment} and ~\emph{Dynamic Channel Assignment}.

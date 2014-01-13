@@ -1,44 +1,90 @@
 \section{Problem Formulation}
 \label{sec:problemformulation}
 
-\input{notationtable}
+%\input{notationtable}
 
 % Organization of the Sec
-In this section, we describe the multi-band multi-radio wireless mesh network architecture, and formulate the key research issue in channel assignment. Then we propose a linear program to understand the architecture, illustrate the challenges of the problem.
-Then we leverage the influence of multi-band in wireless network.
+In this section, we formulate the problem of how to optimally 
+use WiFi and white space bands in concert when deploying wireless 
+mesh networks.  We first describe our system model and illustrate 
+the challenges of such a WhiteMesh architecture.  We then discuss
+how to evaluate WhiteMesh networks and the corresponding goal of
+both the optimization framework and the heuristic algorithms that 
+we will propose in the following section.  Finally, we present 
+our integer linear programming model used to address the problem. 
  
-\subsection{Multiband Wireless Mesh Network Architecture}
+\subsection{WhiteMesh Network Architecture}
 \label{subsec:architecture}
-~\emph{Wireless Mesh Network} could be chopped as two-tiers:
-Access layer, consists of traffic aggregation mesh nodes for clients, and backhual layer for interconnection from mesh nodes to gateway nodes with wired Internet connection ~\cite{akyildiz2005wireless}. 
-In this paper, we talk ~\emph{Multiband Wireless Mesh Network} in the backhual layer, since access layer always need ISM band channels providing access to client's Wifi devices, such as iPhone and laptops. To simply the analysis, we assume the access layer uses different channels in ISM band.
-
-% Explain multiband vs multichannel
-A lot of efforts have been put on the similar architecture Multichannel Multi-radio Mesh Network focusing in ~\emph{Channel Assignment, Multihop Routing, Gateway Placement} problems ~\cite{si2010overview}.
-These works, the definition of multi-channel is channels has small gap with the same propagation performance, for instance the orthogonal WLAN channels in 2.4GHz from 2.412GHz to 2.484GHz with 22MHz gap.
-We refer ~\emph{Multiband} as a combination of different channels with large gap whose propagation characteristics are different, such as a two channel set of one channel in 2.4GHz and one channel in 450MHz.
 
 %A node in ~\emph{Multiband Wireless Mesh Network} has limited multiple slots for installing radios working in different bands. 
 %Two nodes share the same link should have a common channel. The sum of the loads on the links should 
 % Explain propagation, factors of the environment and so on
-Wireless propagation is the behavior of the signal loss characteristics when wireless signals are transmitting from one point to another.
-The rules of radio propagation are complex and diverse, 
-such as the daily changes of environment, weather, and atmosphere changes due to cosmos activities. 
-In most propagation models there are three basic propagation mechanisms: reflection, diffraction, and scattering ~\cite{andersen1995propagation}.
-For multiband mesh backhual network, the nodes are usually installed on the top of buildings or towers to get the best line of sight propagation. A line of sight propagation model is a reasonable hypotheses in wireless mesh network.
-% propagation fomular, explain the band influence
-In popular \emph{Friis} propagation model, the received signal power of a node is represented as: 
+Wireless propagation is the behavior of the signal loss characteristics 
+when wireless signals are transmitted from a transmitter to receiver.
+The strength of the receiving signal depends on both the line-of-sight
+path (or lack thereof) and multiple other paths that are a result of 
+reflection, diffraction, and scattering from obstacles in the 
+environment~\cite{andersen1995propagation}. The widely-used and
+fundamental equation for path loss characterizes the power of the
+received signal $P_r$ in terms of the power $P_t$ and gain $G_t$ of
+the transmitting signal, gain of the receiver $G_r$, wavelength 
+$\lambda$ of the carrier frequency, distance from transmitter to receiver 
+and path loss exponent $n$ according 
+to~\cite{friis}:
 \begin{equation}
 \label{eq:friis}
-P_r=P_t+G_t+G_r+10\alpha log_{10}(\frac{\lambda}{4\pi R})
+P_r=P_t+G_t+G_r+10n log_{10}(\frac{\lambda}{4\pi R})
 \end{equation}
-
-Path-loss exponent \emph{$\alpha$} is used to describe the environment factors, typically in outdoor environments range from 2 to 5.\cite{camp2006measurement}. 
-In equation ~\ref{eq:friis}, in the specific environment with a common path-loss exponent and $P_t,G_t,G_r$ configuration, the received signal vary according to the band represented by wavelength $\lambda$. 
-Since wireless radios have the same received signal threshold, lower frequency band could have a larger communication range $R$, and also a larger interference range $I_r$.
-
+Here, the path loss exponent \emph{$n$} changes according to the
+aforementioned environmental factors and ranges from 2 to 5 in typical
+outdoor settings~\cite{rappaport}.
 
 
+%The rules of radio propagation are complex and diverse,
+%such as the daily changes of environment, weather, and atmosphere changes due to cosmos activities.
+%In most propagation models there are three basic propagation mechanisms: reflection, diffraction, and scattering ~\cite{andersen1995propagation}.
+%For multiband mesh backhual network, the nodes are usually installed on the top of buildings or towers to get the best line of sight propagation. A line of sight propagation model is a reasonable hypotheses in wireless mesh network.
+% propagation fomular, explain the band influence
+%In popular \emph{Friis} propagation model, the received signal power of a node is represented as:
+%\begin{equation}
+%\label{eq:friis}
+%P_r=P_t+G_t+G_r+10n log_{10}(\frac{\lambda}{4\pi R})
+%\end{equation}
+%
+%Path-loss exponent \emph{$n$} is used to describe the environment factors, typically in outdoor environments range from 2 to 5.\cite{camp2006measurement}.
+%In equation ~\ref{eq:friis}, in the specific environment with a common path-loss exponent and $P_t,G_t,G_r$ configuration, the received signal vary according to the band represented by wavelength $\lambda$.
+%Since wireless radios have the same received signal threshold, lower frequency band could have a larger communication range $D_c$, and also a larger interference range $D_r$.
+
+% Explain multiband vs multichannel
+A common assumption in works that use many WiFi channels is that the
+propagation characteristics of one channel is similar to another, 
+since the channel separation is relatively small (e.g., 22 MHz for 
+the 2.4 GHz band)
+Many works which rely on such an assumption have focused on the 
+allocation of multiple WiFi channels with multiple radios in 
+multihop wireless networks~\cite{si2010overview}.  Here, a frequency 
+band is defined as a group of channels which have
+similar propagation characteristics.
+%We use a similar assumption for %channels within a frequency band, but consider the propagation 
+%differences of a channel in one band (e.g., 450 MHz) as compared to 
+%another (e.g., 2.4 GHz). 
+In this work, we consider the diverse propagation characteristics
+for four total frequency bands: 450 MHz, 800 MHz, 2.4 GHz, and 5.8 GHz.
+The two former frequency bands, we refer to as white space (WS) bands whereas
+the two latter frequency bands, we refer to as WiFi bands.
+
+Wireless mesh networks are a particular type of multihop wireless network
+that are typically considered to have at least two
+tiers~\cite{CRSK06}: {\it (i)} an access tier, where client traffic 
+is aggregated to and from mesh nodes, and {\it (ii)} a multihop 
+backhaul tier for connecting all mesh nodes to the Internet through 
+gateway nodes. In this work, we focus on how to optimally allocate 
+white space and WiFi bands on a reasonable set of radios per mesh node
+along the backhaul tier since we assume that client devices will use 
+WiFi (due to the economies of scale).  In each of the WhiteMesh 
+topologies studied in Section~\ref{sec:experimentdesign}, a sufficient 
+number of orthogonal WiFi channels remain for the access tier to 
+connect to clients using additional radios co-located on the mesh nodes.
 
 \begin{figure}                                                                                                                     
 %\vspace{-0.0in}
@@ -70,37 +116,42 @@ Our objective is to get a channel assignment for a wireless mesh network formed 
 Each node in the network is equipped with one or more radios could work in one of the permitted bands. 
 %FIXME keep or not
 %To clarify the ~\emph{White Space Band} influence, we assume radios in a node works in unique non-overlapping channels of multiple band, radios in two nodes share a common channel in the same band.
-We also assume all the nodes have the same configuration, each radio works under the same transmitting power, antenna with the same gains.
+We also assume all the nodes have the same transmitting power, antenna with the same gains and other configurations.
 To model the connectivity, we adopt classical ~\emph{Protocol Model} from Gupta ~\cite{gupta2000capacity}. If the received signal is above the threshold, the link would have a communication capacity, otherwise, the link could not exist.
-In ~\emph{Protocol Model}, the interference exist as conflict contention when the received signal strength of other links are above the threshold; otherwise, the link will not be interfered by other links.
+The interference exist as conflict contention when the received signal strength of other links are above the threshold; otherwise, the link will not be interfered by other links.
 
 The ~\emph{Gateway Nodes} and ~\emph{Mesh Nodes} locations are given. 
 %In a network, ~\emph{Channel Assignment} naturally binds with a routing protocol for application, but have different target. We bind our model with a ~\emph{Shortest Path Routing} protocol for ~\emph{Channel Assignment} application and evaluation.
-Other input information includes, transmitting power, antenna gains, communication and interference threshold. From ~\emph{Friis Model}, we could get ~\emph{Communication Range} and ~\emph{Interference Range} of each link in different band. 
-Multiband multi-radio wireless network could be formulated as an undirected graph $G=(V,E)$ according to the communication range and interference range. $V$ is noted as the nodes, and $E$ marked as the links in the network.
+Transmitting power, antenna gains, communication and interference threshold are given. From ~\emph{Friis Model}, we could get ~\emph{Communication Range} and ~\emph{Interference Range} of each  band. 
+Multiband multi-radio wireless network could be represented as an undirected graph $G=(V,E)$ according to the communication range and interference range. $V$ is noted as the nodes, and $E$ marked as the links in the network.
 
 The channel assignment is represented as ~\emph{Connectivity Graph}, $C=(V,L,B)$, $L$ denotes the set of links, $B$ denotes the set of frequency bands. 
-The capacity between two nodes in common channel is noted as $C_{lb}, l \in L,b \in B$. If they are physically located within each others communication range of a band, the value of $C_{lb}$ would be a constant value, otherwise, it is zero. 
+In protocol model, the channel capacity between two nodes in a channel is noted as $LC$. If the RSSI from a node to another node is above the threshold, $LC$ is a constant value, otherwise, it is zero. 
 
-The associated interference range is larger than the communication range for each node. We extend the ~\emph{Conflict Matrix} from Jain's work with a flexible approach for interference, $CG=(L_{i,j},I_{Set},B)$. $L_{i,j}$ represents the active link, $I_{Set}$ includes all the links are physically inside the interference range. 
+We extend the ~\emph{Conflict Matrix} from Jain's work ~\cite{tang2005interference} with a flexible approach for interference,
+ $CM=(E_{i,j},I_{Set},B)$. $E_{i,j}$ represents the link, $I_{Set}$ includes all the links are physically inside the interference range $D_r$. 
 
-Our model is similar to ~\emph{Multichannel Model} in many previous works ~\cite{tang2005interference,yuan2006cross,si2010overview}. However, in ~\emph{Multichannel Model}, the ~\emph{Communication Range} and ~\emph{Interference Range} in different channels are the same. The ~\emph{Multichannel Model} is unnecessary to consider the variation of range due to band propagation.
-~\emph{Multiband Channel Assignment} work toward the same target as ~\emph{Multichannel Channel Assignment} to provide richer connectivity with minimum interference.
+Our model is similar to Multichannel Model in many previous works ~\cite{tang2005interference,yuan2006cross,si2010overview}. However, in Multichannel Model, the Communication Range $D_c$ and Interference Range $D_r$ of different channels in the same band have the same value. The Multichannel Model is unnecessary to consider the variation of communication and interference range due to band propagation.
+Multiband Channel Assignment work toward the same target as Multichannel Channel Assignment to provide richer connectivity with minimum interference with channel variation in more bands.
 
 The difficulty of the problem is that we can not know the interference before we assign channel to each node. Previous works have proposed ~\emph{Coloring, Cluster, Independent Set, Mixed Linear Integer} methodology to approach the solution of ~\emph{Multichannel Channel Assignment} ~\cite{mishra2005weighted,peng2012efficient,tang2005interference}. 
-However, these work fails to distinguish the trading off between minimize hops and more frequency space reuse among multiple bands.
-Our work focus on the ~\emph{traffic-independent} 
+However, these work fails to deal with the minimize hops and more frequency space reuse embedded in multiple bands scenario.
+Our work focus on multiband channel assignment 
 without explicitly considering network traffic/load ~\cite{marina2010topology}.
-To approach the optimization channel assignment, we develop a mixed linear integer model to understand the multiband scenario. We also analyze the intra-relation between the ~\emph{Hop Counts} and ~\emph{Space Reuse}, then propose two heuristic approaching for this problem.
+We present a mixed linear integer model to understand the multiband scenario. We also analyze the relation between the ~\emph{Hop Counts} and ~\emph{Space Reuse}, then propose two heuristic algorithms approaching solution of this problem.
+
+
+
 
 \subsection{Evaluation Metric}
 \label{subsec:metric}
-~\emph{Mesh Network} is designed to provide service for clients. The goal of a backhual network is to maximize its overall good put within a unit time. 
-This enables the network to support more end-user flows, and in turn more number of users. To evaluate the assignment, we use the idea of ~\emph{Gateway Good put} of the network. The gateway good put X of a network is defined as
+
+The goal of network  backhual layer is to maximize its overall good put within a unit time. 
+To evaluate the assignment, we use the idea of ~\emph{Gateway Good put} of the network. The gateway good put $X$ of a network is defined as the traffic achieve gateways.
 
 \begin{equation}
 \label{eq:goodput}
-X=\sum_{g \in G, v \in V}C(g,v)
+X=\sum_{g \in Gateways, v \in V}T(g,v)
 \end{equation}
 
 In ~\cite{robinson2008adding}, Robinson proves the bottle neck of mesh network capacity is the gateway wireless connection. 

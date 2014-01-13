@@ -77,20 +77,19 @@ K.~Jain, J.~Padhye, V.~N. Padmanabhan, and L.~Qiu, ``Impact of interference on
   multi-hop wireless network performance,'' \emph{Wireless networks}, vol.~11,
   no.~4, pp. 471--487, 2005.
 
-\bibitem{akyildiz2005wireless}
-I.~F. Akyildiz, X.~Wang, and W.~Wang, ``Wireless mesh networks: a survey,''
-  \emph{Computer networks}, vol.~47, no.~4, pp. 445--487, 2005.
-
 \bibitem{andersen1995propagation}
 J.~B. Andersen, T.~S. Rappaport, and S.~Yoshida, ``Propagation measurements and
   models for wireless communications channels,'' \emph{Communications Magazine,
   IEEE}, vol.~33, no.~1, pp. 42--49, 1995.
 
-\bibitem{camp2006measurement}
-J.~Camp, J.~Robinson, C.~Steger, and E.~Knightly, ``Measurement driven
-  deployment of a two-tier urban mesh access network,'' in \emph{Proceedings of
-  the 4th international conference on Mobile systems, applications and
-  services}.\hskip 1em plus 0.5em minus 0.4em\relax ACM, 2006, pp. 96--109.
+\bibitem{friis}
+H.~T. Friis, ``A note on a simple transmission formula,'' vol.~34, no.~5, pp.
+  254--256, May 1946.
+
+\bibitem{rappaport}
+T.~Rappaport, \emph{Wireless Communications, Principles \& Practice}, ser.
+  Emerging Technologies Series, T.~Rappaport, Ed.\hskip 1em plus 0.5em minus
+  0.4em\relax Upper Saddle River, New Jersey: Prentice Hall, 1996.
 
 \bibitem{gupta2000capacity}
 P.~Gupta and P.~R. Kumar, ``The capacity of wireless networks,''
@@ -175,6 +174,10 @@ K.~N. Ramachandran, E.~M. Belding-Royer, K.~C. Almeroth, and M.~M. Buddhikot,
 B.~Wang, Y.~Wu, and K.~Liu, ``Game theory for cognitive radio networks: An
   overview,'' \emph{Computer Networks}, vol.~54, no.~14, pp. 2537--2561, 2010.
 
+\bibitem{akyildiz2005wireless}
+I.~F. Akyildiz, X.~Wang, and W.~Wang, ``Wireless mesh networks: a survey,''
+  \emph{Computer networks}, vol.~47, no.~4, pp. 445--487, 2005.
+
 \bibitem{subramanian2008minimum}
 A.~P. Subramanian, H.~Gupta, S.~R. Das, and J.~Cao, ``Minimum interference
   channel assignment in multiradio wireless mesh networks,'' \emph{Mobile
@@ -185,5 +188,18 @@ X.~Wu, J.~Liu, and G.~Chen, ``Analysis of bottleneck delay and throughput in
   wireless mesh networks,'' in \emph{Mobile Adhoc and Sensor Systems (MASS),
   2006 IEEE International Conference on}.\hskip 1em plus 0.5em minus
   0.4em\relax IEEE, 2006, pp. 765--770.
+
+\bibitem{bahl2009white}
+P.~Bahl, R.~Chandra, T.~Moscibroda, R.~Murty, and M.~Welsh, ``White space
+  networking with wi-fi like connectivity,'' \emph{ACM SIGCOMM Computer
+  Communication Review}, vol.~39, no.~4, pp. 27--38, 2009.
+
+\bibitem{msdatabase}
+M.~Inc., ``Microsoft research white space database,''
+  \url{http://whitespaces.cloudapp.net/Default.aspx}, 2013.
+
+\bibitem{googledatabase}
+G.~Inc., ``Google spectrum database,''
+  \url{https://www.google.com/get/spectrumdatabase/}, 2013.
 
 \end{thebibliography}

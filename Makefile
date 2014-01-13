@@ -18,7 +18,7 @@ $(BASE).bbl: $(BASE).tex $(SRC)
 	chmod 770 ./figures/*
 	chmod g+s *
 	chmod g+s ./figures/*
-	#chgrp wireless *
+	chgrp wireless *
 
 $(BASE).ps : $(BASE).tex $(SRC)
 	latex $(BASE) 

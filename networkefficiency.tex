@@ -1,25 +1,26 @@
-\subsection{Path Interference over Network}
+\subsection{Path Interference Induced on the Network}
 \label{subsec:PEN}
 % Talk about the network efficiency for multiband multihop mixed hop
 
-A link is a wireless channel from one node to another. A path is a combination of links to connect two nodes far away from each other.
+In network, the definition of a link is a wireless channel from one node to another, a path is a combination of links connecting two nodes.
 In ~\emph{Multiband Multiradio Network}, 
-a multihop path could be mixed with higher frequency links have less interference range and lower frequency links have less hop count. That's the significant difference from ~\emph{Multi-Channel Multi-Radio} since the multi-channel in the same band will have the same communication range and interference range. 
-A key issue of multihop path in multi-band network is to answer which combination is better.
+a multihop path could be mixed with higher frequency links have less interference range and lower frequency links have less hop count. This is a significant difference from previous ~\emph{Multi-Channel Multi-Radio} work. 
+A key issue of path selection in multi-band network is to answer which link combination is better.
 
-To discuss this problem, we pick up a multihop path from wireless mesh network and analyze its performance with worst case satisfied throughput hypothesis. In wireless mesh network, such a path would have a bottleneck in the link closest to gateway.
+To discuss this problem, we pick up a multihop path from wireless mesh network and analyze its performance. In wireless mesh network, generally a path would have a bottleneck in the link closest to gateway.
 %When a mesh network was built with gateway placement, constructor should considered load-aware demand of mesh nodes and mesh node population. 
 Generally the nodes close to gateway should have more traffic demand in gateway placement process and a gateway itself should have the most connectivity population. 
-We assume each node equally binding with the same demand.
-Under this assumption, all the node in the path equally share the time of the common links. 
-First, we introduce the ~\emph{Intra-Path} traffic. In a spanning tree, the mesh nodes on the path have only one $h$ hop path arrived at a gateway node.
-The links in a path are in different bands could work simultaneous or normalized links in the same band but share the time equally.
-Each node has traffic $T$, no matter uplink or downlink since both of them occupy link capacity with no difference. And the total traffic on the path $\sum T$ is less than the bottle neck link capacity $C$. 
+To simplify the model, we assume each node equally binding with the same traffic demand.
+Under this assumption, all the nodes in the path equally share the time of the common links. 
+First, we introduce the ~\emph{Intra-Path} traffic. In path, the mesh nodes have only one $h$ hop path arrived at a gateway node.
+Assume the links in a path are in different bands, thus they could work simultaneously, or normalized links in the same band but share the time equally.
+Each node has equal traffic demand $T_d$, as normalized uplink or downlink since both of them occupy link capacity without difference. And the total traffic on the path $\sum T_d$ is less than the bottle neck link capacity $LC$. 
 
 We define the minimum transmission rate on a path as ~\emph{Network Efficiency}. 
-With the fairness restriction, the last node in the path has the minimum transmission rate.
-Then the acitve time in a time unit of each link can be represented as $1,\frac{h-1}{h},\frac{h-2}{h}\cdots \frac{1}{h}$. 
-The unit time of each link in the path is counted as total cost time of network.
+The last node in the path has the minimum transmission rate with the assumtion all the nodes have the same traffic demand$T_d$.
+The first link close to gateway in the $h$ hop path woule be active for the whole time unit, the sencond would be $\frac{h-1}{h}$, and so on.
+Then the acitve time in a time unit of each link in the path can be represented as $1,\frac{h-1}{h},\frac{h-2}{h}\cdots \frac{1}{h}$. 
+The summation of each link active time in the path is counted as total cost time of network.
 %\begin{equation}
 %\label{eq:intrapath}
 %\begin{split}
@@ -30,66 +31,69 @@ The unit time of each link in the path is counted as total cost time of network.
 
 
 %As hop count increase, the ~\emph{Intra-Path} will decrease till the lower bound $\frac{1}{2}$. With routing protocol which is out of this work, the delay increase too.
-Without considering ~\emph{Inter-Path} interference which represent interference with links out of the path, 
-an intuition of benefit from using lower band is to reduce the hop count
- to increase the minimum time utility rate which is the active time of the last link over the total active time of the path. 
-Furthermore, as hop count goes up, the interference range increase too. An example shown in Fig. ~\ref{fig:networkefficiency}, 
-the picture shows links in different bands. The links are in 2.4GHz and 900MHz. As a sketch map, the link in the figure does not represent the real distance.
-Node $A,C$ could be connected through two 2.4GHz links or a single 900MHz link; with 2.4GHz links, only link $D,E$ will be interferenced,$H,I$ would not; however, with 900MHz $A,C$ link, link $F,G;M,L;K,J$ will be interferenced. 
+%More interference comes from \emph{Inter-Path}, which represent interference with links out of the path. 
+When only counting the interference generated in the path,
+an intuition of benefit from using lower band is to reduce the hop count which increase the minimum time utility rate which is the active time of the last link over the total active time of the path. 
+Furthermore, as hop count goes up, the area will be interferenced increase too. An example shown in Fig. ~\ref{fig:interferencerange}, 
+the picture shows links in different bands, circles nodes could be connected by 450 MHz links, rectangle nodes could be connect through 2.4 GHz, trangle nodes are the links we talking. 
+In the figure, the link in the figure does not represent the real distance or interference range accurately.
+Node $A,C$ could be connected through two 2.4 GHz links or a single 450 MHz link; with 2.4 GHz links, the interference distance will be less than using 450MHz, only link $D,E$ will be interferenced, $H,I$ would not; however, with 450 MHz $A,C$ link, more links, $F,G;M,L;K,J$ will be interferenced. 
+%\begin{figure}
+%%\vspace{-0.0in}
+%\centering
+%\includegraphics[width=74mm]{figures/networkefficiency}
+%\vspace{-0.1in}
+%\caption{Path Efficiency Introduction Solid Wire notes 2.4GHz link, Dashed line notes 900MHz}
+%\label{fig:networkefficiency}
+%%\vspace{-0.0in}
+%\end{figure}
 
-\begin{figure}
-%\vspace{-0.0in}
-\centering
-\includegraphics[width=74mm]{figures/networkefficiency}
-\vspace{-0.1in}
-\caption{Path Efficiency Introduction Solid Wire notes 2.4GHz link, Dashed line notes 900MHz}
-\label{fig:networkefficiency}
-%\vspace{-0.0in}
-\end{figure}
-
-To quantization this ~\emph{Inter-Path Interference}, 
-the unit time of each link is counted as a unit time of ~\emph{Network Time}. 
-When a $h$ hop path transmitting traffic $T$ for the destination node, it stops activity on a number of links in the same band. 
-In a multihop path, when the traffic arrived at the last destination node, all the previous links are serving for these traffic.
+To combine this ~\emph{Inter-Path Interference} with previous Intra-Path Interference, 
+we define a unit time of each link is counted as a unit time of ~\emph{Network Time}. 
+When a $h$ hop path transmitting traffic $T_d$ for the destination node, it prevent activity on a number of links in the same band in protocol model. 
+In a path, when the traffic arrived at the furthest destination node, previous links have served for these traffic.
 The active time on a single link can be noted as 
-$\frac{T}{c_h}$. 
-With interference counts $I_h$ from the conflict matrix:
+$\frac{T}{LC_h}$. 
+With interference link counts $I_h$ from the conflict matrix $CM$:
 the ~\emph{Network Time} counted as 
-$\frac{hT}{c_1}\cdot I_1 + \frac{(h-1)T}{c_2}\cdot I_2 \cdots \frac{T}{c_h}\cdot I_h$, 
-then the ~\emph{Path Efficiency over Network} is defined the traffic of the node over the ~\emph{Network Time} and could be represented as:
+$\frac{hT}{LC_1}\cdot I_1 + \frac{(h-1)T}{LC_2}\cdot I_2 \cdots \frac{T}{LC_h}\cdot I_h$, 
+then the traffic transmitted in a unit ~\emph{Network Time}  for the endding node could be represented as:
 
 
 
 \begin{equation}
 \label{eq:originpen}
-E_{PEN}=\frac{T}{\sum_{i \in h}\frac{(h-i+1)\cdot T}{c_i}\cdot I_i }
+E_{NE}=\frac{T}{\sum_{i \in h}\frac{(h-i+1)\cdot T}{LC_i}\cdot I_i }
 \end{equation}
 
-With protocol model, if link exist, then they have the same capacity $c_1=c_2 \cdots =c_h=c$. 
-The \emph{Path Efficiency over Network}could be represented as:
+With protocol model, if link exist, then they have the same capacity $LC_1=LC_2 \cdots =LC_h=c$. 
+The definition of ~\emph{Network Efficiency per Node} in equation ~\ref{eq:originpen} could be represented as:
 
 
 \begin{equation}
 \label{eq:pen}
-E_{PEN}=\frac{c}{\sum_{i \in h} (h-i+1)\cdot I_i}
+E_{NE}=\frac{LC}{\sum_{i \in h} (h-i+1)\cdot I_i}
 \end{equation}
  
 
 The meaning of the ~\emph{Network Efficiency} is that in a unit time, the traffic could be loaded by this path. 
-In multichannel scenario, all the links will have the same communication range, this parameter equals to the conflic graph in many multichannel works which try to minimize the interference~\cite{jain2005impact}. 
-Since we count only one channel not all possible links, it also could be seen as an extention of a single link ~\emph{Link Load} defined in ~\cite{raniwala2004centralized}.
+In multichannel scenario, the links will have a common communication range, the $I_i$ will not change according to bands, this parameter equals to the conflic graph in many multichannel works~\cite{jain2005impact}. 
+Since we count only one channel not multiple possible links, the parameter also could be seen as an extention of a single link ~\emph{Link Load} defined in ~\cite{raniwala2004centralized}.
 
-The ~\emph{Path Efficiency over Network} connect hop counts and interference. The denominator is defined as the ~\emph{Path Interference} (PIN) which is the summation of interference links amount in the network.
-Then we are going to answer when a lower ~\emph{White Space Band} is better to be used in a path.
-In a path, we use an average interference count $\bar{I}$ replace each interference count with assumption the links in the path all in one higher freq band. Then a ~\emph{White Space Band} is used to replace two links in the path as a single link with interference count $X$ represent one of the factor $i\cdot I_i$. The problem could be formulated as:
+The ~\emph{Network Efficiency per Node} connect hop counts and interference in one equation. The denominator is defined as the ~\emph{Path Interference induced on the Network} (PIN) which is the summation of interference links amount in the network.
+Then we have to find an answer when a lower ~\emph{White Space Band} is better to be used in a path.
+In a path, we use an average interference count $\bar{I}$ replace each interference count with assumption the links in the path all in one higher frequency band. 
+Assume there is a ~\emph{White Space Band} could be used to replace two links in the path as a single link with interference count $I_x$ represent one of the factor $i\cdot I_i$. The problem could be formulated as:
 
  
 \begin{equation}
 \label{eq:benefit}
-\frac{c}{\frac{h(h-1)}{2}\cdot \bar{I}+X} \geq \frac{c}{\frac{h(h+1)}{2}\cdot \bar{I}}
+\frac{LC}{\frac{h(h-1)}{2}\cdot \bar{I}+I_x} \geq \frac{LC}{\frac{h(h+1)}{2}\cdot \bar{I}}
 \end{equation}
 
-From the inequation ~\ref{eq:benefit}, when $X \leq 2\cdot h\bar{I}$ a lower band link could be better than 2 high frequency links. $X$ is also a function of hop order in ~\ref{eq:pen}, generally the path order lower, the threshold would be more stricter. It matches the intuition the hop order is small, it close to the gateway, it may interference more links so it needs a stricted constraint.
+From the inequation ~\ref{eq:benefit}, when $I_x \leq 2\cdot h\bar{I}$ a lower band link could be better than 2 high frequency links. 
+$I_x$ is also a function of hop order in ~\ref{eq:pen}, generally the path order lower, the threshold would be more stricter.
+It matches the intuition the hop order is small, it close to the gateway, it may interference more links so it needs a stricted constraint.
 
 According to these analysis, to improve the performance of a channel assignment in multi-band multi-radio scenario has two ways. First is to reduce the hop count, second is to reduce the interference among links. And at the same time, we have to trade off between the hop count reduction and single link interference which does not happen in multi-channel multi-radio scenario.
 
