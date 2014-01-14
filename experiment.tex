@@ -1,10 +1,10 @@
-\section{Experimental Analysis}
+\section{Evaluation of WhiteMesh Channel Assignment}
 \label{sec:experimentdesign}
 
-We now extensively evaluate our proposed heuristic algorithms against the upper bound formed by our
-integer linear programming model and against prior work. We first introduce the topologies and
-metric calculation used in the analysis.  We then present a set of results based on the gateway 
-goodput.
+We now extensively evaluate our proposed heuristic algorithms against the upper 
+bound formed by our integer linear programming model and against prior channel 
+assignment work. We first introduce the topologies and metric calculation used 
+in the analysis.  We then present a set of results based on the gateway goodput.
 
 %performed a set of simulations to evaluate the performance of the heuristic algorithms and leverage the white space band influence on mesh network. 
 %The experiment set up is introduced in \ref{subsec:design} with the topology, metric calculation.
@@ -17,37 +17,56 @@ goodput.
 \subsection{Experiment Design}
 \label{subsec:design}
 % Simulation Setup
-We consider static wireless mesh networks with n nodes located in a regular grid with distance of $300m$. 
-Today's white space equipment use frequency shift moving signal from white space to WiFi frequency for processing ~\cite{Ubnt}.
-We set the RSSI threshold as $-160dBm$ for WiFi and $-154dBm$ for White Space Band adjusting the system loss on the radios ~\cite{cui2013leveraging}.
-Then calculate the communication range and double as the interference range~\cite{raniwala2005architecture}. The gateways are randomly selected $\frac{1}{6}$ from the nodes in the network.
-We set up to use WiFi band $2.4 GHz$, $5 GHz$ and white space band $450 MHz$, $800 MHz$ to generate the network topology.
+A key aspect of WhiteMesh networks is the diversity in propagation from the lowest white
+space channels (tens to hundreds of MHz) to the highest WiFi channels (multiple GHz). Thus, 
+to evaluate the performance of our algorithms, we consider a wide range of propagation 
+characteristics from four different frequency bands.  For white space bands, we consider
+450 and 800 MHz.  For WiFi bands, we consider 2.4 and 5.8 GHz.  With similar transmission
+power and antenna gain, the highest carrier frequency would have the shortest communication.
+Hence, we set a communication-range threshold of -100 dBm, and normalize the communication 
+range with the highest frequency of 5.8 GHz. In particular, the communication range of 
+450 MHz, 800 MHz, 2.4 GHz, and 5.8 GHz would be normalized to 12.8, 6.2, 2.4, and 1, respectively.  
+The interference range is computed as twice that of the communication 
+range~\cite{raniwala2005architecture}. We deploy static wireless mesh networks of $n$ 
+mesh nodes along a regular, rectangular grid with a normalized distance of 0.8 between the 
+rectangle edges.  As a result, we have varying degrees of connectivity in the grid.
+The gateways are randomly-selected from one out of every six mesh nodes in the network.
+Unless otherwise, specified in the analysis, all four bands are used in the WhiteMesh
+topology studied. 
 
-ISP such as AT\&T, T-mobile will charge fee according to the traffic arrived at Internet through wireless network. 
-They are interested in getting the more throughput achieve gateways, which is the throughput arrived at the gateways from all the mesh nodes. 
+%ISP such as AT\&T, T-mobile will charge fee according to the traffic arrived at Internet through wireless network. 
+%They are interested in getting the more throughput achieve gateways, which is the throughput arrived at the gateways from all the mesh nodes. 
 
-Stefano brings the throughput achieve gateways in the network without considering the interference as maximum throughput to evaluate the channel assignment ~\cite{avallone2008channel}. 
-However, without considering the interference, the traffic flow in the network is not scheduled.
+%Stefano brings the throughput achieve gateways in the network without considering the interference as maximum throughput to evaluate the channel assignment ~\cite{avallone2008channel}. 
+%However, without considering the interference, the traffic flow in the network is not scheduled.
 
-The throughput achieve gateways binds with multiple factors, such as gateway placement, routing and also channel assignment.
-To find the best gateway placement, routing associate with channel assignment is out of our scope. 
-In a mesh network, the bottleneck of the network are the links around the gateway nodes ~\cite{robinson2010deploying}. 
-And any traffic transmitted to a wired gateway node is treated equally as throughput achieve gateways. 
-So a methodology to get a scheduler maximum throughput is to serve the nodes close to the gateway nodes first.
-We first serve the nodes have 1 hop path to the gateway nodes, with the same hop count in the path, choose the path has the least interference on the network and serve the demand as more as possible. 
-Then we satisfy the demand of multiple hop layer nodes and so on, till there is no demand could be satisfied through any path.
-The calculation process is kind of routing protocol which help us to reach a scrollable maximum throughput achieve gateways of the network. 
-We would not claim it is the best way, for evaluation we keep the same calculation process for all comparable setting.
+The throughput achieved through the gateways is not only critical for network providers (e.g., cellular
+carriers charge fees for total bandwidth through towers), but also has been used by researchers
+to evaluate channel assignment~\cite{avallone2008channel}.  As mentioned previously, the wireless
+capacity of gateway nodes has been shown to be the bottleneck in mesh networks~\cite{robinson2010deploying}.
+Moreover, gateway goodput combines multiple factors, such as mesh node placement, gateway placement, 
+routing, and channel assignment, the latter of which is the focus of our analysis and algorithms. 
+
+For the purposes of our analysis, we specifically calculate the gateway goodput first introduced 
+in Section~\ref{subsec:problem} in the following way.  Nodes that have a one-hop path to the gateway
+nodes are the first ones served. Where there are nodes with the same hop count, the least interfering
+mesh nodes are chosen for channel assignment. Then, the demand of multihop mesh nodes are served 
+until there is no remaining demand to be satisfied through any path.
+%The calculation process is kind of routing protocol which help us to reach a scrollable maximum throughput achieve gateways of the network. 
+%We would not claim it is the best way, for evaluation we keep the same calculation process for all comparable setting.
 % Validation
-We relax our ILP model to keep the link capacity constraints, given the demand of the mesh nodes as parameter to get an maximum throughput achieve gateways as shown in ~\ref{fig:varysize}. The up-bound is assuming the mesh node could be connect to all the gateways if there is a path. But we limit a mesh node only connect to one gateway in the network, this bring the difference from the up-bound to our calculation.
-
+We relax our ILP model to keep the link capacity constraints, given the demand of the mesh nodes as a
+parameter to achieve the maximum throughput at the gateways. The ILP Bound assumes the mesh 
+nodes could connect to all the gateways if there is a path that exists to each gateway. However,
+we restrict a mesh node to only connect to one gateway in the network, and this represents the
+main difference from the ILP Bound to our heuristic algorithms.
 
 % FIXME may need a validation of max calculation
 
-\subsection{Analysis}
+\subsection{Experimental Analysis}
 \label{subsec:analysis}
 
-\begin{figure*}[t]\vspace{-0.1in}
+\begin{figure*}[t]
 \subfigure[Offered Load Per Mesh Node = 4 Mbps]{
 \label{fig:varysize}
 \includegraphics[width=2.3in]{figures/varysize}}
@@ -62,7 +81,7 @@ We relax our ILP model to keep the link capacity constraints, given the demand o
 \vspace{-0.1in}
 \caption{Performance in terms of gateway goodput for various offered loads, network sizes, and configurations of WiFi or white space (WS) channels.}
 \label{fig:all3figs}
-\vspace{-0.0in}
+\vspace{-0.1in}
 \end{figure*}
 
 \begin{table*}
@@ -80,29 +99,51 @@ WiFi (GHz) & 2.4, 5 &                                                           
 \hline % inserts single-line 
 CCA~\cite{draves2004routing}                        & 3.1   &  7.3  & 8.2    &8.1    &8.3                &7.8     &   8.7    &   9.3&     9.0             &         11.9     &   14.4          \\      
 \hline % inserts single-line                                                                                                       
-BFSCA~\cite{ramachandran2006interference}  & 8.9   &  6.2  & 7.9    & 9.0   & 13.6       & 13.8   &  14.9    &   13.8&      14.9           &      14.3       &       18.6      \\      
+BFS-CA~\cite{ramachandran2006interference}  & 8.9   &  6.2  & 7.9    & 9.0   & 13.6       & 13.8   &  14.9    &   13.8&      14.9           &      14.3       &       18.6      \\      
 \hline % inserts single-line                                                                                                      
 GST (Alg. 1)                                                            & 11.6  &   6.6 & 9.3    &   15.1&   15.8        &  14.4  &   16.6   &    14.1  &   18.8            &  15.0           &    25.1         \\      
 \hline % inserts single-line                                                                                                     
-BPS (Alg. 2)                                                            & 22.2  & 18.2  &  28.4  & 25.0  & 30.9          & 25.8   &   32.00  &  33.5       &     34.5            &      30.9       &       35.2      \\      
+BPS (Alg. 2)                                                            & 22.2  & 18.2  &  28.4  & 25.0  & 30.9          & 25.8   &   32.0  &  33.5       &     34.5            &      30.9       &       35.2      \\      
 \hline % inserts single-line 
 \end{tabular}    
 \label{tab:2channelcombination}    
 \caption{Throughput achieved through Gateway nodes (Mbps) for various combinations of WiFi and White Space (WS) mesh topologies (Offered Load = 4 Mbps, Network Size = 30 mesh nodes).} % title name of the table 
-\vspace{-0.3in}
+\vspace{-0.4in}
 \end{table*}    
 
 % ILP bound
 
-Most of the time clients of wireless network have different traffic demand. The uplink and dwon link traffic are equally occupy the channel capacity.
-   Then we randomly assign demand of mesh nodes with a max offer load,
-   calculate the scalable maximum throughput, then repeat the process 20 times.
-   In the ILP bound, we keep the connectivity constraints in ~\ref{subsec:linearopt}. To simiplify the process, we remove the uplink constraints and keep download demand constraints only. 
-   Modify the constraint ~\ref{opt:8} as 
-   $\sum_{l \in B} \sum_{j \in V} \sum_{k \in V} dy^k_{j,i,l} \lq \sum_{l \in B} \sum_{j \in V} \sum_{k \in V} dy^k_{i,j,k}+D_{di}, i \neq l$. 
-   Maximum $\sum_{i\in Gateway} (D_{di}+\sum_{l\in B,j\in V, k \in V}dy^l_{i,j,k}$.
-The output is the average maximum throughput achieve gateways for the max offer load per mesh node.
-To evaluate the performance in different size of network, we fix the max offer load of each node as $4MB/s$ and vary the number of nodes in the regular grid network. The performance of the algorithms are shown in ~\ref{fig:varysize}. 
+Typically, clients and therefore mesh nodes have diverse traffic patterns with
+the download direction dominating the total traffic demand (e.g., consider
+service agreements for cellular data or Internet connectivity). Hence, to
+simplify the analysis and scale the ILP Bound to larger network sizes, we 
+remove the uplink constraints while maintaining the downlink constraints.
+We then randomly assign demand per mesh node with a maximum offered load
+as specified in Fig.~\ref{fig:all3figs} and Table~\ref{tab:2channelcombination}.
+We repeat the process 20 times, averaging the results of each of the
+algorithms for the given network configuration.
+%Most of the time clients of wireless network have different traffic demand. The uplink and dwon link traffic are equally occupy the channel capacity.
+%Then we randomly assign demand of mesh nodes with a max offer load,
+%calculate the scalable maximum throughput, then repeat the process 20 times.
+%In the ILP bound, we keep the connectivity constraints in ~\ref{subsec:linearopt}. 
+%To simiplify the process, we remove the uplink constraints and keep download demand constraints only. 
+%The output is the average maximum throughput achieve gateways for the max offer load per mesh node.
+
+In the first experiment, we consider different network sizes according to
+the number of mesh nodes in the aforementioned regular grid. In particular,
+we expect that as the network size grows, so too does the number of gateways,
+producing a greater total gateway goodput. Fig.~\ref{fig:varysize} shows
+the total gateway goodput when the maximum offered load per mesh node is
+4 Mbps for the ILP formulation and four heuristic algorithms: 
+{\it (i)} Common Channel Assignment (CCA) from~\cite{draves2004routing},
+{\it (ii)} Breadth First Search Channel Assignment (BFS-CA) from~\cite{ramachandran2006interference},
+{\it (iii)} our first algorithm GST (Section~\ref{subsec:GST}), and
+{\it (iv)} our second algorithm BPS (Section~\ref{subsec:BPS}).
+The former two algorithms consider similar propagation characteristics for
+all channels in the assignment while the latter two algorithms consider the
+diverse propagation characteristics of the WiFi and white space bands used in 
+the analysis.
+
 %   \begin{figure}
 %   %\vspace{-0.0in}
 %   \centering
@@ -113,16 +154,34 @@ To evaluate the performance in different size of network, we fix the max offer l
 %   %\vspace{-0.0in}
 %   \end{figure}
 
-The ILP Bound could have multiple gateway connection but other assignment would have only one gateway connection. And ILP optimize both channel assignment and routing simultaneously.  
-As the number of mesh node increase, CCA lose the ability to handle large size of network. 
-The dips of the curves are resulting from the random demand evaluation setup.
-We randomly deploy the gateways and offer load of each mesh node, brings the decrease in achieving throughput when the number of mesh node increase. 
+In Fig.~\ref{fig:varysize}, we observe dips in the curves for all algorithms, 
+representing the randomly generated demand.  The ILP Bound shows what could be
+expected, that an increasing number of gateways produces an increase in total
+gateway goodput.  However, we observe that the other algorithms are not able
+to achieve such behavior for various reasons.  First, CCA increases the average
+hop count the most, meaning that it was unable to find shorter routes to new
+gateways.  Second, while GST slightly outperforms BFS-CA, they both fail to 
+increase the reach of the gateway by attempting to optimize the first hop from
+the gateway. Conversely, BPS alleviates the strain on these first-hop, bottleneck 
+links, achieving up to 63\% of the ILP Bound. The key difference of BPS to the
+ILP is that BPS only considers one path to a gateway node for each mesh node,
+wereas the ILP allows multiple paths to gateways.
 
+Next, we consider a different form of scalability in our analysis.  Namely,
+we increase the maximum offered load per mesh node from 1 to 10 Mbps, while
+maintaining a 30-node regular grid topology. Fig.~\ref{fig:maxtpt} shows that
+all of the algorithms are able to achieve comparable gateway goodput at 1 Mbps
+offered load per mesh node.  However, as the offered load increases the ILP
+and BPS diverge greatly from the remaining algorithms. Similar to 
+Fig.~\ref{fig:varysize}, the wireless capacity around a gateway is quickly 
+saturated if the algorithm is not focused on preserving that resource. Nonetheless,
+we do observe a leveling off at approximately 6 Mbps offered load due to a
+similar effect of the saturation of wireless capacity around the gateway node.
+For BPS, this saturation point at 6 Mbps has a gateway goodput from 1.5 to 3.2 
+times that of the remaining three algorithms, whereas the ILP Bound has between
+2.7 and 4.18 times the gateway goodput. BPS has a performance of 75\% of the ILP
+Bound, on average.
 
-   The performance of the two heuristic algorithms and ~\emph{CCA} ~\cite{draves2004routing}, ~\emph{BFSCA}  ~\cite{ramachandran2006interference} in a 30-node regular grid topology with 6MB link capacity in each channel are shown in figure ~\ref{fig:maxtpt}.
-
-%\begin{figure}
-%   %\vspace{-0.0in}
 %   \centering
 %   \includegraphics[width=74mm]{figures/maxtpt}
 %   \vspace{-0.1in}
@@ -131,13 +190,56 @@ We randomly deploy the gateways and offer load of each mesh node, brings the dec
 %   %\vspace{-0.0in}
 %   \end{figure}
  
-   BPS performs better than the other 3 algorithms since during the channel assignment process, it is already optimize the paths from further nodes to gateways make it possible to ship data from these nodes. But as the max offer load increase, all the channel assignment suffer the bottle neck of link capacity.
-   GST is trying to optimizing the output of BFS-CA, reducing the hop counts and interference of each hop layer. However, since the 1 hop layer has been assigned throughput BFS-CA which is the bottle neck for the capacity of the network.
-   Our results also shows the importance of channel selection of multiband. ~\ref{tab:2channelcombination} shows when 2 radios could be used, the better combination would be a higher frequency and a lower frequency which could combine the advantage of reduce interference in the network through high frequency link and benefit from decrease hop count through low frequency link. 
-Two low frequency channel, as in ~\ref{tab:2channelcombination}, will bring more interference to the network.
-In this scenario, the performance is even worse than use WiFi channel only. 
-The reason two low frequency channels has better performance than WiFi only in CCA due to the channel assignment fails to connect all mesh node to the gateways make there exist some offer load can not be shipped to gateways.
-So a smart way to choose channels is to select a set of channels in different band rather than select channels has the same propagation characteristics.
+%   BPS performs better than the other 3 algorithms since during the channel assignment process, it is already optimize the paths from further nodes to gateways make it possible to ship data from these nodes. But as the max offer load increase, all the channel assignment suffer the bottle neck of link capacity.
+%   GST is trying to optimizing the output of BFS-CA, reducing the hop counts and interference of each hop layer. However, since the 1 hop layer has been assigned throughput BFS-CA which is the bottle neck for the capacity of the network.
+
+WhiteMesh networks will be deployed across a vast array of environments, from
+rural to urban areas.  Each of these areas will have varying amounts of user 
+demand in proportion to the population densitities.  However, since a greater
+number of TV stations exist in urban areas, the available white space bands are
+often inversely related to the population density. To capture these varying
+degrees of demand and white space availability we consider three likely scenarios
+and one final scenario for comparison purposes: {\it (i)} two WiFi bands (2.4 and
+5.8 GHz) with two white space channels (450 and 800 MHz), {\it (ii)} two WiFi
+bands (2.4 and 5.8 GHz) with one white space channel (450 MHz), {\it (iii)} two
+WiFi bands (2.4 and 5.8 GHz) without any white space channels, and {\it (iv)}
+two white space bands (450 and 800 MHz) with no WiFi bands (for comparison).
+
+In Fig.~\ref{fig:wifiws}, we consider the performance of BPS in the four aforementioned
+scenarios of varying white space availability with varying offered load from 1 to 10 Mbps,
+representing different population densities. A regular, 30-node grid is also used.
+Immediately, we observe that the WiFi-only scenario has greater gateway goodput
+than the white-space-only scenario.  This is due to the lack of spatial reuse achieved
+by white spaces.  Interestingly, however, the joint use of both white space and WiFi
+bands has significant gains over the single type of band scenarios (37\% greater than
+WiFi and 85\% over white space, on average).  This can be explained because in part
+because the joint use of WiFi and white space has more total bands to use.  However,
+we will see in Table~\ref{tab:2channelcombination} that even with the same number of
+available bands (2), the combination of the two can achieve significant gains over
+scenarios with only WiFi or white space.   
+
+Table~\ref{tab:2channelcombination} describes the achieved gateway goodput for various
+combinations of WiFi and white space bands with a maximum offered load of 4 Mbps and
+a regular 30-node grid. Consider the case where we use a white space band of 450 MHz 
+and a WiFi band of 5.8 GHz. The second reason for the gains in Fig.~\ref{fig:wifiws} 
+with WiFi and white space is completely isolated in this scenario. Note that, even
+with the same bandwidth, transmission power, and antenna gain, the joint use of 
+these bands allows 15.8 Mbps of gateway goodput with GST versus 11.6 Mbps for
+WiFi only and 6.6 Mbps for white space only topologies with gains of 36\% and 140\%,
+respectively. With BPS and the same scenario, we achieve 30.9 Mbps of gateway goodput 
+versus 22.2 Mbps with WiFi only or 18.2 Mbps for white space only with gains of 
+40\% and 70\%, respectively. If we have on channel in a white space band and one 
+channel in a WiFi band, then we could use the advantage of WiFi for spatial reuse
+and white spaces to reduce the hop count. These two points become more critical at
+different points in the WhiteMesh topology. For the sake of completeness, we present
+many other scenarios which could be interesting for WhiteMesh deployments.
+
+
+%Our results also shows the importance of channel selection of multiband. ~\ref{tab:2channelcombination} shows when 2 radios could be used, the better combination would be a higher frequency and a lower frequency which could combine the advantage of reduce interference in the network through high frequency link and benefit from decrease hop count through low frequency link. 
+%Two low frequency channel, as in ~\ref{tab:2channelcombination}, will bring more interference to the network.
+%In this scenario, the performance is even worse than use WiFi channel only. 
+%The reason two low frequency channels has better performance than WiFi only in CCA due to the channel assignment fails to connect all mesh node to the gateways make there exist some offer load can not be shipped to gateways.
+%So a smart way to choose channels is to select a set of channels in different band rather than select channels has the same propagation characteristics.
 
    % Use table to replace the hint graph
 
@@ -189,13 +291,13 @@ So a smart way to choose channels is to select a set of channels in different ba
 				   %
 
 
-The number of radio equipped on a node in mesh network also abstract ISP attention. 
-The result shows in ~\ref{fig:varyradios}, BPS has the best performance over other algorithms. 
-Increasing radios do improve the performance of network. 
-As more radios equipped in the network, the benefit would be decrease in most scenario. 
-There is a trade off between performance of more radios and cost increasing.
-In one radio scenario, BPS outperforms CCA, but fails in completion of BFS-CA and GST.
-But in multi-radio scenarios, BPS always outperforms the other methods.
+%The number of radio equipped on a node in mesh network also abstract ISP attention. 
+%The result shows in ~\ref{fig:varyradios}, BPS has the best performance over other algorithms. 
+%Increasing radios do improve the performance of network. 
+%As more radios equipped in the network, the benefit would be decrease in most scenario. 
+%There is a trade off between performance of more radios and cost increasing.
+%In one radio scenario, BPS outperforms CCA, but fails in completion of BFS-CA and GST.
+%But in multi-radio scenarios, BPS always outperforms the other methods.
 
 
 %\begin{figure}
@@ -212,9 +314,9 @@ But in multi-radio scenarios, BPS always outperforms the other methods.
 
 
 
-In ~\ref{fig:wifiws}, the performance of 4 different type of band combination is shown. 
-The four curves are WiFi Only (2.4,5 GHz), WS Only (450,800 MHz), WS (450 MHz) + Multi-WiFi(2.4 GHz), Multi-WS(450, 800 MHz) + Multi-WiFi(2.4, 5 GHz). 
-Increasing radios do help to improve the performance, but with the same radios and bandwidth, WiFi and white space combination could outperform only WiFi and only white space performance.
+%In ~\ref{fig:wifiws}, the performance of 4 different type of band combination is shown. 
+%The four curves are WiFi Only (2.4,5 GHz), WS Only (450,800 MHz), WS (450 MHz) + Multi-WiFi(2.4 GHz), Multi-WS(450, 800 MHz) + Multi-WiFi(2.4, 5 GHz). 
+%Increasing radios do help to improve the performance, but with the same radios and bandwidth, WiFi and white space combination could outperform only WiFi and only white space performance.
 
 %\begin{figure}
 %%\vspace{-0.0in}

@@ -1,4 +1,4 @@
-This is pdfeTeX, Version 3.141592-1.21a-2.2 (Web2C 7.5.4) (format=latex 2012.4.6)  13 JAN 2014 19:14
+This is pdfeTeX, Version 3.141592-1.21a-2.2 (Web2C 7.5.4) (format=latex 2012.4.6)  14 JAN 2014 00:06
 entering extended mode
 **whitemesh
 (./whitemesh.tex
@@ -329,78 +329,56 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 67.
 
 (/usr/share/texmf/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2002/01/19 v2.2g AMS font definitions
-) [1
+)) (./problemformulation.tex
+[1
 
 
-]) (./problemformulation.tex
-File: figures/interferencerange.eps Graphic file (type eps)
-
-<figures/interferencerange.eps>
-Overfull \hbox (15.4559pt too wide) in paragraph at lines 91--94
- [][] 
- []
-
-[2]) (./linearopt.tex
-Underfull \hbox (badness 3989) in paragraph at lines 31--33
-[]\OT1/ptm/m/n/10 Gateways in net-
+]
+File: figures/interferencerange2.eps Graphic file (type eps)
+ <figures/interferencerange2.eps> [2]) (./linearopt.tex
+Underfull \hbox (badness 10000) in paragraph at lines 32--36
+[]\OT1/ptm/m/n/10 Interference of link
  []
 
 
-Underfull \hbox (badness 3189) in paragraph at lines 33--35
-[]\OT1/ptm/m/n/10 Downlink de-mand
+Underfull \hbox (badness 3701) in paragraph at lines 40--44
+[]\OT1/ptm/m/n/10 Downlink de-mand of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--38
+Underfull \hbox (badness 10000) in paragraph at lines 21--47
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--38
-
+Underfull \hbox (badness 7667) in paragraph at lines 69--70
+[]\OT1/ptm/m/n/10 Downlink flow of
  []
 
 
-Underfull \vbox (badness 2027) has occurred while \output is active []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 42--58
+Underfull \hbox (badness 10000) in paragraph at lines 58--71
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 62--65
-
+) (./wmalgorithms.tex [3] (./networkefficiency.tex)
+Underfull \hbox (badness 1668) in paragraph at lines 32--33
+[] []\OT1/ptm/m/n/9 Initialize $\OML/cmm/m/it/9 S[] \OT1/cmr/m/n/9 = \OML/cmm/m
+/it/9 G$\OT1/ptm/m/n/9 , $\OML/cmm/m/it/9 N[] \OT1/cmr/m/n/9 = \OMS/cmsy/m/n/9 
+;$\OT1/ptm/m/n/9 , $\OML/cmm/m/it/9 N[] \OT1/cmr/m/n/9 =
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 62--65
-
- []
-
-
-Underfull \vbox (badness 3128) has occurred while \output is active []
-
- [3]
-
-LaTeX Warning: Reference `opt:5' on page 4 undefined on input line 121.
-
-
-LaTeX Warning: Reference `opt:10' on page 4 undefined on input line 124.
-
-) (./wmalgorithms.tex (./networkefficiency.tex [4])
-Underfull \hbox (badness 1668) in paragraph at lines 67--68
+[4]
+Underfull \hbox (badness 1668) in paragraph at lines 127--128
 [] []\OT1/ptm/m/n/9 Initialize $\OML/cmm/m/it/9 S[] \OT1/cmr/m/n/9 = \OML/cmm/m
 /it/9 G$\OT1/ptm/m/n/9 , $\OML/cmm/m/it/9 N[] \OT1/cmr/m/n/9 = \OMS/cmsy/m/n/9 
 ;$\OT1/ptm/m/n/9 , $\OML/cmm/m/it/9 N[] \OT1/cmr/m/n/9 =
  []
 
 [5]
-Underfull \hbox (badness 1668) in paragraph at lines 138--139
-[] []\OT1/ptm/m/n/9 Initialize $\OML/cmm/m/it/9 S[] \OT1/cmr/m/n/9 = \OML/cmm/m
-/it/9 G$\OT1/ptm/m/n/9 , $\OML/cmm/m/it/9 N[] \OT1/cmr/m/n/9 = \OMS/cmsy/m/n/9 
-;$\OT1/ptm/m/n/9 , $\OML/cmm/m/it/9 N[] \OT1/cmr/m/n/9 =
- []
+
+Package amsmath Warning: Foreign command \atopwithdelims;
+(amsmath)                \frac or \genfrac should be used instead
+(amsmath)                 on input line 177.
 
 ) (./experiment.tex
 File: figures/varysize.eps Graphic file (type eps)
@@ -410,54 +388,15 @@ File: figures/maxtpt.eps Graphic file (type eps)
 File: figures/wifiws.eps Graphic file (type eps)
 
 <figures/wifiws.eps>
-Overfull \hbox (2.36363pt too wide) in paragraph at lines 53--63
+Overfull \hbox (2.36363pt too wide) in paragraph at lines 72--82
 [][]   []   []
  []
 
-
-Underfull \hbox (badness 2856) in paragraph at lines 97--115
-[]\OT1/ptm/m/n/10 Most of the time clients of wire-less net-work have
- []
-
-
-Underfull \hbox (badness 1424) in paragraph at lines 97--115
-\OT1/ptm/m/n/10 as-sign de-mand of mesh nodes with a max of-fer load,
- []
-
-
-Underfull \hbox (badness 1546) in paragraph at lines 97--115
-\OT1/ptm/m/n/10 cal-cu-late the scal-able max-i-mum through-put, then re-peat
- []
-
-
-Underfull \hbox (badness 3000) in paragraph at lines 97--115
-\OT1/ptm/m/n/10 we re-move the up-link con-straints and keep down-load
- []
-
-
-Underfull \hbox (badness 1466) in paragraph at lines 97--115
-\OT1/ptm/m/n/10 de-mand con-straints only. Mod-ify the con-straint  12[] as
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 97--115
-[][] [][] [][] \OML/cmm/m/it/10 dy[]\OT1/cmr/m/n/10 ` [][] [][] [][] \OML/cmm/m
-/it/10 dy[] \OT1/cmr/m/n/10 +
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 97--115
-\OML/cmm/m/it/10 D[]; i \OMS/cmsy/m/n/10 6\OT1/cmr/m/n/10 = \OML/cmm/m/it/10 l$
-\OT1/ptm/m/n/10 . Max-i-mum $[][]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 D[] \OT1/cmr
-/m/n/10 +
- []
-
 [6]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Warning: Reference `fig:varyradios' on page 7 undefined on input line 193
-.
-
-) (./related.tex [7]) (./conclusion.tex) (./whitemesh.bbl
+)
+(./related.tex [7]) (./conclusion.tex) (./whitemesh.bbl
 Underfull \hbox (badness 2142) in paragraph at lines 26--29
 []\OT1/ptm/m/n/8 J. Cheng, ``Philadel-phia's mu-nic-i-pal WiFi net-work to go d
 ark,''
@@ -470,14 +409,8 @@ ifi-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 172--174
+Underfull \hbox (badness 10000) in paragraph at lines 164--166
 []\OT1/ptm/m/n/8 ``Microsoft re-search white space database,''
- []
-
-
-Overfull \hbox (14.7252pt too wide) in paragraph at lines 176--178
-[]\OT1/ptm/m/n/8 ``Google spec-trum database,'' https://www.google.com/get/spec
-trumdatabase/,
  []
 
 )
@@ -492,18 +425,14 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[8] (./whitemesh.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+[8] (./whitemesh.aux) ) 
 Here is how much of TeX's memory you used:
- 2960 strings out of 94501
- 40684 string characters out of 1176790
- 99332 words of memory out of 1000000
- 6039 multiletter control sequences out of 10000+50000
+ 2956 strings out of 94501
+ 40641 string characters out of 1176790
+ 98340 words of memory out of 1000000
+ 6035 multiletter control sequences out of 10000+50000
  34856 words of font info for 94 fonts, out of 500000 for 2000
  580 hyphenation exceptions out of 1000
- 27i,9n,24p,1118b,517s stack positions out of 1500i,500n,5000p,200000b,5000s
+ 27i,9n,24p,474b,519s stack positions out of 1500i,500n,5000p,200000b,5000s
 
-Output written on whitemesh.dvi (8 pages, 73920 bytes).
+Output written on whitemesh.dvi (8 pages, 74264 bytes).

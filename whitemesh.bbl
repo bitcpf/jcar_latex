@@ -120,14 +120,6 @@ K.~N. Ramachandran, E.~M. Belding-Royer, K.~C. Almeroth, and M.~M. Buddhikot,
 B.~Golden, ``Shortest-path algorithms: A comparison,'' \emph{Operations
   Research}, pp. 1164--1168, 1976.
 
-\bibitem{Ubnt}
-``Ubiquiti xtremerange series of radio,'' http://www.ubnt.com/, 2012.
-
-\bibitem{cui2013leveraging}
-P.~Cui, H.~Liu, J.~He, O.~Altintas, R.~Vuyyuru, D.~Rajan, and J.~Camp,
-  ``Leveraging diverse propagation and context for multi-modal vehicular
-  applications,'' in \emph{{IEEE WiVeC}}, 2013.
-
 \bibitem{raniwala2005architecture}
 A.~Raniwala and T.~Chiueh, ``Architecture and algorithms for an {IEEE}
   802.11-based multi-channel wireless mesh network,'' in \emph{{IEEE INFOCOM}},
@@ -173,7 +165,6 @@ P.~Bahl, R.~Chandra, T.~Moscibroda, R.~Murty, and M.~Welsh, ``White space
   \url{http://whitespaces.cloudapp.net/Default.aspx}, 2013.
 
 \bibitem{googledatabase}
-``Google spectrum database,''
-  \url{https://www.google.com/get/spectrumdatabase/}, 2013.
+``Google spectrum database,'' \url{http://goo.gl/NnIFXQ}, 2013.
 
 \end{thebibliography}

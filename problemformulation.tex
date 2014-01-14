@@ -32,7 +32,7 @@ distance $R$ from transmitter to receiver, and path loss exponent $n$ according
 to~\cite{friis}:
 \begin{equation}
 \label{eq:friis}
-P_r=P_t+G_t+G_r+10n log_{10}(\frac{\lambda}{4\pi R})
+P_r=P_t+G_t+G_r+10n \log_{10}\left( \frac{\lambda}{4\pi R}\right)
 \end{equation}
 Here, the path loss exponent $n$ changes according to the
 aforementioned environmental factors and ranges from 2 to 5 in typical
@@ -86,10 +86,10 @@ number of orthogonal WiFi channels remain for the access tier to
 connect to clients using additional radios co-located on the mesh nodes.
 
 \begin{figure}
-\vspace{-0.1in}
+\vspace{-0.0in}
 \centering
-\includegraphics[width=94mm]{figures/interferencerange}
-\vspace{-0.5in}
+\includegraphics[width=84mm]{figures/interferencerange2}
+\vspace{-0.1in}
 \caption{Example WhiteMesh topology with different mesh-node shapes 
 representing different frequency band choices per link.}
 \label{fig:interferencerange}

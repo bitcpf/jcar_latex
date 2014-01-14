@@ -56,7 +56,7 @@ Nodes $A$ and $C$ could be connected through two 2.4-GHz links or a single 450-M
 With 2.4 GHz, the interfering distance will be less than using 450 MHz. For example, only 
 link $D,E$ will suffer from interference, whereas $H,I$ would not. However, with 450 MHz,
 link $A,C$ would interfere with links $F,G$, $M,L$, and $K,J$. At each time unit, the number of
-links interfering with the active links along the entire path would be the inter-path network cost.
+links interfering with the active links along a path would be the inter-path network cost.
 %\begin{figure}
 %%\vspace{-0.0in}
 %\centering
@@ -76,13 +76,13 @@ $\frac{T}{\gamma_h}$.
 An interferring link from the conflict matrix $F$ counts as $I_h$ per unit time
 and contributes to the network cost as:
 $\frac{hT}{\gamma_1}\cdot I_1 + \frac{(h-1)T}{\gamma_2}\cdot I_2 \cdots \frac{T}{\gamma_h}\cdot I_h$.
-Then, the traffic transmitted in a unit of network cost for the $h$-hop node could be represented as:
+Then, the traffic transmitted in a unit of network cost for the $h$-hop node is:
 \begin{equation}
 \label{eq:originpen}
 E_{\eta}=\frac{T}{\sum_{i \in h}\frac{(h-i+1)\cdot T}{\gamma_i}\cdot I_i }
 \end{equation}
 %With the protocol model used, if links exist, then they have the same capacity $\gamma_1=\gamma_2 \cdots =\gamma_h=c$. 
-Using the concept of network efficiency, the equation simplifies to:
+Using network efficiency, the equation simplifies to:
 \begin{equation}
 \label{eq:pen}
 E_{\eta}=\frac{\gamma}{\sum_{i \in h} (h-i+1)\cdot I_i}
