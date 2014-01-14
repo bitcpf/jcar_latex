@@ -10,24 +10,28 @@ pages = {254-256},
 author = {H. T. Friis},
 }
 
-@MISC{cnet_aug07,
+@ONLINE{cnet_aug07,
 author =       {Margurite Reardon},
 title =        {{EarthLink} pays 5 million to delay Houston {Wi-Fi} buildout},
-howpublished =          "\url{http://news.cnet.com/8301-10784\_3-9768759-7.html}",
+url =          {http://news.cnet.com/8301-10784\_3-9768759-7.html},
 year =         {2007},
+month =        aug,
 }
 
-@MISC{arstechnica_may08,
+@ONLINE{arstechnica_may08,
 author =       {Jacqui Cheng},
 title =        {Philadelphia's municipal {WiFi} network to go dark},
-howpublished =          "\url{http://arstechnica.com/gadgets/2008/05/philadelphias-municipal-wifi-network-to-go-dark}",
+url =          {http://arstechnica.com/gadgets/2008/05/philadelphias-municipal-wifi-network-to-go-dark},
 year =         {2008},
+month =        may,
 }
 
 @inproceedings{google_imc08,
 author = {M. Afanasyev and T. Chen and G. Voelker and A. Snoeren},
-title = {Analysis of a Mixed-Use Urban {WiFi} Network: When Metropolitan becomes Neapolitan},
-booktitle = {{ACM IMC}},
+title = {Analysis of a Mixed-Use Urban WiFi Network: When Metropolitan becomes Neapolitan},
+booktitle = {Proc. of {ACM} Internet Measurements Conference},
+address = {Vouliagmeni, Greece},
+month = oct,
 year = 2008,
 }
 
@@ -420,6 +424,8 @@ year = 2008,
 	title = {Measurement Driven Deployment of a Two-Tier Urban Mesh Access Network},
 	booktitle = {{ACM MobiSys}},
 	year = {2006},
+	month = {June},
+	address = {Uppsala, Sweden}
 }
 
 @misc{ANMP,
@@ -526,9 +532,12 @@ year = 2008,
 
 @BOOK{rappaport,
 	AUTHOR =       {T.S. Rappaport},
+	editor =       {T.S. Rappaport},
 	TITLE =        {Wireless Communications, Principles \& Practice},
 	PUBLISHER =    {Prentice Hall},
 	YEAR =         {1996},
+	series =       {Emerging Technologies Series},
+	address =      {Upper Saddle River, New Jersey},
 }
 
 @BOOK{stuber,
@@ -705,8 +714,10 @@ address = {Richardson, TX, USA}
 @INPROCEEDINGS{taps,
 	author = {R. Karrer and A. Sabharwal and E. Knightly},
 	title = {Enabling large-scale wireless broadband: the case for {TAPs}},
-	booktitle = {{HotNets-II}},
+	booktitle = {Proceedings of HotNets-II},
 	year = 2003,
+	month = nov,
+	address = {Cambridge, MA},
 }
 
 
@@ -753,8 +764,10 @@ address = {Richardson, TX, USA}
 @INPROCEEDINGS{JaPaPaQi03,
 	author = {K. Jain and J. Padhye and V. Padmanabhan and L. Qiu},
 	title = {Impact of Interference on Multi-hop Wireless Network Performance},
-	booktitle = {{ACM MobiCom}},
+	booktitle = {Proceedings of {ACM MobiCom} '03},
 	year = 2003,
+	month = sep,
+	address = {San Diego, CA},
 }
 
 @INPROCEEDINGS{OAR,
@@ -1538,10 +1551,13 @@ address = {Richardson, TX, USA}
 }
 
 @inproceedings{raniwala2005architecture,
-	title={Architecture and algorithms for an {IEEE} 802.11-based multi-channel wireless mesh network},
+	title={Architecture and algorithms for an IEEE 802.11-based multi-channel wireless mesh network},
 	author={Raniwala, A. and Chiueh, T.},
-	booktitle={{IEEE INFOCOM}},
+	booktitle={INFOCOM 2005. 24th Annual Joint Conference of the IEEE Computer and Communications Societies. Proceedings IEEE},
+	volume={3},
+	pages={2223--2234},
 	year={2005},
+	organization={Ieee}
 }
 
 @article{jakes1975microwave,
@@ -1970,17 +1986,20 @@ address = {Richardson, TX, USA}
 	}
 
 	@misc{fccwhitespace,
-		title = "FCC White Space",
+		author = "FCC",
+		title = "White Space",
 		year = 2012,
 		howpublished = "\url{http://www.fcc.gov/topic/white-space}"
 	}
 
 	@misc{googledatabase,
+		author = "Google Inc.",
 		title = "Google Spectrum Database",
 		year = 2013,
 		howpublished = "\url{https://www.google.com/get/spectrumdatabase/}"
 	}
 	@misc{msdatabase,
+		author = "Microsoft Inc.",
 		title = "MicroSoft Research White Space Database",
 		year = 2013,
 		howpublished = "\url{http://whitespaces.cloudapp.net/Default.aspx}"
@@ -2018,14 +2037,16 @@ address = {Richardson, TX, USA}
 	@inproceedings{robinson2010deploying,
 		title={Deploying mesh nodes under non-uniform propagation},
 		author={Robinson, Joshua and Singh, Mohit and Swaminathan, Ram and Knightly, Edward},
-		booktitle={{IEEE INFOCOM}},
+		booktitle={INFOCOM, 2010 Proceedings IEEE},
+		pages={1--9},
 		year={2010},
+		organization={IEEE}
 	}
 
 @article{bahl2009white,
-		title={White space networking with {WiFi} like connectivity},
+		title={White space networking with wi-fi like connectivity},
 		author={Bahl, Paramvir and Chandra, Ranveer and Moscibroda, Thomas and Murty, Rohan and Welsh, Matt},
-		journal={{ACM SIGCOMM}},
+		journal={ACM SIGCOMM Computer Communication Review},
 		volume={39},
 		number={4},
 		pages={27--38},
@@ -2064,7 +2085,7 @@ address = {Richardson, TX, USA}
 	@article{andersen1995propagation,
 		title={Propagation measurements and models for wireless communications channels},
 		author={Andersen, Jorgen Bach and Rappaport, Theodore S and Yoshida, Susumu},
-		journal={{IEEE Communications Magazine}},
+		journal={Communications Magazine, IEEE},
 		volume={33},
 		number={1},
 		pages={42--49},
@@ -2080,8 +2101,10 @@ address = {Richardson, TX, USA}
 	@inproceedings{robinson2008adding,
 		title={Adding capacity points to a wireless mesh network using local search},
 		author={Robinson, Joshua and Uysal, Mustafa and Swaminathan, Ram and Knightly, Edward},
-		booktitle={{IEEE INFOCOM}},
+		booktitle={INFOCOM 2008. The 27th Conference on Computer Communications. IEEE},
+		pages={1247--1255},
 		year={2008},
+		organization={IEEE}
 	}
 	@incollection{mahdian2002improved,
 		title={Improved approximation algorithms for metric facility location problems},
@@ -2162,22 +2185,25 @@ address = {Richardson, TX, USA}
 @article{raniwala2004centralized,
 	  title={Centralized channel assignment and routing algorithms for multi-channel wireless mesh networks},
 	    author={Raniwala, Ashish and Gopalan, Kartik and Chiueh, Tzi-cker},
-		  journal={{ACM SIGMOBILE MCCR}},
+		  journal={ACM SIGMOBILE Mobile Computing and Communications Review},
 		    volume={8},
 			  number={2},
 			    pages={50--65},
 				  year={2004},
+				    publisher={ACM}
 }
 @inproceedings{tang2005interference,
-	  title={Interference-aware topology control and {QoS} routing in multi-channel wireless mesh networks},
+	  title={Interference-aware topology control and QoS routing in multi-channel wireless mesh networks},
 	    author={Tang, Jian and Xue, Guoliang and Zhang, Weiyi},
-		  booktitle={{ACM MobiHoc}},
+		  booktitle={Proceedings of the 6th ACM international symposium on Mobile ad hoc networking and computing},
+		    pages={68--77},
 			  year={2005},
+			    organization={ACM}
 }
 @article{yuan2006cross,
 	  title={A cross-layer optimization framework for multihop multicast in wireless mesh networks},
 	    author={Yuan, Jun and Li, Zongpeng and Yu, Wei and Li, Baochun},
-		  journal={{IEEE JSAC}},
+		  journal={Selected Areas in Communications, IEEE Journal on},
 		    volume={24},
 			  number={11},
 			    pages={2092--2103},
@@ -2198,7 +2224,7 @@ address = {Richardson, TX, USA}
 @article{gupta2000capacity,
 	  title={The capacity of wireless networks},
 	    author={Gupta, Piyush and Kumar, Panganmala R},
-		  journal={{IEEE Trans. on Information Theory}},
+		  journal={Information Theory, IEEE Transactions on},
 		    volume={46},
 			  number={2},
 			    pages={388--404},
@@ -2206,9 +2232,9 @@ address = {Richardson, TX, USA}
 				    publisher={IEEE}
 }
 @article{mishra2005weighted,
-	  title={Weighted coloring based channel assignment for {WLAN}s},
+	  title={Weighted coloring based channel assignment for WLANs},
 	    author={Mishra, Arunesh and Banerjee, Suman and Arbaugh, William},
-		  journal={{ACM SIGMOBILE MCCR}},
+		  journal={ACM SIGMOBILE Mobile Computing and Communications Review},
 		    volume={9},
 			  number={3},
 			    pages={19--31},
@@ -2216,7 +2242,7 @@ address = {Richardson, TX, USA}
 				    publisher={ACM}
 }
 @article{peng2012efficient,
-	  title={An efficient joint channel assignment and {QoS} routing protocol for IEEE 802.11 multi-radio multi-channel wireless mesh networks},
+	  title={An efficient joint channel assignment and QoS routing protocol for IEEE 802.11 multi-radio multi-channel wireless mesh networks},
 	    author={Peng, Yuhuai and Yu, Yao and Guo, Lei and Jiang, Dingde and Gai, Qiming},
 		  journal={Journal of Network and Computer Applications},
 		    year={2012},
@@ -2245,7 +2271,9 @@ address = {Richardson, TX, USA}
 @inproceedings{ramachandran2006interference,
 	  title={Interference-Aware Channel Assignment in Multi-Radio Wireless Mesh Networks.},
 	    author={Ramachandran, Krishna N and Belding-Royer, Elizabeth M and Almeroth, Kevin C and Buddhikot, Milind M},
-		  booktitle={{IEEE INFOCOM}},
+		  booktitle={INFOCOM},
+		    volume={6},
+			  pages={1--12},
 			    year={2006}
 }
 @article{golden1976shortest,
@@ -2297,20 +2325,24 @@ address = {Richardson, TX, USA}
 @inproceedings{draves2004routing,
 	  title={Routing in multi-radio, multi-hop wireless mesh networks},
 	    author={Draves, Richard and Padhye, Jitendra and Zill, Brian},
-		  booktitle={{ACM MobiCom}},
+		  booktitle={Proceedings of the 10th annual international conference on Mobile computing and networking},
+		    pages={114--128},
 			  year={2004},
+			    organization={ACM}
 }
 @inproceedings{wu2006analysis,
 	  title={Analysis of bottleneck delay and throughput in wireless mesh networks},
 	    author={Wu, Xiaobing and Liu, Jiangchuan and Chen, Guihai},
-		  booktitle={{IEEE MASS}},
+		  booktitle={Mobile Adhoc and Sensor Systems (MASS), 2006 IEEE International Conference on},
+		    pages={765--770},
 			  year={2006},
+			    organization={IEEE}
 }
 
 @article{subramanian2008minimum,
 	  title={Minimum interference channel assignment in multiradio wireless mesh networks},
 	    author={Subramanian, Anand Prabhu and Gupta, Himanshu and Das, Samir R and Cao, Jing},
-		  journal={{IEEE TMC}},
+		  journal={Mobile Computing, IEEE Transactions on},
 		    volume={7},
 			  number={12},
 			    pages={1459--1473},
@@ -2336,8 +2368,10 @@ address = {Richardson, TX, USA}
 @inproceedings{cui2013leveraging,
 	  title={Leveraging diverse propagation and context for multi-modal vehicular applications},
 	    author={Cui, Pengfei and Liu, Hui and He, Jialin and Altintas, Onur and Vuyyuru, Rama and Rajan, Dinesh and Camp, Joseph},
-		  booktitle={{IEEE WiVeC}},
+		  booktitle={Wireless Vehicular Communications (WiVeC), 2013 IEEE 5th International Symposium on},
+		    pages={1--5},
 			  year={2013},
+			    organization={IEEE}
 }
 @book{scales1985introduction,
 	  title={Introduction to non-linear optimization},

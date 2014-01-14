@@ -1,11 +1,17 @@
 \section{Experimental Analysis}
 \label{sec:experimentdesign}
 
-We performed a set of simulations to evaluate the performance of the heuristic algorithms and leverage the white space band influence on mesh network. 
-The experiment set up is introduced in \ref{subsec:design} with the topology, metric calculation.
-A set of result is shown in ~\ref{subsec:analysis} and analysis is presented with the throughput achieve through gateways.
-CCA simplily pick two nodes have common channel to build links which also could be used in multiband scenario.
-In BFS-CA, we adopt the ranking standard as single link interference numbers, utilization of channels to fit multiband scenario.
+We now extensively evaluate our proposed heuristic algorithms against the upper bound formed by our
+integer linear programming model and against prior work. We first introduce the topologies and
+metric calculation used in the analysis.  We then present a set of results based on the gateway 
+goodput.
+
+%performed a set of simulations to evaluate the performance of the heuristic algorithms and leverage the white space band influence on mesh network. 
+%The experiment set up is introduced in \ref{subsec:design} with the topology, metric calculation.
+%A set of result is shown in ~\ref{subsec:analysis} and analysis is presented with the throughput achieve through gateways.
+
+%if we need to say the following, do it later: CCA simplily pick two nodes have common channel to build links which also could be used in multiband scenario.
+%In BFS-CA, we adopt the ranking standard as single link interference numbers, utilization of channels to fit multiband scenario.
 
 
 \subsection{Experiment Design}
@@ -41,6 +47,50 @@ We relax our ILP model to keep the link capacity constraints, given the demand o
 \subsection{Analysis}
 \label{subsec:analysis}
 
+\begin{figure*}[t]\vspace{-0.1in}
+\subfigure[Offered Load Per Mesh Node = 4 Mbps]{
+\label{fig:varysize}
+\includegraphics[width=2.3in]{figures/varysize}}
+\hspace{-0.0in}
+\subfigure[Varying Load, 30-Node Regular Grid]{
+\label{fig:maxtpt}
+\includegraphics[width=2.3in]{figures/maxtpt.eps}}
+\hspace{-0.0in}
+\subfigure[BPS (Alg. 2), Varying WS Availability]{
+\label{fig:wifiws}
+\includegraphics[width=2.3in]{figures/wifiws.eps}}
+\vspace{-0.1in}
+\caption{Performance in terms of gateway goodput for various offered loads, network sizes, and configurations of WiFi or white space (WS) channels.}
+\label{fig:all3figs}
+\vspace{-0.0in}
+\end{figure*}
+
+\begin{table*}
+\centering % centering table 
+\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|c|} % creating 12 columns 
+\hline %\hline % inserting double-line 
+Bands/     & WiFi    & WS      & WS \& & WS \& &  WS \& & WS \& & WS \&      &  WS \&      & Multi-WS \& & Multi-WS \& & Multi-WS \& \\% [0.5ex]
+Algorithms & Only    & Only    & WiFi  & WiFi  &  WiFi  & WiFi  & Multi-WiFi &  Multi-WiFi & WiFi        & WiFi        & Multi-WiFi  \\
+\hline % inserts single-line 
+% Entering 1st row 
+WS (MHz)   &                                                        & 450,800 & 450 &  800  &  450   & 800               & 450    & 800      & 450,800     & 450,800     & 450,800     \\
+\hline
+WiFi (GHz) & 2.4, 5 &                                                             & 2.4 &  2.4  &  5   & 5               & 2.4, 5& 2.4, 5        & 2.4             & 5         & 2.4, 5     \\ % [0.5ex]
+\hline
+\hline % inserts single-line 
+CCA~\cite{draves2004routing}                        & 3.1   &  7.3  & 8.2    &8.1    &8.3                &7.8     &   8.7    &   9.3&     9.0             &         11.9     &   14.4          \\      
+\hline % inserts single-line                                                                                                       
+BFSCA~\cite{ramachandran2006interference}  & 8.9   &  6.2  & 7.9    & 9.0   & 13.6       & 13.8   &  14.9    &   13.8&      14.9           &      14.3       &       18.6      \\      
+\hline % inserts single-line                                                                                                      
+GST (Alg. 1)                                                            & 11.6  &   6.6 & 9.3    &   15.1&   15.8        &  14.4  &   16.6   &    14.1  &   18.8            &  15.0           &    25.1         \\      
+\hline % inserts single-line                                                                                                     
+BPS (Alg. 2)                                                            & 22.2  & 18.2  &  28.4  & 25.0  & 30.9          & 25.8   &   32.00  &  33.5       &     34.5            &      30.9       &       35.2      \\      
+\hline % inserts single-line 
+\end{tabular}    
+\label{tab:2channelcombination}    
+\caption{Throughput achieved through Gateway nodes (Mbps) for various combinations of WiFi and White Space (WS) mesh topologies (Offered Load = 4 Mbps, Network Size = 30 mesh nodes).} % title name of the table 
+\vspace{-0.3in}
+\end{table*}    
 
 % ILP bound
 
@@ -53,15 +103,15 @@ Most of the time clients of wireless network have different traffic demand. The 
    Maximum $\sum_{i\in Gateway} (D_{di}+\sum_{l\in B,j\in V, k \in V}dy^l_{i,j,k}$.
 The output is the average maximum throughput achieve gateways for the max offer load per mesh node.
 To evaluate the performance in different size of network, we fix the max offer load of each node as $4MB/s$ and vary the number of nodes in the regular grid network. The performance of the algorithms are shown in ~\ref{fig:varysize}. 
-   \begin{figure}
-   %\vspace{-0.0in}
-   \centering
-   \includegraphics[width=74mm]{figures/varysize}
-   \vspace{-0.1in}
-   \caption{Uniform offered load per mesh node of 4 Mbps.}                                                                 
-   \label{fig:varysize}
-   %\vspace{-0.0in}
-   \end{figure}
+%   \begin{figure}
+%   %\vspace{-0.0in}
+%   \centering
+%   \includegraphics[width=74mm]{figures/varysize}
+%   \vspace{-0.1in}
+%   \caption{Uniform offered load per mesh node of 4 Mbps.}                                                                 
+%   \label{fig:varysize}
+%   %\vspace{-0.0in}
+%   \end{figure}
 
 The ILP Bound could have multiple gateway connection but other assignment would have only one gateway connection. And ILP optimize both channel assignment and routing simultaneously.  
 As the number of mesh node increase, CCA lose the ability to handle large size of network. 
@@ -71,15 +121,15 @@ We randomly deploy the gateways and offer load of each mesh node, brings the dec
 
    The performance of the two heuristic algorithms and ~\emph{CCA} ~\cite{draves2004routing}, ~\emph{BFSCA}  ~\cite{ramachandran2006interference} in a 30-node regular grid topology with 6MB link capacity in each channel are shown in figure ~\ref{fig:maxtpt}.
 
-   \begin{figure}
-   %\vspace{-0.0in}
-   \centering
-   \includegraphics[width=74mm]{figures/maxtpt}
-   \vspace{-0.1in}
-   \caption{Varying maximum offered load for a 30-node regular-grid mesh topology.}                                                                               
-   \label{fig:maxtpt}
-   %\vspace{-0.0in}
-   \end{figure}
+%\begin{figure}
+%   %\vspace{-0.0in}
+%   \centering
+%   \includegraphics[width=74mm]{figures/maxtpt}
+%   \vspace{-0.1in}
+%   \caption{Varying maximum offered load for a 30-node regular-grid mesh topology.}                                                                               
+%   \label{fig:maxtpt}
+%   %\vspace{-0.0in}
+%   \end{figure}
  
    BPS performs better than the other 3 algorithms since during the channel assignment process, it is already optimize the paths from further nodes to gateways make it possible to ship data from these nodes. But as the max offer load increase, all the channel assignment suffer the bottle neck of link capacity.
    GST is trying to optimizing the output of BFS-CA, reducing the hop counts and interference of each hop layer. However, since the 1 hop layer has been assigned throughput BFS-CA which is the bottle neck for the capacity of the network.
@@ -91,33 +141,6 @@ So a smart way to choose channels is to select a set of channels in different ba
 
    % Use table to replace the hint graph
 
-
-   \begin{table*}[t] 
-   \centering % centering table 
-   \begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|c|} % creating 12 columns 
-   \hline %\hline % inserting double-line 
-   Bands/     & WiFi    & WS      & WS \& & WS \& &  WS \& & WS \& & WS \&      &  WS \&      & Multi-WS \& & Multi-WS \& & Multi-WS \& \\% [0.5ex]
-   Algorithms & Only    & Only    & WiFi  & WiFi  &  WiFi  & WiFi  & Multi-WiFi &  Multi-WiFi & WiFi        & WiFi        & Multi-WiFi  \\
-	   \hline % inserts single-line 
-	   % Entering 1st row 
-	   WS (MHz)   &							    & 450,800 & 450 &  800  &  450   & 800		 & 450    & 800      & 450,800     & 450,800     & 450,800     \\
-		   \hline
-		   WiFi (GHz) & 2.4, 5 &								  & 2.4 &  2.4  &  5   & 5		 & 2.4, 5& 2.4, 5	 & 2.4		   & 5         & 2.4, 5     \\ % [0.5ex]
-		   \hline
-		   \hline % inserts single-line 
-		   CCA~\cite{draves2004routing}			    & 3.1   &  7.3  & 8.2    &8.1    &8.3		 &7.8     &   8.7    &   9.3&     9.0             &         11.9     &   14.4          \\
-			   \hline % inserts single-line                                                                                                       
-			   BFSCA~\cite{ramachandran2006interference}  & 8.9   &  6.2  & 7.9    & 9.0   & 13.6 	 & 13.8   &  14.9    &   13.8&      14.9           &      14.3       &       18.6      \\ 
-			   \hline % inserts single-line                                                                                                      
-			   GST (Alg. 1)								& 11.6  &   6.6 & 9.3    &   15.1&   15.8	 &  14.4  &   16.6   &    14.1  &   18.8            &  15.0           &    25.1         \\
-				   \hline % inserts single-line                                                                                                     
-				   BPS (Alg. 2)								& 22.2  & 18.2  &  28.4  & 25.0  & 30.9 	 & 25.8   &   32.00  &  33.5       &     34.5            &      30.9       &       35.2      \\ 
-				   \hline % inserts single-line 
-				   \end{tabular} 
-				   \label{tab:2channelcombination} 
-				   \caption{Throughput achieved through Gateway nodes (Mbps) for various combinations of WiFi and White Space (WS) mesh topologies (Offered Load = 4 Mbps, Network Size = 30 mesh nodes).} % title name of the table 
-				   \vspace{-0.1in}
-				   \end{table*} 
 
 				   %				   \begin{table}[h] 
 				   %				   \centering % centering table 
@@ -175,15 +198,15 @@ In one radio scenario, BPS outperforms CCA, but fails in completion of BFS-CA an
 But in multi-radio scenarios, BPS always outperforms the other methods.
 
 
-\begin{figure}
-%\vspace{-0.0in}
-\centering
-\includegraphics[width=74mm]{figures/varyradios}
-\vspace{-0.1in}
-\caption{Varying radios in 30-node regular-grid of 4 Mbps.}                                                                               
-\label{fig:varyradios}
-%\vspace{-0.0in}
-\end{figure}
+%\begin{figure}
+%%\vspace{-0.0in}
+%\centering
+%\includegraphics[width=74mm]{figures/varyradios}
+%\vspace{-0.1in}
+%\caption{Varying radios in 30-node regular-grid of 4 Mbps.}                                                                               
+%\label{fig:varyradios}
+%%\vspace{-0.0in}
+%\end{figure}
 
 
 
@@ -193,12 +216,12 @@ In ~\ref{fig:wifiws}, the performance of 4 different type of band combination is
 The four curves are WiFi Only (2.4,5 GHz), WS Only (450,800 MHz), WS (450 MHz) + Multi-WiFi(2.4 GHz), Multi-WS(450, 800 MHz) + Multi-WiFi(2.4, 5 GHz). 
 Increasing radios do help to improve the performance, but with the same radios and bandwidth, WiFi and white space combination could outperform only WiFi and only white space performance.
 
-\begin{figure}
-%\vspace{-0.0in}
-\centering
-\includegraphics[width=74mm]{figures/wifiws}
-\vspace{-0.1in}
-\caption{BPS (Alg. 2) performance with two total channels of WiFi or white space (WS) with varying offered load from x mesh nodes.}
-\label{fig:wifiws}
-%\vspace{-0.0in}
-\end{figure}
+%\begin{figure}
+%%\vspace{-0.0in}
+%\centering
+%\includegraphics[width=74mm]{figures/wifiws}
+%\vspace{-0.1in}
+%\caption{BPS (Alg. 2) performance with two total channels of WiFi or white space (WS) with varying offered load from x mesh nodes.}
+%\label{fig:wifiws}
+%%\vspace{-0.0in}
+%\end{figure}

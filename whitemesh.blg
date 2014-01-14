@@ -4,52 +4,52 @@ The style file: IEEEtran.bst
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Database file #1: whitemesh.bib
 Warning--string name "april" is undefined
---line 1797 of file whitemesh.bib
+--line 1781 of file whitemesh.bib
 -- IEEEtran.bst version 1.00 (2002/08/13) by Michael Shell.
 -- http://www.ctan.org/tex-archive/macros/latex/contrib/supported/IEEEtran/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
 Warning--empty journal in friis
 
 Done.
-You've used 36 entries,
+You've used 35 entries,
             3917 wiz_defined-function locations,
-            984 strings with 13240 characters,
-and the built_in function-call counts, 26705 in all, are:
-= -- 2164
-> -- 617
-< -- 242
-+ -- 341
-- -- 101
-* -- 1287
-:= -- 4035
-add.period$ -- 79
-call.type$ -- 36
-change.case$ -- 36
-chr.to.int$ -- 558
-cite$ -- 37
-duplicate$ -- 1940
-empty$ -- 2119
-format.name$ -- 127
-if$ -- 6128
+            960 strings with 12212 characters,
+and the built_in function-call counts, 22388 in all, are:
+= -- 1778
+> -- 528
+< -- 166
++ -- 286
+- -- 94
+* -- 1057
+:= -- 3456
+add.period$ -- 70
+call.type$ -- 35
+change.case$ -- 33
+chr.to.int$ -- 369
+cite$ -- 36
+duplicate$ -- 1708
+empty$ -- 1873
+format.name$ -- 119
+if$ -- 5109
 int.to.chr$ -- 0
-int.to.str$ -- 36
-missing$ -- 339
-newline$ -- 132
-num.names$ -- 37
-pop$ -- 776
+int.to.str$ -- 35
+missing$ -- 311
+newline$ -- 125
+num.names$ -- 31
+pop$ -- 749
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 2002
+skip$ -- 1716
 stack$ -- 0
-substring$ -- 1333
-swap$ -- 1604
-text.length$ -- 56
+substring$ -- 894
+swap$ -- 1296
+text.length$ -- 43
 text.prefix$ -- 0
 top$ -- 5
 type$ -- 0
 warning$ -- 1
-while$ -- 131
-width$ -- 38
-write$ -- 365
+while$ -- 90
+width$ -- 37
+write$ -- 335
 (There were 2 warnings)

@@ -27,10 +27,9 @@ Most importantly, all of the aforementioned works have not considered propagatio
 differences of the diverse frequency bands of white space and WiFi, which we show are 
 critical improving the performance of mesh networks.
 % 
-Coloring methodology assume all the color equal failing to process multiple topology generating by bands combination ~\cite{marina2010topology}. 
+%Coloring methodology assume all the color equal failing to process multiple topology generating by bands combination ~\cite{marina2010topology}. 
 % 
-%FIXME
-{\bf White Space.} 
+%
 %We need to cite some work by Microsoft on white spaces (SIGCOMM 2009 and other
 %Ranveer Chandra papers).  Talk about databases for available white space channels and say that 
 %in this work, we study the performance of mesh networks with varying number of available white 
@@ -38,14 +37,21 @@ Coloring methodology assume all the color equal failing to process multiple topo
 %white space databases and mechanisms are in place.
 
 
-White space bands are fundamentally different from conventional Wi-Fi along spatial variation ~\cite{bahl2009white}. 
-Spatial variation gives rise to new challenges for implementing a wireless network in this band. 
-Government department FCC has licensed white space bands in US ~\cite{fccwhitespace}.
-Microsoft build ~\emph{Microsoft Research White Space databas} for white space application reference ~\cite{msdatabase}. 
-Google even visualize the licensed white space channels in cities all over US and provide API for research and commerical users ~\cite{googledatabase}.
-The white space potential and the open free spectrum database provide chance to improve the mesh network performance in combining
- these UHF channels and Wi-Fi channels.
- In this work, we study the performance of mesh network with varying number of available white space channels at varying population densities as offerload to offer solution for white space channel application in mesh networks. 
+{\bf White Space.} To be used effectively, white space bands must ensure that available TV bands
+exist, and no interference exists between microphones and other devices~\cite{bahl2009white}. 
+%Spatial variation gives rise to new challenges for implementing a wireless network in this band. 
+%Government department FCC has licensed white space bands in US ~\cite{fccwhitespace}.
+Since TV channels are fairly static in their channel assignment, databases have been used to 
+account for white space channel availability (e.g., Microsoft's White Space Database~\cite{msdatabase}).
+%~\emph{Microsoft Research White Space databas} for white space application reference ~\cite{msdatabase}. 
+In fact, Google has even visualized the licensed white space channels in US cities with an API for 
+research and commerical use~\cite{googledatabase}.  In contrast, we study the performance of mesh 
+networks with a varying number of available white space channels at varying population densities (by 
+adjusting the offered load), assuming such white space databases and mechanisms are in place.
+
+%The white space potential and the open free spectrum database provide chance to improve the mesh network performance in combining
+% these UHF channels and Wi-Fi channels.
+% In this work, we study the performance of mesh network with varying number of available white space channels at varying population densities as offerload to offer solution for white space channel application in mesh networks. 
 
 %However, none of them is adaptive to the propagation difference in the wireless mesh network.
 %Prior research could be classified as ~\emph{Static Channel Assignment} and ~\emph{Dynamic Channel Assignment}.
