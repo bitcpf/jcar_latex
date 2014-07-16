@@ -1,4 +1,4 @@
-This is pdfeTeX, Version 3.141592-1.21a-2.2 (Web2C 7.5.4) (format=latex 2012.4.6)  14 JAN 2014 00:06
+This is pdfeTeX, Version 3.141592-1.21a-2.2 (Web2C 7.5.4) (format=latex 2012.4.6)  15 JUL 2014 22:39
 entering extended mode
 **whitemesh
 (./whitemesh.tex
@@ -360,25 +360,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 58--71
 
  []
 
-) (./wmalgorithms.tex [3] (./networkefficiency.tex)
-Underfull \hbox (badness 1668) in paragraph at lines 32--33
-[] []\OT1/ptm/m/n/9 Initialize $\OML/cmm/m/it/9 S[] \OT1/cmr/m/n/9 = \OML/cmm/m
-/it/9 G$\OT1/ptm/m/n/9 , $\OML/cmm/m/it/9 N[] \OT1/cmr/m/n/9 = \OMS/cmsy/m/n/9 
-;$\OT1/ptm/m/n/9 , $\OML/cmm/m/it/9 N[] \OT1/cmr/m/n/9 =
- []
-
-[4]
-Underfull \hbox (badness 1668) in paragraph at lines 127--128
-[] []\OT1/ptm/m/n/9 Initialize $\OML/cmm/m/it/9 S[] \OT1/cmr/m/n/9 = \OML/cmm/m
-/it/9 G$\OT1/ptm/m/n/9 , $\OML/cmm/m/it/9 N[] \OT1/cmr/m/n/9 = \OMS/cmsy/m/n/9 
-;$\OT1/ptm/m/n/9 , $\OML/cmm/m/it/9 N[] \OT1/cmr/m/n/9 =
- []
-
-[5]
+) (./wmalgorithms.tex (./networkefficiency.tex [3]) [4]
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 177.
+(amsmath)                 on input line 181.
 
 ) (./experiment.tex
 File: figures/varysize.eps Graphic file (type eps)
@@ -388,15 +374,11 @@ File: figures/maxtpt.eps Graphic file (type eps)
 File: figures/wifiws.eps Graphic file (type eps)
 
 <figures/wifiws.eps>
-Overfull \hbox (2.36363pt too wide) in paragraph at lines 72--82
+Overfull \hbox (2.36363pt too wide) in paragraph at lines 77--87
 [][]   []   []
  []
 
-[6]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-)
-(./related.tex [7]) (./conclusion.tex) (./whitemesh.bbl
+[5]) (./related_new.tex [6]) (./conclusion.tex) (./whitemesh.bbl
 Underfull \hbox (badness 2142) in paragraph at lines 26--29
 []\OT1/ptm/m/n/8 J. Cheng, ``Philadel-phia's mu-nic-i-pal WiFi net-work to go d
 ark,''
@@ -408,8 +390,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 26--29
 ifi-
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 164--166
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 218--220
 []\OT1/ptm/m/n/8 ``Microsoft re-search white space database,''
  []
 
@@ -427,12 +409,12 @@ Before submitting the final camera ready copy, remember to:
 
 [8] (./whitemesh.aux) ) 
 Here is how much of TeX's memory you used:
- 2956 strings out of 94501
- 40641 string characters out of 1176790
- 98340 words of memory out of 1000000
- 6035 multiletter control sequences out of 10000+50000
+ 2966 strings out of 94501
+ 40838 string characters out of 1176790
+ 98355 words of memory out of 1000000
+ 6045 multiletter control sequences out of 10000+50000
  34856 words of font info for 94 fonts, out of 500000 for 2000
  580 hyphenation exceptions out of 1000
  27i,9n,24p,474b,519s stack positions out of 1500i,500n,5000p,200000b,5000s
 
-Output written on whitemesh.dvi (8 pages, 74264 bytes).
+Output written on whitemesh.dvi (8 pages, 72936 bytes).

@@ -4,8 +4,8 @@
 We now present a mixed integer, linear programming formulation for 
 optimizing gateway goodput when selecting channels
 for WhiteMesh topologies across diverse bands. We assume that the
-set of available mesh nodes $V$ , gateways $W$ and available 
-bands $B$ are given.  The communication links and conflict graph 
+set of available mesh nodes ($V$), gateways ($W$), and available 
+bands ($B$) are given.  The communication links and conflict graph 
 are given as parameters.
 %the ~\emph{Multiband Multi-Radio} wireless mesh network described in section ~\ref{sec:problemformulation} to model the problem and provide a way to approach the upbound a network throughput achieve gateways.
 % Fixme if with more input it is still NP-hard
@@ -48,10 +48,10 @@ $D_{ui}$ & $i \in V\ $ & Uplink demand of node i\\
 % We could vary the objective
 % treat each mesh node with the same demand even generally the demand of the mesh node is random. So the goodput of a integer linear program is the summation of all the demand served by the gateway nodes. We assign a uplink demand variable $\lambda u$ and downlink demand $\lambda d$ to each node. The goodput of the network could be represented as $\sum_{n \in V}(\lambda u_n+ \lambda d_n)$, the linear program is givin to $Maximize\ Goodput$.
 
-We define time share to represent the percentage of time a 
+We define the time share to represent the percentage of time a 
 single link transmits according to~$\alpha_{i,j}^b$
-for link $i,j$ in band $b$. Two flow 
-variables are defined as uplink and downlink flows as below:
+for link $i,j$ in band $b$. Two 
+terms are defined for uplink and downlink flows:
 %on 
 %a link $i,j$ for node $k$ in band $b$, $uy_{i,j,k}^b,dy_{i,j,k}^b$.
 
@@ -70,7 +70,7 @@ Downlink flow of node $k$ on link $(i,j)$ at band $b$ \\
 \end{tabular}
 
 %\vspace{3pt}
-Our objective is to maximize the gateway goodput.
+Our objective is to maximize the gateway goodput ($X$).
 
 \noindent
 {\bf Objective:}
@@ -78,7 +78,7 @@ Our objective is to maximize the gateway goodput.
 & Max \sum_i\sum_j\sum_k\sum_b(uy_{i,j,k}^b+dy_{j,i,k}^b) \; When \; w_j=1
 \end{align}
 
-The constraints for the variables are represented as:  
+The connectivity, uplink, and downlink constraints are:  
 %\setcounter{equation}{0}\\
 %\vspace{1pt}
 %Objective:
@@ -100,13 +100,13 @@ The constraints for the variables are represented as:
 {\bf Uplink Constraints:} 
 \begin{align}
 \label{opt:3}
-& \sum_k \sum_b uy_{i,i,k}^b \leq D_{ui} \; When \; w_k=0, i \neq k \\
+& \sum_k \sum_b uy_{i,i,k}^b \leq D_{ui} \; when \; w_k=0, i \neq k \\
 \label{opt:4}
 & uy_{i,j,k}^b = 0 w_k=1 \\
 %\label{opt:5}
-%& \sum_i\sum_b uy_{i,j,k}^b - \sum_m\sum_b uy_{j,m,k}^b = 0 \; When \; w_k=0, i\neq k\\
+%& \sum_i\sum_b uy_{i,j,k}^b - \sum_m\sum_b uy_{j,m,k}^b = 0 \; when \; w_k=0, i\neq k\\
 \label{opt:6}
-& \sum_i\sum_b uy_{i,j,k}^b = \sum_m \sum_b uy_{j,m,k}^b \; When \; w_k=0, i \neq k\\
+& \sum_i\sum_b uy_{i,j,k}^b = \sum_m \sum_b uy_{j,m,k}^b \; when \; w_k=0, i \neq k\\
 \label{opt:7}
 & uy_{i,j,i}^b=0 
 \end{align}
@@ -115,27 +115,27 @@ The constraints for the variables are represented as:
 \begin{align}
 {\bf}
 \label{opt:8}
-& \sum_j \sum_b dy_{i,j,i}^b \leq D_{di} \; When \; w_i=0 \\
+& \sum_j \sum_b dy_{i,j,i}^b \leq D_{di} \; when \; w_i=0 \\
 \label{opt:9}
-& dy_{i,j,k}^l =0 \; When \; w_k=1 \\
+& dy_{i,j,k}^l =0 \; when \; w_k=1 \\
 %\label{opt:10}
 %& \sum_j\sum_b dy_{i,j,k}^b - \sum_m\sum_b dy_{i,k,m}^b \geq , i \neq k \\
 \label{opt:11}
-& \sum_j\sum_b dy_{i,j,k}^b = \sum_m \sum_b dy_{j,m,k}^b,\; When \; w_k=0,  i \neq k \\
+& \sum_j\sum_b dy_{i,j,k}^b = \sum_m \sum_b dy_{j,m,k}^b,\; when \; w_k=0,  i \neq k \\
 \label{opt:12}
 & dy_{i,i,j}^b=0
 \end{align}
 
 In the ILP, (\ref{opt:1}) represents the summation of the incoming and outgoing 
-time share and the interfering links' time share, which should all be less than 1.
-Constraint (\ref{opt:2}) represents the incoming and outgoing traffic flow, which 
+wireless time share and the interfering links' wireless time share, which should all be less than 1.
+Constraint (\ref{opt:2}) represents the incoming and outgoing wireless traffic, which 
 should be less than the link capacity for link $i,j$. Uplink constraints (\ref{opt:3})
-and (\ref{opt:4}) represent that the summation of any flow $i,j$ should be less than
-the demand of node $k$.  Contraints (\ref{opt:6}) and (\ref{opt:7}) are used to restrict
+and (\ref{opt:4}) represent that the summation of any wireless flow $i,j$ should be less than
+the demand of node $k$.  Constraints (\ref{opt:6}) and (\ref{opt:7}) are used to restrict
 the sum of all incoming data flows for a given mesh node $k$ to be equal to the 
 sum of all outgoing flows. Downlink constraints (\ref{opt:8}) and (\ref{opt:9}) are
 similar to (\ref{opt:3}) and (\ref{opt:4}) but in the downlink direction.  Similarly,
-constraits (\ref{opt:11}) and (\ref{opt:12}) are downlink versions of (\ref{opt:6}) and (\ref{opt:7}).
+constraints (\ref{opt:11}) and (\ref{opt:12}) are downlink versions of (\ref{opt:6}) and (\ref{opt:7}).
 
 %link capacity distributed by its time share $\alpha$; 
 %% Uplink GA/MN constraints
@@ -164,9 +164,7 @@ constraits (\ref{opt:11}) and (\ref{opt:12}) are downlink versions of (\ref{opt:
 
 Linear programs which attempt to solve channel assignment and routing in multihop
 wireless networks have been proved to be NP hard~\cite{tang2005interference,yuan2006cross}. 
-The model jointly considers factors to be considered in channel 
-assignment and provides the methodology to achieve the upper bound for a 
-channel assignment.  When we have a particular channel assignment $A_{i,j}^k$, we could 
+The model jointly considers channel assignment factors and provides the methodology to achieve the upper bound on gateway goodput.  Once we have a particular channel assignment $A_{i,j}^k$, we can 
 modify the objective function, parameters, and constraints to find the maximum 
 satisfied demand in the network.  
 %More details will be discussed in section ~\ref{sec:experimentdesign} 

@@ -1,10 +1,13 @@
 \section{Evaluation of WhiteMesh Channel Assignment}
 \label{sec:experimentdesign}
 
-We now extensively evaluate our proposed heuristic algorithms against the upper 
-bound formed by our integer linear programming model and against prior channel 
-assignment work. We first introduce the topologies and metric calculation used 
-in the analysis.  We then present a set of results based on the gateway goodput.
+
+% NEWClaim fix
+We now extensively evaluate our proposed heuristic algorithm against the upper 
+bound formed by our integer linear program and versus prior channel 
+assignment strategies. We introduce the topologies and metric calculation used 
+in the analysis and present a set of results based 
+of the linear program and heuristic algorithm.
 
 %performed a set of simulations to evaluate the performance of the heuristic algorithms and leverage the white space band influence on mesh network. 
 %The experiment set up is introduced in \ref{subsec:design} with the topology, metric calculation.
@@ -14,7 +17,7 @@ in the analysis.  We then present a set of results based on the gateway goodput.
 %In BFS-CA, we adopt the ranking standard as single link interference numbers, utilization of channels to fit multiband scenario.
 
 
-\subsection{Experiment Design}
+\subsection{Experimental Evaluation Setup}
 \label{subsec:design}
 % Simulation Setup
 A key aspect of WhiteMesh networks is the diversity in propagation from the lowest white
@@ -22,14 +25,13 @@ space channels (tens to hundreds of MHz) to the highest WiFi channels (multiple 
 to evaluate the performance of our algorithms, we consider a wide range of propagation 
 characteristics from four different frequency bands.  For white space bands, we consider
 450 and 800 MHz.  For WiFi bands, we consider 2.4 and 5.8 GHz.  With similar transmission
-power and antenna gain, the highest carrier frequency would have the shortest communication.
+power and antenna gain, the highest carrier frequency would have the shortest communication range.
 Hence, we set a communication-range threshold of -100 dBm, and normalize the communication 
 range with the highest frequency of 5.8 GHz. In particular, the communication range of 
 450 MHz, 800 MHz, 2.4 GHz, and 5.8 GHz would be normalized to 12.8, 6.2, 2.4, and 1, respectively.  
 The interference range is computed as twice that of the communication 
 range~\cite{raniwala2005architecture}. We deploy static wireless mesh networks of $n$ 
-mesh nodes along a regular, rectangular grid with a normalized distance of 0.8 between the 
-rectangle edges.  As a result, we have varying degrees of connectivity in the grid.
+mesh nodes along a regular, rectangular grid with a normalized distance of 0.8 between rectangular edges.  As a result, we have varying degrees of connectivity in the grid.
 The gateways are randomly-selected from one out of every six mesh nodes in the network.
 Unless otherwise, specified in the analysis, all four bands are used in the WhiteMesh
 topology studied. 
@@ -45,13 +47,16 @@ carriers charge fees for total bandwidth through towers), but also has been used
 to evaluate channel assignment~\cite{avallone2008channel}.  As mentioned previously, the wireless
 capacity of gateway nodes has been shown to be the bottleneck in mesh networks~\cite{robinson2010deploying}.
 Moreover, gateway goodput combines multiple factors, such as mesh node placement, gateway placement, 
-routing, and channel assignment, the latter of which is the focus of our analysis and algorithms. 
-
-For the purposes of our analysis, we specifically calculate the gateway goodput first introduced 
-in Section~\ref{subsec:problem} in the following way.  Nodes that have a one-hop path to the gateway
+routing, and channel assignment, the latter of which is the focus of our analysis and algorithms. For the purposes of our analysis, we specifically calculate the gateway goodput first introduced 
+in Section~\ref{subsec:problem} in the following way.  Mesh nodes that have a one-hop path to the gateway
 nodes are the first ones served. Where there are nodes with the same hop count, the least interfering
 mesh nodes are chosen for channel assignment. Then, the demand of multihop mesh nodes are served 
 until there is no remaining demand to be satisfied through any path.
+
+% NEWClaim fix, map mesh node offer load to population distribution
+We vary the average population distribution of the target area, assuming $10\%$ of the residents will use
+our service. An individual would have a $100 KB/s$ traffic demand on average. Then, we randomly assign
+the user distribution across the area and run the analysis of each case 20 times.  
 %The calculation process is kind of routing protocol which help us to reach a scrollable maximum throughput achieve gateways of the network. 
 %We would not claim it is the best way, for evaluation we keep the same calculation process for all comparable setting.
 % Validation
@@ -59,15 +64,15 @@ We relax our ILP model to keep the link capacity constraints, given the demand o
 parameter to achieve the maximum throughput at the gateways. The ILP Bound assumes the mesh 
 nodes could connect to all the gateways if there is a path that exists to each gateway. However,
 we restrict a mesh node to only connect to one gateway in the network, and this represents the
-main difference from the ILP Bound to our heuristic algorithms.
+main difference from the ILP Bound to our heuristic algorithm.
 
-% FIXME may need a validation of max calculation
 
-\subsection{Experimental Analysis}
+
+\subsection{Experimental Analysis of WhiteMesh Backhaul}
 \label{subsec:analysis}
 
 \begin{figure*}[t]
-\subfigure[Offered Load Per Mesh Node = 4 Mbps]{
+\subfigure[Average Population Distribution = 600 $ppl/km^2$]{
 \label{fig:varysize}
 \includegraphics[width=2.3in]{figures/varysize}}
 \hspace{-0.0in}
@@ -75,7 +80,7 @@ main difference from the ILP Bound to our heuristic algorithms.
 \label{fig:maxtpt}
 \includegraphics[width=2.3in]{figures/maxtpt.eps}}
 \hspace{-0.0in}
-\subfigure[BPS (Alg. 2), Varying WS Availability]{
+\subfigure[BPS (Alg. 1), Varying WS Availability]{
 \label{fig:wifiws}
 \includegraphics[width=2.3in]{figures/wifiws.eps}}
 \vspace{-0.1in}
@@ -100,20 +105,21 @@ WiFi (GHz) & 2.4, 5 &                                                           
 CCA~\cite{draves2004routing}                        & 3.1   &  7.3  & 8.2    &8.1    &8.3                &7.8     &   8.7    &   9.3&     9.0             &         11.9     &   14.4          \\      
 \hline % inserts single-line                                                                                                       
 BFS-CA~\cite{ramachandran2006interference}  & 8.9   &  6.2  & 7.9    & 9.0   & 13.6       & 13.8   &  14.9    &   13.8&      14.9           &      14.3       &       18.6      \\      
-\hline % inserts single-line                                                                                                      
-GST (Alg. 1)                                                            & 11.6  &   6.6 & 9.3    &   15.1&   15.8        &  14.4  &   16.6   &    14.1  &   18.8            &  15.0           &    25.1         \\      
+%\hline % inserts single-line                                                                                                      
+%GST (Alg. 1)                                                            & 11.6  &   6.6 & 9.3    &   15.1&   15.8        &  14.4  &   16.6   &    14.1  &   18.8            &  15.0           &    25.1         \\      
 \hline % inserts single-line                                                                                                     
-BPS (Alg. 2)                                                            & 22.2  & 18.2  &  28.4  & 25.0  & 30.9          & 25.8   &   32.0  &  33.5       &     34.5            &      30.9       &       35.2      \\      
+BPS (Alg. 1)                                                            & 22.2  & 18.2  &  28.4  & 25.0  & 30.9          & 25.8   &   32.0  &  33.5       &     34.5            &      30.9       &       35.2      \\      
 \hline % inserts single-line 
 \end{tabular}    
+\caption{Throughput achieved through Gateway nodes (Mbps) for various combinations of WiFi and Average Population Distribution = 600 $ppl/km^2$, Network Size = 30 mesh nodes).} % title name of the table 
+% NEWClaim fix
 \label{tab:2channelcombination}    
-\caption{Throughput achieved through Gateway nodes (Mbps) for various combinations of WiFi and White Space (WS) mesh topologies (Offered Load = 4 Mbps, Network Size = 30 mesh nodes).} % title name of the table 
 \vspace{-0.4in}
 \end{table*}    
 
 % ILP bound
 
-Typically, clients and therefore mesh nodes have diverse traffic patterns with
+Typically, clients and mesh nodes have diverse traffic patterns with
 the download direction dominating the total traffic demand (e.g., consider
 service agreements for cellular data or Internet connectivity). Hence, to
 simplify the analysis and scale the ILP Bound to larger network sizes, we 
@@ -133,16 +139,20 @@ In the first experiment, we consider different network sizes according to
 the number of mesh nodes in the aforementioned regular grid. In particular,
 we expect that as the network size grows, so too does the number of gateways,
 producing a greater total gateway goodput. Fig.~\ref{fig:varysize} shows
-the total gateway goodput when the maximum offered load per mesh node is
-4 Mbps for the ILP formulation and four heuristic algorithms: 
+the total gateway goodput when the 
+% NEWClaim, ppl map to mesh
+population distribution is 600 $ppl/km^2$
+for the ILP formulation and the heuristic algorithms: 
 {\it (i)} Common Channel Assignment (CCA) from~\cite{draves2004routing},
 {\it (ii)} Breadth First Search Channel Assignment (BFS-CA) from~\cite{ramachandran2006interference},
-{\it (iii)} our first algorithm GST (Section~\ref{subsec:GST}), and
-{\it (iv)} our second algorithm BPS (Section~\ref{subsec:BPS}).
-The former two algorithms consider similar propagation characteristics for
-all channels in the assignment while the latter two algorithms consider the
-diverse propagation characteristics of the WiFi and white space bands used in 
-the analysis.
+%{\it (iii)} our first algorithm GST (Section~\ref{subsec:GST}), and
+{\it (iv)} our algorithm BPS (Section~\ref{subsec:BPS}).
+% NEWClaim fix, CCA, BFSCA
+In CCA~\cite{draves2004routing}, two nodes will assign a channel for each other when there is a common
+free channel for both of the nodes. In BFS-CA~\cite{tang2005interference}, a node will search all the 
+available one-hop connections then choose the one has the largest capacity for a new assignment. 
+These two methods assume the one-hop connections are equal when there is no assignment on the channel. 
+In BPS, we both consider and leverage propagation differences of diverse bands.
 
 %   \begin{figure}
 %   %\vspace{-0.0in}
@@ -156,28 +166,35 @@ the analysis.
 
 In Fig.~\ref{fig:varysize}, we observe dips in the curves for all algorithms, 
 representing the randomly generated demand.  The ILP Bound shows what could be
-expected, that an increasing number of gateways produces an increase in total
+expected, that an increasing number of gateways produce an increase in total
 gateway goodput.  However, we observe that the other algorithms are not able
-to achieve such behavior for various reasons.  First, CCA increases the average
+to achieve such behavior for various reasons.  CCA increases the average
 hop count the most, meaning that it was unable to find shorter routes to new
-gateways.  Second, while GST slightly outperforms BFS-CA, they both fail to 
-increase the reach of the gateway by attempting to optimize the first hop from
-the gateway. Conversely, BPS alleviates the strain on these first-hop, bottleneck 
+gateways.  
+% NEWClaim,fix
+%cond, while GST slightly outperforms BFS-CA, they both fail to 
+%increase the reach of the gateway by attempting to optimize the first hop from
+%the gateway. 
+BFS-CA fails to increase the reach of the gateway by attempting to optimize the first
+hop from the gateway.
+Conversely, BPS alleviates the strain on these first-hop, bottleneck 
 links, achieving up to 63\% of the ILP Bound. The key difference of BPS to the
 ILP is that BPS only considers one path to a gateway node for each mesh node,
-wereas the ILP allows multiple paths to gateways.
+whereas the ILP allows multiple paths to the gateways.
 
 Next, we consider a different form of scalability in our analysis.  Namely,
-we increase the maximum offered load per mesh node from 1 to 10 Mbps, while
+%we increase the maximum offered load per mesh node from 1 to 10 Mbps, whilea
+% NEWClaim, fix
+we increase the average population distribution from 150 to 1,500 per km$^2$, while
 maintaining a 30-node regular grid topology. Fig.~\ref{fig:maxtpt} shows that
-all of the algorithms are able to achieve comparable gateway goodput at 1 Mbps
-offered load per mesh node.  However, as the offered load increases the ILP
+all of the algorithms are able to achieve comparable gateway goodput at 150
+$ppl/km^2$.  However, as the population distribution increases, the ILP
 and BPS diverge greatly from the remaining algorithms. Similar to 
 Fig.~\ref{fig:varysize}, the wireless capacity around a gateway is quickly 
 saturated if the algorithm is not focused on preserving that resource. Nonetheless,
-we do observe a leveling off at approximately 6 Mbps offered load due to a
+we do observe a leveling off at approximately 60 Mbps offered load due to a
 similar effect of the saturation of wireless capacity around the gateway node.
-For BPS, this saturation point at 6 Mbps has a gateway goodput from 1.5 to 3.2 
+For BPS, this saturation point at 60 Mbps has a gateway goodput from 1.5 to 3.2 
 times that of the remaining three algorithms, whereas the ILP Bound has between
 2.7 and 4.18 times the gateway goodput. BPS has a performance of 75\% of the ILP
 Bound, on average.
@@ -195,7 +212,7 @@ Bound, on average.
 
 WhiteMesh networks will be deployed across a vast array of environments, from
 rural to urban areas.  Each of these areas will have varying amounts of user 
-demand in proportion to the population densitities.  However, since a greater
+demand in proportion to the population densities.  However, since a greater
 number of TV stations exist in urban areas, the available white space bands are
 often inversely related to the population density. To capture these varying
 degrees of demand and white space availability we consider three likely scenarios
@@ -207,12 +224,12 @@ two white space bands (450 and 800 MHz) with no WiFi bands (for comparison).
 
 In Fig.~\ref{fig:wifiws}, we consider the performance of BPS in the four aforementioned
 scenarios of varying white space availability with varying offered load from 1 to 10 Mbps,
-representing different population densities. A regular, 30-node grid is also used.
+representing different population densities. A regular, 30-node grid is again used.
 Immediately, we observe that the WiFi-only scenario has greater gateway goodput
 than the white-space-only scenario.  This is due to the lack of spatial reuse achieved
 by white spaces.  Interestingly, however, the joint use of both white space and WiFi
 bands has significant gains over the single type of band scenarios (37\% greater than
-WiFi and 85\% over white space, on average).  This can be explained because in part
+WiFi and 85\% over white space, on average).  This can be explained in part
 because the joint use of WiFi and white space has more total bands to use.  However,
 we will see in Table~\ref{tab:2channelcombination} that even with the same number of
 available bands (2), the combination of the two can achieve significant gains over
@@ -220,15 +237,19 @@ scenarios with only WiFi or white space.
 
 Table~\ref{tab:2channelcombination} describes the achieved gateway goodput for various
 combinations of WiFi and white space bands with a maximum offered load of 4 Mbps and
-a regular 30-node grid. Consider the case where we use a white space band of 450 MHz 
-and a WiFi band of 5.8 GHz. The second reason for the gains in Fig.~\ref{fig:wifiws} 
-with WiFi and white space is completely isolated in this scenario. Note that, even
-with the same bandwidth, transmission power, and antenna gain, the joint use of 
-these bands allows 15.8 Mbps of gateway goodput with GST versus 11.6 Mbps for
-WiFi only and 6.6 Mbps for white space only topologies with gains of 36\% and 140\%,
-respectively. With BPS and the same scenario, we achieve 30.9 Mbps of gateway goodput 
+a regular 30-node grid. The second reason for the gains in Fig.~\ref{fig:wifiws} 
+with WiFi and white space is completely isolated in this scenario. Consider the case where we use a white space band of 450 MHz 
+and a WiFi band of 5.8 GHz.  
+% NEWClaim, fix
+%Note that, even
+%with the same bandwidth, transmission power, and antenna gain, the joint use of 
+%these bands allows 15.8 Mbps of gateway goodput with GST versus 11.6 Mbps for
+%WiFi only and 6.6 Mbps for white space only topologies with gains of 36\% and 140\%,
+%respectively. 
+With BPS and the same bandwidth, transmission power, and antenna gain, we achieve 
+30.9 Mbps of gateway goodput through jointly use of these bands, 
 versus 22.2 Mbps with WiFi only or 18.2 Mbps for white space only with gains of 
-40\% and 70\%, respectively. If we have on channel in a white space band and one 
+40\% and 70\%, respectively. If we have one channel in a white space band and one 
 channel in a WiFi band, then we could use the advantage of WiFi for spatial reuse
 and white spaces to reduce the hop count. These two points become more critical at
 different points in the WhiteMesh topology. For the sake of completeness, we present
@@ -251,7 +272,7 @@ many other scenarios which could be interesting for WhiteMesh deployments.
 				   %				   \multirow{2}{*}{Type} & \multirow{2}{*}{Bands} & \multicolumn{4}{c|}{Algorithms}   \\% [0.5ex]
 				   %				   \cline{3-6}
 				   %				   %  \hline
-				   %				   & & CCA[23] & BFSCA[24] & GST(Alg.1) & BPS(Alg.2) \\ [2ex]
+				   %				   & & CCA[23] & BFSCA[24] & GST(Alg.1) & BPS(Alg.1) \\ [2ex]
 				   %				   % \\ [0.5ex] 
 				   %				   \hline % inserts single-line 
 				   %				   WiFi Only & $2.4+5G$ & 3.0912 & 8.9460 & 11.5934 & 22.2179 \\ [2ex]

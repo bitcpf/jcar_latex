@@ -9,6 +9,8 @@
 \citation{jain2005impact}
 \@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{1}}
 \newlabel{sec:introduction}{{I}{1}}
+\@writefile{toc}{\contentsline {section}{\numberline {II}Problem Formulation}{1}}
+\newlabel{sec:problemformulation}{{II}{1}}
 \citation{andersen1995propagation}
 \citation{friis}
 \citation{rappaport}
@@ -17,8 +19,6 @@
 \citation{tang2005interference,yuan2006cross,si2010overview}
 \citation{gupta2000capacity}
 \citation{tang2005interference}
-\@writefile{toc}{\contentsline {section}{\numberline {II}Problem Formulation}{2}}
-\newlabel{sec:problemformulation}{{II}{2}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-A}}WhiteMesh Network Architecture}{2}}
 \newlabel{subsec:architecture}{{\unhbox \voidb@x \hbox {II-A}}{2}}
 \newlabel{eq:friis}{{1}{2}}
@@ -42,24 +42,18 @@
 \newlabel{opt:9}{{11}{3}}
 \newlabel{opt:11}{{12}{3}}
 \newlabel{opt:12}{{13}{3}}
-\citation{robinson2008adding,he2008optimizing}
-\citation{ramachandran2006interference}
-\@writefile{toc}{\contentsline {section}{\numberline {III}Path Analysis with Diverse Propagation}{4}}
-\newlabel{sec:wmalgorithms}{{III}{4}}
+\@writefile{toc}{\contentsline {section}{\numberline {III}Path Analysis with Diverse Propagation}{3}}
+\newlabel{sec:wmalgorithms}{{III}{3}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-A}}Path Interference Induced on the Network}{4}}
 \newlabel{subsec:PEN}{{\unhbox \voidb@x \hbox {III-A}}{4}}
 \newlabel{eq:originpen}{{14}{4}}
 \newlabel{eq:pen}{{15}{4}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Band-based Path Selection (BPS)}}{4}}
+\newlabel{algorithms:bps}{{1}{4}}
 \newlabel{eq:benefit}{{16}{4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-B}}Growing Spanning Tree (GST) Algorithm}{4}}
-\newlabel{subsec:GST}{{\unhbox \voidb@x \hbox {III-B}}{4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-B}}Band-based Path Selection (BPS) Algorithm}{4}}
+\newlabel{subsec:BPS}{{\unhbox \voidb@x \hbox {III-B}}{4}}
 \citation{golden1976shortest}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Growing Spanning Tree (GST)}}{5}}
-\newlabel{algorithms:gst}{{1}{5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-C}}Band-based Path Selection (BPS) Algorithm}{5}}
-\newlabel{subsec:BPS}{{\unhbox \voidb@x \hbox {III-C}}{5}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces Band-based Path Selection (BPS)}}{5}}
-\newlabel{algorithms:bps}{{2}{5}}
 \citation{raniwala2005architecture}
 \citation{avallone2008channel}
 \citation{robinson2010deploying}
@@ -67,39 +61,53 @@
 \citation{ramachandran2006interference}
 \citation{draves2004routing}
 \citation{ramachandran2006interference}
-\@writefile{toc}{\contentsline {section}{\numberline {IV}Evaluation of WhiteMesh Channel Assignment}{6}}
-\newlabel{sec:experimentdesign}{{IV}{6}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-A}}Experiment Design}{6}}
-\newlabel{subsec:design}{{\unhbox \voidb@x \hbox {IV-A}}{6}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-B}}Experimental Analysis}{6}}
-\newlabel{subsec:analysis}{{\unhbox \voidb@x \hbox {IV-B}}{6}}
+\citation{draves2004routing}
 \citation{tang2005interference}
+\@writefile{toc}{\contentsline {section}{\numberline {IV}Evaluation of WhiteMesh Channel Assignment}{5}}
+\newlabel{sec:experimentdesign}{{IV}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-A}}Experimental Evaluation Setup}{5}}
+\newlabel{subsec:design}{{\unhbox \voidb@x \hbox {IV-A}}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-B}}Experimental Analysis of WhiteMesh Backhaul}{5}}
+\newlabel{subsec:analysis}{{\unhbox \voidb@x \hbox {IV-B}}{5}}
+\citation{tragos2013spectrum}
+\citation{tragos2013spectrum,akyildiz2006next}
+\citation{tang2005interference,irwin2013resource,chieochan2013channel}
+\citation{irwin2013resource,subramanian2008minimum,doraghinejad2014channel}
+\citation{jain2005impact,akyildiz2005wireless,raniwala2004centralized,tragos2013spectrum}
+\citation{draves2004routing,irwin2013resource}
+\citation{wu2006analysis,ramachandran2006interference,subramanian2008minimum}
+\newlabel{fig:varysize}{{2(a)}{6}}
+\newlabel{sub@fig:varysize}{{(a)}{6}}
+\newlabel{fig:maxtpt}{{2(b)}{6}}
+\newlabel{sub@fig:maxtpt}{{(b)}{6}}
+\newlabel{fig:wifiws}{{2(c)}{6}}
+\newlabel{sub@fig:wifiws}{{(c)}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Performance in terms of gateway goodput for various offered loads, network sizes, and configurations of WiFi or white space (WS) channels.}}{6}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Average Population Distribution = 600 $ppl/km^2$}}}{6}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Varying Load, 30-Node Regular Grid}}}{6}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {BPS (Alg. 1), Varying WS Availability}}}{6}}
+\newlabel{fig:all3figs}{{2}{6}}
+\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces Throughput achieved through Gateway nodes (Mbps) for various combinations of WiFi and Average Population Distribution = 600 $ppl/km^2$, Network Size = 30 mesh nodes).}}{6}}
+\newlabel{tab:2channelcombination}{{I}{6}}
+\@writefile{toc}{\contentsline {section}{\numberline {V}Related Work}{6}}
+\newlabel{sec:related}{{V}{6}}
+\citation{pcuiwinmee}
+\citation{tang2005interference,he2008optimizing,robinson2010deploying}
+\citation{irwin2013resource,subramanian2008minimum}
+\citation{chieochan2013channel,li2012channel}
+\citation{robinson2010deploying,long2013fair}
 \citation{si2010overview}
+\citation{tang2005interference,irwin2013resource,filippini2013new}
 \citation{raniwala2005architecture,wang2010game}
-\newlabel{fig:varysize}{{2(a)}{7}}
-\newlabel{sub@fig:varysize}{{(a)}{7}}
-\newlabel{fig:maxtpt}{{2(b)}{7}}
-\newlabel{sub@fig:maxtpt}{{(b)}{7}}
-\newlabel{fig:wifiws}{{2(c)}{7}}
-\newlabel{sub@fig:wifiws}{{(c)}{7}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Performance in terms of gateway goodput for various offered loads, network sizes, and configurations of WiFi or white space (WS) channels.}}{7}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Offered Load Per Mesh Node = 4 Mbps}}}{7}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Varying Load, 30-Node Regular Grid}}}{7}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {BPS (Alg. 2), Varying WS Availability}}}{7}}
-\newlabel{fig:all3figs}{{2}{7}}
-\newlabel{tab:2channelcombination}{{\unhbox \voidb@x \hbox {IV-B}}{7}}
-\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces Throughput achieved through Gateway nodes (Mbps) for various combinations of WiFi and White Space (WS) mesh topologies (Offered Load = 4 Mbps, Network Size = 30 mesh nodes).}}{7}}
-\@writefile{toc}{\contentsline {section}{\numberline {V}Related Work}{7}}
-\newlabel{sec:related}{{V}{7}}
-\citation{jain2005impact,akyildiz2005wireless,raniwala2004centralized}
-\citation{draves2004routing}
-\citation{subramanian2008minimum}
-\citation{wu2006analysis,ramachandran2006interference}
-\citation{draves2004routing}
-\citation{ramachandran2006interference}
+\citation{zhu2013survey}
+\citation{robinson2010deploying}
 \citation{bahl2009white}
 \citation{msdatabase}
 \citation{googledatabase}
+\citation{bahl2009white}
+\citation{cui2013leveraging}
+\citation{filippini2013new}
+\citation{deb2009dynamic}
 \bibstyle{IEEEtran}
 \bibdata{whitemesh}
 \bibcite{cnet_aug07}{1}
@@ -120,21 +128,33 @@
 \bibcite{gupta2000capacity}{16}
 \bibcite{mishra2005weighted}{17}
 \bibcite{peng2012efficient}{18}
+\@writefile{toc}{\contentsline {section}{\numberline {VI}Conclusion}{7}}
+\newlabel{sec:conclusion}{{VI}{7}}
+\@writefile{toc}{\contentsline {section}{References}{7}}
 \bibcite{robinson2008adding}{19}
-\bibcite{he2008optimizing}{20}
-\bibcite{ramachandran2006interference}{21}
-\bibcite{golden1976shortest}{22}
-\bibcite{raniwala2005architecture}{23}
-\bibcite{avallone2008channel}{24}
-\bibcite{robinson2010deploying}{25}
-\bibcite{draves2004routing}{26}
-\bibcite{wang2010game}{27}
-\bibcite{akyildiz2005wireless}{28}
-\bibcite{subramanian2008minimum}{29}
-\bibcite{wu2006analysis}{30}
-\bibcite{bahl2009white}{31}
-\bibcite{msdatabase}{32}
-\bibcite{googledatabase}{33}
-\@writefile{toc}{\contentsline {section}{\numberline {VI}Conclusion}{8}}
-\newlabel{sec:conclusion}{{VI}{8}}
-\@writefile{toc}{\contentsline {section}{References}{8}}
+\bibcite{golden1976shortest}{20}
+\bibcite{raniwala2005architecture}{21}
+\bibcite{avallone2008channel}{22}
+\bibcite{robinson2010deploying}{23}
+\bibcite{draves2004routing}{24}
+\bibcite{ramachandran2006interference}{25}
+\bibcite{tragos2013spectrum}{26}
+\bibcite{akyildiz2006next}{27}
+\bibcite{irwin2013resource}{28}
+\bibcite{chieochan2013channel}{29}
+\bibcite{subramanian2008minimum}{30}
+\bibcite{doraghinejad2014channel}{31}
+\bibcite{akyildiz2005wireless}{32}
+\bibcite{wu2006analysis}{33}
+\bibcite{pcuiwinmee}{34}
+\bibcite{he2008optimizing}{35}
+\bibcite{li2012channel}{36}
+\bibcite{long2013fair}{37}
+\bibcite{filippini2013new}{38}
+\bibcite{wang2010game}{39}
+\bibcite{zhu2013survey}{40}
+\bibcite{bahl2009white}{41}
+\bibcite{msdatabase}{42}
+\bibcite{googledatabase}{43}
+\bibcite{cui2013leveraging}{44}
+\bibcite{deb2009dynamic}{45}

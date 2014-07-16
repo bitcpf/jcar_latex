@@ -48,19 +48,19 @@ networks going forward.
 In this paper, we leverage the diversity in propagation of
 white space and WiFi bands in the planning and deployment
 of large-scale wireless mesh networks. To do so, we first form an
-integer linear programming model to jointly exploit 
+integer linear program to jointly exploit 
 white space and WiFi bands for optimal WhiteMesh topologies.
 Second, since similar problem formulations have been shown to be 
-NP-hard~\cite{jain2005impact}, we design two heuristic algorithms, 
-Growing Spanning Tree (GST) and Band-based Path Selection (BPS). We then
-show these two algorithms approach the performance of the 
-optimal solution but have a reduced complexity. To assess the 
-performance of our schemes, we compare the performance of GST and 
+NP-hard~\cite{jain2005impact}, we design a heuristic algorithm, 
+Band-based Path Selection (BPS). We then
+show the algorithm approaches the performance of the 
+optimal solution but with a reduced complexity. To assess the 
+performance of our scheme, we compare the performance of 
 BPS against two well-known multi-channel, multi-radio deployment 
 algorithms across a wide range of scenarios, including those
 typical for rural areas as well as urban settings. Finally, we
 quantify the degree to which the joint use of both band types can improve the 
-performance of wireless mesh networks in these diverse scenarios.
+performance of wireless mesh networks.
 
 The main contributions of our work are as follows:
 \begin{itemize}
@@ -68,23 +68,23 @@ The main contributions of our work are as follows:
 linear programming to jointly leverage white space and WiFi bands
 to serve the greatest user demand in terms of gateway throughput 
 in wireless mesh networks.  
-\item We design a heuristic algorithm called Growing Spanning Tree (GST), which considers the network-wide interference induced by each channel, band, and path choice and attempts to reduce this overall Path Interference induced on the Network (PIN) with these decisions.
-\item We build a second algorithm, Band-based Path 
+\item We build an algorithm, Band-based Path 
 Selection (BPS), which considers the diverse propagation 
 and overall interference level of WiFi and white space bands using
 a two-stage approach.  In the first stage, we prioritize the bands
 with the greatest propagation to reduce the overall hop count. In the
 second stage, we compare the interference level of path choices with
 similar hop count. 
-\item We perform extensive analysis across diverse offered loads,
-network sizes, and combinations of WiFi and white space band usage
-to evaluate our algorithms, showing that BPS outperforms existing
-techniques by up to 320\%.  
+\item We perform extensive analysis across offered loads,
+network sizes, and WiFi/white space band combinations, showing that BPS outperforms existing
+multi-channel, multi-radio algorithms techniques by 3 and 6 times
+in terms of the served user demand.  
 \item Given similar channel resources
 (bandwidth and transmission power), we additionally show that while
 WiFi-only mesh topologies would largely outperform mesh networks with only
 white space bands, the joint use of the two types of bands (i.e., WhiteMesh 
-networks) can yield up to 140\% improvement in served user demand.
+networks) can yield up to 170\% of the served user demand compared to mesh networks
+with only one type of band.
 \end{itemize}
 
 %The remainder of this paper is organized as follows. In Section ~\ref{sec:problemformulation}, 
