@@ -4,9 +4,13 @@ large-scale Internet connectivity in metropolitan areas.  However, in-field
 trials revealed that the node spacing required for WiFi propagation 
 induced a prohibitive cost model for network carriers to deploy. The digitization of TV 
 channels and new FCC regulations have reapportioned spectrum for data networks 
-with far greater range than WiFi due to lower carrier frequencies. In this work, 
+with far greater range than WiFi due to lower carrier frequencies. 
+Also, occupancy of frequency varies from populated area to sparse area across 
+both ISM bands and white space bands.
+In this work, 
 we consider how these white space bands can be leveraged in large-scale wireless 
-mesh network deployments.  In particular, we present an integer linear programming model 
+mesh network deployments with in-field measured channel capacity.  
+In particular, we present an integer linear programming model 
 to leverage diverse propagation characteristics of white space and WiFi bands to 
 deploy optimal WhiteMesh networks.  Since such optimization is known to be NP-hard, 
 we design a heuristic algorithm, Band-based Path 
@@ -18,6 +22,7 @@ to urban areas. In doing so, we achieve between
 3 to 6 times the gateway goodput of these existing multi-channel, multi-radio algorithms,
 which are agnostic to diverse propagation characteristics across bands.  Moreover, we show that, with 
 similar channel resources and bandwidth, the joint use of WiFi and white space bands 
+% FIXME
 can achieve a served user demand of 170\% that of mesh networks with
 only WiFi bands or white space bands, respectively.
 

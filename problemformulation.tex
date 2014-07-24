@@ -38,23 +38,7 @@ Here, the path loss exponent $n$ changes according to the
 aforementioned environmental factors and ranges from 2 to 5 in typical
 outdoor settings~\cite{rappaport}.
 
-
-%The rules of radio propagation are complex and diverse
-%such as the daily changes of environment, weather, and atmosphere changes due to cosmos activities.
-%In most propagation models there are three basic propagation mechanisms: reflection, diffraction, and scattering ~\cite{andersen1995propagation}.
-%For multiband mesh backhual network, the nodes are usually installed on the top of buildings or towers to get the best line of sight propagation. A line of sight propagation model is a reasonable hypotheses in wireless mesh network.
-% propagation fomular, explain the band influence
-%In popular \emph{Friis} propagation model, the received signal power of a node is represented as:
-%\begin{equation}
-%\label{eq:friis}
-%P_r=P_t+G_t+G_r+10n log_{10}(\frac{\lambda}{4\pi R})
-%\end{equation}
-%
-%Path-loss exponent \emph{$n$} is used to describe the environment factors, typically in outdoor environments range from 2 to 5.\cite{camp2006measurement}.
-%In equation ~\ref{eq:friis}, in the specific environment with a common path-loss exponent and $P_t,G_t,G_r$ configuration, the received signal vary according to the band represented by wavelength $\lambda$.
-%Since wireless radios have the same received signal threshold, lower frequency band could have a larger communication range $D_c$, and also a larger interference range $D_r$.
-
-% Explain multiband vs multichannel
+% Explain multiband vs multichannel Adding channel occupancy here, and also activity level
 A common assumption in works that use many WiFi channels is that the
 propagation characteristics of one channel is similar to another, 
 since the channel separation is relatively small (e.g., 5 MHz for 
@@ -66,7 +50,20 @@ band is defined as a group of channels which have
 similar propagation characteristics.
 %We use a similar assumption for %channels within a frequency band, but consider the propagation 
 %differences of a channel in one band (e.g., 450 MHz) as compared to 
-%another (e.g., 2.4 GHz). 
+%another (e.g., 2.4 GHz). FIXME modified
+In the application of wireless communication, channel occupancy has
+to be considered~\cite{fallah2010congestion}. To quantify the 
+channel occupancy, we inherit the activity level from~\cite{cuileveraging}
+to quantify the channel occupancy as shown in Eq.~\ref{eq:actlevel}.
+The activity level is defined based on a long-term measurement 
+of each band.  It is defined as the percentage of sensing samples ($S_\theta$) above an 
+interference threshold ($\theta$) over the total samples ($S$) in a time unit as the 
+activity level ($A$) of inter-network interference:
+\begin{equation}
+\label{eq:actlevel}
+A=\frac{S_\theta}{S_a}
+\end{equation}
+
 In this work, we consider the diverse propagation characteristics
 for four frequency bands: 450 MHz, 800 MHz, 2.4 GHz, and 5.8 GHz.
 We refer to the two former frequency bands as white space (WS) bands, whereas
@@ -82,8 +79,8 @@ white space and WiFi bands on a finite set of radios per mesh node
 along the backhaul tier, since we assume that client devices will use 
 WiFi (due to the economies of scale).  In each of the WhiteMesh 
 topologies studied in Section~\ref{sec:experimentdesign}, a sufficient 
-number of orthogonal WiFi channels remain for the access tier to 
-connect to clients using additional radios co-located on the mesh nodes.
+number of orthogonal WiFi channels remain for the access tier 
+clients connection through additional radios co-located on the mesh nodes.
 
 \begin{figure}
 \vspace{-0.0in}
@@ -129,17 +126,22 @@ topologies is challenge.
 \label{subsec:problem}
 
 % Assumptions of the network
-Our model is similar to prior multi-channel models~\cite{tang2005interference,
-yuan2006cross,si2010overview}. However, in these models, different channels
-have the same communication range $D_c$ and interference range $D_r$.  While
-these works would attempt to maximize throughput in a multihop network topology
+In this work, we have a model similar to prior multi-channel models~\cite{tang2005interference,
+doraghinejad2014channel,si2010overview}. However, in these previous models, 
+they fail to distinguish the communication range $D_c$ and interference range
+$D_4$ variation across frequency bands.  
+%FIXME HERE 18:10
+While
+these works would attempt to minimize the interference in a multihop network topology
 by an optimal channel assignment for a given set of radios, we hypothesize that
 using radios with a greater diversity in propagation could yield overall network 
 performance gains.  
 % NEWClaim we consider we could use either multiple channels in a band and also multiple channels in different bands
 Therefore, for a given set of radios, we allow the channel
-choices to come from multiple frequency bands (i.e., multiband channel assignment, which also includes multiple channels in the same band).
+choices to come from multiple frequency bands (i.e., multiband channel 
+assignment, which also includes multiple channels in the same band).
 To simplify the analysis, we assume the channel capacity of each band is equal.
+% FIXME Weds. Here
 In practice, we could easily calculate the proportional ratio of channels in 
 each band according to their bandwidth.
 We assume that the locations of mesh nodes and gateway nodes are given and
@@ -152,7 +154,18 @@ in the network. If the received signal (according to Eq.~\ref{eq:friis}) between
 two mesh nodes $i,j$ for a given frequency band (from the set of all bands $B$) 
 is greater than a communication-range threshold, then a data link exists and 
 belongs to the set $L$ with a fixed, non-zero capacity $\gamma$ according to the protocol 
-model.  Correspondingly, a connectivity graph $C$ is formed for each 
+model.  
+Due to the frequency occupancy, the available channel capacity is calculated 
+through Eq.~\ref{eq:intercap}.
+\begin{equation}
+\label{eq:intercap}
+\gamma_r=\gamma*(1-\bar{A})
+\end{equation}
+The capacity of a clean channel is denoted by $\gamma$. With the protocol model, the capacity 
+of a channel with inter-network interference $\gamma_r$ could be represented as 
+the remaining free time of the channel capacity according to the measured
+activity level $A$.
+Correspondingly, a connectivity graph $C$ is formed for each 
 band in $B$ such that $C=(V,L,B)$.  If the received signal for a given band is 
 above an interference-range threshold, then contention occurs between
 nodes.  We extend the conflict matrix in~\cite{tang2005interference} according to

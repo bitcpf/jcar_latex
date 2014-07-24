@@ -3,51 +3,54 @@ The top-level auxiliary file: whitemesh.aux
 The style file: IEEEtran.bst
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Database file #1: whitemesh.bib
+Warning--I didn't find a database entry for "cuiwinmee"
 -- IEEEtran.bst version 1.00 (2002/08/13) by Michael Shell.
 -- http://www.ctan.org/tex-archive/macros/latex/contrib/supported/IEEEtran/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
 Warning--empty journal in friis
+Warning--empty journal in cuileveraging
+Warning--empty year in cuileveraging
 
 Done.
-You've used 45 entries,
+You've used 47 entries,
             3917 wiz_defined-function locations,
-            1016 strings with 14378 characters,
-and the built_in function-call counts, 32094 in all, are:
-= -- 2607
-> -- 773
-< -- 280
-+ -- 426
-- -- 131
-* -- 1549
-:= -- 4875
-add.period$ -- 91
-call.type$ -- 45
-change.case$ -- 43
-chr.to.int$ -- 630
-cite$ -- 46
-duplicate$ -- 2373
-empty$ -- 2522
-format.name$ -- 167
-if$ -- 7346
+            1024 strings with 14729 characters,
+and the built_in function-call counts, 33328 in all, are:
+= -- 2687
+> -- 823
+< -- 285
++ -- 450
+- -- 142
+* -- 1613
+:= -- 5056
+add.period$ -- 96
+call.type$ -- 47
+change.case$ -- 45
+chr.to.int$ -- 642
+cite$ -- 50
+duplicate$ -- 2472
+empty$ -- 2628
+format.name$ -- 180
+if$ -- 7624
 int.to.chr$ -- 0
-int.to.str$ -- 45
-missing$ -- 415
-newline$ -- 155
-num.names$ -- 42
-pop$ -- 952
+int.to.str$ -- 47
+missing$ -- 437
+newline$ -- 161
+num.names$ -- 44
+pop$ -- 1017
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 2442
+skip$ -- 2521
 stack$ -- 0
-substring$ -- 1512
-swap$ -- 1917
-text.length$ -- 70
+substring$ -- 1542
+swap$ -- 1983
+text.length$ -- 71
 text.prefix$ -- 0
 top$ -- 5
 type$ -- 0
-warning$ -- 1
-while$ -- 141
-width$ -- 47
-write$ -- 443
-(There was 1 warning)
+warning$ -- 3
+while$ -- 147
+width$ -- 49
+write$ -- 458
+(There were 4 warnings)

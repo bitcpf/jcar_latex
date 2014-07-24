@@ -1,4 +1,4 @@
-This is pdfeTeX, Version 3.141592-1.21a-2.2 (Web2C 7.5.4) (format=latex 2012.4.6)  15 JUL 2014 22:39
+This is pdfeTeX, Version 3.141592-1.21a-2.2 (Web2C 7.5.4) (format=latex 2012.4.6)  24 JUL 2014 11:41
 entering extended mode
 **whitemesh
 (./whitemesh.tex
@@ -317,25 +317,39 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
 LaTeX Font Info:    ... okay on input line 21.
 
 (./abstract.tex) (./introduction.tex
-LaTeX Font Info:    Try loading font information for U+lasy on input line 67.
- (/usr/share/texmf/tex/latex/base/ulasy.fd
+
+LaTeX Warning: Citation `cuiwinmee' on page 1 undefined on input line 40.
+
+LaTeX Font Info:    Try loading font information for U+lasy on input line 76.
+(/usr/share/texmf/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 67.
+LaTeX Font Info:    Try loading font information for U+msa on input line 76.
+
 (/usr/share/texmf/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2002/01/19 v2.2g AMS font definitions
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 67.
+LaTeX Font Info:    Try loading font information for U+msb on input line 76.
 
 (/usr/share/texmf/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2002/01/19 v2.2g AMS font definitions
-)) (./problemformulation.tex
-[1
+) [1
 
 
-]
+]) (./problemformulation.tex
+
+LaTeX Warning: Reference `actlevel' on page 2 undefined on input line 57.
+
 File: figures/interferencerange2.eps Graphic file (type eps)
- <figures/interferencerange2.eps> [2]) (./linearopt.tex
+<figures/interferencerange2.eps>
+
+LaTeX Warning: Reference `intercap' on page 2 undefined on input line 153.
+
+
+Underfull \vbox (badness 5008) has occurred while \output is active []
+
+ [2])
+(./linearopt.tex
 Underfull \hbox (badness 10000) in paragraph at lines 32--36
 []\OT1/ptm/m/n/10 Interference of link
  []
@@ -360,13 +374,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 58--71
 
  []
 
-) (./wmalgorithms.tex (./networkefficiency.tex [3]) [4]
+[3]) (./wmalgorithms.tex (./networkefficiency.tex [4])
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
 (amsmath)                 on input line 181.
 
-) (./experiment.tex
+) (./experiment.tex [5]
 File: figures/varysize.eps Graphic file (type eps)
  <figures/varysize.eps>
 File: figures/maxtpt.eps Graphic file (type eps)
@@ -378,7 +392,15 @@ Overfull \hbox (2.36363pt too wide) in paragraph at lines 77--87
 [][]   []   []
  []
 
-[5]) (./related_new.tex [6]) (./conclusion.tex) (./whitemesh.bbl
+) (./related.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [6])
+(./conclusion.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [7])
+(./whitemesh.bbl
 Underfull \hbox (badness 2142) in paragraph at lines 26--29
 []\OT1/ptm/m/n/8 J. Cheng, ``Philadel-phia's mu-nic-i-pal WiFi net-work to go d
 ark,''
@@ -390,8 +412,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 26--29
 ifi-
  []
 
-[7]
-Underfull \hbox (badness 10000) in paragraph at lines 218--220
+
+Underfull \hbox (badness 10000) in paragraph at lines 232--234
 []\OT1/ptm/m/n/8 ``Microsoft re-search white space database,''
  []
 
@@ -407,14 +429,18 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[8] (./whitemesh.aux) ) 
+[8] (./whitemesh.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
 Here is how much of TeX's memory you used:
- 2966 strings out of 94501
- 40838 string characters out of 1176790
- 98355 words of memory out of 1000000
- 6045 multiletter control sequences out of 10000+50000
+ 2973 strings out of 94501
+ 40920 string characters out of 1176790
+ 99381 words of memory out of 1000000
+ 6052 multiletter control sequences out of 10000+50000
  34856 words of font info for 94 fonts, out of 500000 for 2000
  580 hyphenation exceptions out of 1000
  27i,9n,24p,474b,519s stack positions out of 1500i,500n,5000p,200000b,5000s
 
-Output written on whitemesh.dvi (8 pages, 72936 bytes).
+Output written on whitemesh.dvi (8 pages, 77000 bytes).

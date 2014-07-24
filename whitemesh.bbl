@@ -48,10 +48,8 @@ R.~Karrer, A.~Sabharwal, and E.~Knightly, ``Enabling large-scale wireless
 C.~A. Balanis, \emph{Antenna theory: analysis and design}.\hskip 1em plus 0.5em
   minus 0.4em\relax John Wiley \& Sons, 2012.
 
-\bibitem{raniwala2004centralized}
-A.~Raniwala, K.~Gopalan, and T.-c. Chiueh, ``Centralized channel assignment and
-  routing algorithms for multi-channel wireless mesh networks,'' \emph{{ACM
-  SIGMOBILE MCCR}}, vol.~8, no.~2, pp. 50--65, 2004.
+\bibitem{googledatabase}
+``Google spectrum database,'' \url{http://goo.gl/NnIFXQ}, 2013.
 
 \bibitem{tang2005interference}
 J.~Tang, G.~Xue, and W.~Zhang, ``Interference-aware topology control and {QoS}
@@ -62,6 +60,18 @@ J.~Tang, G.~Xue, and W.~Zhang, ``Interference-aware topology control and {QoS}
 W.~Si, S.~Selvakennedy, and A.~Y. Zomaya, ``An overview of channel assignment
   methods for multi-radio multi-channel wireless mesh networks,'' \emph{Journal
   of Parallel and Distributed Computing}, vol.~70, no.~5, pp. 505--524, 2010.
+
+\bibitem{long2013fair}
+Y.~Long, H.~Li, M.~Pan, Y.~Fang, and T.~F. Wong, ``A fair qos-aware
+  resource-allocation scheme for multiradio multichannel networks,''
+  \emph{Vehicular Technology, IEEE Transactions on}, vol.~62, no.~7, pp.
+  3349--3358, 2013.
+
+\bibitem{doraghinejad2014channel}
+M.~Doraghinejad, H.~Nezamabadi-Pour, and A.~Mahani, ``Channel assignment in
+  multi-radio wireless mesh networks using an improved gravitational search
+  algorithm,'' \emph{Journal of Network and Computer Applications}, vol.~38,
+  pp. 163--171, 2014.
 
 \bibitem{jain2005impact}
 K.~Jain, J.~Padhye, V.~N. Padmanabhan, and L.~Qiu, ``Impact of interference on
@@ -81,10 +91,16 @@ H.~T. Friis, ``A note on a simple transmission formula,'' vol.~34, no.~5, pp.
 T.~Rappaport, \emph{Wireless Communications, Principles \& Practice}.\hskip 1em
   plus 0.5em minus 0.4em\relax Prentice Hall, 1996.
 
-\bibitem{yuan2006cross}
-J.~Yuan, Z.~Li, W.~Yu, and B.~Li, ``A cross-layer optimization framework for
-  multihop multicast in wireless mesh networks,'' \emph{{IEEE JSAC}}, vol.~24,
-  no.~11, pp. 2092--2103, 2006.
+\bibitem{fallah2010congestion}
+Y.~P. Fallah, C.~Huang, R.~Sengupta, and H.~Krishnan, ``Congestion control
+  based on channel occupancy in vehicular broadcast networks,'' in
+  \emph{Vehicular Technology Conference Fall (VTC 2010-Fall), 2010 IEEE
+  72nd}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, 2010, pp. 1--5.
+
+\bibitem{cuileveraging}
+P.~Cui, H.~Liu, J.~He, O.~Altintas, R.~Vuyyuru, D.~Rajan, and J.~Camp,
+  ``Leveraging diverse propagation and context for multi-modal vehicular
+  applications.''
 
 \bibitem{gupta2000capacity}
 P.~Gupta and P.~R. Kumar, ``The capacity of wireless networks,'' \emph{{IEEE
@@ -105,6 +121,11 @@ Y.~Peng, Y.~Yu, L.~Guo, D.~Jiang, and Q.~Gai, ``An efficient joint channel
 J.~Robinson, M.~Uysal, R.~Swaminathan, and E.~Knightly, ``Adding capacity
   points to a wireless mesh network using local search,'' in \emph{{IEEE
   INFOCOM}}, 2008.
+
+\bibitem{yuan2006cross}
+J.~Yuan, Z.~Li, W.~Yu, and B.~Li, ``A cross-layer optimization framework for
+  multihop multicast in wireless mesh networks,'' \emph{{IEEE JSAC}}, vol.~24,
+  no.~11, pp. 2092--2103, 2006.
 
 \bibitem{golden1976shortest}
 B.~Golden, ``Shortest-path algorithms: A comparison,'' \emph{Operations
@@ -160,15 +181,14 @@ A.~P. Subramanian, H.~Gupta, S.~R. Das, and J.~Cao, ``Minimum interference
   channel assignment in multiradio wireless mesh networks,'' \emph{{IEEE TMC}},
   vol.~7, no.~12, pp. 1459--1473, 2008.
 
-\bibitem{doraghinejad2014channel}
-M.~Doraghinejad, H.~Nezamabadi-Pour, and A.~Mahani, ``Channel assignment in
-  multi-radio wireless mesh networks using an improved gravitational search
-  algorithm,'' \emph{Journal of Network and Computer Applications}, vol.~38,
-  pp. 163--171, 2014.
-
 \bibitem{akyildiz2005wireless}
 I.~F. Akyildiz, X.~Wang, and W.~Wang, ``Wireless mesh networks: a survey,''
   \emph{Computer networks}, vol.~47, no.~4, pp. 445--487, 2005.
+
+\bibitem{raniwala2004centralized}
+A.~Raniwala, K.~Gopalan, and T.-c. Chiueh, ``Centralized channel assignment and
+  routing algorithms for multi-channel wireless mesh networks,'' \emph{{ACM
+  SIGMOBILE MCCR}}, vol.~8, no.~2, pp. 50--65, 2004.
 
 \bibitem{wu2006analysis}
 X.~Wu, J.~Liu, and G.~Chen, ``Analysis of bottleneck delay and throughput in
@@ -187,12 +207,6 @@ B.~He, B.~Xie, and D.~P. Agrawal, ``Optimizing deployment of internet gateway
 X.~Li, J.~Wu, S.~Lin, and X.~Du, ``Channel switching control policy for
   wireless mesh networks,'' \emph{Journal of Parallel and Distributed
   Computing}, vol.~72, no.~10, pp. 1295--1305, 2012.
-
-\bibitem{long2013fair}
-Y.~Long, H.~Li, M.~Pan, Y.~Fang, and T.~F. Wong, ``A fair qos-aware
-  resource-allocation scheme for multiradio multichannel networks,''
-  \emph{Vehicular Technology, IEEE Transactions on}, vol.~62, no.~7, pp.
-  3349--3358, 2013.
 
 \bibitem{filippini2013new}
 I.~Filippini, E.~Ekici, and M.~Cesana, ``A new outlook on routing in cognitive
@@ -217,9 +231,6 @@ P.~Bahl, R.~Chandra, T.~Moscibroda, R.~Murty, and M.~Welsh, ``White space
 \bibitem{msdatabase}
 ``Microsoft research white space database,''
   \url{http://whitespaces.cloudapp.net/Default.aspx}, 2013.
-
-\bibitem{googledatabase}
-``Google spectrum database,'' \url{http://goo.gl/NnIFXQ}, 2013.
 
 \bibitem{cui2013leveraging}
 P.~Cui, H.~Liu, J.~He, O.~Altintas, R.~Vuyyuru, D.~Rajan, and J.~Camp,

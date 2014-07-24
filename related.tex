@@ -1,81 +1,13 @@
 \section{Related Work}
 \label{sec:related}
 
-{\bf Optimization and Game Theory.} Optimization frameworks based on linear programming
-have been used to determine the channel assignment in multihop wireless networks for given 
-link bandwidths and route requests~\cite{tang2005interference}.  Since these formulations 
-attempt to solve NP-hard problems, LP relaxation is commonly used to output network flows 
-that potentially are not feasible channel assignments~\cite{si2010overview}. 
-Game theory has also been used to guide distributed channel assignment and routing 
-algorithms which attempt to balance the load of the network~\cite{raniwala2005architecture,
-wang2010game}.  In such a framework, nodes advertise their dynamically-changing costs 
-to reach their associated gateway according to the residual bandwidth. If a node learns of
-a less expensive path to the current gateway or another gateway, the appropriate action is
-taken to construct such a path, but hysteresis must be carefully considered to avoid route flapping.
-
-{\bf Multi-Channel, Multi-Radio Algorithms.} Many works have studied the channel assignment problem in multihop wireless
-networks~\cite{jain2005impact,akyildiz2005wireless,raniwala2004centralized}.
-In addition, multiple radios have been used to improve the routing in multi-channel
-scenarios~\cite{draves2004routing}. Still others have used static channel assignments
-where everything is known about the network parameters~\cite{subramanian2008minimum},
-which is in contrast to dynamic channel assignment where demand and interference are 
-not known {\it a priori}~\cite{wu2006analysis,ramachandran2006interference}. 
-%FIXME: where does this fit? Further investigations include ~\cite{marina2010topology} and i~\cite{raniwala2004centralized} show that it is possible to improve the performance of multi-channel network by applying smart channel assignment algorithms. 
-We have implemented such channel assignment algorithms (CCA from~\cite{draves2004routing} and 
-BFS-CA from~\cite{ramachandran2006interference}) and shown significant gains.  
-Most importantly, all of the aforementioned works have not considered propagation 
-differences of the diverse frequency bands of white space and WiFi, which we show are 
-critical improving the performance of mesh networks.
-% 
-%Coloring methodology assume all the color equal failing to process multiple topology generating by bands combination ~\cite{marina2010topology}. 
-% 
-%
-%We need to cite some work by Microsoft on white spaces (SIGCOMM 2009 and other
-%Ranveer Chandra papers).  Talk about databases for available white space channels and say that 
-%in this work, we study the performance of mesh networks with varying number of available white 
-%space channels at varying population densities (by adjusting the offered load), assuming such 
-%white space databases and mechanisms are in place.
-
-
-{\bf White Space.} To be used effectively, white space bands must ensure that available TV bands
-exist but no interference exists between microphones and other devices~\cite{bahl2009white}. 
-%Spatial variation gives rise to new challenges for implementing a wireless network in this band. 
-%Government department FCC has licensed white space bands in US ~\cite{fccwhitespace}.
-Since TV channels are fairly static in their channel assignment, databases have been used to 
-account for white space channel availability (e.g., Microsoft's White Space Database~\cite{msdatabase}).
-%~\emph{Microsoft Research White Space databas} for white space application reference ~\cite{msdatabase}. 
-In fact, Google has even visualized the licensed white space channels in US cities with an API for 
-research and commercial use~\cite{googledatabase}.  In contrast, we study the performance of mesh 
-networks with a varying number of available white space channels at varying population densities, assuming such white space databases and mechanisms are in place.
-
-%The white space potential and the open free spectrum database provide chance to improve the mesh network performance in combining
-% these UHF channels and Wi-Fi channels.
-% In this work, we study the performance of mesh network with varying number of available white space channels at varying population densities as offerload to offer solution for white space channel application in mesh networks. 
-
-%However, none of them is adaptive to the propagation difference in the wireless mesh network.
-%Prior research could be classified as ~\emph{Static Channel Assignment} and ~\emph{Dynamic Channel Assignment}.
-%The ~\emph{Static Channel Assignment} focus on assigning a network once with everything known of the network~\cite{subramanian2008minimum}.
-%The ~\emph{Dynamic Channel Assignment} is to resolve the channel assignment according to dynamic parameters, such as demand, dynamic interference ~\cite{wu2006analysis,ramachandran2006interference}.
-
-%A simple approach ~\emph{Common Channel Assignment} (CCA) for utilizing multi-radios network is
-%presented in ~\cite{draves2004routing}, though the main purpose of the author is to have multi-raidos working for routing
-%to benefit from multi-channel structure. 
-
-%Further investigations include ~\cite{marina2010topology} and i~\cite{raniwala2004centralized} show that it is possible to improve the performance of multi-channel network by applying smart channel assignment algorithms. 
-
-
-%Assuming the knowledge of the set of connection request to be routed, both an optimal algorithm based on solving a Linear Programming an a simple heuristic are proposed to route such requests given the link bandwidth availability determined by the computed channel assignment in ~\cite{tang2005interference}. 
-%These formulation are NP-hard problems, the authors solve the LP relaxation of the problem. The output is a network flow along with a possibly unfeasible channel assignment. 
- 
-
-\section{Related Work}
-\label{sec:related}
-
-% Max Performance 
+% Deployment problem 
+Wireless mesh network deployment is to design wireless architecture
+for offering Internet service in an target area.
 There are significant challenges in wireless mesh network deployment,
 such as user priorities, user behaviors, long term throughput estimation, selfish clients,
 interference and energy efficiency, etc.~\cite{tragos2013spectrum}
-These challenges are distributed under the topics of channel assignment,
+These challenges are distinguished under the topics of channel assignment,
 cognitive radio, protocol design, etc.~\cite{tragos2013spectrum,akyildiz2006next}
 Previous works have recognize the impact of interference in 
 wireless mesh network deployment is the key issue~\cite{tang2005interference,irwin2013resource,chieochan2013channel}.
@@ -91,11 +23,10 @@ the 802.11 WiFi scenario~\cite{wu2006analysis,ramachandran2006interference,subra
 However, all of the aforementioned works have not considered propagation 
 differences of the diverse frequency bands of white space and WiFi, which we show are 
 critical improving the performance of mesh networks.
-Frequency agility in 
-multiband scenario brings more traffic capacity to wireless network deployment
-as well as more complexity of resolving the interference issues.
+Frequency agility in multiband scenario brings more traffic capacity to 
+wireless network deployment as well as more complexity of resolving the interference issues.
 
-In wireless network deployment, reduce the interference is the key issue.
+% Network deployment focuses, metrics/targets
 Previous work~\cite{pcuiwinmee} involve the inter-network interference in
 multiband scenario, but did not offer the solution of intra-network interference.
 As a new designed wireless network, intra-network interference is 
@@ -114,7 +45,7 @@ network design to satisfy both customers and vendors.
 
 
 
-% Solutions
+% Solution methods
 The wireless network deployment problem has been 
 proved as a NP-hard problem~\cite{si2010overview}. 
 Several works introduce relaxed linear program formulation 
@@ -125,9 +56,9 @@ the problem~\cite{raniwala2005architecture,
 wang2010game}.  
 Social network analysis is also popular in wireless 
 network design~\cite{zhu2013survey}.
-In contrast, we formulate the multiband scenario problem
-as a graph model similar to~\cite{robinson2010deploying}
-for approaching.
+In this work, we model the problem to a linear program
+to approach the optimal solution and generate heuristic
+algorithms to find a practical solution for the problem.
 
 % White Space
 To be used effectively, white space bands must ensure that available TV bands
@@ -148,9 +79,7 @@ in multiband scenario. In~\cite{filippini2013new}, white space band application 
 discussed in cognitive radio network for reducing maintenance cost. 
 In~\cite{deb2009dynamic}, the white space is proposed to increase the 
 data rates through spectrum allocation. 
-In contrast, we focus on reducing the deployment cost with customer 
-constraints in mesh nodes number.
-
+In our work, we focus on maximizing the throughput of the wireless network.
 
 
 
