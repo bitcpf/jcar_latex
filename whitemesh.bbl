@@ -135,6 +135,12 @@ A.~Raniwala and T.~Chiueh, ``Architecture and algorithms for an {IEEE}
   802.11-based multi-channel wireless mesh network,'' in \emph{{IEEE INFOCOM}},
   2005.
 
+\bibitem{meguerdichian2001exposure}
+S.~Meguerdichian, F.~Koushanfar, G.~Qu, and M.~Potkonjak, ``Exposure in
+  wireless ad-hoc sensor networks,'' in \emph{Proceedings of the 7th annual
+  international conference on Mobile computing and networking}.\hskip 1em plus
+  0.5em minus 0.4em\relax ACM, 2001, pp. 139--150.
+
 \bibitem{avallone2008channel}
 S.~Avallone and I.~F. Akyildiz, ``A channel assignment algorithm for
   multi-radio wireless mesh networks,'' \emph{Computer Communications},

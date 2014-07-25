@@ -9,45 +9,45 @@ Database file #1: whitemesh.bib
 Warning--empty journal in friis
 
 Done.
-You've used 45 entries,
+You've used 46 entries,
             3917 wiz_defined-function locations,
-            1017 strings with 14492 characters,
-and the built_in function-call counts, 32019 in all, are:
-= -- 2589
-> -- 775
-< -- 276
-+ -- 426
-- -- 132
-* -- 1543
-:= -- 4856
-add.period$ -- 92
-call.type$ -- 45
-change.case$ -- 43
-chr.to.int$ -- 624
-cite$ -- 46
-duplicate$ -- 2370
-empty$ -- 2537
-format.name$ -- 168
-if$ -- 7334
+            1023 strings with 14743 characters,
+and the built_in function-call counts, 32955 in all, are:
+= -- 2659
+> -- 800
+< -- 285
++ -- 440
+- -- 136
+* -- 1588
+:= -- 4982
+add.period$ -- 95
+call.type$ -- 46
+change.case$ -- 44
+chr.to.int$ -- 648
+cite$ -- 47
+duplicate$ -- 2435
+empty$ -- 2618
+format.name$ -- 173
+if$ -- 7556
 int.to.chr$ -- 0
-int.to.str$ -- 45
-missing$ -- 416
-newline$ -- 155
-num.names$ -- 42
-pop$ -- 963
+int.to.str$ -- 46
+missing$ -- 427
+newline$ -- 158
+num.names$ -- 43
+pop$ -- 992
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 2433
+skip$ -- 2501
 stack$ -- 0
-substring$ -- 1498
-swap$ -- 1905
-text.length$ -- 68
+substring$ -- 1555
+swap$ -- 1959
+text.length$ -- 69
 text.prefix$ -- 0
 top$ -- 5
 type$ -- 0
 warning$ -- 1
-while$ -- 141
-width$ -- 47
-write$ -- 441
+while$ -- 146
+width$ -- 48
+write$ -- 450
 (There was 1 warning)

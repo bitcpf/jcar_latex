@@ -153,16 +153,16 @@ $V$ is the set of mesh nodes, and $E$ is the set of all possible physical links
 in the network. If the received signal (according to Eq.~\ref{eq:friis}) between 
 two mesh nodes $i,j$ for a given frequency band (from the set of all bands $B$) 
 is greater than a communication-range threshold, then a data link exists and 
-belongs to the set $L$ with a fixed, non-zero capacity $\gamma$ according to the protocol 
+belongs to the set $L$ with a fixed, non-zero capacity $\delta$ according to the protocol 
 model.  
 Due to the frequency occupancy, the available channel capacity is calculated 
 through Eq.~\ref{eq:intercap}.
 \begin{equation}
 \label{eq:intercap}
-\gamma_r=\gamma*(1-\bar{A})
+\delta_r=\delta*(1-\bar{A})
 \end{equation}
-The capacity of a clean channel is denoted by $\gamma$. With the protocol model, the capacity 
-of a channel with inter-network interference $\gamma_r$ could be represented as 
+The capacity of a clean channel is denoted by $\delta$. With the protocol model, the capacity 
+of a channel with inter-network interference $\delta_r$ could be represented as 
 the remaining free time of the channel capacity according to the measured
 activity level $A$.
 Correspondingly, a connectivity graph $C$ is formed for each 
@@ -190,16 +190,16 @@ Networks are operated and maintenaced by vendors.
 The vendors, such as AT\&T, T-Mobile, they chare the custumers based on the data amount. 
 The traffic arrived at gateway nodes under an random traffic generated area 
 correlated to the incomes of the vendors. We use the performance metric of 
-gateway goodput $X$, represented the traffic arrived at the gateway nodes, where:
+traffic arrived gateway $X$, represented the traffic arrived at the gateway nodes, where in Eq.~\ref{eq:goodput}:
 \begin{equation}
 \label{eq:goodput}
 X=\sum_{w \in W, v \in V}T(w,v)
 \end{equation}
-The goodput of gateway node $w\in W$ considers all incoming and outgoing wireless traffic 
+The traffic arrived gateway node $w\in W$ considers all incoming and outgoing wireless traffic 
 from access node $v\in V$ as $T$ onto the Internet.
-Obviously, the goodput is also related to the routing, we use a simple routing
+Obviously, the traffic arrived gateway is also related to the routing, we use a simple routing
 method to keep the maximum the traffic arrived at the gateway nodes, the exact calculation 
-of gateway goodput is described in Section~\ref{sec:experimentdesign} 
+of gateway traffic arrvied gateway is described in Section~\ref{sec:experimentdesign} 
 and consider where to put the gateway nodes are outside the scope of this work.
 
 We also use the general metric \emph{network throughput} $NT$

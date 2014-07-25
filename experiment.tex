@@ -2,71 +2,60 @@
 \label{sec:experimentdesign}
 
 
-% NEWClaim fix
-We now extensively evaluate our proposed heuristic algorithm against the upper 
-bound formed by our integer linear program and versus prior channel 
+We now extensively evaluate our proposed measurement-driven heuristic algorithm against the upper 
+bound approaching formed by our integer linear program and versus prior channel 
 assignment strategies. We introduce the topologies and metric calculation used 
-in the analysis and present a set of results based 
-of the linear program and heuristic algorithm.
-
-%performed a set of simulations to evaluate the performance of the heuristic algorithms and leverage the white space band influence on mesh network. 
-%The experiment set up is introduced in \ref{subsec:design} with the topology, metric calculation.
-%A set of result is shown in ~\ref{subsec:analysis} and analysis is presented with the throughput achieve through gateways.
-
-%if we need to say the following, do it later: CCA simplily pick two nodes have common channel to build links which also could be used in multiband scenario.
-%In BFS-CA, we adopt the ranking standard as single link interference numbers, utilization of channels to fit multiband scenario.
-
+in the analysis and present a set of results based on the linear program and heuristic algorithm.
 
 \subsection{Experimental Evaluation Setup}
 \label{subsec:design}
 % Simulation Setup
 A key aspect of WhiteMesh networks is the diversity in propagation from the lowest white
 space channels (tens to hundreds of MHz) to the highest WiFi channels (multiple GHz). Thus, 
-to evaluate the performance of our algorithms, we consider a wide range of propagation 
-characteristics from four different frequency bands.  For white space bands, we consider
-450 and 800 MHz.  For WiFi bands, we consider 2.4 and 5.8 GHz.  With similar transmission
+to evaluate the performance of our measurement-driven algorithms, we consider a wide range 
+of propagation characteristics from four different frequency bands.  For white space bands, 
+we choose 450 and 800 MHz, for WiFi bands, we choose 2.4 and 5.8 GHz according to the measurements
+from \ref{pcuiwinmee}. The measurements tells the relation among population distribution, traffic demand,
+and available channel capacity of multiple bands. The more population, the more traffic demand
+and potentially less channel capacity in WiFi channels. We grab the measurements to calculate
+the available channel capacity $\delta$ as input for our algorithm which makes the channel 
+capacity of the bands are not equal but more practical. With similar transmission
 power and antenna gain, the highest carrier frequency would have the shortest communication range.
 Hence, we set a communication-range threshold of -100 dBm, and normalize the communication 
 range with the highest frequency of 5.8 GHz. In particular, the communication range of 
-450 MHz, 800 MHz, 2.4 GHz, and 5.8 GHz would be normalized to 12.8, 6.2, 2.4, and 1, respectively.  
-The interference range is computed as twice that of the communication 
+450 MHz, 800 MHz, 2.4 GHz, and 5.8 GHz would be normalized to 12.8, 6.2, 2.4, and 1, respectively 
+according to Eq.~\ref{eq:friis}. The interference range is computed as twice that of the communication 
 range~\cite{raniwala2005architecture}. We deploy static wireless mesh networks of $n$ 
-mesh nodes along a regular, rectangular grid with a normalized distance of 0.8 between rectangular edges.  As a result, we have varying degrees of connectivity in the grid.
-The gateways are randomly-selected from one out of every six mesh nodes in the network.
+mesh nodes along a regular, rectangular grid with a normalized distance of 0.8 between rectangular edges. 
+As a result, we have varying degrees of connectivity in the grid.
+The gateways are chosen through a typical cell hexagon deployment method~\cite{meguerdichian2001exposure}.
 Unless otherwise, specified in the analysis, all four bands are used in the WhiteMesh
-topology studied. 
+topology studied. For practical application, more channels could be involved in the 
+algorithm.
 
-%ISP such as AT\&T, T-mobile will charge fee according to the traffic arrived at Internet through wireless network. 
-%They are interested in getting the more throughput achieve gateways, which is the throughput arrived at the gateways from all the mesh nodes. 
-
-%Stefano brings the throughput achieve gateways in the network without considering the interference as maximum throughput to evaluate the channel assignment ~\cite{avallone2008channel}. 
-%However, without considering the interference, the traffic flow in the network is not scheduled.
-
-The throughput achieved through the gateways is not only critical for network providers (e.g., cellular
+The throughput achieved through the gateways is not only critical for network vendors (e.g., cellular
 carriers charge fees for total bandwidth through towers), but also has been used by researchers
 to evaluate channel assignment~\cite{avallone2008channel}.  As mentioned previously, the wireless
 capacity of gateway nodes has been shown to be the bottleneck in mesh networks~\cite{robinson2010deploying}.
-Moreover, gateway goodput combines multiple factors, such as mesh node placement, gateway placement, 
-routing, and channel assignment, the latter of which is the focus of our analysis and algorithms. For the purposes of our analysis, we specifically calculate the gateway goodput first introduced 
+Moreover, traffic arrived gateway combines multiple factors, such as mesh node placement, gateway placement, 
+routing, and channel assignment, the latter of which is the focus of our analysis and algorithms. 
+For the purposes of our analysis, we specifically calculate the traffic arrived gateway first introduced
 in Section~\ref{subsec:problem} in the following way.  Mesh nodes that have a one-hop path to the gateway
 nodes are the first ones served. Where there are nodes with the same hop count, the least interfering
 mesh nodes are chosen for channel assignment. Then, the demand of multihop mesh nodes are served 
 until there is no remaining demand to be satisfied through any path.
 
 % NEWClaim fix, map mesh node offer load to population distribution
-We vary the average population distribution of the target area, assuming $10\%$ of the residents will use
+We vary the average population distribution and the available channel capacity according to~\cite{pcuiwinmee}
+ of the target area, assuming $20\%$ of the residents will use
 our service. An individual would have a $100 KB/s$ traffic demand on average. Then, we randomly assign
-the user distribution across the area and run the analysis of each case 20 times.  
-%The calculation process is kind of routing protocol which help us to reach a scrollable maximum throughput achieve gateways of the network. 
-%We would not claim it is the best way, for evaluation we keep the same calculation process for all comparable setting.
-% Validation
+the user distribution related the the traffic demand distribution across the area and run the analysis 
+of each case 20 times as the simulation conficuration.  
 We relax our ILP model to keep the link capacity constraints, given the demand of the mesh nodes as a
 parameter to achieve the maximum throughput at the gateways. The ILP Bound assumes the mesh 
 nodes could connect to all the gateways if there is a path that exists to each gateway. However,
 we restrict a mesh node to only connect to one gateway in the network, and this represents the
 main difference from the ILP Bound to our heuristic algorithm.
-
-
 
 \subsection{Experimental Analysis of WhiteMesh Backhaul}
 \label{subsec:analysis}
