@@ -51,6 +51,10 @@ C.~A. Balanis, \emph{Antenna theory: analysis and design}.\hskip 1em plus 0.5em
 \bibitem{googledatabase}
 ``Google spectrum database,'' \url{http://goo.gl/NnIFXQ}, 2013.
 
+\bibitem{pcuiwinmee}
+D.~R. Pengfei~Cui, Hui~Liu and J.~Camp, ``A measurement study of white spaces
+  across diverse population densities,'' \emph{IEEE 10th WiNMeE}, 2014.
+
 \bibitem{tang2005interference}
 J.~Tang, G.~Xue, and W.~Zhang, ``Interference-aware topology control and {QoS}
   routing in multi-channel wireless mesh networks,'' in \emph{{ACM MobiHoc}},
@@ -97,19 +101,14 @@ Y.~P. Fallah, C.~Huang, R.~Sengupta, and H.~Krishnan, ``Congestion control
   \emph{Vehicular Technology Conference Fall (VTC 2010-Fall), 2010 IEEE
   72nd}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, 2010, pp. 1--5.
 
-\bibitem{cuileveraging}
+\bibitem{cui2013leveraging}
 P.~Cui, H.~Liu, J.~He, O.~Altintas, R.~Vuyyuru, D.~Rajan, and J.~Camp,
   ``Leveraging diverse propagation and context for multi-modal vehicular
-  applications.''
+  applications,'' in \emph{{IEEE WiVeC}}, 2013.
 
 \bibitem{gupta2000capacity}
 P.~Gupta and P.~R. Kumar, ``The capacity of wireless networks,'' \emph{{IEEE
   Trans. on Information Theory}}, vol.~46, no.~2, pp. 388--404, 2000.
-
-\bibitem{mishra2005weighted}
-A.~Mishra, S.~Banerjee, and W.~Arbaugh, ``Weighted coloring based channel
-  assignment for {WLAN}s,'' \emph{{ACM SIGMOBILE MCCR}}, vol.~9, no.~3, pp.
-  19--31, 2005.
 
 \bibitem{peng2012efficient}
 Y.~Peng, Y.~Yu, L.~Guo, D.~Jiang, and Q.~Gai, ``An efficient joint channel
@@ -194,10 +193,6 @@ A.~Raniwala, K.~Gopalan, and T.-c. Chiueh, ``Centralized channel assignment and
 X.~Wu, J.~Liu, and G.~Chen, ``Analysis of bottleneck delay and throughput in
   wireless mesh networks,'' in \emph{{IEEE MASS}}, 2006.
 
-\bibitem{pcuiwinmee}
-D.~R. Pengfei~Cui, Hui~Liu and J.~Camp, ``A measurement study of white spaces
-  across diverse population densities,'' \emph{IEEE 10th WiNMeE}, 2014.
-
 \bibitem{he2008optimizing}
 B.~He, B.~Xie, and D.~P. Agrawal, ``Optimizing deployment of internet gateway
   in wireless mesh networks,'' \emph{Computer Communications}, vol.~31, no.~7,
@@ -231,11 +226,6 @@ P.~Bahl, R.~Chandra, T.~Moscibroda, R.~Murty, and M.~Welsh, ``White space
 \bibitem{msdatabase}
 ``Microsoft research white space database,''
   \url{http://whitespaces.cloudapp.net/Default.aspx}, 2013.
-
-\bibitem{cui2013leveraging}
-P.~Cui, H.~Liu, J.~He, O.~Altintas, R.~Vuyyuru, D.~Rajan, and J.~Camp,
-  ``Leveraging diverse propagation and context for multi-modal vehicular
-  applications,'' in \emph{{IEEE WiVeC}}, 2013.
 
 \bibitem{deb2009dynamic}
 S.~Deb, V.~Srinivasan, and R.~Maheshwari, ``Dynamic spectrum access in dtv

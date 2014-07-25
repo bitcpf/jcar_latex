@@ -1,15 +1,14 @@
 \subsection{Mixed Integer Linear Programming Formulation}
 \label{subsec:linearopt}
 
-We now present a mixed integer, linear programming formulation for 
-optimizing gateway goodput when selecting channels
-for WhiteMesh topologies across diverse bands. We assume that the
-set of available mesh nodes ($V$), gateways ($W$), and available 
-bands ($B$) are given.  The communication links and conflict graph 
-are given as parameters.
-%the ~\emph{Multiband Multi-Radio} wireless mesh network described in section ~\ref{sec:problemformulation} to model the problem and provide a way to approach the upbound a network throughput achieve gateways.
-% Fixme if with more input it is still NP-hard
-%Assume that we are given the nodes and available bands as the variable set. The communication links and conflict graph are given as parameters.
+To clarify the problem and approach the optimization of the 
+problem, we present a mixed integer, linear programming 
+formulation for optimizing channel assignment in multiband
+scenario. We assume that the set of available mesh nodes 
+($V$), gateways ($W$), and available bands ($B$) are pre-known. 
+The communication links and conflict graph are given as parameters.
+The capacity $\gamma$ is given as the available channel capacity
+based on activity level measurement noted in~\ref{eq:intercap}. 
 
 \noindent
 {\bf Sets:}
@@ -45,15 +44,12 @@ $D_{ui}$ & $i \in V\ $ & Uplink demand of node i\\
 %\hline
 \end{tabular}
 
-% We could vary the objective
-% treat each mesh node with the same demand even generally the demand of the mesh node is random. So the goodput of a integer linear program is the summation of all the demand served by the gateway nodes. We assign a uplink demand variable $\lambda u$ and downlink demand $\lambda d$ to each node. The goodput of the network could be represented as $\sum_{n \in V}(\lambda u_n+ \lambda d_n)$, the linear program is givin to $Maximize\ Goodput$.
 
-We define the time share to represent the percentage of time a 
-single link transmits according to~$\alpha_{i,j}^b$
-for link $i,j$ in band $b$. Two 
-terms are defined for uplink and downlink flows:
-%on 
-%a link $i,j$ for node $k$ in band $b$, $uy_{i,j,k}^b,dy_{i,j,k}^b$.
+In the variable set, we define a time share represents 
+the percentage of time a single link transmits according 
+to~$\alpha_{i,j}^b$ for link $i,j$ between node $i$ and 
+node $j$ in band $b$. There are two terms $uy_{i,j,k}^{b}$
+and $dy_{i,j,k}^{b}$ defined as uplink and downlink flows:
 
 \noindent
 %\vspace{2pt}
@@ -69,23 +65,21 @@ $0\le dy_{i,j,k}^b$ & $(i,j,k) \in N, b \in B$ &
 Downlink flow of node $k$ on link $(i,j)$ at band $b$ \\ 
 \end{tabular}
 
-%\vspace{3pt}
-Our objective is to maximize the gateway goodput ($X$).
+% FIXME talk about NT calculation
+Our objective could be represented for  
+maximizing the traffic arrived at gateway ($X$)
+or the netwrok throughput ($NT$), defined in 
+Eq.~\ref{eq:networktpt}.
 
 \noindent
 {\bf Objective:}
 \begin{align}
-& Max \sum_i\sum_j\sum_k\sum_b(uy_{i,j,k}^b+dy_{j,i,k}^b) \; When \; w_j=1
+& Max \sum_i\sum_j\sum_k\sum_b(uy_{i,j,k}^b+dy_{j,i,k}^b) \;\ When \; w_j=1 \\
+& Max \sum_i\sum_j\sum_b(\frac{1}{\sum_{l,m}\alpha_{i,j}^b\times I_{ij,lm}})
 \end{align}
 
-The connectivity, uplink, and downlink constraints are:  
-%\setcounter{equation}{0}\\
-%\vspace{1pt}
-%Objective:
-%\begin{align}
-%\max \quad
-%& \sum_{i \in N}(\lambda u_i+ \lambda d_i)
-%\end{align}\\
+In the ILP, the connectivity, uplink, and downlink constraints are represented
+as:  
 
 \noindent
 %{\bf Constraints:}
@@ -126,7 +120,7 @@ The connectivity, uplink, and downlink constraints are:
 & dy_{i,i,j}^b=0
 \end{align}
 
-In the ILP, (\ref{opt:1}) represents the summation of the incoming and outgoing 
+In the constraints, (\ref{opt:1}) represents the summation of the incoming and outgoing 
 wireless time share and the interfering links' wireless time share, which should all be less than 1.
 Constraint (\ref{opt:2}) represents the incoming and outgoing wireless traffic, which 
 should be less than the link capacity for link $i,j$. Uplink constraints (\ref{opt:3})
@@ -135,44 +129,17 @@ the demand of node $k$.  Constraints (\ref{opt:6}) and (\ref{opt:7}) are used to
 the sum of all incoming data flows for a given mesh node $k$ to be equal to the 
 sum of all outgoing flows. Downlink constraints (\ref{opt:8}) and (\ref{opt:9}) are
 similar to (\ref{opt:3}) and (\ref{opt:4}) but in the downlink direction.  Similarly,
-constraints (\ref{opt:11}) and (\ref{opt:12}) are downlink versions of (\ref{opt:6}) and (\ref{opt:7}).
-
-%link capacity distributed by its time share $\alpha$; 
-%% Uplink GA/MN constraints
-%Constraints (\ref{opt:6}) are to describe relay behavior of the nodes in network. If node $i$ is a mesh, then $Gateway_i=0$, the total in-coming traffic should equal to the total out-coming traffic; 
-%otherwise node $i$ is a gateway, when $Gateway_i=1$, traffic get into gateway node, in-coming traffic should be greater than out-coming traffic;
-%(~\ref{opt:7}) make sure no loop in the assignment, there is no traffic generated by node $i$ will go back to node $i$;
-%(~\ref{opt:10}),(~\ref{opt:11}),(~\ref{opt:12})
-% make gateway node provide all the down-link traffic from itself. The in-coming traffic equals to the out-coming traffic for relay traffic on mesh nodes.
-
-%%%%Other constraints could be modified according to different objectives. 
-% In gateway placement
-%%%%For example, if an objective were to minimize a gateway deployment with a QoS 
-%%%%constraint, the constraints that work for this objective would be $Min \sum{W_i}$ by
-%%%%moving the gateway from parameter list to the variable list and modifying relative uplink and downlink constraints.  % In network traffic upbound approaching
-%\noindent
-%%{\bf  Constraints:} 
-%\begin{align}
-%& \sum_k \sum_b uy_{i,i,k}^b \geq D_{ui} - J\cdot w_k , i \neq k \\
-%& \sum_i\sum_b uy_{i,j,k}^b - \sum_m\sum_b uy_{j,m,k}^b \geq 0 , i\neq k\\
-%& \sum_i\sum_b uy_{i,j,k}^b - \sum_m \sum_b uy_{j,m,k}^b\leqW_k\cdot w_k , i \neq k\\
-%\end{align}
-%%%%Alternatively, if the objective were to maximize throughput with fairness, 
-%%%%all mesh nodes would have the same demand, $Max\sum((uy_i+dy_i),i \in W)$ 
-%%%%with variable $D_{ui}=a,D_{di}=b$, $a,b$ are constant number.
-% and adding relative constraints.
+constraints (\ref{opt:11}) and (\ref{opt:12}) are downlink versions of 
+(\ref{opt:6}) and (\ref{opt:7}).
 
 Linear programs which attempt to solve channel assignment and routing in multihop
-wireless networks have been proved to be NP hard~\cite{tang2005interference,yuan2006cross}. 
-The model jointly considers channel assignment factors and provides the methodology to achieve the upper bound on gateway goodput.  Once we have a particular channel assignment $A_{i,j}^k$, we can 
-modify the objective function, parameters, and constraints to find the maximum 
-satisfied demand in the network.  
-%More details will be discussed in section ~\ref{sec:experimentdesign} 
-
-
-% How to use the model talked in experiment design
-% FIXME
-
-%Previous work has shown even in a simplified ~\emph{MultiChannel Model} a mixed integer linear program is NP-hard ~\cite{marina2010topology}. In this subsection we would like to formulate our channel assignment problem as an integer linear program and derive a upbound via its relaxation 
-%in running time, iteration improvement, or even omit the integrality requirement.
+wireless networks have been proved to be NP-hard~\cite{yuan2006cross}. 
+Our model jointly considers channel assignment factors and provides the 
+methodology to achieve the optimization solution. 
+When the particular configuration is given, we can 
+choose the objectives, parameters, and relax constraints to 
+find an approaching solution for the network.  
+%The output  is to get the channel assignment $A_{i,j}^k$, then further
+%parameters could be calculated based on the channel assignment.
+ 
 

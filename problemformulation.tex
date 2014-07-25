@@ -53,7 +53,7 @@ similar propagation characteristics.
 %another (e.g., 2.4 GHz). FIXME modified
 In the application of wireless communication, channel occupancy has
 to be considered~\cite{fallah2010congestion}. To quantify the 
-channel occupancy, we inherit the activity level from~\cite{cuileveraging}
+channel occupancy, we inherit the activity level from~\cite{cui2013leveraging}
 to quantify the channel occupancy as shown in Eq.~\ref{eq:actlevel}.
 The activity level is defined based on a long-term measurement 
 of each band.  It is defined as the percentage of sensing samples ($S_\theta$) above an 
@@ -168,63 +168,47 @@ activity level $A$.
 Correspondingly, a connectivity graph $C$ is formed for each 
 band in $B$ such that $C=(V,L,B)$.  If the received signal for a given band is 
 above an interference-range threshold, then contention occurs between
-nodes.  We extend the conflict matrix in~\cite{tang2005interference} according to
+nodes.  We extend the conflict matrix in~\cite{tang2005interference} related to
 different interference per band according to $F=(E_{i,j},I_{Set},B)$, where $E_{i,j}$
 represents the link and $I_{Set}$ includes all the links are physically inside 
 the interference range $D_r$ when operating on each band $b$.
 
-%~\emph{Channel Assignment} is to assign radios between nodes in mesh network creating virtual links for network communication with minimum interference.
-%Our objective is to get a channel assignment for a wireless mesh network formed by a set of static mesh nodes and wired gateway nodes. 
-%Each node in the network is equipped with one or more radios could work in one of the permitted bands. 
-%FIXME keep or not
-%To clarify the ~\emph{White Space Band} influence, we assume radios in a node works in unique non-overlapping channels of multiple band, radios in two nodes share a common channel in the same band.
-%We also assume all the nodes have the same transmitting power, antenna with the same gains and other configurations.
-%To model the connectivity, we adopt classical ~\emph{Protocol Model} from Gupta ~\cite{gupta2000capacity}. If the received signal is above the threshold, the link would have a communication capacity, otherwise, the link could not exist.
-%The interference exist as conflict contention when the received signal strength of other links are above the threshold; otherwise, the link will not be interfered by other links.
-
-%The ~\emph{Gateway Nodes} and ~\emph{Mesh Nodes} locations are given. 
-%In a network, ~\emph{Channel Assignment} naturally binds with a routing protocol for application, but have different target. We bind our model with a ~\emph{Shortest Path Routing} protocol for ~\emph{Channel Assignment} application and evaluation.
-%Transmitting power, antenna gains, communication and interference threshold are given. From ~\emph{Friis Model}, we could get ~\emph{Communication Range} and ~\emph{Interference Range} of each  band. 
-%Multiband multi-radio wireless network could be represented as an undirected graph $G=(V,E)$ according to the communication range and interference range. $V$ is noted as the nodes, and $E$ marked as the links in the network.
-
-%The channel assignment is represented as ~\emph{Connectivity Graph}, $C=(V,L,B)$, $L$ denotes the set of links, $B$ denotes the set of frequency bands. 
-%In protocol model, the channel capacity between two nodes in a channel is noted as $LC$. If the RSSI from a node to another node is above the threshold, $LC$ is a constant value, otherwise, it is zero. 
-%
-%We extend the ~\emph{Conflict Matrix} from Jain's work ~\cite{tang2005interference} with a flexible approach for interference,
-% $CM=(E_{i,j},I_{Set},B)$. $E_{i,j}$ represents the link, $I_{Set}$ includes all the links are physically inside the interference range $D_r$. 
-
-%Our model is similar to Multichannel Model in many previous works ~\cite{tang2005interference,yuan2006cross,si2010overview}. However, in Multichannel Model, the Communication Range $D_c$ and Interference Range $D_r$ of different channels in the same band have the same value. The Multichannel Model is unnecessary to consider the variation of communication and interference range due to band propagation.
-%Multiband Channel Assignment work toward the same target as Multichannel Channel Assignment to provide richer connectivity with minimum interference with channel variation in more bands.
-
-%The difficulty of the problem is that we can not know the interference before we assign channel to each node. Previous works have proposed ~\emph{Coloring, Cluster, Independent Set, Mixed Linear Integer} methodology to approach the solution of ~\emph{Multichannel Channel Assignment} ~\cite{mishra2005weighted,peng2012efficient,tang2005interference}. 
-%However, these work fails to deal with the minimize hops and more frequency space reuse embedded in multiple bands scenario.
-%Our work focus on multiband channel assignment 
-%without explicitly considering network traffic/load ~\cite{marina2010topology}.
-%We present a mixed linear integer model to understand the multiband scenario. We also analyze the relation between the ~\emph{Hop Counts} and ~\emph{Space Reuse}, then propose two heuristic algorithms approaching solution of this problem.
-
-%\subsection{Evaluation Metric: Gateway Goodput}
-%\label{subsec:metric}
-
-Therefore, the problem we address is: to choose the connectivity graph $C$ which maximizes
-the served user demand according to the throughput achieved through the gateway (defined below).
+Therefore, the problem we model is: to choose the connectivity graph $C'$ which maximizes
+the metrics according to the constriants of multiband wirless network (defined below).
 A key challenge is that selecting the optimal channels from
-the set $B$ leads to a conflict graph $F$ which cannot be known {\it a priori}. Previous
-works have proposed a coloring, cluster-independent set, mixed linear integer methodology
-for a single band $b$~\cite{mishra2005weighted,peng2012efficient,tang2005interference}. However,
-these works do not address a reduction in hop count or an increase in spatial reuse for a set of 
-diverse bands $B$.  In particular, the goal of a network backhaul layer is to maximize 
-the amount of mesh user demand served, which can be measured by the total goodput 
-achieved through the gateways. Thus, to evaluate the 
-performance of the multiband channel assignment, we use a performance metric of gateway goodput $X$, where:
+the set $B$ leads to a conflict graph $F$ which cannot be known {\it a priori}.
+Previous works have proposed a coloring, cluster-independent set, mixed linear integer methodology
+for a single band $b$~\cite{peng2012efficient,tang2005interference,doraghinejad2014channel}. 
+However, these works do not address a reduction in hop count or an increase in spatial reuse for a set of 
+diverse bands $B$. 
+
+% Metrics
+In network application, the bottleneck of mesh network capacity has been shown to be the gateway's wireless 
+connections~\cite{robinson2008adding}.
+The metric we use to evaluate the proposed algorithm is the traffic arrived at gateway nodes.
+Networks are operated and maintenaced by vendors.
+The vendors, such as AT\&T, T-Mobile, they chare the custumers based on the data amount. 
+The traffic arrived at gateway nodes under an random traffic generated area 
+correlated to the incomes of the vendors. We use the performance metric of 
+gateway goodput $X$, represented the traffic arrived at the gateway nodes, where:
 \begin{equation}
 \label{eq:goodput}
 X=\sum_{w \in W, v \in V}T(w,v)
 \end{equation}
-Since the bottleneck of mesh network capacity has been shown to be the gateway's wireless 
-connections~\cite{robinson2008adding}, gateway goodput considers all incoming and outgoing
-wireless traffic $T$ onto the Internet. We describe the exact calculation of gateway goodput in 
-Section~\ref{sec:experimentdesign} and consider gateway placement outside the scope of this work.
+The goodput of gateway node $w\in W$ considers all incoming and outgoing wireless traffic 
+from access node $v\in V$ as $T$ onto the Internet.
+Obviously, the goodput is also related to the routing, we use a simple routing
+method to keep the maximum the traffic arrived at the gateway nodes, the exact calculation 
+of gateway goodput is described in Section~\ref{sec:experimentdesign} 
+and consider where to put the gateway nodes are outside the scope of this work.
 
-%is the traffic arrive at the gateway node and relay to the wired Internet. The good put performance is correlated with gateway placement, channel assignment and routing. 
-%The calculation of ~\emph{Gateway Good put} is described in ~\ref{sec:experimentdesign} .Jointly optimization of channel assignment, gateway placement, and routing is out of the scope of this paper.
+We also use the general metric \emph{network throughput} $NT$
+in~\cite{tang2005interference,doraghinejad2014channel} 
+which directly associated with the interfering number of each link, as~\ref{eq:networktpt}:
+\begin{equation}
+\label{eq:networktpt}
+NT = \sum_{i=1}^{n}\frac{1}{1+Interference\ number\ of\ (e \in E)}
+\end{equation}
+The network throughput is the sum of shared bandwidth of each link in the network, 
+which represents the worst case performance of the wireless network.
 
