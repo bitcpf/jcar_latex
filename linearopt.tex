@@ -24,7 +24,7 @@ $B$ & set of bands \\
 %\begin{tabular}{lll}
 \begin{tabular}{llp{3.4cm}}
 %\hline
-$\delta_{i,j}^b$ & $(i,j)\in V, b \in B$ & capacity of link $i,j$ on band $b$\\
+$\delta^b$ & $b \in B$ & capacity of band $b$ in target area\\
 %\hline
 %\end{tabular}\\
 %\begin{tabular}{llp{2.8cm}}
@@ -86,7 +86,7 @@ as:
 {\bf Connectivity Constraints:}
 \begin{align}
 \label{opt:1}
-& \alpha_{i,j}^b + \alpha_{j,i}^b + \sum_l\sum_m(\alpha_{l,m}^b \cdot I_{ij,lm}^b) \leq 1, i\neq j \\
+& \alpha_{i,j}^b + \alpha_{j,i}^b + \sum_l\sum_m(\alpha_{l,m}^b \cdot I_{ij,lm}^b) \leq \delta^b, i\neq j \\
 \label{opt:2}
 & \sum_i uy_{i,j,k}^b + \sum_i dy_{i,j,k}^b \leq r_{j,k}^b \cdot \alpha_{j,k}^b 
 \end{align}

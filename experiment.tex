@@ -15,7 +15,10 @@ space channels (tens to hundreds of MHz) to the highest WiFi channels (multiple 
 to evaluate the performance of our measurement-driven algorithms, we consider a wide range 
 of propagation characteristics from four different frequency bands.  For white space bands, 
 we choose 450 and 800 MHz, for WiFi bands, we choose 2.4 and 5.8 GHz according to the measurements
-from \ref{pcuiwinmee}. The measurements tells the relation among population distribution, traffic demand,
+from~\cite{pcuiwinmee}. 
+There are 9 measurements in~\cite{pcuiwinmee}, we check the population from US census~\cite{uscensus} mapping
+the activity level to the population for each bands as Table.~\ref{tab:actlevel}.
+The measurements tells the relation among population distribution, traffic demand,
 and available channel capacity of multiple bands. The more population, the more traffic demand
 and potentially less channel capacity in WiFi channels. We grab the measurements to calculate
 the available channel capacity $\delta$ as input for our algorithm which makes the channel 
@@ -33,6 +36,31 @@ Unless otherwise, specified in the analysis, all four bands are used in the Whit
 topology studied. For practical application, more channels could be involved in the 
 algorithm.
 
+\begin{table*}
+\centering % centering table 
+\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|c|} % creating 12 columns 
+\hline %\hline % inserting double-line 
+%Bands     & \multicolumn{3}{c|}{Dallas} & \multicolumn{3}{c|}{Weatherford} & \multicolumn{3}{c|}{Millsap} \\% [0.5ex]
+%\hline % inserts single-line 
+% Entering 1st row 
+Population Distribution $ppl/km^2$ & 2000 & 500 & 350 & 300 &  200 & 150 & 100 & 20 & 10 \\ % [0.5ex]
+\hline % inserts single-line 
+450 MHz &24.37	&25.83  &23.77	&6.05 &12.50  &14.03 & 7.00 & 0.07 & 0.02 \\      
+\hline % inserts single-line                                                                                                       
+800 MHz &4.40 	&16.49  &4.77	&5.22&5.07 &4.43  & 3.87 & 4.20 & 3.60 \\      
+\hline % inserts single-line                                                                                                      
+2.4 GHz &15.87 	&34.95  &2.60	&2.03&2.03 &2.77  & 2.07 & 1.60 & 0.80 \\      
+\hline % inserts single-line                                                                                                     
+5.2 GHz &19.70	&35.46  &1.53	&1.93&1.93 &1.33  & 1.27 & 2.07 & 2.10 \\      
+\hline % inserts single-line 
+\end{tabular}    
+\caption{Activity Level under Population Distribution} % title name of the table 
+\label{tab:activitymeasurement}    
+\vspace{-0.3in}
+\end{table*}    
+
+
+
 The throughput achieved through the gateways is not only critical for network vendors (e.g., cellular
 carriers charge fees for total bandwidth through towers), but also has been used by researchers
 to evaluate channel assignment~\cite{avallone2008channel}.  As mentioned previously, the wireless
@@ -40,22 +68,25 @@ capacity of gateway nodes has been shown to be the bottleneck in mesh networks~\
 Moreover, traffic arrived gateway combines multiple factors, such as mesh node placement, gateway placement, 
 routing, and channel assignment, the latter of which is the focus of our analysis and algorithms. 
 For the purposes of our analysis, we specifically calculate the traffic arrived gateway first introduced
-in Section~\ref{subsec:problem} in the following way.  Mesh nodes that have a one-hop path to the gateway
+in Section~\ref{subsec:problem} in the following way.  Mesh nodes that have a close hop count path to the gateway
 nodes are the first ones served. Where there are nodes with the same hop count, the least interfering
-mesh nodes are chosen for channel assignment. Then, the demand of multihop mesh nodes are served 
-until there is no remaining demand to be satisfied through any path.
+mesh nodes are chosen for serving. Then, the demand of multihop mesh nodes are served 
+until there is no remaining demand to be satisfied or there is no remaining channel capacity through any path.
 
 % NEWClaim fix, map mesh node offer load to population distribution
 We vary the average population distribution and the available channel capacity according to~\cite{pcuiwinmee}
  of the target area, assuming $20\%$ of the residents will use
-our service. An individual would have a $100 KB/s$ traffic demand on average. Then, we randomly assign
-the user distribution related the the traffic demand distribution across the area and run the analysis 
-of each case 20 times as the simulation conficuration.  
-We relax our ILP model to keep the link capacity constraints, given the demand of the mesh nodes as a
-parameter to achieve the maximum throughput at the gateways. The ILP Bound assumes the mesh 
-nodes could connect to all the gateways if there is a path that exists to each gateway. However,
-we restrict a mesh node to only connect to one gateway in the network, and this represents the
-main difference from the ILP Bound to our heuristic algorithm.
+our service. An individual would have a $100 KB/s$ traffic demand on average. 
+Then, we assign the demand to users randomly under the same average value across the area and run the analysis 
+of each case 20 times as the simulation configuration. Through the assignment, the traffic arrived at gateway nodes
+and the network throughput are calculated.
+To approach the traffic arrived gateway upbound, we relax our ILP model to keep the link capacity constraints, 
+given the demand of the mesh nodes as a parameter to achieve the maximum throughput at the gateways. 
+The ILP Bound calculation make the mesh nodes activate all possible connection the gateways if 
+there exists a path.
+However, the three heuristic algorithms provide assignment each mesh node has connection only to one 
+gateway in the network, and this reduce the dynamic changes for the assignment, which could be implemented
+by updating the assignment in a short term through the heuristic algorithms.
 
 \subsection{Experimental Analysis of WhiteMesh Backhaul}
 \label{subsec:analysis}
@@ -117,12 +148,6 @@ We then randomly assign demand per mesh node with a maximum offered load
 as specified in Fig.~\ref{fig:all3figs} and Table~\ref{tab:2channelcombination}.
 We repeat the process 20 times, averaging the results of each of the
 algorithms for the given network configuration.
-%Most of the time clients of wireless network have different traffic demand. The uplink and dwon link traffic are equally occupy the channel capacity.
-%Then we randomly assign demand of mesh nodes with a max offer load,
-%calculate the scalable maximum throughput, then repeat the process 20 times.
-%In the ILP bound, we keep the connectivity constraints in ~\ref{subsec:linearopt}. 
-%To simiplify the process, we remove the uplink constraints and keep download demand constraints only. 
-%The output is the average maximum throughput achieve gateways for the max offer load per mesh node.
 
 In the first experiment, we consider different network sizes according to
 the number of mesh nodes in the aforementioned regular grid. In particular,
