@@ -1,14 +1,14 @@
 \subsection{Mixed Integer Linear Programming Formulation}
 \label{subsec:linearopt}
 
-To clarify the problem and approach the optimization of the 
+To clarify the problem and approach the optimization solution of the 
 problem, we present a mixed integer, linear programming 
 formulation for optimizing channel assignment in multiband
 scenario. We assume that the set of available mesh nodes 
 ($V$), gateways ($W$), and available bands ($B$) are pre-known. 
 The communication links and conflict graph are given as parameters.
-The capacity $\delta$ is given as the available channel capacity
-based on activity level measurement noted in~\ref{eq:intercap}. 
+The capacity $\delta_b$ is given as the available channel capacity
+according to activity level measurement noted in~\ref{eq:intercap}. 
 
 \noindent
 {\bf Sets:}
@@ -28,7 +28,7 @@ $\delta^b$ & $b \in B$ & capacity of band $b$ in target area\\
 %\hline
 %\end{tabular}\\
 %\begin{tabular}{llp{2.8cm}}
-$I_{ij,lm}^b$ & $(i,j,l,m) \in V, b\in B $ & Interference of link $(i,j)$ on band $b$\\
+$I_{ij,lm}^b$ & $(i,j,l,m) \in V, b\in B $ & Protocol Interference of link $(i,j)$ on band $b$ brought by link $(l,m)$\\
 %\hline
 %\end{tabular}\\
 %\begin{tabular}{llp{2.8cm}}
@@ -43,7 +43,6 @@ $D_{di}$ & $i \in V\ $ & Downlink demand of node i\\
 $D_{ui}$ & $i \in V\ $ & Uplink demand of node i\\
 %\hline
 \end{tabular}
-
 
 In the variable set, we define a time share represents 
 the percentage of time a single link transmits according 
@@ -64,18 +63,18 @@ Uplink flow of node $k$ on link $(i,j)$ at band $b$ \\
 $0\le dy_{i,j,k}^b$ & $(i,j,k) \in N, b \in B$ & 
 Downlink flow of node $k$ on link $(i,j)$ at band $b$ \\ 
 \end{tabular}
+\vspace{1pt}
 
 % FIXME talk about NT calculation
-Our objective could be represented for  
+Our objective is represented for  
 maximizing the traffic arrived at gateway ($X$)
-or the netwrok throughput ($NT$), defined in 
-Eq.~\ref{eq:networktpt}.
+described in Eq.~\ref{eq:goodput}.
 
 \noindent
 {\bf Objective:}
 \begin{align}
-& Max \sum_i\sum_j\sum_k\sum_b(uy_{i,j,k}^b+dy_{j,i,k}^b) \;\ When \; w_j=1 \\
-& Max \sum_i\sum_j\sum_b(\frac{1}{\sum_{l,m}\alpha_{i,j}^b\times I_{ij,lm}})
+& Max \sum_i\sum_j\sum_k\sum_b(uy_{i,j,k}^b+dy_{j,i,k}^b) \;\ When \; w_j=1 
+%& Max \sum_i\sum_j\sum_b(\frac{1}{\sum_{l,m}\alpha_{i,j}^b\times I_{ij,lm}})
 \end{align}
 
 In the ILP, the connectivity, uplink, and downlink constraints are represented
@@ -132,14 +131,11 @@ similar to (\ref{opt:3}) and (\ref{opt:4}) but in the downlink direction.  Simil
 constraints (\ref{opt:11}) and (\ref{opt:12}) are downlink versions of 
 (\ref{opt:6}) and (\ref{opt:7}).
 
-Linear programs which attempt to solve channel assignment and routing in multihop
+Similar linear programs model is to solve channel assignment 
 wireless networks have been proved to be NP-hard~\cite{yuan2006cross}. 
 Our model jointly considers channel assignment factors and provides the 
 methodology to achieve the optimization solution. 
-When the particular configuration is given, we can 
+When the particular configuration is given, we further 
 choose the objectives, parameters, and relax constraints to 
-find an approaching solution for the network.  
-%The output  is to get the channel assignment $A_{i,j}^k$, then further
-%parameters could be calculated based on the channel assignment.
+find the approaching solution for the network.  
  
-

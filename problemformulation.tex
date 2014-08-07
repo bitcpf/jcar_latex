@@ -1,14 +1,14 @@
 \section{Problem Formulation}
 \label{sec:problemformulation}
 
-%\input{notationtable}
-
 % Organization of the Sec
 In this section, we formulate the problem of how to optimally 
 use WiFi and white space bands in concert when deploying wireless 
-mesh networks.  We first describe our system model and illustrate 
-the challenges of such a WhiteMesh architecture.  We then discuss
-how to evaluate WhiteMesh networks and the corresponding goal of
+mesh networks.  We first introduce the multiband mesh network 
+system model and illustrate the challenges of such a WhiteMesh 
+architecture in propagation and channel occupancy.
+We then discuss the network performance in economic view 
+to evaluate WhiteMesh networks and the corresponding goal of
 both the optimization framework and the heuristic algorithm that 
 we propose in the following section.  Finally, we present 
 our integer linear programming model used to address the problem. 
@@ -16,9 +16,6 @@ our integer linear programming model used to address the problem.
 \subsection{WhiteMesh Network Architecture}
 \label{subsec:architecture}
 
-%A node in ~\emph{Multiband Wireless Mesh Network} has limited multiple slots for installing radios working in different bands. 
-%Two nodes share the same link should have a common channel. The sum of the loads on the links should 
-% Explain propagation, factors of the environment and so on
 Wireless propagation is the behavior of the signal loss characteristics 
 when wireless signals are transmitted from a transmitter to receiver.
 The strength of the receiving signal depends on both the line-of-sight
@@ -39,48 +36,49 @@ aforementioned environmental factors and ranges from 2 to 5 in typical
 outdoor settings~\cite{rappaport}.
 
 % Explain multiband vs multichannel Adding channel occupancy here, and also activity level
-A common assumption in works that use many WiFi channels is that the
-propagation characteristics of one channel is similar to another, 
-since the channel separation is relatively small (e.g., 5 MHz for 
-the 2.4 GHz band).
+A frequency band is commonly defined as a group of channels which have
+similar propagation characteristics with small frequency separation.
+A common assumption in previous works that use many WiFi channels 
+is that the propagation characteristics of one channel is similar 
+to another, since the channel separation is relatively small 
+(e.g., 5 MHz for the 2.4 GHz band).
 Many works which rely on such an assumption have focused on the 
 allocation of multiple WiFi channels with multiple radios in 
-multihop wireless networks~\cite{si2010overview}.  Here, a frequency 
-band is defined as a group of channels which have
-similar propagation characteristics.
+multihop wireless networks with channels in one band~\cite{doraghinejad2014channel}.
+However, as FCC licensed the white space bands for communication,
+the propagation variation has to be considered in wireless network. 
+
 %We use a similar assumption for %channels within a frequency band, but consider the propagation 
 %differences of a channel in one band (e.g., 450 MHz) as compared to 
 %another (e.g., 2.4 GHz). FIXME modified
-In the application of wireless communication, channel occupancy has
-to be considered~\cite{fallah2010congestion}. To quantify the 
-channel occupancy, we inherit the activity level from~\cite{cui2013leveraging}
-to quantify the channel occupancy as shown in Eq.~\ref{eq:actlevel}.
-The activity level is defined based on a long-term measurement 
-of each band.  It is defined as the percentage of sensing samples ($S_\theta$) above an 
-interference threshold ($\theta$) over the total samples ($S$) in a time unit as the 
-activity level ($A$) of inter-network interference:
+Moreover, the FCC has flexible rules all over the states because of the 
+existing TV stations and devices working in white space bands~\cite{googledatabase}.
+These existing channel occupancy has to be considered in the wireless communication with
+white space frequency~\cite{fallah2010congestion}. To quantify the 
+channel occupancy, we have the concept activity level from~\cite{cui2013leveraging}
+as defined in Eq.~\ref{eq:actlevel}. The concept is defined based on a long-term measurement 
+as the percentage of sensing samples ($S_\theta$) above an 
+interference threshold ($\theta$) over the total samples ($S$) of each band ($b$) 
+during a unit time. 
+%The activity level ($A$) represents inter-network interference:
 \begin{equation}
 \label{eq:actlevel}
 A=\frac{S_\theta}{S_a}
 \end{equation}
-
-In this work, we consider the diverse propagation characteristics
-for four frequency bands: 450 MHz, 800 MHz, 2.4 GHz, and 5.8 GHz.
-We refer to the two former frequency bands as white space (WS) bands, whereas
-we refer to the two latter frequency bands as WiFi bands.
 
 Wireless mesh networks are a particular type of multihop wireless network
 that are typically considered to have at least two
 tiers~\cite{CRSK06}: {\it (i)} an access tier, where client traffic 
 is aggregated to and from mesh nodes, and {\it (ii)} a multihop 
 backhaul tier for connecting all mesh nodes to the Internet through 
-gateway nodes. In this work, we focus on how to optimally allocate 
+gateway nodes. In this work, we focus on optimally allocating 
 white space and WiFi bands on a finite set of radios per mesh node
 along the backhaul tier, since we assume that client devices will use 
-WiFi (due to the economies of scale).  In each of the WhiteMesh 
-topologies studied in Section~\ref{sec:experimentdesign}, a sufficient 
-number of orthogonal WiFi channels remain for the access tier 
-clients connection through additional radios co-located on the mesh nodes.
+WiFi (due to the economies of scale) along access tier.  
+In each of the WhiteMesh topologies studied in Section
+~\ref{sec:experimentdesign}, a sufficient number of orthogonal WiFi 
+channels remain for the access tier clients connection through additional 
+radios co-located on the mesh nodes.
 
 \begin{figure}
 \vspace{-0.0in}
@@ -93,22 +91,24 @@ representing different frequency band choices per link.}
 \vspace{-0.2in}
 \end{figure}
 
+In this work, we consider the diverse propagation characteristics
+for four frequency bands: 450 MHz, 800 MHz, 2.4 GHz, and 5.8 GHz.
+We refer to the two former frequency bands as white space (WS) bands, whereas
+the two latter frequency bands as WiFi bands.
 % Make multiband challenges
 Due to the broadcast nature of the wireless medium, greater levels of
-propagation induce higher levels of interference.  Thus, in sparsely-populated
+propagation induce higher levels of interference. Also, the more allowed frequency
+channels and low level signal activity of white space bands co-exist in sparse areas. 
+Thus, in sparsely-populated
 rural areas, the lower frequencies of the white space bands might be a
 more appropriate choice for multihop paths to gateways having reduced hop
-count. However, as the population and demand scales up (e.g., for 
+count with more capacity. However, as the population and demand scales up (e.g., for 
 urban regions), the reduced spatial reuse and greater levels of interference 
-of white space bands might detract from the overall deployment strategy. In 
-such urban areas, select links of greater distance might be the most 
+of white space bands might detract from the overall channel assignment strategy. 
+In such urban areas, select links of greater distance might be the most 
 appropriate choice for white space bands, especially since the number of 
 available channels is often inversely proportional to the population (due 
 to the existence of greater TV channels).
-%The broadcast nature of the wireless medium makes it generate multiple access interference in wireless network.
-%Employing White Space Band in lower frequency brings advantages for mesh network, 1) more orthogonal bandwidth reduce the contention and conflict in the network,
-% 2) the propagation variation brings flexible topology by reducing connection hop counts in the network.
-%However, at the same time, links in White Space Band also increase the interference range in the network making space reuse of the white space band channel difficult. 
 
 Figure \ref{fig:interferencerange} depicts an example where mesh node $A$ 
 could connect to mesh node $C$ through $B$ at 2.4 GHz, or directly connect 
@@ -118,34 +118,36 @@ used 450 MHz, a lower hop count would result for the path, but lower levels
 of spatial reuse also result (e.g., for link $D,E$). While the issues of 
 propagation, interference, and spatial reuse are simple to understand,
 the joint use of white space and WiFi bands to form optimal WhiteMesh 
-topologies is challenge.
-
-%To balance the larger communication range and interference range of white space band in mesh network is a key issue in ~\emph{Multiband Mesh Network} from ~\emph{Multiradio} scenario.
+topologies is challenging since the optimization is based on the knowledge
+of prior channel assignment which is not available before the work has been
+finished.
 
 \subsection{Model and Problem Formulation}
 \label{subsec:problem}
 
 % Assumptions of the network
-In this work, we have a model similar to prior multi-channel models~\cite{tang2005interference,
-doraghinejad2014channel,si2010overview}. However, in these previous models, 
-they fail to distinguish the communication range $D_c$ and interference range
-$D_4$ variation across frequency bands.  
-%FIXME HERE 18:10
-While
-these works would attempt to minimize the interference in a multihop network topology
-by an optimal channel assignment for a given set of radios, we hypothesize that
+Multiband wireless network involve the propagation variation
+and channel occupancy additional to the previous multichannel scenario. 
+Thus, we improve the prior multi-channel models~\cite{tang2005interference,
+doraghinejad2014channel} to adopt the new parameters. In 
+these previous models, they fail to distinguish the communication 
+range $D_c$, interference range $D_r$ and channel capacity variation 
+across frequency bands. While these works would attempt to minimize 
+the interference in a multihop network topology by an optimal channel 
+assignment for a given set of radios, we hypothesize that
 using radios with a greater diversity in propagation could yield overall network 
-performance gains.  
-% NEWClaim we consider we could use either multiple channels in a band and also multiple channels in different bands
+performance gains.
 Therefore, for a given set of radios, we allow the channel
 choices to come from multiple frequency bands (i.e., multiband channel 
 assignment, which also includes multiple channels in the same band).
-To simplify the analysis, we assume the channel capacity of each band is equal.
+In this work, we assume all channels have the same bandwidth and 
+adjust the channel capacity of each band through the measured 
+channel occupancy parameter activity level~\ref{eq:actlevel}.
 % FIXME Weds. Here
 In practice, we could easily calculate the proportional ratio of channels in 
-each band according to their bandwidth.
-We assume that the locations of mesh nodes and gateway nodes are given and
-all mesh nodes have the same transmit power, channel bandwidth, and antenna gain.
+each band according to their bandwidth. We assume that the locations of 
+mesh nodes and gateway nodes are given and all mesh nodes have radios with the same 
+transmit power, channel bandwidth, and antenna gain.
 Each mesh node operates with a classic protocol model~\cite{gupta2000capacity}. 
 
 A mesh network could be represented by a unidirectional graph $G=(V,E)$, where
@@ -153,63 +155,54 @@ $V$ is the set of mesh nodes, and $E$ is the set of all possible physical links
 in the network. If the received signal (according to Eq.~\ref{eq:friis}) between 
 two mesh nodes $i,j$ for a given frequency band (from the set of all bands $B$) 
 is greater than a communication-range threshold, then a data link exists and 
-belongs to the set $L$ with a fixed, non-zero capacity $\delta$ according to the protocol 
-model.  
-Due to the frequency occupancy, the available channel capacity is calculated 
+belongs to the set $L$ with a fixed, non-zero capacity $\delta$ with a protocol model.  
+Due to the frequency occupancy, the available channel capacity could be calculated 
 through Eq.~\ref{eq:intercap}.
 \begin{equation}
 \label{eq:intercap}
 \delta_r=\delta*(1-\bar{A})
 \end{equation}
-The capacity of a clean channel is denoted by $\delta$. With the protocol model, the capacity 
-of a channel with inter-network interference $\delta_r$ could be represented as 
+The capacity of a clean channel is denoted by $\delta$. Under the protocol model, the capacity 
+of a channel with interference of existing signals $\delta_r$ could be represented as 
 the remaining free time of the channel capacity according to the measured
-activity level $A$.
+activity level $A$. We employ the activity level based on multiple measurements
+in the target area to represent the average inter-network interference.
 Correspondingly, a connectivity graph $C$ is formed for each 
 band in $B$ such that $C=(V,L,B)$.  If the received signal for a given band is 
 above an interference-range threshold, then contention occurs between
 nodes.  We extend the conflict matrix in~\cite{tang2005interference} related to
 different interference per band according to $F=(E_{i,j},I_{Set},B)$, where $E_{i,j}$
 represents the link and $I_{Set}$ includes all the links are physically inside 
-the interference range $D_r$ when operating on each band $b$.
+the interference range $D_r$ when operating on each band $b \in B$.
 
 Therefore, the problem we model is: to choose the connectivity graph $C'$ which maximizes
-the metrics according to the constraints of multiband wireless network (defined below).
+the metrics obey the constraints of multiband wireless network (defined below).
 A key challenge is that selecting the optimal channels from
-the set $B$ leads to a conflict graph $F$ which cannot be known {\it a priori}.
-Previous works have proposed a coloring, cluster-independent set, mixed linear integer methodology
-for a single band $b$~\cite{peng2012efficient,tang2005interference,doraghinejad2014channel}. 
-However, these works do not address a reduction in hop count or an increase in spatial reuse for a set of 
+the set $B$ leads to a conflict graph $F$ which cannot be known {\it a priory}.
+Previous works have proposed several coloring, cluster-independent set, 
+mixed linear integer methodology for a single band $b$~\cite{peng2012efficient,tang2005interference,doraghinejad2014channel}. 
+However, these works do not address a reduction in hop count or an increase in spatial reuse and channel occupancy for a set of 
 diverse bands $B$. 
 
 % Metrics
-In network application, the bottleneck of mesh network capacity has been shown to be the gateway's wireless 
-connections~\cite{robinson2008adding}.
+In network application, the bottleneck of mesh network capacity has been 
+shown to be the gateway's wireless connections~\cite{robinson2008adding}.
 The metric we use to evaluate the proposed algorithm is the traffic arrived at gateway nodes.
-Networks are operated and maintained by vendors.
-The vendors, such as AT\&T, T-Mobile, they charge the customers based on the data amount. 
-The traffic arrived at gateway nodes under an random traffic generated area 
-correlated to the incomes of the vendors. We use the performance metric of 
-traffic arrived gateway $X$, represented the traffic arrived at the gateway nodes, where in Eq.~\ref{eq:goodput}:
+Networks are operated and maintained by vendors, such as AT\&T, T-Mobile, who charge the 
+customers based on their data through Internet. Thus, we use random generated numbers 
+to represent clients' traffic demands. The traffic arrived at gateway nodes correlated 
+to the population of the area since people have almost traffic demand in long term average. 
+The employed performance metric of traffic arrived gateway $X$, is represented the traffic 
+arrived at the gateway nodes, where in Eq.~\ref{eq:goodput}:
 \begin{equation}
 \label{eq:goodput}
 X=\sum_{w \in W, v \in V}T(w,v)
 \end{equation}
 The traffic arrived gateway node $w\in W$ considers all incoming and outgoing wireless traffic 
 from access node $v\in V$ as $T$ onto the Internet.
-Obviously, the traffic arrived gateway is also related to the routing, we use a simple routing
-method to keep the maximum the traffic arrived at the gateway nodes, the exact calculation 
-of gateway traffic arrived gateway is described in Section~\ref{sec:experimentdesign} 
-and consider where to put the gateway nodes are outside the scope of this work.
-
-We also use the general metric \emph{network throughput} $NT$
-in~\cite{tang2005interference,doraghinejad2014channel} 
-which directly associated with the interfering number of each link, as~\ref{eq:networktpt}:
-\begin{equation}
-\label{eq:networktpt}
-NT = \sum_{i=1}^{n}\frac{1}{1+Interference\ number\ of\ (e \in E)}
-\end{equation}
-The network throughput is the sum of shared bandwidth of each link in the network, 
-which represents the worst case performance when all the links are activated of 
-the wireless network.
+Obviously, the traffic arrived gateway is also related to the routing and other factors, 
+we use a simple routing method to keep the maximum the traffic arrived at the gateway nodes, 
+the exact calculation of gateway traffic arrived gateway is described in 
+Section~\ref{sec:experimentdesign} and consider where to put the gateway nodes are outside 
+the scope of this work.
 

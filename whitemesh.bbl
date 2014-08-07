@@ -32,11 +32,6 @@ J.~Camp, J.~Robinson, C.~Steger, and E.~Knightly, ``Measurement driven
   deployment of a two-tier urban mesh access network,'' in \emph{{ACM
   MobiSys}}, 2006.
 
-\bibitem{google_imc08}
-M.~Afanasyev, T.~Chen, G.~Voelker, and A.~Snoeren, ``Analysis of a mixed-use
-  urban {WiFi} network: When metropolitan becomes neapolitan,'' in \emph{{ACM
-  IMC}}, 2008.
-
 \bibitem{taps}
 R.~Karrer, A.~Sabharwal, and E.~Knightly, ``Enabling large-scale wireless
   broadband: the case for {TAPs},'' in \emph{{HotNets-II}}, 2003.
@@ -59,11 +54,6 @@ D.~R. Pengfei~Cui, Hui~Liu and J.~Camp, ``A measurement study of white spaces
 J.~Tang, G.~Xue, and W.~Zhang, ``Interference-aware topology control and {QoS}
   routing in multi-channel wireless mesh networks,'' in \emph{{ACM MobiHoc}},
   2005.
-
-\bibitem{si2010overview}
-W.~Si, S.~Selvakennedy, and A.~Y. Zomaya, ``An overview of channel assignment
-  methods for multi-radio multi-channel wireless mesh networks,'' \emph{Journal
-  of Parallel and Distributed Computing}, vol.~70, no.~5, pp. 505--524, 2010.
 
 \bibitem{long2013fair}
 Y.~Long, H.~Li, M.~Pan, Y.~Fang, and T.~F. Wong, ``A fair qos-aware
