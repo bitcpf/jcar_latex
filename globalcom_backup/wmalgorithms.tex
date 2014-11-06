@@ -1,0 +1,92 @@
+\section{Path Analysis with Diverse Propagation}
+\label{sec:wmalgorithms}
+
+
+In this section, we discuss the influence of diverse propagation
+characteristics of the wide range of carrier frequencies of
+% NEWClaim fix
+white space and WiFi bands in wireless networks. 
+We then introduce our measurement driven heuristic algorithm 
+for channel assignment in WhiteMesh networks.
+
+% PEN part 
+\input{networkefficiency}
+
+\subsection{Band-based Path Selection (BPS) Algorithm}
+\label{subsec:BPS}
+
+\begin{algorithm}[t]
+    \small
+\caption{Band-based Path Selection (BPS)}
+\label{algorithms:bps}
+\begin{algorithmic}[1]
+\REQUIRE  ~~\\
+	$M$: Set of mesh nodes\\
+	$G$: Set of gateway nodes\\
+	$C$: Communication graph of potential links among all nodes\\
+	$I$: Interference matrix of all potential links \\
+	$B$: Available frequency bands \\
+	$\delta$: Measurements based Channel Capacity
+\ENSURE ~~\\    
+$CA$: Channel Assignment of the Network\\
+\STATE Rank mesh nodes in Set $M$ according to physical distance from gateway nodes $G$
+\STATE Initialize $S_{curr}=G$, $N_{srv}=\emptyset$, $N_{unsrv}=M$,$I_{active}=\emptyset$
+\WHILE {$N_{srv}=!M$}
+\STATE Select node with largest distance to gateway
+\STATE Find the adjacency matrix across band combinations $A_c$
+\FORALL{$A_{i}\in A_c$}
+\STATE Find the shortest path $SP_i$ in mixed adjacency matrix A 
+\FORALL{Link $l \in SP_i$, ordered from gateway to mesh node}
+\STATE Find the least interfering path with measured $\delta \times E_n$
+\STATE If equally-interfering links, choose higher frequency
+\STATE Calculate the path interference of $SP_i$
+\ENDFOR
+\STATE Store the shortest path $SP_i$ as $SP$
+\ENDFOR
+\STATE Assign the path in the network\\
+		\STATE Update $N_{srv},N_{unsrv}$
+		\STATE Update $I_{active}$ from $I$
+\ENDWHILE 
+
+Output $CA$ as the locally-optimal solution\\
+\end{algorithmic}
+\end{algorithm}
+
+We design a Band-based Path Selection (BPS) algorithm
+(described in Alg.~\ref{algorithms:bps}) which first chooses the 
+mesh node that has the largest physical distance from the gateway 
+nodes to reduce the whole time cost of the network. When a path is constructed for
+the mesh node with the greatest distance, all subsequent mesh nodes along
+the path are also connected to the gateway. The intuition behind the
+BPS algorithm is to improve the worst mesh node performance in a path.
+In large-scale mesh networks, it is impractical to traverse all the paths with
+different combination of bands from a mesh node to any gateway node since 
+it is a NP-hard problem. However,
+based on the discussion in Section~\ref{subsec:PEN}, if two paths have the same
+number of used bands along those paths, then the path with the least hops
+is likely to have the greatest performance and is chosen.  Similarly, if
+two path have the same path interference, we choose the path which has
+higher-frequency links for spatial reuse. Thus, the next step of the
+algorithm is to find the shortest path across band combinations.
+
+To run the algorithm, compared to the number of mesh nodes, the amount of channels $N_B$ in
+different bands is small. The time complexity of calculating the combination
+is $O(2^{N_B})$. Finding the shortest path in Dijkstra algorithm will
+cost $O(N_E^2)$ according to~\cite{golden1976shortest}, where $N_E$ is the set of possible links in the
+network, and as a result, the total complexity would be $O(N_E^2\cdot 2^{N_B})$.
+The algorithm would then calculate the PIN of the candidate path and select the path
+with the least interference channel induced on the network for the source mesh node.
+After a path is assigned, the algorithm updates the network's channel assignment
+with served nodes, activated links, and radio information. Then,
+we iteratively assign channels for all the mesh nodes in the
+network.
+
+If all the nodes are connected to gateway nodes ($N_E={n \choose 2}$ which is $O(N_V^2)$), 
+then the complexity of assigning a channel for a mesh node is $O(N_E^2\cdot2^{N_B})$. 
+Then, the complexity of assigning a mesh node is $O(N_V^4\cdot2^{N_B})$.
+To assign {\it all} the nodes in the network, the complexity would 
+be $O(N_V^5\cdot2^{N_B})$. The complexity is polynomial time of
+the number of traffic demands points (client group) for a wireless
+network assignment.
+
+

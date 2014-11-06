@@ -1,4 +1,4 @@
-This is pdfeTeX, Version 3.141592-1.21a-2.2 (Web2C 7.5.4) (format=latex 2012.4.6)  7 AUG 2014 16:07
+This is pdfeTeX, Version 3.141592-1.21a-2.2 (Web2C 7.5.4) (format=latex 2012.4.6)  3 NOV 2014 16:14
 entering extended mode
 **whitemesh
 (./whitemesh.tex
@@ -346,32 +346,37 @@ File: umsb.fd 2002/01/19 v2.2g AMS font definitions
 File: figures/interferencerange2.eps Graphic file (type eps)
 
 <figures/interferencerange2.eps> [2]) (./linearopt.tex
-Underfull \hbox (badness 3701) in paragraph at lines 39--43
+Underfull \hbox (badness 3919) in paragraph at lines 27--29
+[]\OT1/ptm/m/n/10 Available ca-pac-ity of
+ []
+
+
+Underfull \hbox (badness 3701) in paragraph at lines 37--41
 []\OT1/ptm/m/n/10 Downlink de-mand of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--46
+Underfull \hbox (badness 10000) in paragraph at lines 20--44
 
  []
 
-
-Underfull \vbox (badness 1546) has occurred while \output is active []
-
- [3]
-Underfull \hbox (badness 7667) in paragraph at lines 64--65
+[3]
+Underfull \hbox (badness 7667) in paragraph at lines 62--63
 []\OT1/ptm/m/n/10 Downlink flow of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 53--67
+Underfull \hbox (badness 10000) in paragraph at lines 51--65
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 53--67
+Underfull \hbox (badness 10000) in paragraph at lines 51--65
 []
  []
+
+
+LaTeX Warning: Reference `opt:12' on page 4 undefined on input line 129.
 
 ) (./wmalgorithms.tex (./networkefficiency.tex [4])
 
@@ -429,16 +434,19 @@ Before submitting the final camera ready copy, remember to:
 
 ] (./whitemesh.aux)
 
+LaTeX Warning: There were undefined references.
+
+
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
  2973 strings out of 94501
  40976 string characters out of 1176790
- 100442 words of memory out of 1000000
+ 100433 words of memory out of 1000000
  6051 multiletter control sequences out of 10000+50000
  34856 words of font info for 94 fonts, out of 500000 for 2000
  580 hyphenation exceptions out of 1000
  27i,9n,24p,287b,519s stack positions out of 1500i,500n,5000p,200000b,5000s
 
-Output written on whitemesh.dvi (10 pages, 91696 bytes).
+Output written on whitemesh.dvi (10 pages, 91712 bytes).

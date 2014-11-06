@@ -9,10 +9,29 @@
 % Paper organization
 % Wireless Network
 
-About a decade ago, numerous cities solicited proposals from
+
+% Combline the three part
+% Importance of network design
+
+Network design plays a central role in wireless mesh network. Developments in this
+area have led to multiple techniques to reduce the budget, improve the qunlity of service.
+In recent years, many efforts have been put on technical sub problems, such as 
+gateway location selection, channel assignment, and also economic sub problems, 
+such as budget estimation, service of quanlity.
+
+% New Technology for network design brought by new policy
+The FCC has approved the use of broadband services in the white spaces of 
+UHF TV bands, which were formerly exclusively licensed to television broadcasters.
+These white space bands are now available for unlicensed public use, enabling the
+deployment of wireless access networks across a broad range of scenarios from 
+sparse rural areas (one of the key applications identified by the FCC) to dense urban 
+areas~\cite{carlson}. The white space bands operate in available channels from 
+54-806 MHz, having a far greater propagation range than WiFi bands for similar
+transmission power~\cite{balanis2012antenna}. 
+
+During the last decade, numerous cities solicited proposals from
 network carriers for exclusive rights to deploy city-wide WiFi,
-spanning hundreds of square miles.  
-While the vast majority of the resulting used
+spanning hundreds of square miles. While the vast majority of the resulting used
 a wireless mesh topology, initial field tests revealed that the 
 actual WiFi propagation could not achieve the proposed mesh node
 spacing. As a result, many network carriers opted to pay millions of 
@@ -22,6 +41,12 @@ Philadelphia~\cite{arstechnica_may08}). Thus, while a few mesh
 networks have been deployed in certain communities~\cite{CRSK06},
 wireless mesh networks have largely been unsuccessful in achieving 
 the scale of what was once anticipated~\cite{taps}.
+Specific to rural areas, the lack of user density and corresponding traffic
+demand per unit area as compared to dense urban areas allows greater levels of
+spatial aggregation to reduce the total number of required access points, lowering
+network deployment costs. In densely populated urban areas, the greater concentration
+of users and higher levels of traffic demand can be served by maximizing the spatial
+reuse. 
 
 Around the same time, the digital TV transition created more
 spectrum for use with data networks~\cite{fccwhitespace}. These white 
@@ -40,21 +65,46 @@ The additional channel capacity vary according to FFC regulation and
 existing channel occupancy. As shown in Google database~\cite{googledatabase}, 
 the additional the number of available white
 space frequency channels vary from city to city in US. 
-Existing channel occupancy discussed in previous work~\cite{pcuiwinmee} 
-has shown that the occupancy of frequency impacts on wireless network deployment.
+%Existing channel occupancy discussed in the previous work~\cite{pcuiwinmee} 
+%has shown that the occupancy of frequency impacts on access tier wireless network deployment.
 Naturally, the question arises for improving the performance
 as well as the optimization of utilization: {\it how can the emerging white space bands improve 
-large-scale mesh network deployments?}  While much work has been done 
+large-scale mesh network deployments?} 
+Thus, the new opportunities created by white spaces motivate the following 
+questions for wireless Internet carriers, which have yet to be addressed: 
+{\it (i) To what degree can white space bands reduce the network deployment cost of
+sparsely populated rural areas as opposed to comparable WiFi-only solutions?} and 
+{\it (ii) Where along the continuum of user population densities do the white
+space bands no longer offer cost savings for wireless network deployments?}
+While much work has been done 
 on deploying multihop wireless networks with multiple channels and 
-radios, the differences in propagation have not been exploited in their 
-models~\cite{tang2005interference, long2013fair,doraghinejad2014channel}, 
+radios, the differences in propagation among large scale frequencies 
+have not been exploited in their models~\cite{tang2005interference, long2013fair,doraghinejad2014channel}, 
 which could be {\it the} fundamental issue for the success of mesh 
-networks going forward.
+networks going forward. 
 
-% Paper topic
-In this paper, we leverage the diversity in propagation and channel occupancy of
+% Paper topic problem and possible solution
+In this paper, we perform a measurement study which considers the propagation 
+characteristics and observed in-field spectrum availability of white space
+and WiFi channels to find a possible solution for wireless network deployment. 
+Across varying population densities in representative 
+rural and metropolitan areas, we compare the cost savings (defined in terms of
+number of access points reduced) when white space bands are not used.
+To do so, we first define the metric to quantify the spectrum utility in a
+given measurement location. With the in-field measured spectrum utility data 
+in metropolitan and surrounding areas of Dallas-Fort Worth (DFW), we 
+calculate the activity level in WiFi and white space bands. Second, we 
+propose a measurement-driven framework to find the number of access points required 
+for areas with differing population densities according to our measurement locations
+and census data. We then evaluate our measurement-driven framework, showing
+the band selection across downtown, residential and university settings in
+urban and rural areas and analyze the impact of white space and WiFi
+channel combinations on a wireless deployment in these representative scenarios.
+
+We further leverage the diversity in propagation with channel occupancy of
 white space and WiFi bands in the planning and deployment
-of large-scale wireless mesh networks. To do so, we first form an
+of large-scale wireless mesh networks. 
+To do so, we first form an
 integer linear program to jointly exploit white space and WiFi 
 bands for optimal WhiteMesh topologies in channel assignment. 
 Second, since similar problem formulations have been shown to 
@@ -63,8 +113,8 @@ we design a heuristic measurement driven algorithm, Band-based
 Path Selection (BPS) based on mathematical analysis to solve the problem. 
 We then apply the approaching method in multiple scenarios with in-field
 measurement data. Across a wide range of scenarios, including 
-network size, population distribution, deployment gap, we exploit 
-the general rules of emerging white space bands in mesh networks. 
+network size, population distribution, deployment distance gap, we 
+exploit the general rules of emerging white space bands in mesh networks. 
 The performance of our scheme is compared against two well-known 
 multi-channel, multi-radio channel assignment algorithms across 
 these scenarios, including those typical for rural areas as well 
@@ -78,10 +128,25 @@ both band types can improve the performance of wireless mesh networks.
 % Need some calculation data to show the improvement
 The main contributions of our work are as follows:
 \begin{itemize}
+\item We perform in-field measurements of spectrum utilization in various representative
+scenarios across the DFW metroplex, ranging from sparse rural to dense urban areas and 
+consider the environmental setting (e.g., downtown, residential, or university campus).
+%Then we split the area into sub-areas according to the population density 
+%and analyze the measurement within sub-areas.
+\item We develop a measurement-driven Multi-band Access Point Estimation (MAPE) framework 
+to jointly leverage propagation and spectrum availability of white space and WiFi bands 
+for wireless access networks across settings.
+\item We analyze our framework under capacity and coverage constraints 
+to show that, with white space bands, the number of access points can be greatly
+reduced from WiFi-only deployments by up to 1650\% in rural areas.
+\item We quantify the impact of white space and WiFi channel
+combinations to understand the tradeoffs involved in choosing the optimal channel setting,
+given a certain number of available channels from multiple bands.
 \item We analyze the white space bands application in wireless 
 network deployment and develop an optimization framework based on integer
 linear programming to jointly leverage white space and WiFi bands
-to advantages and disadvantages in wireless mesh networks.  
+to advantages and disadvantages in wireless mesh networks with measured 
+channel occupancy.  
 \item We build a heuristic measurement driven algorithm, Band-based Path 
 Selection (BPS), which considers the diverse propagation, overall interference 
 level of WiFi and white space bands with measurement adjust.  
@@ -108,3 +173,84 @@ against two well-known multi-channel, multi-radio algorithms in Section
 ~\ref{sec:experimentdesign} in several scenarios and analyze the 
 result for answering where WhiteMesh is better. Finally, we discuss 
 related work in Section~\ref{sec:related} and conclude in Section~\ref{sec:conclusion}.
+
+
+
+% Background multiband 
+% Channel utility
+% Traditional hypothesis in previous works
+% White space benefit in rural and challenge in populated area
+% Issues
+% Paper organization
+
+% http://www.carlsonwireless.com/rural-connect-press-release.html
+
+
+%Specific to rural areas, the lack of user density and corresponding traffic
+%demand per unit area as compared to dense urban areas allows greater levels of
+%spatial aggregation to reduce the total number of required access points, lowering
+%network deployment costs. In densely populated urban areas, the greater concentration
+%of users and higher levels of traffic demand can be served by maximizing the spatial
+%reuse. 
+%While many works have worked to address multihop wireless network deployment
+%in terms of maximizing served user demand and/or minimizing network costs,
+%the unique propagation characteristics and the interference from coexisting
+%activities in white space bands have either not been jointly studied or assumed to 
+%have certain characteristics without explicit measurement~\cite{si2010overview}. 
+%Specifically, previous work has investigated wireless 
+%network deployment in terms of gateway placement, channel assignment, and 
+%routing~\cite{he2008optimizing,marina2010topology}.
+%However, each of these works focus on the deployment in WiFi bands without
+%considering the white space bands. Moreover, the assumption of idle channels
+%held in these models fails to match the in-field spectrum utility,
+%which could degrade the performance of a wireless network. These
+%two issues are critical for designing an optimal network deployment and
+%providing commercial wireless services to clients in any location.
+%
+%Thus, the new opportunities created by white spaces motivate the following 
+%questions for wireless Internet carriers, which have yet to be addressed: 
+%{\it (i) To what degree can white space bands reduce the network deployment cost of
+%sparsely populated rural areas as opposed to comparable WiFi-only solutions?} and 
+%{\it (ii) Where along the continuum of user population densities do the white
+%space bands no longer offer cost savings for wireless network deployments?}
+%
+%
+%In this paper, we perform a measurement study which considers the propagation 
+%characteristics and observed in-field spectrum availability of white space
+%and WiFi channels to find the total number of access points required to serve a 
+%given user demand. 
+%
+%Across varying population densities in representative 
+%rural and metropolitan areas, we compare the cost savings (defined in terms of
+%number of access points reduced) when white space bands are not used.
+%To do so, we first define the metric to quantify the spectrum utility in a
+%given measurement location. With the in-field measured spectrum utility data 
+%in metropolitan and surrounding areas of Dallas-Fort Worth (DFW), we 
+%calculate the activity level in WiFi and white space bands. Second, we 
+%propose a measurement-driven framework to find the number of access points required 
+%for areas with differing population densities according to our measurement locations
+%and census data. We then evaluate our measurement-driven framework, showing
+%the band selection across downtown, residential and university settings in
+%urban and rural areas and analyze the impact of white space and WiFi
+%channel combinations on a wireless deployment in these representative scenarios.
+%
+%% Paper contributions
+%The main contributions of our work are as follows:
+%\begin{itemize}
+%\item We perform in-field measurements of spectrum utilization in various representative
+%scenarios across the DFW metroplex, ranging from sparse rural to dense urban areas and 
+%consider the environmental setting (e.g., downtown, residential, or university campus).
+%%Then we split the area into sub-areas according to the population density 
+%%and analyze the measurement within sub-areas.
+%\item We develop a measurement-driven Multi-band Access Point Estimation (MAPE) framework 
+%to jointly leverage propagation and spectrum availability of white space and WiFi bands 
+%for wireless access networks across settings.
+%\item We analyze our framework under capacity and coverage constraints 
+%to show that, with white space bands, the number of access points can be greatly
+%reduced from WiFi-only deployments by up to 1650\% in rural areas.
+%\item We quantify the impact of white space and WiFi channel
+%combinations to understand the tradeoffs involved in choosing the optimal channel setting,
+%given a certain number of available channels from multiple bands.
+%\end{itemize}
+
+

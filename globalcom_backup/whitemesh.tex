@@ -1,0 +1,58 @@
+\documentclass[10pt,conference]{IEEEtran}
+%\documentclass[a4paper,12pt]{article}
+%\usepackage{algpseudocode}
+\usepackage{cite,latexsym,times,epsf,amsmath,amssymb,amsfonts,graphicx}
+\usepackage{epstopdf}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{multirow}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{amsmath}
+\usepackage{verbatim}
+\usepackage{booktabs}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\renewcommand{\baselinestretch}{0.915}
+%\renewcommand{\algorithmicforall}{\textbf{Foreach}}
+%\renewcommand{\algorithmicendfor}{\textbf{}}
+
+
+\begin{document}
+\title{WhiteMesh: Leveraging White Spaces in Wireless Mesh Networks}
+%\author{ Pengfei Cui, Dinesh Rajan, and Joseph Camp\\ 
+%Department of Electrical Engineering, Southern Methodist University, Dallas, TX \\
+%\{camp\}@smu.edu  \\
+%}
+
+
+%\documentclass[10pt]{article}
+
+%\usepackage{xkvltxp}
+
+
+\maketitle
+
+
+\input{abstract}
+%
+% Introduce the background and problem, calim contribution
+\input{introduction}
+% Multiband architecture and interference model Linear optimization model, takinkg about frequency occupancy
+\input{problemformulation}
+% Mixed Linear Optimization
+\input{linearopt}
+% Two heuristic algorithms
+\input{wmalgorithms}
+%
+\input{experiment}
+%\input{results}
+\input{related}
+\input{conclusion}
+
+\bibliographystyle{IEEEtran}
+
+\bibliography{whitemesh}
+
+\end{document}
+%This is never printed

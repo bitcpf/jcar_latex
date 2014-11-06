@@ -24,23 +24,21 @@ $B$ & set of bands \\
 %\begin{tabular}{lll}
 \begin{tabular}{llp{3.4cm}}
 %\hline
-$\delta^b$ & $b \in B$ & capacity of band $b$ in target area\\
-%\hline
-%\end{tabular}\\
+$\delta^b$ & $b \in B$ & Available capacity of band $b$ in target area\\
 %\begin{tabular}{llp{2.8cm}}
 $I_{ij,lm}^b$ & $(i,j,l,m) \in V, b\in B $ & Protocol Interference of link $(i,j)$ on band $b$ brought by link $(l,m)$\\
 %\hline
 %\end{tabular}\\
 %\begin{tabular}{llp{2.8cm}}
-$W_i$ & $i \in V\ binary$ & Gateways in network\\
+$W_i$ & $i \in V\ binary$ & Gateway maker in mesh nodes\\
 %\hline
 %\end{tabular}\\
 %\begin{tabular}{llp{2.8cm}}
-$D_{di}$ & $i \in V\ $ & Downlink demand of node i\\
+$D_{d}$ & $i \in V\ $ & Downlink demand of node i\\
 %\hline
 %\end{tabular}\\
 %\begin{tabular}{llp{2.8cm}}
-$D_{ui}$ & $i \in V\ $ & Uplink demand of node i\\
+$D_{u}$ & $i \in V\ $ & Uplink demand of node i\\
 %\hline
 \end{tabular}
 
@@ -87,19 +85,19 @@ as:
 \label{opt:1}
 & \alpha_{i,j}^b + \alpha_{j,i}^b + \sum_l\sum_m(\alpha_{l,m}^b \cdot I_{ij,lm}^b) \leq \delta^b, i\neq j \\
 \label{opt:2}
-& \sum_i uy_{i,j,k}^b + \sum_i dy_{i,j,k}^b \leq r_{j,k}^b \cdot \alpha_{j,k}^b 
+& \sum_i uy_{i,j,k}^b + \sum_i dy_{i,j,k}^b \leq \delta^b \cdot \alpha_{j,k}^b 
 \end{align}
 \noindent
 {\bf Uplink Constraints:} 
 \begin{align}
 \label{opt:3}
-& \sum_k \sum_b uy_{i,i,k}^b \leq D_{ui} \; when \; w_k=0, i \neq k \\
+& \sum_k \sum_b uy_{i,k,i}^b \leq D_{ui}  when \; w_k=0, i \neq k \\
 \label{opt:4}
-& uy_{i,j,k}^b = 0 w_k=1 \\
+& uy_{i,j,k}^b \cdot w_k = 0 \\
 %\label{opt:5}
 %& \sum_i\sum_b uy_{i,j,k}^b - \sum_m\sum_b uy_{j,m,k}^b = 0 \; when \; w_k=0, i\neq k\\
 \label{opt:6}
-& \sum_i\sum_b uy_{i,j,k}^b = \sum_m \sum_b uy_{j,m,k}^b \; when \; w_k=0, i \neq k\\
+& \sum_{i\leq j}\sum_b uy_{i,j,k}^b = \sum_{m\leq j} \sum_b uy_{j,m,k}^b \; w_j = 0\\
 \label{opt:7}
 & uy_{i,j,i}^b=0 
 \end{align}
@@ -108,15 +106,15 @@ as:
 \begin{align}
 {\bf}
 \label{opt:8}
-& \sum_j \sum_b dy_{i,j,i}^b \leq D_{di} \; when \; w_i=0 \\
+& \sum_k \sum_b dy_{i,k,i}^b \leq D_{di} \; when \; w_k=0 \\
 \label{opt:9}
-& dy_{i,j,k}^l =0 \; when \; w_k=1 \\
+& dy_{i,j,k}^b =0 \; when \; w_k=1 \\
 %\label{opt:10}
 %& \sum_j\sum_b dy_{i,j,k}^b - \sum_m\sum_b dy_{i,k,m}^b \geq , i \neq k \\
 \label{opt:11}
-& \sum_j\sum_b dy_{i,j,k}^b = \sum_m \sum_b dy_{j,m,k}^b,\; when \; w_k=0,  i \neq k \\
-\label{opt:12}
-& dy_{i,i,j}^b=0
+& \sum_{i\neq j} \sum_b dy_{i,j,k}^b = \sum_{m \neq j} \sum_b dy_{j,m,k}^b  \; when \; w_j=0, i \neq k 
+%%\label{opt:12}
+%%& dy_{i,i,j}^b=0
 \end{align}
 
 In the constraints, (\ref{opt:1}) represents the summation of the incoming and outgoing 

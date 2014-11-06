@@ -1,0 +1,139 @@
+\subsection{Mixed Integer Linear Programming Formulation}
+\label{subsec:linearopt}
+
+To clarify the problem and approach the optimization solution of the 
+problem, we present a mixed integer, linear programming 
+formulation for optimizing channel assignment in multiband
+scenario. We assume that the set of available mesh nodes 
+($V$), gateways ($W$), and available bands ($B$) are pre-known. 
+The communication links and conflict graph are given as parameters.
+The capacity $\delta_b$ is given as the available channel capacity
+according to activity level measurement noted in~\ref{eq:intercap}. 
+
+\noindent
+{\bf Sets:}
+\begin{tabular}{ll}
+$V$ & set of nodes \\
+$B$ & set of bands \\
+\end{tabular}
+
+\noindent
+{\bf Parameters:}\\
+\\
+%\vspace{0.1in}
+%\begin{tabular}{lll}
+\begin{tabular}{llp{3.4cm}}
+%\hline
+$\delta^b$ & $b \in B$ & Available capacity of band $b$ in target area\\
+%\begin{tabular}{llp{2.8cm}}
+$I_{ij,lm}^b$ & $(i,j,l,m) \in V, b\in B $ & Protocol Interference of link $(i,j)$ on band $b$ brought by link $(l,m)$\\
+%\hline
+%\end{tabular}\\
+%\begin{tabular}{llp{2.8cm}}
+$W_i$ & $i \in V\ binary$ & Gateway maker in mesh nodes\\
+%\hline
+%\end{tabular}\\
+%\begin{tabular}{llp{2.8cm}}
+$D_{d}$ & $i \in V\ $ & Downlink demand of node i\\
+%\hline
+%\end{tabular}\\
+%\begin{tabular}{llp{2.8cm}}
+$D_{u}$ & $i \in V\ $ & Uplink demand of node i\\
+%\hline
+\end{tabular}
+
+In the variable set, we define a time share represents 
+the percentage of time a single link transmits according 
+to~$\alpha_{i,j}^b$ for link $i,j$ between node $i$ and 
+node $j$ in band $b$. There are two terms $uy_{i,j,k}^{b}$
+and $dy_{i,j,k}^{b}$ defined as uplink and downlink flows:
+
+\noindent
+%\vspace{2pt}
+{\bf Variables:}\\
+\\
+%\vspace{1pt}
+\begin{tabular}{llp{3cm}}
+$0\le \alpha_{ij}^b \le 1$  & $b\in B, (i,j) \in N$ & 
+Time share of link $(i,j)$ on band $b$\\ 
+$0\le uy_{i,j,k}^b$ & $(i,j,k) \in V, b \in B$ & 
+Uplink flow of node $k$ on link $(i,j)$ at band $b$ \\ 
+$0\le dy_{i,j,k}^b$ & $(i,j,k) \in N, b \in B$ & 
+Downlink flow of node $k$ on link $(i,j)$ at band $b$ \\ 
+\end{tabular}
+\vspace{1pt}
+
+% FIXME talk about NT calculation
+Our objective is represented for  
+maximizing the traffic arrived at gateway ($X$)
+described in Eq.~\ref{eq:goodput}.
+
+\noindent
+{\bf Objective:}
+\begin{align}
+& Max \sum_i\sum_j\sum_k\sum_b(uy_{i,j,k}^b+dy_{j,i,k}^b) \;\ When \; w_j=1 
+%& Max \sum_i\sum_j\sum_b(\frac{1}{\sum_{l,m}\alpha_{i,j}^b\times I_{ij,lm}})
+\end{align}
+
+In the ILP, the connectivity, uplink, and downlink constraints are represented
+as:  
+
+\noindent
+%{\bf Constraints:}
+{\bf Connectivity Constraints:}
+\begin{align}
+\label{opt:1}
+& \alpha_{i,j}^b + \alpha_{j,i}^b + \sum_l\sum_m(\alpha_{l,m}^b \cdot I_{ij,lm}^b) \leq \delta^b, i\neq j \\
+\label{opt:2}
+& \sum_i uy_{i,j,k}^b + \sum_i dy_{i,j,k}^b \leq \delta^b \cdot \alpha_{j,k}^b 
+\end{align}
+\noindent
+{\bf Uplink Constraints:} 
+\begin{align}
+\label{opt:3}
+& \sum_k \sum_b uy_{i,k,i}^b \leq D_{ui}  when \; w_k=0, i \neq k \\
+\label{opt:4}
+& uy_{i,j,k}^b \cdot w_k = 0 \\
+%\label{opt:5}
+%& \sum_i\sum_b uy_{i,j,k}^b - \sum_m\sum_b uy_{j,m,k}^b = 0 \; when \; w_k=0, i\neq k\\
+\label{opt:6}
+& \sum_{i\leq j}\sum_b uy_{i,j,k}^b = \sum_{m\leq j} \sum_b uy_{j,m,k}^b \; w_j = 0\\
+\label{opt:7}
+& uy_{i,j,i}^b=0 
+\end{align}
+\noindent
+{\bf Downlink Constraints:} 
+\begin{align}
+{\bf}
+\label{opt:8}
+& \sum_k \sum_b dy_{i,k,i}^b \leq D_{di} \; when \; w_k=0 \\
+\label{opt:9}
+& dy_{i,j,k}^b =0 \; when \; w_k=1 \\
+%\label{opt:10}
+%& \sum_j\sum_b dy_{i,j,k}^b - \sum_m\sum_b dy_{i,k,m}^b \geq , i \neq k \\
+\label{opt:11}
+& \sum_{i\neq j} \sum_b dy_{i,j,k}^b = \sum_{m \neq j} \sum_b dy_{j,m,k}^b  \; when \; w_j=0, i \neq k 
+%%\label{opt:12}
+%%& dy_{i,i,j}^b=0
+\end{align}
+
+In the constraints, (\ref{opt:1}) represents the summation of the incoming and outgoing 
+wireless time share and the interfering links' wireless time share, which should all be less than 1.
+Constraint (\ref{opt:2}) represents the incoming and outgoing wireless traffic, which 
+should be less than the link capacity for link $i,j$. Uplink constraints (\ref{opt:3})
+and (\ref{opt:4}) represent that the summation of any wireless flow $i,j$ should be less than
+the demand of node $k$.  Constraints (\ref{opt:6}) and (\ref{opt:7}) are used to restrict
+the sum of all incoming data flows for a given mesh node $k$ to be equal to the 
+sum of all outgoing flows. Downlink constraints (\ref{opt:8}) and (\ref{opt:9}) are
+similar to (\ref{opt:3}) and (\ref{opt:4}) but in the downlink direction.  Similarly,
+constraints (\ref{opt:11}) and (\ref{opt:12}) are downlink versions of 
+(\ref{opt:6}) and (\ref{opt:7}).
+
+Similar linear programs model is to solve channel assignment 
+wireless networks have been proved to be NP-hard~\cite{yuan2006cross}. 
+Our model jointly considers channel assignment factors and provides the 
+methodology to achieve the optimization solution. 
+When the particular configuration is given, we further 
+choose the objectives, parameters, and relax constraints to 
+find the approaching solution for the network.  
+ 
