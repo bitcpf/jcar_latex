@@ -11,6 +11,7 @@
 \usepackage{amsmath}
 \usepackage{verbatim}
 \usepackage{booktabs}
+\usepackage{authblk}
 \renewcommand{\algorithmicrequire}{\textbf{Input:}}
 \renewcommand{\algorithmicensure}{\textbf{Output:}}
 \renewcommand{\baselinestretch}{0.915}
@@ -20,12 +21,14 @@
 
 \begin{document}
 \title{WhiteMesh: Leveraging White Spaces in Wireless Mesh Networks}
-%\author{ Pengfei Cui, Dinesh Rajan, and Joseph Camp\\ 
-%Department of Electrical Engineering, Southern Methodist University, Dallas, TX \\
-%\{camp\}@smu.edu  \\
-%}
-
-
+\author[1]{Pengfei Cui}
+\author[2]{Yuanyuan Dong}
+\author[1]{Hui Liu}
+\author[1]{Dinesh Rajan}
+\author[2]{Eli Olinick}
+\author[1]{Joseph Camp}
+\affil[1]{Department of Electrical Engineering, Southern Methodist University}
+\affil[2]{Department of Engineering Management, Information, and Systems, Southern Methodist University}
 %\documentclass[10pt]{article}
 
 %\usepackage{xkvltxp}
@@ -35,18 +38,13 @@
 
 
 \input{abstract}
-%
 % Introduce the background and problem, calim contribution
 \input{introduction}
 % Multiband architecture and interference model Linear optimization model, takinkg about frequency occupancy
 \input{problemformulation}
-% Mixed Linear Optimization
-\input{linearopt}
-% Two heuristic algorithms
-\input{wmalgorithms}
-%
-\input{experiment}
-%\input{results}
+\input{measurements}
+\input{winmee}
+\input{wm}
 \input{related}
 \input{conclusion}
 

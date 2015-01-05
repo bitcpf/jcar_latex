@@ -1,0 +1,210 @@
+\section{Access Network Deployment Algorithm and Evaluation}
+\label{sec:winmee}
+
+In this section, we introduce the access tier network deployment and our MAPE framework with dynamics 
+of white space bands. We further apply our measurements in \ref{sec:measurements} to investigate the 
+white space deployment gain in reducing the number of access point in DFW metroplex.
+
+\subsection{Access Network Model and MAPE} 
+\label{subsec:winmeemodel}
+
+% Network Constraint
+Typically, the deployment of wireless access networks is subject to coverage and capacity constraints 
+for a given region. Coverage is defined with respect to the ability of clients to connect to access 
+points within their service area.  We use a coverage constraint ratio of $95\%$ in this work for a 
+target area~\cite{robinson2010deploying}. Capacity is defined with respect to the ability of a network 
+to serve the traffic demand of clients. Spatial reuse allows improved capacity but increases the cost
+of deploying a network by increasing the total number of access points required. Hence, for densely-populated 
+areas, the greatest level of spatial reuse possible is often desired. In contrast, sparsely-populated 
+rural areas have lower traffic demand per unit area.  Thus, aggregating this demand with the use of lower 
+frequencies via white space bands could be highly effective in reducing the total number of access points 
+required to achieve similar coverage and capacity constraints.  Moreover, since less TV channels tend to 
+be occupied in sparsely-populated areas~\cite{msdatabase}, a larger number of white space bands can be 
+leveraged in these areas.
+
+An access network deployment should ideally provide network capacity equal to the demand of the service 
+area to maintain the capacity constraint. The demand of a service area could be calculated as the 
+summation of individual demands all over the service area $D_a=\sum_{p\in P}D_p$. Since household demand 
+for the Internet has been previously characterized~\cite{rosston2011household}, $D_a$ could represent the 
+population distribution $f$ and service area $k$ as $D_a=\sum_{f \in F,k \in K}\bar{D_p}*f*k$. The capacity 
+constraint could be represented with an access point set $M$ according to:
+\begin{equation}
+\label{eq:nlbound}
+\sum_{m \in M}\delta_r^m \ge \sum_{f \in F,k \in K}\bar{D_p}*f*k
+\end{equation}
+At the same time, the wireless network must additionally satisfy the coverage constraint in the service 
+area where the access points provide connectivity for client devices. Generally, a coverage of $95\%$ is 
+acceptable for wireless access networks~\cite{robinson2010deploying}.
+
+In a joint white space and WiFi scenario, the activity level varies according to various interfering sources 
+and the propagation characteristics induced by the environmental characteristics of the service area. A 
+simple method with the least number of access points to cover an area is to use multiple orthogonal 
+lower-frequency channels. However, the FCC limits white space band availability for data networks in most 
+metropolitan areas in the United States~\cite{googledatabase}. Moreover, the number of channels in each band 
+is limited. Too many lower-frequency channels will cause high levels of intra-network interference for the 
+network, which is out of our scope in this work. We assume that the cost of the network is proportional to the 
+number of access points required for a given user demand (i.e., due to the cost of hardware and installation). 
+Therefore, given a geographical region for a new network deployment, we build a measurement-driven framework 
+called Multiband Access Point Estimation (MAPE) to compute the required number of access points.
+
+\begin{algorithm}[t]
+\small
+\caption{Multiband Access Point Estimation (MAPE)}
+\label{algorithm:mape}
+\begin{algorithmic}[1]
+\REQUIRE  ~~\\
+$A$: Measured Activity Level \\
+$F$: Population Distribution\\
+$C$: Clean Channel Capacity\\
+$n$: Path Loss Exponent \\
+$B$: Available Frequency Bands\\
+$M$: Area to be Covered
+\STATE Split $M$ in to different type, calculate the traffic demand density $f$
+\STATE Calculate in-field channel capacity $\delta_r$ as $\delta(1-A)$
+\STATE Get the propagation coverage area radius $R_p$ from the Friis model based on $n,B,F$
+\STATE Calculate the QoS coverage radius $R_{QoS}$ of a multiband access point that satisfies the demands of the area
+\STATE The coverage radius of a multiband access point is $min\{R_p,R_{QoS}\}$
+\STATE Apply a regular-hexagonal deployment to get the number of access points for serving given area $M$
+\ENSURE ~~\\
+The number of access points\\
+\end{algorithmic}
+\end{algorithm}
+
+In the space domain, the advantage of higher-frequency channels is the spatial reuse, while the lower-frequency 
+channels provide greater levels of coverage. Generally, higher frequencies are more appropriate for populated 
+areas, and lower frequencies are more appropriate for sparse areas. The temporal variation of spectrum utilization 
+differs across bands. For an Internet service provider, the service quality which maps to the capacity constraint 
+must be satisfied. Given a metropolitan area, the population distribution can be found according to census data
+~\cite{uscensus}. Then, we can estimate the capacity demand of each type of area with the assumption that users 
+will exhibit average demand. According to the population distribution, we split the area into different types,
+which compose the spatial input. Then, we use the measured activity level as the temporal input. We have an average 
+channel capacity of each band according to the activity level. With the received signal strength threshold, the 
+Quality-of-Service-constrained coverage area of different types per channel, and the spatial reuse distance can be 
+directly computed. Then, the maximum area an access point could cover can be calculated as the minimal area of the 
+QoS-based coverage area and propagation coverage. Then, the transmission power is adjusted to fulfill the coverage 
+restriction subject to the FCC regulations for maximum-allowable transmit power. A classic regular-hexagonal deployment 
+process is employed to place the access points. 
+
+\subsection{Results and Analysis}
+\label{subsec:winmeeresult}
+
+We use the measurement-based activity levels shown in Table~\ref{tab:activitymeasurement} in our framework presented
+in Algorithm~\ref{algorithm:mape}. We specifically use the Millsap sparse area, Millsap downtown, Weatherford residential, 
+Dallas residential, and Dallas downtown measurements as inputs of activity level for a given population density.We then 
+calculate the number of access points for covering a 13 km $\times$ 13 km area, varying the population density. The 
+output is shown in Figure~\ref{fig:redensity}. 
+
+   \begin{figure}
+   %\vspace{-0.0in}
+   \centering
+   \includegraphics[width=84mm]{figures/redensity}
+   \vspace{-0.1in}
+   \caption{Number of Access Points Needed for a 13 km x13 km Area.}
+   \label{fig:redensity}
+   \vspace{-0.3in}
+   \end{figure}
+
+% Experiment Results & expect results
+In the calculation, we set the demand requested per user as 2 Mbps with the population density of 20, 50, 100, 1000, 
+and 2000 users per square kilometer. We assume 30 \% of the residents will use this service (i.e., the take rate is 
+30 \%), the maximum transmit power is 30 dBm, and a path loss exponent of $3.5$~\cite{meikle2012global}.From Equation
+~\ref{eq:friis}, we see that the propagation range is proportional to the wavelength with 450 MHz having a propagation 
+range of $11.6$ times that of 5.2 GHz. We adopt an 802.11n maximum data rate of 600 Mbps. For the WiFi+White Space 
+scenario, we use 3 channels in each of the 450 MHz, 2.4 GHz and 5.2 GHz bands. For the WiFi Only scenario, we assume 
+6 channel in the 2.4-GHz band, and 3 channels in the 5.2-GHz band since 2.4 GHz has larger propagation range than 5.2 GHz. 
+Each of these scenarios have the same channels in total (9). As shown in Figure~\ref{fig:redensity}, with the same number 
+of channels, WiFi+White Space reduces the number of access points by $1650\%$ compared to the WiFi Only scenario in the 
+20 people per square km scenario, $660\%$ in the 50 people per square km, and $412.5\%$ in the 100 people per square km 
+scenario. The large propagation range of the white space bands is approximately 10 times that of the WiFi bands, creating 
+an opportunity for greater coverage. However, as the population density increases, due to the capacity constraint of 
+servicing users in the area, the lower-frequency white space bands lose their advantage of larger communication range due 
+to the reduction in achievable spatial reuse. At the same time, the activities of other signal sources, such as TV stations 
+in downtown areas, reduce the capacity of white space bands. As a result, the WiFi+White Space scenario performs worse 
+than the WiFi Only scenario. If we were to count the intra-network interference (out of scope), the situation could become 
+even worse. Moreover, FCC has stricter policies on white spaces in urban areas. Fewer channels are available in these 
+areas, which makes WiFi a better option for dense areas.
+
+To understand the influence of band combinations on network deployments, we calculate the number of access points in the 
+area when selecting 500 people per square km with a downtown Weatherford spectrum utilization and 1500 people per square 
+km with a residential Dallas spectrum utilization. We assume the total number of channels is 12. We use the same setup 
+as the previous experiment.
+ 
+ \begin{table}[h]
+ \centering
+ \begin{tabular}{|c|c|c|c|}
+ \hline
+ \multirow{2}{*}{No. of Bands} & \multirow{2}{*}{Bands Combination} & \multicolumn{2}{c|}{No. of AP} \\
+ \cline{3-4}
+  &  & 500 & 1500 \\
+ & (Hz) & $ppl/km^2$ &  $ppl/km^2$ \\
+ \hline
+ \multirow{4}{*}{1}    & 450 M  & 12  & 35 \\
+ \cline{2-4}
+                              & 800 M & 10  &  30 \\
+ \cline{2-4}
+			      & 2.4 GHz & 33  &  37 \\
+ \cline{2-4}
+                              & 5.2 G & 193 &  193 \\ 
+ \hline
+ \multirow{6}{*}{2}   & 450 M,800 M & 11  & 32\\
+ \cline{2-4}
+                              & 450 M,2.4 G & 23  & 36\\
+ \cline{2-4}
+			      & 450 M,5.2 G & 23  & 69\\
+ \cline{2-4}
+			      & 800 M,2.4 G & 20  & 33\\ 
+ \cline{2-4}
+			      & 800 M,5.2 G & 20  & 59\\ 
+ \cline{2-4}
+			      & 2.4 G,5.2 G & 33  & 73\\ 
+ \hline
+ \multirow{4}{*}{3} & 450 M,800 M,2.4 G & 16  & 33\\
+ \cline{2-4}
+                              & 450 M,800 M,5.2 G & 16  & 48\\
+ \cline{2-4}
+			      & 450 M,2.4 G,5.2 G & 33  & 53\\
+ \cline{2-4}
+			      & 800 M,2.4 G,5.2 G & 30 &  49\\ 
+ \hline
+ 4  & 450 M,800 M,2.4 G,5.2 G & 21  & 44 \\
+ \hline
+ \end{tabular}
+ \caption{Channel Combinations for $500$ and $1500$ Population Density Scenarios}
+ \label{tab:500comb}
+ \vspace{-0.2in}
+ \end{table}
+
+
+In Table~\ref{tab:500comb}, we compare the number of access points with 12 channels through all 
+the possible combinations of bands. 
+% Single band compare
+Since purchasing and deploying access points is the primary cost of a wireless 
+infrastructure, to simplify the calculation, we only count the number of access points as 
+the network's cost. 
+When all the channels are in the same band, as the frequency goes up, more access 
+points are needed to serve the area due to the limited propagation range. However,
+450 MHz does not outperform 800 MHz with a single band at both the 500 and 1500 people per
+square km cases because 450 MHz channels have larger measured activity levels. 
+White space band channels outperform WiFi bands by up to 1830\% in the single band case
+with 500 people per square km, but with 1,500 people per square km, the cost reduction
+decreases to only 543\%.
+% Two bands 
+We now distribute an equal number of channels to two-band combinations and run the experiments 
+with the same population densities and spectrum utilization. The results shows the white space band
+combination (450 and 800 MHz) performs better than WiFi only (2.4 and 5.2 GHz) by 200\% and
+128\% with the people per square km of 500 and 1,500, respectively. In fact, the white space only
+scenario (450 and 800 MHz) has almost the same performance as the scenarios with one white band and
+one WiFi band (450 MHz and 2.4 GHz; 800 MHz and 2.4 GHz) with 1,500 people per square km.
+However, with 500 people per square km, the white space only scenario is much better than any other two-band combination.
+% Three bands
+White space channels provide up to 87.5\% cost reduction in three-band combination scenarios with
+500 people per square km, and up to 33.3\% with 1,500 people per square km.  With four bands,
+the number of access points required does not reduce using white space bands.
+
+From Figure~\ref{fig:redensity} and Table~\ref{tab:500comb}, we show that as the population
+density increases, the reduction in number of access points required to meet the same demand 
+diminishes. Note that a more optimal allocation of channels in different bands could offer
+further cost reductions. We further show that as population and spectrum utilization increase, 
+at some point, the performance of white space only scenario could be the same as a combination of
+white space and WiFi bands. 
+

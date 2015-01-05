@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99c (Web2C 7.5.4)
+This is BibTeX, Version 0.99c (Web2C 7.5.6)
 The top-level auxiliary file: whitemesh.aux
 The style file: IEEEtran.bst
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
@@ -9,45 +9,45 @@ Database file #1: whitemesh.bib
 Warning--empty journal in friis
 
 Done.
-You've used 45 entries,
+You've used 51 entries,
             3917 wiz_defined-function locations,
-            1017 strings with 14470 characters,
-and the built_in function-call counts, 31814 in all, are:
-= -- 2566
-> -- 763
-< -- 274
-+ -- 421
-- -- 129
-* -- 1525
-:= -- 4813
-add.period$ -- 93
-call.type$ -- 45
-change.case$ -- 43
-chr.to.int$ -- 624
-cite$ -- 46
-duplicate$ -- 2356
-empty$ -- 2536
-format.name$ -- 164
-if$ -- 7292
+            1048 strings with 15348 characters,
+and the built_in function-call counts, 35922 in all, are:
+= -- 2914
+> -- 838
+< -- 313
++ -- 463
+- -- 140
+* -- 1714
+:= -- 5459
+add.period$ -- 106
+call.type$ -- 51
+change.case$ -- 48
+chr.to.int$ -- 708
+cite$ -- 52
+duplicate$ -- 2657
+empty$ -- 2868
+format.name$ -- 178
+if$ -- 8235
 int.to.chr$ -- 0
-int.to.str$ -- 45
-missing$ -- 413
-newline$ -- 155
-num.names$ -- 41
-pop$ -- 964
+int.to.str$ -- 51
+missing$ -- 463
+newline$ -- 173
+num.names$ -- 47
+pop$ -- 1068
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 2419
+skip$ -- 2743
 stack$ -- 0
-substring$ -- 1498
-swap$ -- 1889
-text.length$ -- 66
+substring$ -- 1699
+swap$ -- 2137
+text.length$ -- 77
 text.prefix$ -- 0
 top$ -- 5
 type$ -- 0
 warning$ -- 1
-while$ -- 140
-width$ -- 47
-write$ -- 438
+while$ -- 162
+width$ -- 53
+write$ -- 496
 (There was 1 warning)

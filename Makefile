@@ -1,5 +1,5 @@
 BASE = whitemesh
-SRC = whitemesh.tex problemformulation.tex wmalgorithms.tex experiment.tex conclusion.tex abstract.tex introduction.tex related.tex whitemesh.bib linearopt.tex networkefficiency.tex
+SRC = whitemesh.tex problemformulation.tex conclusion.tex abstract.tex introduction.tex related.tex whitemesh.bib measurements.tex wm.tex winmee.tex
 
 all: $(BASE).ps 
 b: $(BASE).bbl

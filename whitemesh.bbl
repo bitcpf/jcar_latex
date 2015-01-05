@@ -18,6 +18,14 @@
 \fi
 #2}}
 
+\bibitem{carlson}
+C.~Inc., ``Fcc certifies carlson wireless technologies tv white space radio,''
+  \url{http://www.carlsonwireless.com/rural-connect-press-release.html}, 2014.
+
+\bibitem{balanis2012antenna}
+C.~A. Balanis, \emph{Antenna theory: analysis and design}.\hskip 1em plus 0.5em
+  minus 0.4em\relax John Wiley \& Sons, 2012.
+
 \bibitem{cnet_aug07}
 M.~Reardon, ``{EarthLink} pays 5 million to delay houston {Wi-Fi} buildout,''
   \url{http://news.cnet.com/8301-10784\_3-9768759-7.html}, 2007.
@@ -36,19 +44,8 @@ J.~Camp, J.~Robinson, C.~Steger, and E.~Knightly, ``Measurement driven
 R.~Karrer, A.~Sabharwal, and E.~Knightly, ``Enabling large-scale wireless
   broadband: the case for {TAPs},'' in \emph{{HotNets-II}}, 2003.
 
-\bibitem{fccwhitespace}
-``Fcc white space,'' \url{http://www.fcc.gov/topic/white-space}, 2012.
-
-\bibitem{balanis2012antenna}
-C.~A. Balanis, \emph{Antenna theory: analysis and design}.\hskip 1em plus 0.5em
-  minus 0.4em\relax John Wiley \& Sons, 2012.
-
 \bibitem{googledatabase}
 ``Google spectrum database,'' \url{http://goo.gl/NnIFXQ}, 2013.
-
-\bibitem{pcuiwinmee}
-D.~R. Pengfei~Cui, Hui~Liu and J.~Camp, ``A measurement study of white spaces
-  across diverse population densities,'' \emph{IEEE 10th WiNMeE}, 2014.
 
 \bibitem{tang2005interference}
 J.~Tang, G.~Xue, and W.~Zhang, ``Interference-aware topology control and {QoS}
@@ -72,6 +69,16 @@ K.~Jain, J.~Padhye, V.~N. Padmanabhan, and L.~Qiu, ``Impact of interference on
   multi-hop wireless network performance,'' \emph{Wireless networks}, vol.~11,
   no.~4, pp. 471--487, 2005.
 
+\bibitem{yuan2006cross}
+J.~Yuan, Z.~Li, W.~Yu, and B.~Li, ``A cross-layer optimization framework for
+  multihop multicast in wireless mesh networks,'' \emph{{IEEE JSAC}}, vol.~24,
+  no.~11, pp. 2092--2103, 2006.
+
+\bibitem{si2010overview}
+W.~Si, S.~Selvakennedy, and A.~Y. Zomaya, ``An overview of channel assignment
+  methods for multi-radio multi-channel wireless mesh networks,'' \emph{Journal
+  of Parallel and Distributed Computing}, vol.~70, no.~5, pp. 505--524, 2010.
+
 \bibitem{andersen1995propagation}
 J.~B. Andersen, T.~S. Rappaport, and S.~Yoshida, ``Propagation measurements and
   models for wireless communications channels,'' \emph{{IEEE Communications
@@ -91,14 +98,41 @@ Y.~P. Fallah, C.~Huang, R.~Sengupta, and H.~Krishnan, ``Congestion control
   \emph{Vehicular Technology Conference Fall (VTC 2010-Fall), 2010 IEEE
   72nd}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, 2010, pp. 1--5.
 
-\bibitem{cui2013leveraging}
-P.~Cui, H.~Liu, J.~He, O.~Altintas, R.~Vuyyuru, D.~Rajan, and J.~Camp,
-  ``Leveraging diverse propagation and context for multi-modal vehicular
-  applications,'' in \emph{{IEEE WiVeC}}, 2013.
-
 \bibitem{gupta2000capacity}
 P.~Gupta and P.~R. Kumar, ``The capacity of wireless networks,'' \emph{{IEEE
   Trans. on Information Theory}}, vol.~46, no.~2, pp. 388--404, 2000.
+
+\bibitem{haykin2005cognitive}
+S.~Haykin, ``Cognitive radio: brain-empowered wireless communications,''
+  \emph{Selected Areas in Communications, IEEE Journal on}, vol.~23, no.~2, pp.
+  201--220, 2005.
+
+\bibitem{he2008optimizing}
+B.~He, B.~Xie, and D.~P. Agrawal, ``Optimizing deployment of internet gateway
+  in wireless mesh networks,'' \emph{Computer Communications}, vol.~31, no.~7,
+  pp. 1259--1275, 2008.
+
+\bibitem{robinson2010deploying}
+J.~Robinson, M.~Singh, R.~Swaminathan, and E.~Knightly, ``Deploying mesh nodes
+  under non-uniform propagation,'' in \emph{{IEEE INFOCOM}}, 2010.
+
+\bibitem{msdatabase}
+``Microsoft research white space database,''
+  \url{http://whitespaces.cloudapp.net/Default.aspx}, 2013.
+
+\bibitem{rosston2011household}
+G.~Rosston, S.~Savage, and D.~Waldman, ``Household demand for broadband
+  internet service,'' \emph{Communications of the ACM}, vol.~54, no.~2, pp.
+  29--31, 2011.
+
+\bibitem{uscensus}
+``People and households,'' \url{http://www.census.gov/people/}, 2014.
+
+\bibitem{meikle2012global}
+R.~Meikle and J.~Camp, ``A global measurement study of context-based
+  propagation and user mobility,'' in \emph{Proceedings of the 4th ACM
+  international workshop on Hot topics in planet-scale measurement}.\hskip 1em
+  plus 0.5em minus 0.4em\relax ACM, 2012, pp. 21--26.
 
 \bibitem{peng2012efficient}
 Y.~Peng, Y.~Yu, L.~Guo, D.~Jiang, and Q.~Gai, ``An efficient joint channel
@@ -111,17 +145,13 @@ J.~Robinson, M.~Uysal, R.~Swaminathan, and E.~Knightly, ``Adding capacity
   points to a wireless mesh network using local search,'' in \emph{{IEEE
   INFOCOM}}, 2008.
 
-\bibitem{yuan2006cross}
-J.~Yuan, Z.~Li, W.~Yu, and B.~Li, ``A cross-layer optimization framework for
-  multihop multicast in wireless mesh networks,'' \emph{{IEEE JSAC}}, vol.~24,
-  no.~11, pp. 2092--2103, 2006.
+\bibitem{saaty1961elements}
+T.~L. Saaty, \emph{Elements of queueing theory}.\hskip 1em plus 0.5em minus
+  0.4em\relax McGraw-Hill New York, 1961, vol. 423.
 
 \bibitem{golden1976shortest}
 B.~Golden, ``Shortest-path algorithms: A comparison,'' \emph{Operations
   Research}, pp. 1164--1168, 1976.
-
-\bibitem{uscensus}
-``People and households,'' \url{http://www.census.gov/people/}, 2014.
 
 \bibitem{raniwala2005architecture}
 A.~Raniwala and T.~Chiueh, ``Architecture and algorithms for an {IEEE}
@@ -139,10 +169,6 @@ S.~Avallone and I.~F. Akyildiz, ``A channel assignment algorithm for
   multi-radio wireless mesh networks,'' \emph{Computer Communications},
   vol.~31, no.~7, pp. 1343--1353, 2008.
 
-\bibitem{robinson2010deploying}
-J.~Robinson, M.~Singh, R.~Swaminathan, and E.~Knightly, ``Deploying mesh nodes
-  under non-uniform propagation,'' in \emph{{IEEE INFOCOM}}, 2010.
-
 \bibitem{draves2004routing}
 R.~Draves, J.~Padhye, and B.~Zill, ``Routing in multi-radio, multi-hop wireless
   mesh networks,'' in \emph{{ACM MobiCom}}, 2004.
@@ -151,6 +177,9 @@ R.~Draves, J.~Padhye, and B.~Zill, ``Routing in multi-radio, multi-hop wireless
 K.~N. Ramachandran, E.~M. Belding-Royer, K.~C. Almeroth, and M.~M. Buddhikot,
   ``Interference-aware channel assignment in multi-radio wireless mesh
   networks.'' in \emph{{IEEE INFOCOM}}, 2006.
+
+\bibitem{fccwhitespace}
+``Fcc white space,'' \url{http://www.fcc.gov/topic/white-space}, 2012.
 
 \bibitem{tragos2013spectrum}
 E.~Z. Tragos, S.~Zeadally, A.~G. Fragkiadakis, and V.~A. Siris, ``Spectrum
@@ -192,10 +221,9 @@ A.~Raniwala, K.~Gopalan, and T.-c. Chiueh, ``Centralized channel assignment and
 X.~Wu, J.~Liu, and G.~Chen, ``Analysis of bottleneck delay and throughput in
   wireless mesh networks,'' in \emph{{IEEE MASS}}, 2006.
 
-\bibitem{he2008optimizing}
-B.~He, B.~Xie, and D.~P. Agrawal, ``Optimizing deployment of internet gateway
-  in wireless mesh networks,'' \emph{Computer Communications}, vol.~31, no.~7,
-  pp. 1259--1275, 2008.
+\bibitem{pcuiwinmee}
+D.~R. Pengfei~Cui, Hui~Liu and J.~Camp, ``A measurement study of white spaces
+  across diverse population densities,'' \emph{IEEE 10th WiNMeE}, 2014.
 
 \bibitem{li2012channel}
 X.~Li, J.~Wu, S.~Lin, and X.~Du, ``Channel switching control policy for
@@ -222,9 +250,10 @@ P.~Bahl, R.~Chandra, T.~Moscibroda, R.~Murty, and M.~Welsh, ``White space
   networking with {WiFi} like connectivity,'' \emph{{ACM SIGCOMM}}, vol.~39,
   no.~4, pp. 27--38, 2009.
 
-\bibitem{msdatabase}
-``Microsoft research white space database,''
-  \url{http://whitespaces.cloudapp.net/Default.aspx}, 2013.
+\bibitem{cui2013leveraging}
+P.~Cui, H.~Liu, J.~He, O.~Altintas, R.~Vuyyuru, D.~Rajan, and J.~Camp,
+  ``Leveraging diverse propagation and context for multi-modal vehicular
+  applications,'' in \emph{{IEEE WiVeC}}, 2013.
 
 \bibitem{deb2009dynamic}
 S.~Deb, V.~Srinivasan, and R.~Maheshwari, ``Dynamic spectrum access in dtv
