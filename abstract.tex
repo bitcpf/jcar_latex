@@ -1,17 +1,29 @@
 \begin{abstract}
-The in-field trials revealed the node spacing required for WiFi propagation induced a prohibitive cost 
-model for network carriers to deploy. The digitization of TV channels and new FCC regulations have 
-reapportioned spectrum for data networks with far greater range than WiFi due to lower carrier frequencies. 
-Thus, jointly apply the low frequency white space spectrum become an emergency issue for the deployment of 
-data networks. 
-In this paper, we quantify the channel occupancy in both WiFi and white space frequencies through measurements 
-in Dallas-Fort Worth metropolitan, propose a measurement-driven band selection framework, Multiband Access 
-Point Estimation (MAPE), and design a measurement driven heuristic algorithm, Band-based Path Selection (BPS), 
-to approach optimally channel assignment in WhiteMesh networks with both white space and WiFi spectrum with 
-reduced complexity. 
-The numerical result shows that the number of access points reduces by up to 1650\% in sparse rural areas over similar 
-WiFi-only solutions. It achieves up to 160\% served traffic flow gain competing with existing multi-channel, 
-multi-radio algorithms, which are agnostic to diverse propagation characteristics across bands. Moreover, we 
-show that, with similar channel resources and bandwidth, the joint use of WiFi and white space bands can achieve 
-a served user demand of 170\% over that of mesh networks with only WiFi bands or white space bands, respectively. 
+While there were high hopes for multihop wireless networks (mesh) to provide ubiquitous WiFi 
+in many cities, in-field trials revealed the node spacing required for WiFi propagation 
+induced a prohibitive cost model for network carriers to deploy. However, the digitization of TV 
+channels and new FCC regulations have reapportioned spectrum for data networks with far 
+greater range than WiFi due to lower carrier frequencies. While dense areas might still benefit from the use of WiFi for spatial reuse, white 
+space spectrum becomes increasingly important as the population density decreases, 
+especially since the availability of these white spaces are often inversely proportional to population density. 
+% Our work
+In this paper, we perform measurements in Dallas-Fort Worth 
+metroplex to analyze channel occupancy in both WiFi and white space frequencies. 
+% winmee
+Based on these measurements, we propose a measurement-driven band 
+selection framework, Multiband Access Point Estimation (MAPE) to quantify the benefit of
+jointly using WiFi and white space frequencies along the access tier. 
+% whitemesh
+Further, to deploy heterogeneous backhaul tier, we design a measurement-driven heuristic algorithm, Band-based Path Selection (BPS), to approach optimal channel 
+assignment of both white space and WiFi spectrum with reduced computational complexity. 
+Numerical results show that MAPE reduces access point by up to 1650\% in sparse 
+rural areas over similar WiFi-only solutions. Also, BPS achieves up to 180\% in the served traffic flow of 
+existing multi-channel, multi-radio algorithms, which are agnostic to diverse 
+propagation characteristics across bands. 
+Most importantly, this paper lays a foundation for optimal use of white space and WiFi bands in the access 
+and backhaul tiers of mesh networks across diverse population densities.
+%
+%Moreover, we show that, with similar channel resources 
+%and bandwidth, the joint use of WiFi and white space bands can achieve a served traffic flow of 
+%180\% of WiFi only and white space only mesh networks, respectively. 
 \end{abstract}

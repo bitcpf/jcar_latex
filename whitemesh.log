@@ -1,16 +1,13 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=latex 2013.3.14)  28 DEC 2014 23:22
+This is pdfeTeX, Version 3.141592-1.21a-2.2 (Web2C 7.5.4) (format=latex 2012.4.6)  26 MAR 2015 14:44
 entering extended mode
- %&-line parsing enabled.
 **whitemesh
 (./whitemesh.tex
-LaTeX2e <2005/12/01>
-Babel <v3.8h> and hyphenation patterns for english, usenglishmax, dumylang, noh
-yphenation, arabic, basque, bulgarian, coptic, welsh, czech, slovak, german, ng
-erman, danish, esperanto, spanish, catalan, galician, estonian, farsi, finnish,
- french, greek, monogreek, ancientgreek, croatian, hungarian, interlingua, ibyc
-us, indonesian, icelandic, italian, latin, mongolian, dutch, norsk, polish, por
-tuguese, pinyin, romanian, russian, slovenian, uppersorbian, serbian, swedish, 
-turkish, ukenglish, ukrainian, loaded.
+LaTeX2e <2003/12/01>
+Babel <v3.8d> and hyphenation patterns for american, french, german, ngerman, b
+ahasa, basque, bulgarian, catalan, croatian, czech, danish, dutch, esperanto, e
+stonian, finnish, greek, icelandic, irish, italian, latin, magyar, norsk, polis
+h, portuges, romanian, russian, serbian, slovak, slovene, spanish, swedish, tur
+kish, ukrainian, nohyphenation, loaded.
 (./IEEEtran.cls
 Document Class: IEEEtran 2007/03/05 V1.7a by Michael Shell
 -- See the "IEEEtran_HOWTO" manual for usage information.
@@ -107,10 +104,10 @@ LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
 (Font)                  U/lasy/m/n --> U/lasy/b/n on input line 47.
 )
 (/usr/share/texmf/tex/latex/psnfss/times.sty
-Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
+Package: times 2004/09/15 PSNFSS-v9.2 (SPQR) 
 )
-(/usr/share/texmf/tex/generic/epsf/epsf.sty
-This is `epsf.tex' v2.7.3 <23 July 2005>
+(/usr/share/texmf/tex/generic/epsf/epsf.tex
+This is `epsf.tex' v2.7k <10 July 1997>
 \epsffilein=\read1
 \epsfframemargin=\dimen117
 \epsfframethickness=\dimen118
@@ -120,6 +117,7 @@ This is `epsf.tex' v2.7.3 <23 July 2005>
 \epsfxsize=\dimen122
 \epsfysize=\dimen123
 \pspoints=\dimen124
+\epsfnoopenhelp=\toks15
 ) (/usr/share/texmf/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2000/07/18 v2.13 AMS math features
 \@mathmargin=\skip44
@@ -130,7 +128,7 @@ Package: amstext 2000/06/29 v2.01
 
 (/usr/share/texmf/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0
-\@emptytoks=\toks15
+\@emptytoks=\toks16
 \ex@=\dimen125
 ))
 (/usr/share/texmf/tex/latex/amsmath/amsbsy.sty
@@ -160,21 +158,21 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
 \dotsspace@=\muskip10
 \c@parentequation=\count98
 \dspbrk@lvl=\count99
-\tag@help=\toks16
+\tag@help=\toks17
 \row@=\count100
 \column@=\count101
 \maxfields@=\count102
-\andhelp@=\toks17
+\andhelp@=\toks18
 \eqnshift@=\dimen128
 \alignsep@=\dimen129
 \tagshift@=\dimen130
 \tagwidth@=\dimen131
 \totwidth@=\dimen132
 \lineht@=\dimen133
-\@envbody=\toks18
+\@envbody=\toks19
 \multlinegap=\skip45
 \multlinetaggap=\skip46
-\mathdisplay@stack=\toks19
+\mathdisplay@stack=\toks20
 LaTeX Info: Redefining \[ on input line 2666.
 LaTeX Info: Redefining \] on input line 2667.
 )
@@ -193,18 +191,18 @@ Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texmf/tex/latex/graphics/keyval.sty
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
-\KV@toks@=\toks20
+\KV@toks@=\toks21
 )
 (/usr/share/texmf/tex/latex/graphics/graphics.sty
-Package: graphics 2006/02/20 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+Package: graphics 2001/07/07 v1.0n Standard LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texmf/tex/latex/graphics/trig.sty
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-(/usr/share/texmf/tex/latex/config/graphics.cfg
-File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+(/usr/share/texmf/tex/latex/graphics/graphics.cfg
+File: graphics.cfg 2005/02/03 v1.3 graphics configuration of teTeX/TeXLive
 )
-Package graphics Info: Driver file: dvips.def on input line 90.
+Package graphics Info: Driver file: dvips.def on input line 80.
 
 (/usr/share/texmf/tex/latex/graphics/dvips.def
 File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
@@ -213,13 +211,13 @@ File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
 \Gin@req@width=\dimen135
 )
 (/usr/share/texmf/tex/latex/oberdiek/epstopdf.sty
-Package: epstopdf 2006/08/26 v1.3 Conversion with epstopdf on the fly (HO)
+Package: epstopdf 2001/02/04 v1.1 Conversion with epstopdf on the fly (HO)
 
 
-Package epstopdf Warning: Graphics driver file `pdftex.def' not found.
+Package epstopdf Warning: Graphics driver file `pdftex.def' not loaded.
 
 ) (/usr/share/texmf/tex/latex/subfigure/subfigure.sty
-Package: subfigure 2002/03/15 v2.1.5 subfigure package
+Package: subfigure 2002/07/30 v2.1.4 subfigure package
 \subfigtopskip=\skip47
 \subfigcapskip=\skip48
 \subfigcaptopadj=\dimen136
@@ -248,21 +246,20 @@ Document Style `algorithmic' - environment
 Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 )
 (/usr/share/texmf/tex/latex/tools/calc.sty
-Package: calc 2005/08/06 v4.2 Infix arithmetic (KKT,FJ)
+Package: calc 1998/07/07 v4.1b Infix arithmetic (KKT,FJ)
 \calc@Acount=\count107
 \calc@Bcount=\count108
 \calc@Adimen=\dimen139
 \calc@Bdimen=\dimen140
 \calc@Askip=\skip53
 \calc@Bskip=\skip54
-LaTeX Info: Redefining \setlength on input line 75.
-LaTeX Info: Redefining \addtolength on input line 76.
-\calc@Ccount=\count109
-\calc@Cskip=\skip55
+LaTeX Info: Redefining \setlength on input line 59.
+LaTeX Info: Redefining \addtolength on input line 60.
+\calc@denominator=\count109
 )
 \c@ALC@line=\count110
 \c@ALC@rem=\count111
-\ALC@tlm=\skip56
+\ALC@tlm=\skip55
 ) (./algorithm.sty
 Package: algorithm 
 
@@ -270,22 +267,22 @@ Document Style `algorithm' - floating environment
 (/usr/share/texmf/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count112
-\float@exts=\toks21
+\float@exts=\toks22
 \float@box=\box29
-\@float@everytoks=\toks22
+\@float@everytoks=\toks23
 \@floatcapt=\box30
 )
-\@float@every@algorithm=\toks23
+\@float@every@algorithm=\toks24
 \c@algorithm=\count113
 )
 (/usr/share/texmf/tex/latex/tools/verbatim.sty
 Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
-\every@verbatim=\toks24
-\verbatim@line=\toks25
+\every@verbatim=\toks25
+\verbatim@line=\toks26
 \verbatim@in@stream=\read2
 )
 (/usr/share/texmf/tex/latex/booktabs/booktabs.sty
-Package: booktabs 2005/03/16 v1.6180 publication quality tables
+Package: booktabs 2003/03/28 v1.618 publication quality tables
 \heavyrulewidth=\dimen141
 \lightrulewidth=\dimen142
 \cmidrulewidth=\dimen143
@@ -306,15 +303,12 @@ Package: booktabs 2005/03/16 v1.6180 publication quality tables
 )
 (/usr/share/texmf/tex/latex/preprint/authblk.sty
 Package: authblk 2001/02/27 1.3 (PWD)
-\affilsep=\skip57
-\@affilsep=\skip58
+\affilsep=\skip56
+\@affilsep=\skip57
 \c@Maxaffil=\count118
 \c@authors=\count119
 \c@affil=\count120
 ) (./whitemesh.aux
-
-LaTeX Warning: Label `subsec:problem' multiply defined.
-
 
 LaTeX Warning: Label `tab:activitymeasurement' multiply defined.
 
@@ -355,105 +349,108 @@ File: umsb.fd 2002/01/19 v2.2g AMS font definitions
 
 
 ]
-Underfull \hbox (badness 1584) in paragraph at lines 106--116
-\OT1/ptm/m/n/10 driven al-go-rithm, Band-based Path Se-lec-tion (BPS),
+Underfull \hbox (badness 10000) in paragraph at lines 81--87
+[]\OT1/ptm/m/n/10 We build a re-duced com-plex-ity heuristic-based
  []
 
-) (./problemformulation.tex [2]
-File: figures/interferencerange2.eps Graphic file (type eps)
- <figures/interferencerange2.eps> [3])
-(./measurements.tex
+
+Underfull \hbox (badness 10000) in paragraph at lines 81--87
+\OT1/ptm/m/n/10 measurement-driven al-go-rithm, Band-based Path
+ []
+
+) (./problemformulation.tex
+File: figures/wschannels.eps Graphic file (type eps)
+ <figures/wschannels.eps> [2]) (./measurements.tex
 File: figures/equipment.eps Graphic file (type eps)
- <figures/equipment.eps> [4]
+
+<figures/equipment.eps> [3]
 File: figures/drivemap.eps Graphic file (type eps)
  <figures/drivemap.eps>
 File: figures/drivetest.eps Graphic file (type eps)
-
-<figures/drivetest.eps>
-Overfull \hbox (15.4559pt too wide) in paragraph at lines 92--94
- [][] 
- []
-
-) (./winmee.tex [5]
-Underfull \hbox (badness 10000) in paragraph at lines 66--67
+ <figures/drivetest.eps>)
+(./winmee.tex [4]
+Underfull \hbox (badness 10000) in paragraph at lines 68--69
 [] []\OT1/ptm/m/n/9 The cov-er-age ra-dius of a multi-band ac-cess point is
  []
 
 File: figures/redensity.eps Graphic file (type eps)
-<figures/redensity.eps> [6]) (./wm.tex [7]
-Underfull \hbox (badness 3919) in paragraph at lines 95--97
-[]\OT1/ptm/m/n/10 Available ca-pac-ity of
+<figures/redensity.eps> [5]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) (./wm.tex [6]
+Underfull \hbox (badness 3884) in paragraph at lines 47--49
+[]\OT1/ptm/m/n/10 Achieved ca-pac-ity of
  []
 
 
-Underfull \hbox (badness 3701) in paragraph at lines 105--109
+Underfull \hbox (badness 3701) in paragraph at lines 57--61
 []\OT1/ptm/m/n/10 Downlink de-mand of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 88--112
+Underfull \hbox (badness 10000) in paragraph at lines 40--64
 
  []
 
 
-Underfull \hbox (badness 7667) in paragraph at lines 128--129
+Underfull \hbox (badness 7667) in paragraph at lines 80--81
 []\OT1/ptm/m/n/10 Downlink flow of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 117--131
+Underfull \hbox (badness 10000) in paragraph at lines 69--83
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 117--131
+Underfull \hbox (badness 10000) in paragraph at lines 69--83
 []
  []
 
-
-Underfull \vbox (badness 4621) has occurred while \output is active []
-
- [8]
-[9]
+[7]
+File: figures/interferencerange2.eps Graphic file (type eps)
+ <figures/interferencerange2.eps> [8]
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 345.
+(amsmath)                 on input line 327.
 
-[10]
+[9]
 File: figures/varysize.eps Graphic file (type eps)
  <figures/varysize.eps>
 File: figures/maxtpt.eps Graphic file (type eps)
- <figures/maxtpt.eps> [11]
-Underfull \vbox (badness 3536) has occurred while \output is active []
+ <figures/maxtpt.eps>
+Underfull \vbox (badness 3872) has occurred while \output is active []
 
+ [10]
 File: figures/actspac3d.eps Graphic file (type eps)
 
 <figures/actspac3d.eps>
-Underfull \hbox (badness 4120) in paragraph at lines 657--657
+Underfull \hbox (badness 4120) in paragraph at lines 609--609
 []\OT1/ptm/m/n/8 (a) Uni-form Ac-tiv-ity Level VS.
  []
 
 File: figures/act_spacing.eps Graphic file (type eps)
-<figures/act_spacing.eps> [12]) (./related.tex [13]) (./conclusion.tex)
+<figures/act_spacing.eps>) (./related.tex [11]) (./conclusion.tex)
 (./whitemesh.bbl
-Underfull \hbox (badness 2142) in paragraph at lines 34--37
+Underfull \hbox (badness 2142) in paragraph at lines 26--29
 []\OT1/ptm/m/n/8 J. Cheng, ``Philadel-phia's mu-nic-i-pal WiFi net-work to go d
 ark,''
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--37
+Underfull \hbox (badness 10000) in paragraph at lines 26--29
 \OT1/ptm/m/n/8 http://arstechnica.com/gadgets/2008/05/philadelphias-municipal-w
 ifi-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 120--122
+Underfull \hbox (badness 10000) in paragraph at lines 184--186
 []\OT1/ptm/m/n/8 ``Microsoft re-search white space database,''
  []
 
-[14])
+[12])
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -465,7 +462,7 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[15
+[13
 
 ] (./whitemesh.aux)
 
@@ -473,12 +470,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 3124 strings out of 256217
- 42831 string characters out of 1917095
- 102588 words of memory out of 1500000
- 6313 multiletter control sequences out of 10000+200000
- 37471 words of font info for 104 fonts, out of 1200000 for 2000
- 645 hyphenation exceptions out of 8191
- 29i,11n,24p,277b,521s stack positions out of 5000i,500n,6000p,200000b,15000s
+ 3089 strings out of 94501
+ 42360 string characters out of 1176790
+ 100388 words of memory out of 1000000
+ 6161 multiletter control sequences out of 10000+50000
+ 37471 words of font info for 104 fonts, out of 500000 for 2000
+ 580 hyphenation exceptions out of 1000
+ 29i,11n,24p,291b,517s stack positions out of 1500i,500n,5000p,200000b,5000s
 
-Output written on whitemesh.dvi (15 pages, 134044 bytes).
+Output written on whitemesh.dvi (13 pages, 111720 bytes).

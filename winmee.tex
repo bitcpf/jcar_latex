@@ -1,40 +1,41 @@
 \section{Access Network Deployment Algorithm and Evaluation}
 \label{sec:winmee}
 
-In this section, we introduce the access tier network deployment and our MAPE framework with dynamics 
-of white space bands. We further apply our measurements in \ref{sec:measurements} to investigate the 
-white space deployment gain in reducing the number of access point in DFW metroplex.
+In this section, we study the access tier network deployment and propose our measurement-driven MAPE framework with dynamics 
+of white space bands. We further apply our MAPE framework with the measurements shown in Section~\ref{sec:measurements}
+to investigate the the access tier gain of WhiteMesh in reducing the number of access point in the Dallas-Fort Worth metropolitan area.
 
 \subsection{Access Network Model and MAPE} 
 \label{subsec:winmeemodel}
 
-% Network Constraint
-Typically, the deployment of wireless access networks is subject to coverage and capacity constraints 
-for a given region. Coverage is defined with respect to the ability of clients to connect to access 
-points within their service area.  We use a coverage constraint ratio of $95\%$ in this work for a 
-target area~\cite{robinson2010deploying}. Capacity is defined with respect to the ability of a network 
-to serve the traffic demand of clients. Spatial reuse allows improved capacity but increases the cost
-of deploying a network by increasing the total number of access points required. Hence, for densely-populated 
-areas, the greatest level of spatial reuse possible is often desired. In contrast, sparsely-populated 
-rural areas have lower traffic demand per unit area.  Thus, aggregating this demand with the use of lower 
-frequencies via white space bands could be highly effective in reducing the total number of access points 
-required to achieve similar coverage and capacity constraints.  Moreover, since less TV channels tend to 
-be occupied in sparsely-populated areas~\cite{msdatabase}, a larger number of white space bands can be 
-leveraged in these areas.
 
-An access network deployment should ideally provide network capacity equal to the demand of the service 
-area to maintain the capacity constraint. The demand of a service area could be calculated as the 
-summation of individual demands all over the service area $D_a=\sum_{p\in P}D_p$. Since household demand 
+% Discuss the white space band in access and backhaul
+% Traffic demand calculation
+The access tier has to satisfy the coverage constraint and capacity constraint to provide service for users.
+The coverage constraint could be calculated from~\ref{eq:friis} model. Generally, a coverage of $95\%$ of 
+access tier is acceptable for wireless access networks~\cite{robinson2010deploying}. We represent the capacity 
+constraint quantification as follow. The demand of a service area could be calculated as the 
+summation of individual demands all over the service area $D_a=\sum\limits_{p\in P} D_p$. Since household demand 
 for the Internet has been previously characterized~\cite{rosston2011household}, $D_a$ could represent the 
-population distribution $f$ and service area $k$ as $D_a=\sum_{f \in F,k \in K}\bar{D_p}*f*k$. The capacity 
+population distribution $f$ and service area $k$ as $D_a=\sum\limits_{f \in F,k \in K}\bar{D_p}*f*k$. The capacity 
 constraint could be represented with an access point set $M$ according to:
 \begin{equation}
 \label{eq:nlbound}
 \sum_{m \in M}\delta_r^m \ge \sum_{f \in F,k \in K}\bar{D_p}*f*k
 \end{equation}
-At the same time, the wireless network must additionally satisfy the coverage constraint in the service 
-area where the access points provide connectivity for client devices. Generally, a coverage of $95\%$ is 
-acceptable for wireless access networks~\cite{robinson2010deploying}.
+
+
+% Discuss the application of activity level
+Through the measured activity level, the achieved channel capacity could be calculated through the
+free time according to Eq.\ref{eq:intercap}:
+\begin{equation}
+\label{eq:intercap}
+\delta_r=\delta*(1-\bar{A})
+\end{equation}
+Here, the capacity of a clean channel is denoted by $\delta$ under the protocol model. 
+With the achieved channel capacity, we could further calculate the capacity of an access point in access 
+tier and link capacity in backhaul tier.
+
 
 In a joint white space and WiFi scenario, the activity level varies according to various interfering sources 
 and the propagation characteristics induced by the environmental characteristics of the service area. A 
@@ -46,6 +47,7 @@ network, which is out of our scope in this work. We assume that the cost of the 
 number of access points required for a given user demand (i.e., due to the cost of hardware and installation). 
 Therefore, given a geographical region for a new network deployment, we build a measurement-driven framework 
 called Multiband Access Point Estimation (MAPE) to compute the required number of access points.
+
 
 \begin{algorithm}[t]
 \small
@@ -106,8 +108,8 @@ output is shown in Figure~\ref{fig:redensity}.
 
 % Experiment Results & expect results
 In the calculation, we set the demand requested per user as 2 Mbps with the population density of 20, 50, 100, 1000, 
-and 2000 users per square kilometer. We assume 30 \% of the residents will use this service (i.e., the take rate is 
-30 \%), the maximum transmit power is 30 dBm, and a path loss exponent of $3.5$~\cite{meikle2012global}.From Equation
+and 2000 users per square kilometer. We assume 30\% of the residents will use this service (i.e., the take rate is 
+30), the maximum transmit power is 30 dBm, and a path loss exponent of $3.5$~\cite{meikle2012global}.From Equation
 ~\ref{eq:friis}, we see that the propagation range is proportional to the wavelength with 450 MHz having a propagation 
 range of $11.6$ times that of 5.2 GHz. We adopt an 802.11n maximum data rate of 600 Mbps. For the WiFi+White Space 
 scenario, we use 3 channels in each of the 450 MHz, 2.4 GHz and 5.2 GHz bands. For the WiFi Only scenario, we assume 
@@ -171,7 +173,7 @@ as the previous experiment.
  \end{tabular}
  \caption{Channel Combinations for $500$ and $1500$ Population Density Scenarios}
  \label{tab:500comb}
- \vspace{-0.2in}
+ \vspace{-0.4in}
  \end{table}
 
 

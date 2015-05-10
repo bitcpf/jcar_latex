@@ -18,14 +18,6 @@
 \fi
 #2}}
 
-\bibitem{carlson}
-C.~Inc., ``Fcc certifies carlson wireless technologies tv white space radio,''
-  \url{http://www.carlsonwireless.com/rural-connect-press-release.html}, 2014.
-
-\bibitem{balanis2012antenna}
-C.~A. Balanis, \emph{Antenna theory: analysis and design}.\hskip 1em plus 0.5em
-  minus 0.4em\relax John Wiley \& Sons, 2012.
-
 \bibitem{cnet_aug07}
 M.~Reardon, ``{EarthLink} pays 5 million to delay houston {Wi-Fi} buildout,''
   \url{http://news.cnet.com/8301-10784\_3-9768759-7.html}, 2007.
@@ -44,6 +36,14 @@ J.~Camp, J.~Robinson, C.~Steger, and E.~Knightly, ``Measurement driven
 R.~Karrer, A.~Sabharwal, and E.~Knightly, ``Enabling large-scale wireless
   broadband: the case for {TAPs},'' in \emph{{HotNets-II}}, 2003.
 
+\bibitem{carlson}
+C.~Inc., ``Fcc certifies carlson wireless technologies tv white space radio,''
+  \url{http://www.carlsonwireless.com/rural-connect-press-release.html}, 2014.
+
+\bibitem{balanis2012antenna}
+C.~A. Balanis, \emph{Antenna theory: analysis and design}.\hskip 1em plus 0.5em
+  minus 0.4em\relax John Wiley \& Sons, 2012.
+
 \bibitem{googledatabase}
 ``Google spectrum database,'' \url{http://goo.gl/NnIFXQ}, 2013.
 
@@ -52,32 +52,11 @@ J.~Tang, G.~Xue, and W.~Zhang, ``Interference-aware topology control and {QoS}
   routing in multi-channel wireless mesh networks,'' in \emph{{ACM MobiHoc}},
   2005.
 
-\bibitem{long2013fair}
-Y.~Long, H.~Li, M.~Pan, Y.~Fang, and T.~F. Wong, ``A fair qos-aware
-  resource-allocation scheme for multiradio multichannel networks,''
-  \emph{Vehicular Technology, IEEE Transactions on}, vol.~62, no.~7, pp.
-  3349--3358, 2013.
-
 \bibitem{doraghinejad2014channel}
 M.~Doraghinejad, H.~Nezamabadi-Pour, and A.~Mahani, ``Channel assignment in
   multi-radio wireless mesh networks using an improved gravitational search
   algorithm,'' \emph{Journal of Network and Computer Applications}, vol.~38,
   pp. 163--171, 2014.
-
-\bibitem{jain2005impact}
-K.~Jain, J.~Padhye, V.~N. Padmanabhan, and L.~Qiu, ``Impact of interference on
-  multi-hop wireless network performance,'' \emph{Wireless networks}, vol.~11,
-  no.~4, pp. 471--487, 2005.
-
-\bibitem{yuan2006cross}
-J.~Yuan, Z.~Li, W.~Yu, and B.~Li, ``A cross-layer optimization framework for
-  multihop multicast in wireless mesh networks,'' \emph{{IEEE JSAC}}, vol.~24,
-  no.~11, pp. 2092--2103, 2006.
-
-\bibitem{si2010overview}
-W.~Si, S.~Selvakennedy, and A.~Y. Zomaya, ``An overview of channel assignment
-  methods for multi-radio multi-channel wireless mesh networks,'' \emph{Journal
-  of Parallel and Distributed Computing}, vol.~70, no.~5, pp. 505--524, 2010.
 
 \bibitem{andersen1995propagation}
 J.~B. Andersen, T.~S. Rappaport, and S.~Yoshida, ``Propagation measurements and
@@ -92,33 +71,19 @@ H.~T. Friis, ``A note on a simple transmission formula,'' vol.~34, no.~5, pp.
 T.~Rappaport, \emph{Wireless Communications, Principles \& Practice}.\hskip 1em
   plus 0.5em minus 0.4em\relax Prentice Hall, 1996.
 
-\bibitem{fallah2010congestion}
-Y.~P. Fallah, C.~Huang, R.~Sengupta, and H.~Krishnan, ``Congestion control
-  based on channel occupancy in vehicular broadcast networks,'' in
-  \emph{Vehicular Technology Conference Fall (VTC 2010-Fall), 2010 IEEE
-  72nd}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, 2010, pp. 1--5.
-
-\bibitem{gupta2000capacity}
-P.~Gupta and P.~R. Kumar, ``The capacity of wireless networks,'' \emph{{IEEE
-  Trans. on Information Theory}}, vol.~46, no.~2, pp. 388--404, 2000.
+\bibitem{si2010overview}
+W.~Si, S.~Selvakennedy, and A.~Y. Zomaya, ``An overview of channel assignment
+  methods for multi-radio multi-channel wireless mesh networks,'' \emph{Journal
+  of Parallel and Distributed Computing}, vol.~70, no.~5, pp. 505--524, 2010.
 
 \bibitem{haykin2005cognitive}
 S.~Haykin, ``Cognitive radio: brain-empowered wireless communications,''
   \emph{Selected Areas in Communications, IEEE Journal on}, vol.~23, no.~2, pp.
   201--220, 2005.
 
-\bibitem{he2008optimizing}
-B.~He, B.~Xie, and D.~P. Agrawal, ``Optimizing deployment of internet gateway
-  in wireless mesh networks,'' \emph{Computer Communications}, vol.~31, no.~7,
-  pp. 1259--1275, 2008.
-
 \bibitem{robinson2010deploying}
 J.~Robinson, M.~Singh, R.~Swaminathan, and E.~Knightly, ``Deploying mesh nodes
   under non-uniform propagation,'' in \emph{{IEEE INFOCOM}}, 2010.
-
-\bibitem{msdatabase}
-``Microsoft research white space database,''
-  \url{http://whitespaces.cloudapp.net/Default.aspx}, 2013.
 
 \bibitem{rosston2011household}
 G.~Rosston, S.~Savage, and D.~Waldman, ``Household demand for broadband
@@ -134,20 +99,14 @@ R.~Meikle and J.~Camp, ``A global measurement study of context-based
   international workshop on Hot topics in planet-scale measurement}.\hskip 1em
   plus 0.5em minus 0.4em\relax ACM, 2012, pp. 21--26.
 
-\bibitem{peng2012efficient}
-Y.~Peng, Y.~Yu, L.~Guo, D.~Jiang, and Q.~Gai, ``An efficient joint channel
-  assignment and {QoS} routing protocol for ieee 802.11 multi-radio
-  multi-channel wireless mesh networks,'' \emph{Journal of Network and Computer
-  Applications}, 2012.
-
-\bibitem{robinson2008adding}
-J.~Robinson, M.~Uysal, R.~Swaminathan, and E.~Knightly, ``Adding capacity
-  points to a wireless mesh network using local search,'' in \emph{{IEEE
-  INFOCOM}}, 2008.
-
 \bibitem{saaty1961elements}
 T.~L. Saaty, \emph{Elements of queueing theory}.\hskip 1em plus 0.5em minus
   0.4em\relax McGraw-Hill New York, 1961, vol. 423.
+
+\bibitem{yuan2006cross}
+J.~Yuan, Z.~Li, W.~Yu, and B.~Li, ``A cross-layer optimization framework for
+  multihop multicast in wireless mesh networks,'' \emph{{IEEE JSAC}}, vol.~24,
+  no.~11, pp. 2092--2103, 2006.
 
 \bibitem{golden1976shortest}
 B.~Golden, ``Shortest-path algorithms: A comparison,'' \emph{Operations
@@ -163,11 +122,6 @@ S.~Meguerdichian, F.~Koushanfar, G.~Qu, and M.~Potkonjak, ``Exposure in
   wireless ad-hoc sensor networks,'' in \emph{Proceedings of the 7th annual
   international conference on Mobile computing and networking}.\hskip 1em plus
   0.5em minus 0.4em\relax ACM, 2001, pp. 139--150.
-
-\bibitem{avallone2008channel}
-S.~Avallone and I.~F. Akyildiz, ``A channel assignment algorithm for
-  multi-radio wireless mesh networks,'' \emph{Computer Communications},
-  vol.~31, no.~7, pp. 1343--1353, 2008.
 
 \bibitem{draves2004routing}
 R.~Draves, J.~Padhye, and B.~Zill, ``Routing in multi-radio, multi-hop wireless
@@ -186,11 +140,6 @@ E.~Z. Tragos, S.~Zeadally, A.~G. Fragkiadakis, and V.~A. Siris, ``Spectrum
   assignment in cognitive radio networks: A comprehensive survey.'' \emph{IEEE
   Communications Surveys and Tutorials}, vol.~15, no.~3, pp. 1108--1135, 2013.
 
-\bibitem{akyildiz2006next}
-I.~F. Akyildiz, W.-Y. Lee, M.~C. Vuran, and S.~Mohanty, ``Next
-  generation/dynamic spectrum access/cognitive radio wireless networks: a
-  survey,'' \emph{Computer Networks}, vol.~50, no.~13, pp. 2127--2159, 2006.
-
 \bibitem{irwin2013resource}
 R.~E. Irwin, A.~B. MacKenzie, and L.~A. DaSilva, ``Resource-minimized channel
   assignment for multi-transceiver cognitive radio networks,'' \emph{Selected
@@ -208,6 +157,11 @@ A.~P. Subramanian, H.~Gupta, S.~R. Das, and J.~Cao, ``Minimum interference
   channel assignment in multiradio wireless mesh networks,'' \emph{{IEEE TMC}},
   vol.~7, no.~12, pp. 1459--1473, 2008.
 
+\bibitem{jain2005impact}
+K.~Jain, J.~Padhye, V.~N. Padmanabhan, and L.~Qiu, ``Impact of interference on
+  multi-hop wireless network performance,'' \emph{Wireless networks}, vol.~11,
+  no.~4, pp. 471--487, 2005.
+
 \bibitem{akyildiz2005wireless}
 I.~F. Akyildiz, X.~Wang, and W.~Wang, ``Wireless mesh networks: a survey,''
   \emph{Computer networks}, vol.~47, no.~4, pp. 445--487, 2005.
@@ -221,45 +175,23 @@ A.~Raniwala, K.~Gopalan, and T.-c. Chiueh, ``Centralized channel assignment and
 X.~Wu, J.~Liu, and G.~Chen, ``Analysis of bottleneck delay and throughput in
   wireless mesh networks,'' in \emph{{IEEE MASS}}, 2006.
 
-\bibitem{pcuiwinmee}
-D.~R. Pengfei~Cui, Hui~Liu and J.~Camp, ``A measurement study of white spaces
-  across diverse population densities,'' \emph{IEEE 10th WiNMeE}, 2014.
-
-\bibitem{li2012channel}
-X.~Li, J.~Wu, S.~Lin, and X.~Du, ``Channel switching control policy for
-  wireless mesh networks,'' \emph{Journal of Parallel and Distributed
-  Computing}, vol.~72, no.~10, pp. 1295--1305, 2012.
-
-\bibitem{filippini2013new}
-I.~Filippini, E.~Ekici, and M.~Cesana, ``A new outlook on routing in cognitive
-  radio networks: minimum-maintenance-cost routing,'' \emph{IEEE/ACM
-  Transactions on Networking (TON)}, vol.~21, no.~5, pp. 1484--1498, 2013.
-
-\bibitem{wang2010game}
-B.~Wang, Y.~Wu, and K.~Liu, ``Game theory for cognitive radio networks: An
-  overview,'' \emph{Computer Networks}, vol.~54, no.~14, pp. 2537--2561, 2010.
-
-\bibitem{zhu2013survey}
-Y.~Zhu, B.~Xu, X.~Shi, and Y.~Wang, ``A survey of social-based routing in delay
-  tolerant networks: positive and negative social effects,''
-  \emph{Communications Surveys \& Tutorials, IEEE}, vol.~15, no.~1, pp.
-  387--401, 2013.
-
 \bibitem{bahl2009white}
 P.~Bahl, R.~Chandra, T.~Moscibroda, R.~Murty, and M.~Welsh, ``White space
   networking with {WiFi} like connectivity,'' \emph{{ACM SIGCOMM}}, vol.~39,
   no.~4, pp. 27--38, 2009.
+
+\bibitem{msdatabase}
+``Microsoft research white space database,''
+  \url{http://whitespaces.cloudapp.net/Default.aspx}, 2013.
 
 \bibitem{cui2013leveraging}
 P.~Cui, H.~Liu, J.~He, O.~Altintas, R.~Vuyyuru, D.~Rajan, and J.~Camp,
   ``Leveraging diverse propagation and context for multi-modal vehicular
   applications,'' in \emph{{IEEE WiVeC}}, 2013.
 
-\bibitem{deb2009dynamic}
-S.~Deb, V.~Srinivasan, and R.~Maheshwari, ``Dynamic spectrum access in dtv
-  whitespaces: design rules, architecture and algorithms,'' in
-  \emph{Proceedings of the 15th annual international conference on Mobile
-  computing and networking}.\hskip 1em plus 0.5em minus 0.4em\relax ACM, 2009,
-  pp. 1--12.
+\bibitem{filippini2013new}
+I.~Filippini, E.~Ekici, and M.~Cesana, ``A new outlook on routing in cognitive
+  radio networks: minimum-maintenance-cost routing,'' \emph{IEEE/ACM
+  Transactions on Networking (TON)}, vol.~21, no.~5, pp. 1484--1498, 2013.
 
 \end{thebibliography}
