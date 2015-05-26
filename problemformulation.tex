@@ -1,9 +1,9 @@
 \section{WhiteMesh Networks}
 \label{sec:problemformulation}
 
-In this section, we define and introduce the term WhiteMesh networks which jointly use WiFi and white space 
-frequencies in a wireless mesh network. We then leverage the specifications of WiFi and white 
-space frequencies in wireless mesh network design. Further, we discuss the two tiers we consider in 
+In this section, we define and introduce WhiteMesh networks which jointly use WiFi and white space 
+frequencies in a wireless mesh network. We then discuss the influences of WiFi and white 
+space frequencies in wireless mesh network design. Further, we describe the two tiers we consider in 
 wireless mesh network deployments: access and backhaul tier.
 
 
@@ -17,23 +17,23 @@ capacity and service areas in network design.
 % Available channel, propagation, 
 The white space bands were originally assigned to analog TV broadcasting. The 
 number of white space channels is typically less in dense areas than in the rural areas to protect the 
-existing TV broadcasting networks. An example of available channels using is shown in Fig.~\ref{fig:wschannels} (DFW). 
+existing TV broadcasting networks. An example of available channels acroos a metropolitan area is shown in Fig.~\ref{fig:wschannels} (DFW). 
 The diverse attributes at WiFi and white space bands impact network deployments in unique ways.
 In sparse rural areas, the number of wired entry points to the Internet is like to be more restricted. 
 At the same time, sparse populations generate relatively low amount of traffic 
-demand. The lower traffic demand requires fewer frequency resource for users directly connecting access points
-and may allocate more resources to links between access points (backhaul tier)
-Conversely, in densely populated areas, there is likely a greater availability to wired entry points to the Internet.
-At the same time, the dense population generate more traffic demand requiring greater use of frequency resources
+demand. The lower traffic demand requires resources for users directly connecting access points
+and may allocate more resources to links between access points (backhaul tier).
+Conversely, in densely-populated areas, there is likely a greater availability to wired entry points to the Internet.
+At the same time, the dense population generates more traffic demand requiring greater use of spectral resources
 for the access tier, leading to less using available for the backhaul tier. 
-As shown in Fig.~\ref{fig:wschannels}, the frequency resources in dense areas 
+As shown in Fig.~\ref{fig:wschannels}, the spectral resources in dense areas 
 are also less available than in the sparse area. 
-When there are more frequency resources reserved 
-for the access tier, less frequency resources can be used for the backhaul tier.
+When there are more spectral resources reserved 
+for the access tier, few spectral resources can be used for the backhaul tier.
 
 
 % Two extreme cases
-Moreover, white space frequencies have longer wavelength than WiFi frequencies. 
+Moreover, white space frequencies have longer wavelengths than WiFi frequencies. 
 % Propagation
 The strength of the received signal depends on both the line-of-sight path (or lack 
 thereof) and multiple other paths that result from reflection, diffraction, and scattering 
@@ -53,16 +53,16 @@ given a similar environment. For the same transmit power, greater propagation le
 This effect could be beneficial for sparse areas since the traffic demand from the sparse population is relatively lower. 
 
 The network deployment is constrained by the coverage area of a single access point. 
-The large propagation region of white spaces help to greatly reduce the number of access points and corresponding network cost. 
-Conversely, a densely populated area could saturate the capacity of a single white space channel. 
+The large propagation regions of white spaces help to greatly reduce the number of access points and corresponding network cost. 
+Conversely, a densely-populated area could saturate the capacity of a single white space channel. 
 However, WiFi has smaller interference range and propagation range. The smaller interference range increases 
-the spatial reuse of WiFi bands. In a densely populated area, the network deployment is constrained by the 
+the spatial reuse of WiFi bands. In a densely-populated area, the network deployment is constrained by the 
 capacity of a single access point. It is straightforward to solve the band selection problem in network deployment 
-in these two extreme cases: in a highly sparse area, white space bands are better at aggregating the 
-relatively lower traffic demand in larger areas; in a highly dense area, WiFi bands are better to 
-providing more access resources through spatial reuse also due to the lack of available white spaces.
+of these two extreme cases: (i) in a highly-sparse area, white space bands are better at aggregating the 
+relatively lower traffic demand in larger areas; (ii) in a highly-dense area, WiFi bands are better 
+for spatial reuse and these ally regions are less of available white spaces.
 % Motivation of the work
-However, deployment generally across somewhere between these extremes. 
+However, the deployment is generally somewhere between these two extremes. 
 To quantify and maximize the benefit of jointly using these bands, 
 our work focuses on access and backhaul design of WhiteMesh networks across varying population densities. 
 
@@ -82,8 +82,8 @@ our work focuses on access and backhaul design of WhiteMesh networks across vary
 % The second part of wireless network deployment
 \subsection{Wireless Mesh Network Deployment} 
 % Network deployment objective
-Wireless mesh networks use multihop paths between access points to reduce the number of entry points 
-to the Internet to reduce costs. 
+Wireless mesh networks have multihop paths between access points to reduce the number of wired entry points 
+to the Internet and reduce network costs. 
 The key objective of wireless network deployment is 
 to serve the traffic demand of the population at a minimal financial cost, thereby increasing the long-term 
 usability of the network. 
@@ -101,7 +101,7 @@ Internet through gateway nodes.
 %in the access tier and more capacity in the backhual tier which ask for more budget. These are the 
 %basic natural and artificial factors in network design.
 
-\textbf{Access Tier Network.} 
+\textbf{Access Tier.} 
 % Network Constraint
 An access point should ideally provide network capacity equal to the demand of the service 
 area. The deployment of the access tier is subject to the coverage constraint of a given area and the capacity 
@@ -111,7 +111,7 @@ respect to the ability of a network to serve the traffic demand of users. Spatia
 capacity but increases the cost of deploying a large-scale network by increasing the total number of access points 
 required. 
 
-\textbf{Backhual Tier Network.} 
+\textbf{Backhual Tier.} 
 Access points may communicate directly to one another to form a backhaul tier which forwards traffic to and from 
 gateway points to reach the wired or wireless Internet entry points. 
 %A backhaul network without costly wires is provides more capacity to access tier. Backhaul network is 
@@ -126,9 +126,9 @@ by reducing the interference among the links~\cite{si2010overview,doraghinejad20
 %network design.
 % Previous work focus on multichannel
 % System model
-However, many of these works assumed a uniform propagation ability of the multiple channels used in the deployment.~\cite{doraghinejad2014channel}. 
+However, many of these works assume a uniform propagation ability of the multiple channels used in the deployment.~\cite{doraghinejad2014channel}. 
 In this work, we study the wireless network deployment across WiFi and white space frequencies, which have diverse 
-propagation add availability based on the deployment location.
+propagation and availability based on the deployment location.
 %For the access tier, 
 %we focus on reducing the number of access points under the capacity and coverage constraints 
 %jointly consider the propagation and utilization variations.

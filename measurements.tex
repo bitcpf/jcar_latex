@@ -2,8 +2,8 @@
 \label{sec:measurements}
 
 % How to motivate our measurements?
-To characterize the spectral footprint of a representative and diversely populated area, 
-we perform in-field measurements in the Dallas-Fort Worth metroplex. In this section, 
+To characterize the spectral footprint of a representative and diversely-populated area, 
+we perform spectral analysis measurements in the Dallas-Fort Worth metroplex. In this section, 
 we discuss the experimental setup and quantify the measurement-driven spectral activity.
  
 \subsection{Wardriving Experimental Design}
@@ -14,7 +14,7 @@ shell scripts which utilize tcpdump to enable the testbed to work as a sniffer, 
 packets. However, since the Gateworks platform only updates its estimate of received signal strength 
 upon the reception of a new packet (and not all relevant channel activity is 802.11 based), we employ 
 a spectrum analyzer to form a notion of inter-network interference with finer granularity.  Hence, we 
-also use a Rohde \& Schwarz FSH8 portable spectrum which operates from 100 KHz to 8 GHz. The portable spectrum 
+also use a Rohde \& Schwarz FSH8 portable spectrum which operates from 100 KHz to 8~GHz. The portable spectrum 
 analyzer is controlled by a Python script on a laptop to measure the received signal strength.
 
 
@@ -30,9 +30,9 @@ source: {\it (i)} intra-network interference, caused by nodes in the same networ
 inter-network interference, caused by nodes or devices outside of the network. 
 
 We define an activity level to quantify the spectrum utilization. The activity level is the percentage 
-of time which the interference signal in the air could impact the radios. In practice, we use the sensing 
+of time which the interfering signal could impact an active wireless link. In practice, we use the sensing 
 samples ($S_\theta$) above an interference threshold ($\theta$) over the total samples ($S$) in a time 
-unit as the activity level ($A$) of inter-network interference as in Eq.~\ref{eq:actdef}:
+unit as the activity level ($A$) of inter-network interference:
 \begin{equation}
 \label{eq:actdef}
 A=\frac{S_\theta}{S_a}
@@ -42,15 +42,15 @@ A=\frac{S_\theta}{S_a}
 
 % Clearify
 To the best of our knowledge, there is no readily available mobile, multiband antenna from 450 MHz to 5.2 
-GHz on the market. Thus, we use a 700-MHz mobile antenna to perform in-field measurements. We then 
+GHz on the market. Thus, we use a 700-MHz mobile antenna to perform spectral analysis measurements. We then 
 normalize the mobile antenna performance across bands with indoor experimentation. To do so, we use a 
 Universal Software Radio Peripheral (USRP) N210 to generate signals at 450 MHz, 800 MHz, and 2.4 GHz. We 
 feed the USRP signals directly to a spectrum analyzer and adjust the configuration of USRP to make the 
 received signal strength in the receiver side the same as the 5.2 GHz signal from Gateworks 2358 with 
 a XR5 radio. 
 Then, we connect the signal source to a fixed multiband antenna (QT 400 Quad Ridge Horn Antenna) and 
-measure the received signal at a fixed distance with the 700 MHz antenna. We compare the received 
-signals from the antennas designed for each bands with known gains to obtain the antenna loss for 
+measure the received signal at a fixed distance with the 700-MHz antenna. We compare the received 
+signals from the antennas designed for each band with known gains to obtain the antenna loss for 
 each band. We further adjust the received signal strength collected via the 700-MHz mobile antenna 
 according to the normalization data set.
 
@@ -65,14 +65,14 @@ according to the normalization data set.
   \end{figure}
   
 % Duplicate measurement in WiFi
-Our experimental platform is shown in Figure~\ref{fig:equipment}. The mobile spectrum analyzer records 32 samples 
+Our experimental platform is shown in Fig.~\ref{fig:equipment}. The mobile spectrum analyzer records 32 samples 
 per second on each band under test with appropriate time stamps. The Gateworks sniffer platform also records all 
-the received WiFi packets according to their time stamps. The duplicate samples in WiFi bands reported by the spectrum analyzer 
-and Gateworks are deleted according to overlapping time stamps. Accordingly, we calculate the activity level in WiFi 
-bands. The activity level of white space bands is calculated solely based upon the spectrum analyzer measurementsi 
+the received WiFi packets according to their time stamps. The duplicate samples in the WiFi bands reported by the spectrum analyzer 
+and Gateworks are removed according to overlapping time stamps to calculate the activity level in the WiFi 
+bands. The activity level of white space bands is calculated solely based upon the spectrum analyzer measurements 
 since it is assumed that device operating in the white space bands is not yet 802.11 compliant.
 
-Figure~\ref{fig:drivemap} depicts a map of the available white space channels with markers where we performed 
+Fig.~\ref{fig:drivemap} depicts a map of the FCC-approved white space channels with markers where we performed 
 measurements in North Texas. To be representative of a broad range of community types, we consider populations of 
 approximately 25 times one another according to the 2010 U.S. Census: Millsap (500), Weatherford (25K), and Dallas 
 (1.25 M). We have collected measurements at multiple types of locations in Dallas, including a downtown area,
@@ -86,16 +86,16 @@ included in our framework as input parameter.
 \subsection{Highway Speeds to Fixed Locations} 
 \label{subsec:measurementresult}
 As an initial experiment, we perform a drive test from Dallas to Weatherford with cruise control set to 60 MPH while 
-on the highway. The result of the in-field spectrum drive test is shown in Figure~\ref{fig:drivetest} according to 
-the location and time of the measurement. The measured activity via RSSI of 450 MHz is high in downtown Dallas and 
+on the highway. The result of the in-field spectrum drive test is shown in Fig.~\ref{fig:drivetest} according to 
+the location of the measurement. The measured activity via RSSI of 450 MHz is high in downtown Dallas and 
 Fort Worth but has less spectral activity in the urban and rural area between these city centers. The low activity 
 detected in the WiFi bands is due to the distance from the highway being typically larger than the propagation range 
 of predominantly indoor wireless routers.
 
-Our initial in-field measurements agree with the the FCC restrictions (shown in Figure~\ref{fig:drivemap}), 
-greater spectrum utility by TV induce less channel availability of the resources.
+Our initial spectral analysis measurements agree with the the FCC restrictions (shown in Fig.~\ref{fig:drivemap}), 
+greater spectrum utility by TV bands induce less spectral availability.
 The drive test also shows that the spectrum 
-utilization is roughly proportional to the population density in Figure~\ref{fig:drivetest}. We use the measurements 
+utilization is roughly proportional to the population density in Fig.~\ref{fig:drivetest}. We use the measurements 
 collected at fixed locations as marked on the map for the activity level calculation. 
 
 \begin{figure}
@@ -126,7 +126,7 @@ collected at fixed locations as marked on the map for the activity level calcula
 The activity level calculated with our measurements are shown in Table~\ref{tab:activitymeasurement}. Dallas, the 
 city with the greatest population in North Texas, has the highest activity level in most of the measured bands, 
 especially at 450 MHz. The Dallas urban measurements are taken from the SMU campus, two neighborhoods, and a 
-densely-populated suburb (Plano). Our measurements indicate that 2.4 GHz has a higher activity level in urban area 
+densely-populated suburb (Plano). Our measurements indicate that 2.4 GHz has a higher activity level in the aforementioned urban areas 
 than the measured downtown area. Most schools and their neighborhoods are covered by WiFi, which contributes to the 
 high activity level at 2.4 GHz and 5.2 GHz. In Weatherford, all the bands have lower activity levels than in Dallas. 
 A peculiarity in the measurements can be seen by the sparse area in Weatherford having more activity than the other 
@@ -160,10 +160,10 @@ Area Type & Downtown & Residential & Suburban & Downtown &  Residential & Sparse
 
 
 % Need a summary
-Our measurements verify the channel occupancy variation in the DFW metropolitan area and quantify the occupancy
-through a measurement-based activity level. The results show the spectrum bands are more greater occupied in
-dense populated areas. The measurements 
-methods and quantification provides the way to 
+Our measurements verify the channel occupancy variation in the DFW metroplex and quantify the occupancy
+through a measurement-based activity level. The results show the spectrum bands have greater occupancy in
+densely-populated areas. The measurements 
+methods and resulting quantification provides the way to 
 understand a typical deployment environment. We apply these 
-measurements to our MAPE framework in Section~\ref{sec:winmee} and BPS algorithms in Section~\ref{sec:whitemesh} to further solve the 
-access tier network deployment and backhaul tire multiband channel assignments, respectively.
+measurements to our MAPE framework in Section.~\ref{sec:winmee} and BPS algorithms in Section.~\ref{sec:whitemesh} to 
+further design access tier network deployments and backhaul tier multiband channel assignment, respectively.
