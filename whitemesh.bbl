@@ -58,6 +58,16 @@ M.~Doraghinejad, H.~Nezamabadi-Pour, and A.~Mahani, ``Channel assignment in
   algorithm,'' \emph{Journal of Network and Computer Applications}, vol.~38,
   pp. 163--171, 2014.
 
+\bibitem{lu2003technology}
+J.~Lu, C.-S. Yu, C.~Liu, and J.~E. Yao, ``Technology acceptance model for
+  wireless internet,'' \emph{Internet Research}, vol.~13, no.~3, pp. 206--222,
+  2003.
+
+\bibitem{si2010overview}
+W.~Si, S.~Selvakennedy, and A.~Y. Zomaya, ``An overview of channel assignment
+  methods for multi-radio multi-channel wireless mesh networks,'' \emph{Journal
+  of Parallel and Distributed Computing}, vol.~70, no.~5, pp. 505--524, 2010.
+
 \bibitem{andersen1995propagation}
 J.~B. Andersen, T.~S. Rappaport, and S.~Yoshida, ``Propagation measurements and
   models for wireless communications channels,'' \emph{{IEEE Communications
@@ -70,11 +80,6 @@ H.~T. Friis, ``A note on a simple transmission formula,'' vol.~34, no.~5, pp.
 \bibitem{rappaport}
 T.~Rappaport, \emph{Wireless Communications, Principles \& Practice}.\hskip 1em
   plus 0.5em minus 0.4em\relax Prentice Hall, 1996.
-
-\bibitem{si2010overview}
-W.~Si, S.~Selvakennedy, and A.~Y. Zomaya, ``An overview of channel assignment
-  methods for multi-radio multi-channel wireless mesh networks,'' \emph{Journal
-  of Parallel and Distributed Computing}, vol.~70, no.~5, pp. 505--524, 2010.
 
 \bibitem{haykin2005cognitive}
 S.~Haykin, ``Cognitive radio: brain-empowered wireless communications,''
@@ -89,6 +94,10 @@ J.~Robinson, M.~Singh, R.~Swaminathan, and E.~Knightly, ``Deploying mesh nodes
 G.~Rosston, S.~Savage, and D.~Waldman, ``Household demand for broadband
   internet service,'' \emph{Communications of the ACM}, vol.~54, no.~2, pp.
   29--31, 2011.
+
+\bibitem{gupta2000capacity}
+P.~Gupta and P.~R. Kumar, ``The capacity of wireless networks,'' \emph{{IEEE
+  Trans. on Information Theory}}, vol.~46, no.~2, pp. 388--404, 2000.
 
 \bibitem{uscensus}
 ``People and households,'' \url{http://www.census.gov/people/}, 2014.

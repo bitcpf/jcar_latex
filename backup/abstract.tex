@@ -1,10 +1,29 @@
 \begin{abstract}
-Many efforts has been devoted to resolve the channel assignment problem for multi-channel multi-radio mesh network these years.
-The solutions of these works are approaching the optimization by local search algorithms and graph theory.
-In this paper, we propose a multiband multiradio wireless mesh networking architecture, where each mesh node has multiple radios working in a set of frequency bands with different propagation characteristics.
-A mixed integer linear model is presented for multiband multiradio network. 
-To resolve this NP-Hard problem, we first present a novel parameter network efficience to describe the network performance and present two algorithms to approach the optimization.
-Our simulation results shows that these two algorithms can resolve the problem in polynomial time with good results. We also compare our solutions to multi-channel solutions FIXME. The results shows that our algorithms is more fitted for multiband channel assignment problem.
+While there were high hopes for multihop wireless networks (mesh) to provide ubiquitous WiFi 
+in many cities, in-field trials revealed the node spacing required for WiFi propagation 
+induced a prohibitive cost model for network carriers to deploy. However, the digitization of TV 
+channels and new FCC regulations have reapportioned spectrum for data networks with far 
+greater range than WiFi due to lower carrier frequencies. While dense areas might still benefit from the use of WiFi for spatial reuse, white 
+space spectrum becomes increasingly important as the population density decreases, 
+especially since the availability of these white spaces are often inversely proportional to population density. 
+% Our work
+In this paper, we perform measurements in Dallas-Fort Worth 
+metroplex to analyze channel occupancy in both WiFi and white space frequencies. 
+% winmee
+Based on these measurements, we propose a measurement-driven band 
+selection framework, Multiband Access Point Estimation (MAPE) to quantify the benefit of
+jointly using WiFi and white space frequencies along the access tier. 
+% whitemesh
+Further, to deploy heterogeneous backhaul tier, we design a measurement-driven heuristic algorithm, Band-based Path Selection (BPS), to approach optimal channel 
+assignment of both white space and WiFi spectrum with reduced computational complexity. 
+Numerical results show that MAPE reduces the number of access points by up to 1650\% in sparse 
+rural areas over similar WiFi-only solutions. Also, BPS achieves up to 180\% in the served traffic flow of 
+existing multi-channel, multi-radio algorithms, which are agnostic to diverse 
+propagation characteristics across bands. 
+Most importantly, this paper lays a foundation for optimal use of white space and WiFi bands in the access 
+and backhaul tiers of mesh networks across diverse population densities.
+%
+%Moreover, we show that, with similar channel resources 
+%and bandwidth, the joint use of WiFi and white space bands can achieve a served traffic flow of 
+%180\% of WiFi only and white space only mesh networks, respectively. 
 \end{abstract}
-
-

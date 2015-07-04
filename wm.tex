@@ -1,25 +1,25 @@
-\section{Backhual Algorithm and Evaluation}
+\section{backhaul Algorithm and Evaluation}
 \label{sec:whitemesh}
 
 % Organization of the Sec
 In this section, we study the channel assignment problem jointly when using WiFi and white space 
-bands in concert across the backhual tier of a wireless mesh network. We then present our linear programming model and 
+bands in concert across the backhaul tier of a wireless mesh network. We then present our linear programming model and 
 heuristic-based measurement-driven algorithm to address the problem. 
  
 \subsection{Linear Programming Formulation}
 \label{subsec:linearopt}
 
-The function of the backhual tier is to wirelessly provide end to end traffic to and from the user and Internet.
+The function of the backhaul tier is to wirelessly provide end to end traffic to and from the user and Internet.
 % Metrics
 In practice, the traffic demand of the users obeys a Poisson process~\cite{saaty1961elements}. 
-Most of the carriers charge users based on the traffic being tranferred oner the Internet. 
+Most of the carriers charge users based on the traffic being transferred on to the Internet. 
 The traffic demand of the users delivered to or from the Internet are noted as the total traffic served. 
 In particular the total traffic served $X$, is represented as:
 \begin{equation}
 \label{eq:goodput}
 X=\sum_{w \in W, v \in V}T(w,v)
 \end{equation}
-$T(w,v)$ nodes all delivered traffic between access point $v \in V$ and gateway node $w \in W$.
+$T(w,v)$ all delivered traffic between access point $v \in V$ and gateway node $w \in W$.
 
 %To clarify the problem and approach the optimization solution of the problem, 
 Here, we present a linear programming formulation to approach the optimal channel assignment in along the backhaul 
@@ -28,7 +28,7 @@ We leverage the nodes into consider the set of available access points ($V$) whi
 and gateways ($W$) as ingress points to the Internet. The available frequency bands ($B$) are pre-known 
 as an input. The conflict graph $I$ is given as parameters. 
 $\delta_b$ is the achieved channel capacity estimated from the  activity level measurements 
-introduced in Section.~\ref{sec:measurements}.
+introduced in Section~\ref{sec:measurements}.
 
 
 \noindent
@@ -47,19 +47,19 @@ $B$ & set of bands \\
 %\hline
 $\delta^b$ & $b \in B$ & Achieved capacity of band $b$ in target area\\
 %\begin{tabular}{llp{2.8cm}}
-$I_{ij,lm}^b$ & $(i,j,l,m) \in V, b\in B $ & Protocol Interference of link $(i,j)$ on band $b$ brought by link $(l,m)$\\
+$I_{ij,lm}^b$ & $(i,j,l,m) \in V, b\in B $ & Interference matrix based on protocol model of link $(i,j)$ on band $b$ brought by link $(l,m)$\\
 %\hline
 %\end{tabular}\\
 %\begin{tabular}{llp{2.8cm}}
-$W_i$ & $i \in V\ binary$ & Gateway marked with access point set\\
+$W_i$ & $i \in V\ binary$ & Wired Gateways\\
 %\hline
 %\end{tabular}\\
 %\begin{tabular}{llp{2.8cm}}
-$D_{d}$ & $i \in V\ $ & Downlink demand of node i\\
+$D_{di}$ & $i \in V\ $ & Downlink demand of node i\\
 %\hline
 %\end{tabular}\\
 %\begin{tabular}{llp{2.8cm}}
-$D_{u}$ & $i \in V\ $ & Uplink demand of node i\\
+$D_{ui}$ & $i \in V\ $ & Uplink demand of node i\\
 %\hline
 \end{tabular}
 
@@ -83,8 +83,8 @@ Downlink flow of node $k$ on link $(i,j)$ at band $b$ \\
 \vspace{1pt}
 
 % FIXME talk about NT calculation
-The objective is to maximize the total traffic served ($X$) of all the gateways, $X$ is defined in Eq.~\ref{eq:goodput}.
-It is represented with the variables:
+The objective is to maximize the total traffic served $X$ of all the gateways
+represented with the variables:
 
 \noindent
 {\bf Objective:}
@@ -144,7 +144,7 @@ flows for a given access point $k$ equal to the total outgoing flows from the no
 in the downlink direction. Similarly, constraints (\ref{opt:11}) and (\ref{opt:12}) are downlink versions of 
 (\ref{opt:6}) and (\ref{opt:7}).
 Since linear programming models for multiple channels has been proved to be NP-hard~\cite{yuan2006cross},
-in this work, we choose small set of cases to achieve the optimal solution.
+in this work, we choose a small set cases to achieve the optimal solution.
 
 
 
@@ -155,16 +155,16 @@ in this work, we choose small set of cases to achieve the optimal solution.
 
 In WhiteMesh networks, it is possible that multihop paths are intermixed with WiFi bands for more spatial reuse 
 and white space bands with hop count reduction. We analyze the band choices reducing the number of hops along 
-a path and the aggregate level of interference on that hop-by-hop path choice has on the network (i.e., Path 
+a path and the aggregate level of interference on the network through the path(i.e., Path 
 Interference induced on the Network).
 
 Mesh nodes closer to the gateway generally achieve greater levels of throughput at sufficient-high 
 offered loads. To combat the resulting starvation effects for downstream nodes, we treat each flow with equal priority in the network 
-when assigning channels. In the worst case, all nodes along a particular path have equal time shares for 
+when assigning channels. To gurantee the service , all nodes along a particular path have equal time shares for 
 contending links (i.e., intra-path interference). We begin the channel assignment assuming that $h$ mesh 
 nodes are demanding traffic from each hop of an $h$-hop path to the gateway. If each link along the path 
 uses orthogonal channels, then each link could be active simultaneously, otherwise they will compete with 
-each other. We note each node along the path had traffic demand $T_d$. The bottleneck link 
+each other. We note each node along the path has traffic demand $T_d$. The bottleneck link 
 along the path would be the one closest to the gateway. Thus, the total traffic along the 
 path $h \cdot T_d$ must be less than the bottleneck link's achieved capacity $\delta$, estimated according 
 to the measurements. The $h$-hop access point would achieve the minimum-served demand, which we define as the 
@@ -233,19 +233,21 @@ representing different frequency band choices per link.}
 Consider the following motivation example in Fig.~\ref{fig:interferencerange}, the access point $A$ could connect to access point $C$ 
 relayed by node $B$ with 2.4 GHz, or directly connect to $C$ at 450 MHz. If 2.4 GHz were 
 chosen, link $D,E$ is able to reuse 2.4 GHz when they are out of the interference range. 
-However, along the backhual tier, if link $A,C$ used 450 MHz, a lower hop count would 
+However, along the backhaul tier, if link $A,C$ used 450 MHz, a lower hop count would 
 result for the path, yet lower levels of spatial reuse also result (e.g., for link $D,E$). 
 While the issues of propagation, interference, and spatial reuse are simple to understand, 
 the joint use of white space and WiFi bands to form optimal WhiteMesh topologies is 
 challenging since the optimization is based on the knowledge of prior channel assignment 
 which is not available before the work has been done.
 
-Thus, in the backhaul tier, we formulate the problem with a graph-based model. A connectivity graph $C$ is 
-formed for each band in $B$ such that $C=(V,L,B)$. If the received signal for a given band is 
-above an interference-range threshold, then contention occurs between nodes. We extend the conflict 
-matrix in~\cite{tang2005interference} related to the interference per band according to 
-$F=(E_{i,j},I_{Set},B)$, where $E_{i,j}$ represents the link and $I_{Set}$ includes all the links 
-are physically inside the interference range $D_r$ when operating on each band $b \in B$.
+Thus, in the backhaul tier, we formulate the problem with a graph-based model. A connectivity 
+graph $C$ is formed for each band in $B$ such that $C=(V,L,B)$. 
+In the protocol model, if the received signal for a given band is above a threshold among 
+nodes, the contention occurs for these nodes. 
+We extend the conflict matrix in~\cite{tang2005interference} related to the interference per band according to 
+$F=(E_{i,j},I_{Set},B)$, where $E_{i,j}$ represents the potential active link. 
+$I_{Set}$ includes all the links are physically inside the interference range 
+$D_r$ when there is an activite link working on band $b \in B$.
 
 Therefore, the problem we model is: choose the connectivity graph $C'$ which maximizes the total traffic served 
 from the access tier. A key challenge is that selecting the optimal channels from the 
@@ -296,12 +298,12 @@ Update $CA$ as the locally-optimal solution\\
 
 We design a Band-based Path Selection (BPS) algorithm shown in Alg.~\ref{algorithms:bps}. 
 The algorithm first chooses the access point that has the largest physical distance from the 
-gateway nodes in the network to most greatly reduce the total time cost of the network. 
+gateway nodes in the network to reduce the total time cost of the network avoiding multiple hop cost. 
 When a path is constructed for the access point with the greatest distance, all 
 subsequent access points along the path are also connected to the gateway. 
 In large-scale mesh networks, the complexity makes it impractical to traverse all the 
 paths with different combination of bands from an access point to any gateway node. It has been 
-proved as an NP-hard problem. However, based on the discussion in Section.~\ref{subsec:PEN}, 
+proved as an NP-hard problem. However, based on the discussion in Section~\ref{subsec:PEN}, 
 if two paths have the same number of used bands along those paths, then the path with the 
 least hops is likely to have the greatest performance and is chosen. Similarly, if two path 
 have the same path interference, we choose the path which has higher-frequency links to keep 
@@ -331,15 +333,16 @@ demands points (mesh group) for a wireless network assignment.
 \subsection{Experimental Evaluation Setup}
 \label{subsec:design}
 % Simulation Setup
-WhiteMesh networks have the diversity in propagation from the lowest white space channels 
-(tens to hundreds of MHz) to the highest WiFi channels (multiple GHz). We consider a wide range 
-of propagation characteristics from four different frequency bands to set up the experimental 
-evaluation. We use 450 MHz and 800 MHz of white space bands and 2.4 GHz and 5.2 GHz of WiFi bands
-data from the spectral analysis in Section.~\ref{sec:measurements}.
-
+%WhiteMesh networks have the diversity in propagation from the lowest white space channels 
+%(tens to hundreds of MHz) to the highest WiFi channels (multiple GHz). 
+%We consider a wide range 
+%of propagation characteristics from four different frequency bands to set up the experimental 
+%evaluation. 
+In the experiments, we use 450 MHz and 800 MHz of white space bands and 2.4 GHz and 5.2 GHz of WiFi bands
+data from the spectral analysis in Section~\ref{sec:measurements}.
 % Network Setup
-According to the population density for a given deployment location, we consider the spectral activity observed for 
-the population density from our in-field measurement.
+%According to the population density for a given deployment location, we consider the spectral activity observed for 
+%the population density from our in-field measurement.
 We input the measurements to both the LP and heuristic-based algorithm to compare 
 the performance in various scenarios. The communication threshold is set as -100 dBm. The 
 communication range is normalized with the highest frequency of 5.2 GHz. Then, the communication 
@@ -357,7 +360,7 @@ scenarios, more channels could be considered by BPS algorithm.
 The traffic demand aggregated by an access point is independent to others and obeys a Poison distribution
 per unit time. 
 In the simulation, we generate an equal number of access points (including both gateway nodes and 
-access points) Poison random numbers with a mean of $\lambda$. 
+access points) Poison parameter $\lambda$. 
 Then, we assign as the traffic demand for each access points in the 
 target area.
 % total traffic served calculation
@@ -390,12 +393,12 @@ share available radios working on the same channel. In the BFS-CA~\cite{tang2005
 a node will search all the available single-hop connections and then choose the one that has the largest 
 free capacity for a new assignment. 
 These two methods are designed for multi-channel scenarios 
-where each channel has tha same propagation characteristics and spectral activity 
+where each channel has the same propagation characteristics and spectral activity 
 level of the algorithms.
 
 
 
-\subsection{Experimental Analysis of WhiteMesh Backhaul}
+\subsection{Experimental Analysis of WhiteMesh backhaul}
 \label{subsec:wmanalysis}
 
 \subsubsection{Network Size \& Bands Effect}
@@ -410,8 +413,7 @@ sizes, we only consider the download traffic in the simulations.
 We investigate the network size impact on WhiteMesh networks. 
 The number of access points is varied from $16$ to $64$ in the aforementioned 
 regular grid. 
-The gateways through the hexagonal gateway node deployment with the network 
-size.
+We choose the wired gateway according to a general hexagonal deployment.
 Fig.~\ref{fig:varysize} shows the results of the total traffic served 
 when the population distribution is 500 $ppl/km^2$ 
 for the LP formulation and the heuristic-based algorithms: 
@@ -443,7 +445,7 @@ CCA/BFS-CA.
 The nodes of a small network are located in a single interference space of all the bands.
 The communication range variation of the bands impact on the network performance when the inter-node spacing become diverse. 
 The LP Bound shows the upper-bound of total traffic served increases with the network size.
-The multi-channel algorithms assign channels without considering the channel capacity diversity and thepropagation 
+The multi-channel algorithms assign channels without considering the channel capacity diversity and the propagation 
 differences per band. Hence, the performance 
 is remains low across population densities. 
 CCA fails to employ the communication range variation to find the most efficient multi hop paths. 
@@ -476,7 +478,7 @@ assignment version could be implemented through updating the assignment as after
 \end{tabular}    
 \caption{Activity Level under Population Distribution} % title name of the table 
 \label{tab:activitymeasurement}    
-\vspace{-0.3in}
+\vspace{-0.2in}
 \end{table*}    
 
 % additional Simulation set up
@@ -498,46 +500,22 @@ As the population density increases, the measurement-based channel capacity vari
 bands. When the population density reaches 1,000 $ppl$, the total traffic served decreases
 due to the high measured activity level and the saturation of wireless channel capacity 
 around the gateways. BPS 60\% achieve of the upper bound on average. 
-The results shows that CCA and BFS-CA perform worse than BPS with limited recogination of 
+The results shows that CCA and BFS-CA perform worse than BPS with limited exploration of 
 propagation variation in the joint WiFi and white space scenarios.
 
-\begin{table*}
-\centering % centering table 
-\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|c|} % creating 12 columns 
-\hline %\hline % inserting double-line 
-Bands/     & WiFi    & WS      & WS \& & WS \& &  WS \& & WS \& & WS \&      &  WS \&      & Multi-WS \& & Multi-WS \& & Multi-WS \& \\% [0.5ex]
-Algorithms & Only    & Only    & WiFi  & WiFi  &  WiFi  & WiFi  & Multi-WiFi &  Multi-WiFi & WiFi        & WiFi        & Multi-WiFi  \\
-\hline % inserts single-line 
-% Entering 1st row 
-WS (MHz)   &                                                        & 450,800 & 450 &  800  &  450   & 800               & 450    & 800      & 450,800     & 450,800     & 450,800     \\
-\hline
-WiFi (GHz) & 2.4, 5 &                                                             & 2.4 &  2.4  &  5   & 5               & 2.4, 5& 2.4, 5        & 2.4             & 5         & 2.4, 5     \\ % [0.5ex]
-\hline
-\hline % inserts single-line 
-CCA~\cite{draves2004routing}                & 22.4   &  13.4  & 13.2    &12.5    & 16.9       & 23.2   &  24.1  &   30.6&  25.2  &       23.9       &   30.4          \\      
-\hline % inserts single-line                                                                                                       
-BFS-CA~\cite{ramachandran2006interference}  & 26.3   &  15.8  & 14.9    & 19.4   & 22.7       & 28.4   &  38.9  &   33.7&  30.1  &       27.4       &       36.6      \\      
-%\hline % inserts single-line                                                                                                      
-%GST (Alg. 1)                                                            & 11.6  &   6.6 & 9.3    &   15.1&   15.8        &  14.4  &   16.6   &    14.1  &   18.8            &  15.0           &    25.1         \\      
-\hline % inserts single-line                                                                                                     
-BPS (Alg. 1)                                & 41.2   & 34.1   &  38.2  & 40.0    & 35.4       & 42.8   & 58.4   &  64.9 &  54.4  &       51.9       &       63.1      \\      
-\hline % inserts single-line 
-\end{tabular}    
-\caption{ total traffic served (Mbps) for various combinations of WiFi and Average Population Distribution = 500 $ppl/km^2$, Network Size = 49 access points).} % title name of the table 
-% NEWClaim fix
-\label{tab:2channelcombination}    
-\vspace{-0.4in}
-\end{table*}    
+%\end{tabular}    
+%\caption{ total traffic served (Mbps) for various combinations of WiFi and Average Population Distribution = 500 $ppl/km^2$, Network Size = 49 access points).} % title name of the table 
+%% NEWClaim fix
+%\label{tab:2channelcombination}    
+%\vspace{-0.4in}
+%\end{table*}    
+
+\input{combination_table}
 
 
-WhiteMesh networks are able to deploy across a vast array of environments, from
-rural to urban areas. Each of these areas will have varying amounts of user
-demand traffic in proportion to the population densities. 
-However, since a greater number of TV stations exist in urban areas, the available 
-white space bands are often inversely related to the population density. 
 To capture these varying degrees of demand 
-and white space availability we consider three likely scenarios and one final 
-scenario for comparison purposes: {\it (i)} two WiFi bands (2.4 and
+and white space availability we consider three likely scenarios and another 
+scenario for comparison purposes: {\it (i)} two WiFi band (2.4 and
 5.2 GHz) channels with two white space channels (450 and 800 MHz), {\it (ii)} 
 three channels in two WiFi bands (2.4 and 5.2 GHz) with one white space channel 
 (450 MHz), {\it (iii)} Four channels in two WiFi bands (2.4 and 5.2 GHz) without 
@@ -546,21 +524,20 @@ any white space channels, and {\it (iv)} four channels in two white space bands
 
 Table~\ref{tab:2channelcombination} describes the total traffic served 
 for various scenarios of WiFi and white space bands with an offered load 
-of 5 Mbps as mean value of Possion process from 500 $ppl/km^2$ in a regular 49-node grid. 
+of 5 Mbps as mean value of Poison process from 500 $ppl/km^2$ in a regular 49-node grid. 
 We study the performance of BPS in the four aforementioned scenarios of varying 
 white space availability. In the simulation, we keep total 4 channels for each
-method, such as in the combination of 2.4 GHz and 5 GHz, we put 2 channels in both 
-bands. In the triple bands combinations, we set each band has a channel, and put the 
-other channel in the highest frequency band. (In 2.4 GHz, 5GHz, 800 MHz combination, 
-we put the extra channel other than the 3 channel each band in 5 GHz). 
+method, such as in the combination of 2.4 GHz and 5 GHz, we choose 2 channels in both 
+bands. In the 3-band combinations, we have one channel from each band, and put the 
+other channel in the highest frequency band. (In 2.4 GHz, 5 GHz, 800 MHz combination, 
+we put the extra channel other than these $3$ in the 5 GHz band). 
 % Justification
 In the results, we observe that the WiFi-only scenario has greater total traffic served 
 than the white-space-only scenario. This is due to the lack of spatial reuse achieved 
-by white spaces bands. White space has larger communication range to shorten 
-the hop counts as well as has larger interference reducing the spatial reuse. 
+by white spaces bands. 
 Another reason is that the achieved channel capacity of 500 $ppl/km^2$ in white 
-space bands are worse than WiFi bands. These two reasons make the performance of 
-white space only worse in all channel assignment methods applied here.
+space bands is less than the WiFi bands. These two reasons make the performance of 
+white space only scenario worse in all channel assignment methods applied here.
 Interestingly, however, the joint use of both white space and WiFi bands has 
 significant gains over the single type of band scenarios with the same number of 
 channels (40\% greater than WiFi and 56\% over white space, on average). 
@@ -570,43 +547,44 @@ channels (40\% greater than WiFi and 56\% over white space, on average).
 %better performance than WiFi(2)+WS(2) in some cases. 
 
 
-In Table ~\ref{tab:2channelcombination}, that with the same number of bands (2), 
-the combination with similar propagation characters, the cleaner channels combination 
-has better performance. With similar achieved channel capacity, lower frequency 
-offers more option for connection path perform better in channel assignment. 
+In Table~\ref{tab:2channelcombination}, we observe that the total traffic served greatly depends on these spectral activity of the channel.
+With similar achieved channel capacity, the lower frequency band
+offers more option for the multihop path to perform better. 
 If we have one channel in a white space band and one channel in a WiFi band, then 
 we could employ the advantages of both WiFi for spatial reuse and white spaces to 
-reduce the hop count in channel assignment. 
+reduce the hop count in channel assignment, for particular multihop paths. 
 
-\subsubsection{Access Tier Impacts on Backhaul Tier}
+\subsubsection{Access Tier Impacts on backhaul Tier}
 
-The density of access points increase proportional to the population 
+The density of access points increases proportionally to the population 
 density to offer enough access capacity for the users. 
 Hence, the distance among the access points and the channel 
-occupancy in backhual tier channel assignment need to be leveraged.
+occupancy in backhaul tier channel assignment should be leveraged.
 To investigate impacts of the spacing variation and channel occupancy in the access tier 
 on the backhaul tier, we perform simulation on a 49-node regular grid WhiteMesh network as
 described before. 
 
 In Fig.~\ref{fig:actspac}, we show the impacts of channel occupancy through 
-the activity level and spacing variation on wireless white space mesh network. 
+the activity level and spacing variation on WhiteMesh network. 
 In the results, all the bands have the same activity level in the 49-nodes regular 
-grid with normalized multiple inter-node spacing 
-from 0.2 to 2.1 as discussed in Subsection~\ref{subsec:design}. In the 3-D figure, 
+grid with an inter-node spacing which is normalized from 
+0.2 to 2.1 as discussed in Subsection~\ref{subsec:design}. In the 3-D figure, 
 as the activity level increases, the total traffic served decreases due to the reduction 
 of achieved channel capacity. In the spatial dimension, when the nodes have extremely
-small spacing, lacking the propagation diversity of multiple bands and spacial reuse  make the total traffic served
+small spacing, lacking the propagation diversity of multiple bands and spatial reuse  make the total traffic served
 limited as we have analyzed in Fig~\ref{fig:varysize}. 
-While as the spacing gap increases, the high frequency bands
-bring higher total traffic served via more spacial reuse. 
-As the spacing gap increase, the high frequencies stop communicating due to the limited 
-communication range. The number of available channels reductioneleads the total traffic served 
+As the inter-node spacing increases, the high frequency bands
+bring higher total traffic served via more spatial reuse. 
+As the inter-node spacing increases, the higher frequency links fail due to the limited 
+communication range. The number of available channels reduction leads the total traffic served 
 reduce sharply as shown in the figures.
 
-We further study the real world spacing gap variation through BPS with in-field measurements.
-We map the largest population distribution in Table~\ref{tab:activitymeasurement} to 
-represent the spacing as normalized distance 0.2, and the least population distribution 
-as normalized distance 1.7. In a regular grid the spacing distance $D_s$, population 
+We further study BPS with the real world inter-node spacing variation through BPS and in-field measurements.
+Based on the analysis in Section~\ref{sec:problemformulation}, the distance between mesh nodes decrease 
+with the population increment.
+We arbitrarily map the largest population distribution in Table~\ref{tab:activitymeasurement} to 
+represent the spacing as normalized distance of 0.2, and the least population distribution 
+as a normalized inter-node spacing of distance 1.7. In a regular grid the inter-node spacing distance $D_s$, population 
 distribution $P_d$ and access point capacity $M_c$ obey $P_d \cdot \frac{D_s}{2} ^2 \propto M_c$. 
 We interpolate activity level for each normalized distance from 0.2 to 1.7 with gap 0.1. 
 The results of the heuristic-based algorithms and the results are shown in Fig.~\ref{fig:measurespacing}.
@@ -620,7 +598,7 @@ The results of the heuristic-based algorithms and the results are shown in Fig.~
 \label{fig:measurespacing}
 \includegraphics[width=1.6in]{figures/act_spacing}}
 \hfill
-\caption{Spacing Impacts on the Backhaul Tier}
+\caption{Spacing Impacts on the backhaul Tier}
 \label{fig:all3figs}
 \vspace{-0.3in}
 \end{figure}
@@ -629,14 +607,12 @@ In Fig.~\ref{fig:measurespacing}, as the spacing increases, the WhiteMesh networ
 has the best performance in all methods through spatial reuse, matching the simulation 
 analysis shown in Fig.~\ref{fig:actspac}. As the distance increases up to normalized 
 distance 1, one of the 5 GHz channels stops working in the network since the distance 
-is larger than its communication range. That makes the performance decrease sharply.
+is larger than its communication range, decreasing the performance sharply.
 
-Through these analysis, a mixed WiFi and white space wireless WhiteMesh network 
-improves the performance in the following achieve aspects: 
+Through our analysis, a mixed WiFi and white space wireless network 
+improves the performance in the following aspects: 
 {\it (i)} Heavily utilized networks can get more capacity from spatial reuse and 
-flexible path reducing hop count through diverse links. 
+hop count reduction from frequency agility. 
 {\it (ii)} Rural networks have large mesh spacing to be deployed with a reasonable network performance 
-with a fair more reduce of budget.
-We are able to find an approaching of optimal WhiteMesh deployment based on this 
-analysis.
+with a greatly reduced deployment cost.
 

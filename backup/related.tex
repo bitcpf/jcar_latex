@@ -1,29 +1,43 @@
 \section{Related Work}
 \label{sec:related}
+% Deployment problem 
+There are significant challenges in wireless mesh network deployment,
+such as user priorities, user behaviors, long term throughput estimation, 
+interference and energy efficiency.~\cite{tragos2013spectrum}
+Previous works have identified the impact of interference in wireless mesh network 
+deployments as the key issue~\cite{tang2005interference,irwin2013resource,chieochan2013channel}.
+To overcome the challenges, previous works have optimized the 
+deployment in forms ofincreasing throughput, minimizing resources, reducing interference,
+~\cite{irwin2013resource,subramanian2008minimum,doraghinejad2014channel}.
+Many works have studied the network deployment problem in multihop wireless 
+networks~\cite{jain2005impact,akyildiz2005wireless,raniwala2004centralized,tragos2013spectrum}.
+Both static and dynamic network deployments have been discussed in previous works under
+an 802.11 WiFi scenario~\cite{wu2006analysis,ramachandran2006interference,subramanian2008minimum}. 
+However, all of the aforementioned works have not considered propagation variation of the 
+diverse frequency bands among white space and WiFi bands, which we show critical in reducing the cost of
+mesh networks. Frequency agility in multiband scenario brings more 
+complexity of 
+resolving the interference issues.
 
-A number of papers have been published on the problem of channel assignment for a multi-hop mesh network.
+% White Space
+To be used effectively, white space band must ensure that available TV bands
+exist but no interference exists from microphones and other devices~\cite{bahl2009white}. 
+White space bands availability has to be known in advance of network deployment.
+TV channels allowed by FCC are fairly static in their channel assignment. 
+Databases have been used to account for white space channel availability 
+(e.g., Microsoft's White Space Database~\cite{msdatabase}).
+In fact, Google has even visualized the licensed white space channels 
+in US cities with an API for research and commercial use~\cite{googledatabase}.
+In contrast, we study the performance of mesh networks with a varying number 
+of available white space channels at varying population densities, assuming 
+such white space databases and mechanisms are in place.  
+Many methods have been proposed to employ these white space bands. For example,
+~\cite{bahl2009white} introduced WiFi-like white space link implementation on USRP 
+links. The point to point communication
+in a multiband scenario was discussed in~\cite{cui2013leveraging} . In~\cite{filippini2013new}, white space bands
+were applied to a cognitive radio network for reducing maintenance cost. 
+In this work, the objective is maximizing the served traffic flow of clients in the WhiteMesh networks.
 
 
 
 
-Since FCC ruling obviated mandatory spectrum sensing in whtie spaces networks, prior research in UHF white spaces has focused on accurate detecting the primary user ~\cite{kim2008fast}; assigning white spaces channels ~\cite{bahl2009white}.
-In ~\cite{murty2012senseless}, database is applied to detect white space channel.
-Employing the energy advantage of UHF bands is proposed to improve the performance for indoor networks ~\cite{radunovic2010rethinking}.   
-
-
-In ~\cite{robinson2010deploying}, a placement algorithm for wireless mesh networks is proposed for white space bands.
-
-However, these works only focus on white space bands fails to connect the ISM bands and tons fo existing wireless devices for pratical application.
-
- %Multichannel works
- Tons of works have been done for multichannel multiradio.
-
- Cognitive Radios
-
-
-% Heternegeous networks
-
-
-% Multiradio disadvantage
-Previous works has shown that multiradios in the same band do not use the second radio efficiently ~\cite{robinson2007performance}.
- 

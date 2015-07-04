@@ -4,71 +4,103 @@
 % Background multiband 
 % Mesh Netrork
 % Mesh Network traditonal utibility
-% White space benefit 
-% Issues
+% White space benefit challenges
+% Contributions about new data
 % Paper organization
-
 % Wireless Network
-~\emph{Wireless Mesh Network}(WMN) is typically mentioned as a multihop wireless network consisting of a large number of wireless nodes, some of which have wired connection as gateway nodes. Many researchers paid attention to the potential applications of WMN, including last-mile broadband Internet access, last-mile smart grid terminals, neighborhood gaming, and so on ~\cite{bahl2004opportunities}.
-The bottleneck of the applications is that today's WMN still cannot offer enough capacity for customers. The maximum link-layer data rate falls quickly with increasing distance between the transmitter and receiver. The bandwidth problem is further aggravated for multi-hop scenarios because of interference from its neighbor links. Researchers have proposed several ~\emph{Multi-Radio} solutions for the bandwidth problem with the permission of using non-overlapping frequency channels simultaneously~\cite{raniwala2004centralized,tang2005interference,si2010overview}.
-However, these works only focus on increasing the bandwidth by reducing the interference in WMN. ~\emph{White Space Bands} provide opportunities to improve the performance through both reducing interference and building long distance links. 
-
-% White Space advantages
-\emph{White Space Bands} is popularly referred to unused portions of the UHF and VHF spectrum includes, but not limited to 54M-72MHz,76M-88MHz,174M-216MHz,470M-608MHz,and 614M-806MHz ~\cite{whitespacewiki}. 
-~\emph{White Space Bands} have superior propagation and building penetration compared to licensed ISM bands Wifi are working in such as 2.4GHz and 5.8GHz. These characters make ~\emph{White Space bands} holding rich potential benefits for expanding wireless capacity and improving access ranges for wireless clients.
-% Legal permission
-And since 2010, FCC adopted rules to allow unlicensed radio transmitters to operate in the white space bands freed from analog TV broadcast bands providing permission for operating wireless communication in ~\emph{White Space Bands}~\cite{fccwhitespace}. 
-
-% Wireless mesh networks
-The advantages of white space equipment could be seen straightly in ~\emph{Wireless mesh network}.
-~\emph{White Space Bands} is able to link further nodes due to the lower frequency propagation characteristics.
-These links in white space bands bring data rate for the nodes far from the gateway nodes in less hops reducing the relay nodes.
-Obviously, these white space band long distance link is an economic way to provide back-haul Internet service in rare populated area.
-Also, as a kind of multi-radio architecture, \emph{Multi-band Multi-radio Mesh Network} has the advantages of \emph{Multi-Channel Mesh Network} who has more bandwidth to increase the network capacity. 
-Benefits and challenges of ~\emph{White Space Bands} are from these two characteristics in channel assignment. 
-
-~\emph{Channel assignment} is to build virtual links among different nodes according to their radios. A channel assignment has to keep several constraints, such as connection, radio amount limitation, and so on.
-The problem is has been proved as a NP-Hard problem.~\cite{jain2005impact}. 
-Previous work in ~\emph{Multi-Channel Multi-Radios} scenarios could be seen as partial solution of ~\emph{Multi-band Multi-Radio} problem without considering the propagation difference of links in multiple bands.
-These works target on different objective with multiple methodology. Ashish ~\cite{raniwala2004centralized} use \emph{Load Aware Channel Assignment} to approach the channel assignment optimization in network capacity; Jian ~\cite{tang2005interference} employ a channel partition methodology to improve the interference of channel assignment; In ~\cite{jain2005impact}, Kamal describe the up-bound and lower-band based on ~\emph{Conflict Graph}.
-
-% More benefit for mesh networks in different cities as chrismas story
 
 
+% Many cities starts wifi deploy, failed
+During the last decade, numerous cities solicited proposals from network carriers for 
+exclusive rights to deploy city-wide WiFi, spanning hundreds of square miles. But many 
+of these attempts failed, as the node spacing prohibited their cost effective implementation. 
+As a result, many network carriers opted to pay millions 
+of dollars in penalties rather than face the exponentially-increasing deployment costs 
+(e.g., Houston~\cite{cnet_aug07} and Philadelphia~\cite{arstechnica_may08}). 
+Thus, while a few mesh networks have been deployed in certain communities~\cite{CRSK06},
+wireless mesh networks have largely been unsuccessful in achieving the scale of what was 
+once anticipated~\cite{taps}. Specific to rural areas, the lack of user density and 
+corresponding traffic demand per unit area as compared to dense urban areas allows greater 
+levels of traffic aggregation across larger areas to reduce the total number of required access points, lowering
+network deployment costs. Conversely, in densely-populated urban areas, the greater concentration of users 
+and higher levels of traffic demand can be served by maximizing the spatial reuse. 
 
-% Paper topic
-In this paper, the focus is on the problem of channel assignment in static centralized multiband wireless mesh network scenario. 
-In these networks, static nodes with multiple radio slots form a multihop backhual wireless access network that provides connectivity to end-users. The network nodes cooperate with each other to relay data traffic to gateway nodes who have wired connection. 
-Our hypothesis includes we have the node locations, available bands, path loss exponent, and virtual carrier sensing, etc. 
-Pearlman et. show that path load balancing provides negligible performance improvement, we limit each mesh node connect only one gateway nodes ~\cite{pearlman2000impact}.
-This work focus on the backhual layer, with the assumption the access layer is using different ISM channels from backhual layer.
-%Describe algorithms
-To get an approaching channel assignment, we propose a ~\emph{Path Interference over Network} (PIN) to evaluate each link and path in the network. Based on this parameter, we develop 2 novel channel assignment heuristic algorithms for the ~\emph{Multiband Multi-radio Wireless Mesh Network}. 
-% Fix the name
-The first algorithm is a tree generated process to reduce hop count avoiding interference. The second algorithm starts from the furthest node then iteration improve the \emph{Path Interference over Network} (PIN) to improve the channel assignment.
-To better understand channel assignment problem, we propose a linear optimization model to describe constraints of such a network with more detailed constraints. Though, this model is NP-Hard which could not be resolved in a polynomial time, it helps to understand the performance of a multi-band multi-radio wireless network. 
+% New Technology for network design brought by new policyT
+Meanwhile, the FCC has approved the use of broadband services in the unused portions of 
+UHF TV bands, which were formerly exclusively licensed to television broadcasters. 
+These white space bands are now available for unlicensed public use, enabling the deployment 
+of wireless access networks across a broad range of scenarios from sparse rural areas 
+(one of the key applications identified by the FCC) to dense urban areas~\cite{carlson}. 
+The white space bands operate in available channels from 54-806 MHz, having a far greater 
+propagation range than WiFi bands for similar transmission power~\cite{balanis2012antenna}.
+These new resources allowed by policies offer opportunities for more efficient wireless networks. 
 
-% Contribution
-% problem/environment propose
-% algorithms
-% 
+As shown in the spectrum white space databases (e.g.,~\cite{googledatabase}), the number of available 
+channels in these spectrum varies from city to city in the US but generally is inversely proportional to population levels. 
+Hence, the question arises for 
+improving the performance and costs of wireless mesh networks: {\it (i) How can the 
+white space bands improve large-scale mesh network deployments?}, {\it (ii) To what degree can 
+white space bands reduce the network deployment cost of sparsely-populated, rural areas as opposed 
+to comparable WiFi-only solutions?}, and {\it (iii) Where along the continuum of user population 
+densities do the white space bands no longer offer cost savings for wireless network deployments?} 
+While much work has been done on deploying multiple channel wireless networks, the differences in 
+propagation among diverse carrier frequencies have not been exploited in their models~\cite{tang2005interference, 
+doraghinejad2014channel} and the availability of white spaces is not considered, which could be fundamental 
+issues for the success of future mesh networks. 
+
+
+% Paper topic problem and possible solution
+In this paper, we discuss the network deployment in access and backhaul tier.
+We perform a measurement-driven study which jointly considers the propagation 
+characteristics and in-field spectrum availability of white space and WiFi channels 
+for optimally building the access and backhaul tiers of a wireless mesh network with limited spectral resources.
+As a representative metropolitan area, we measure the spectral activity data in the metropolitan 
+and surrounding areas of Dallas-Fort Worth (DFW).  
+We propose a measurement-driven framework, Multi-band Access Point Estimation (MAPE), to find the 
+number of access points required for wireless network deployments in certain target areas with population 
+densities from our in-situ measurements and census data. 
+%Moreover, we leverage the diversity in propagation with channel occupancy of white space and 
+%WiFi bands in the planning and deployment of the multihop wireless backhaul tier. 
+Further, we design a linear program and a heuristic measurement-driven algorithm, Band-based Path Selection (BPS), 
+to address the channel assignment problem in backhaul tier deployment with both WiFi and white space bands. 
+%The performance of our scheme is compared against two well-known multi-channel, 
+%multi-radio channel assignment algorithms across a wide range of scenarios, including 
+%network size, population distribution, deployment distance gap, etc. 
+
+
+% Need some calculation data to show the improvement
 The main contributions of our work are as follows:
 \begin{itemize}
-\item We formulate the heterogeneous ~\emph{Multiband Multi-radio} architecture with channel assignment problem and propose a ~\emph{Integer Linear Program} model for analyzing.  
-
-\item We propose a  parameter ~\emph{Path Interference over Network} (PIN) to evaluate mixed ~\emph{Multiband Multi-hop Path}.
-
-\item We develop 2 heuristic algorithms,1,2, to approach the channel assignment solution.
-% Also should we consider the cost of different kind of nodes (1 radio, 2 radios, 3 radios )
-
-\item We perform extensive simulation with maxinum throughput calculation to evaluate our algorithms.
-
-
+\item We perform in-field measurements of spectrum utilization in various representative
+scenarios across the Dallas-Fort Worth metropolitan area, ranging from sparse rural to dense urban areas,  
+considering the environmental setting (e.g., downtown, residential, or university campus).
+\item We develop a measurement-driven Multi-band Access Point Estimation (MAPE) framework 
+to jointly leverage propagation and spectrum availability of white space and WiFi bands 
+for wireless access networks across environmental settings. We then analyze the framework under capacity and 
+coverage constraints to show that, with white space bands, the number of access points 
+can be greatly reduced from WiFi-only deployments by up to 1650\% in rural areas. 
+\item We build a measurement-driven educed complexity heuristic algorithm, Band-based 
+Path Selection (BPS). BPS considers the diverse propagation and overall interference level 
+of WiFi and white space bands. 
+We further perform extensive analysis across offered loads,
+network sizes and mesh nodes spacing across WiFi/white space band combinations to evaluate the 
+performance and compare to prior multi-channel, multi-radio algorithms. 
+\item We study the channel occupancy and node spacing impacts on mesh performance given similar 
+channel resources (bandwidth and transmission power). The results show the total traffic served 
+up to 180\% over previous multi-channel algorithms.
 \end{itemize}
 
-The remainder of this paper is organized as follows. In Section ~\ref{sec:problemformulation}, we formulate the ~\emph{Multiband Wireless Mesh Network} architecture, describe the ~\emph{Channel Assignment} problem. We analyze multi-band multi-radio wireless mesh networks performance with variaty factors. 
-In ~\ref{sec:linearopt} we represent the ~\emph{ILP} model and discuss its complexity.
-In Section ~\ref{sec:wmalgorithms} discusses the mixed ~\emph{Multiband Multi-hop Path}, based on the analysis, we propose two heuristic algorithms approaching the optimal channel assignment of a multiband network. 
-% FIXME
-%Then we design the experiment design in Section ~\ref{sec:experiment_design} and analyze the results in Section ~\ref{sec:results}.
+The remainder of this paper is organized as follows. In Section~\ref{sec:problemformulation}, 
+we introduce the network deployment with limited spectral resources, the challenge of deploying 
+diverse frequency bands in wireless networks. 
+In Section~\ref{sec:measurements}, we perform our DFW measurements to drive our algorithms and analysis
+for diverse populations. 
+In Section~\ref{sec:winmee}, we analyze the access tier network deployment, 
+propose the MAPE framework, and discuss the white space bands impact. 
+In Section~\ref{sec:whitemesh}, we develop a heuristic-based algorithm which consider which bands 
+and multihop paths to select in a backhaul white space topology. We then evaluate the performance of 
+the heuristic algorithm versus the upper bound of the optimal solution and 
+compare their performance against two well-known multi-channel, multi-radio 
+algorithms in several scenarios. Related work is discussed in Section~\ref{sec:related} and conclusions 
+are drawn in Section~\ref{sec:conclusion}.
 

@@ -22,7 +22,7 @@ analyzer is controlled by a Python script on a laptop to measure the received si
 % Inter network interference and quantification
 % Intra network interference
 % Interference
-Interference is a key issue in wireless network design. Despite sufficient levels of received signal, 
+Interference is a key factor in wireless network design. Despite sufficient levels of received signal, 
 interference can cause channels to be unusable (e.g., due to high levels of packet loss) or unavailable 
 (e.g., due to primary users in cognitive radios)~\cite{haykin2005cognitive}. 
 The interference in wireless networks could be divided into two categories according to the interfering 
@@ -41,7 +41,7 @@ A=\frac{S_\theta}{S_a}
 
 
 % Clearify
-To the best of our knowledge, there is no readily available mobile, multiband antenna from 450 MHz to 5.2 
+To the best of our knowledge, there is no readily-available mobile, multiband antenna from 450 MHz to 5.2 
 GHz on the market. Thus, we use a 700-MHz mobile antenna to perform spectral analysis measurements. We then 
 normalize the mobile antenna performance across bands with indoor experimentation. To do so, we use a 
 Universal Software Radio Peripheral (USRP) N210 to generate signals at 450 MHz, 800 MHz, and 2.4 GHz. We 
@@ -81,7 +81,7 @@ locations for 45 continuous minutes on a weekday in downtown, residential, and n
 post-process the data to calculate the activity level of each band at each location. First, we parse the SNR from 
 the data logs via Perl scripts. Second, we merge the data from the two platforms according to their respective 
 time stamps and calculate the activity level of each band across these locations. The activity level is then 
-included in our framework as input parameter. 
+included in our framework as an input parameter. 
 
 \subsection{Highway Speeds to Fixed Locations} 
 \label{subsec:measurementresult}
@@ -92,11 +92,12 @@ Fort Worth but has less spectral activity in the urban and rural area between th
 detected in the WiFi bands is due to the distance from the highway being typically larger than the propagation range 
 of predominantly indoor wireless routers.
 
-Our initial spectral analysis measurements agree with the the FCC restrictions (shown in Fig.~\ref{fig:drivemap}), 
-greater spectrum utility by TV bands induce less spectral availability.
+Our initial spectral analysis measurements agree with the FCC restrictions dense areas are protected 
+for existing white space users, such as TV stations(shown in Fig.~\ref{fig:drivemap}). The FCC policy limit the spectral activity of 
+white space bands in certain area to protect existing TV broadcasting.
 The drive test also shows that the spectrum 
-utilization is roughly proportional to the population density in Fig.~\ref{fig:drivetest}. We use the measurements 
-collected at fixed locations as marked on the map for the activity level calculation. 
+utilization is roughly proportional to the population density in Fig.~\ref{fig:drivetest}. 
+We use the measurements collected at fixed locations as marked on the map for the activity level calculation. 
 
 \begin{figure}
 %\vspace{-0.0in}
@@ -165,5 +166,5 @@ through a measurement-based activity level. The results show the spectrum bands 
 densely-populated areas. The measurements 
 methods and resulting quantification provides the way to 
 understand a typical deployment environment. We apply these 
-measurements to our MAPE framework in Section.~\ref{sec:winmee} and BPS algorithms in Section.~\ref{sec:whitemesh} to 
-further design access tier network deployments and backhaul tier multiband channel assignment, respectively.
+measurements to our MAPE framework in Section~\ref{sec:winmee} and BPS algorithms in Section~\ref{sec:whitemesh} to 
+further design access tier network deployments and backhual tier multiband channel assignment, respectively.

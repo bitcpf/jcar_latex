@@ -1,0 +1,241 @@
+\section{Problem Formulation}
+\label{sec:problemformulation}
+
+In this section, we formulate the problem of how to optimally use WiFi and white space bands 
+in concert when deploying wireless mesh networks. We first introduce the multiband mesh 
+network, system model and illustrate the challenges of such a WhiteMesh architecture in 
+propagation and channel occupancy. As opposed to previous works such as
+~\cite{tang2005interference,yuan2006cross,si2010overview}, we focus on both the access tier 
+network deployment and backhual tier network design. 
+
+% Background
+\subsection{White Space Opportunity and Challenge}
+\label{subsec:motivation}
+% Propagation
+Wireless propagation refers to the signal loss characteristics when wireless signals 
+are transmitted through the wireless medium. The strength of the received signal 
+depends on both the line-of-sight path (or lack thereof) and multiple other paths 
+that result from reflection, diffraction, and scattering from obstacles~\cite{andersen1995propagation}. 
+The widely-used Friis equation characterizes the received signal power $P_r$ in terms 
+of transmit power $P_t$, transmitter gain $G_t$, receiver gain $G_r$, wavelength 
+$\lambda$ of the carrier frequency, distance $R$ from transmitter to receiver, and 
+path loss exponent $n$ according to~\cite{friis}:
+\begin{equation}
+\label{eq:friis}
+P_r=P_t+G_t+G_r+10n \log_{10}\left( \frac{\lambda}{4\pi R}\right)
+\end{equation}
+Here, $n$ varies according to the aforementioned environmental factors with a value 
+ranging from two to five in typical outdoor settings~\cite{rappaport}.
+
+% Explain multiband vs multichannel Adding channel occupancy here, and also activity level
+A frequency band is commonly defined as a group of channels which have similar propagation 
+characteristics with small frequency separation. A common assumption in previous works that 
+use many WiFi channels is that the propagation characteristics of each channel is similar 
+to another, since the channel separation is relatively small (e.g., 5 MHz for the 2.4 GHz band).
+% Previous work focus on multichannel
+Many works which rely on such uniform propagation assumption have focused on the allocation 
+of multiple WiFi channels with multiple radios in multihop wireless networks with channels in 
+one band~\cite{doraghinejad2014channel}. However, as FCC licensed the white space bands for 
+communication, the propagation variation has to be a consideration in wireless communication. 
+Moreover, the FCC has flexible rules all over the states for the existing TV stations 
+and devices working in white space bands~\cite{googledatabase}. 
+The existing channel occupancy in the air has to be counted in the wireless communication~\cite{fallah2010congestion}. 
+
+% Clearify the problem
+% Network deployment objective
+Wireless mesh networks are a particular type of multihop wireless network that provides access 
+for users through wireless links with low cost. Naturally, in wireless network design, there is 
+trade off between the budget and the quality of service. Typically, wireless mesh network is 
+considered to have at least two tiers~\cite{CRSK06}: {\it (i)} an access tier, where client 
+traffic is aggregated to and from mesh nodes, and {\it (ii)} a multihop backhaul tier for 
+connecting all mesh nodes to the Internet through gateway nodes. To provide better service for 
+more users, the network has to be designed with more access points in the access tier, and 
+offers more capacity in the backhual tier. However, more access points and backhual capacity 
+induce huge cost for network deployment. Fortunately, white space large propagation helps solving 
+these issues. In this work, we explore the white space spectrum application for both access tier 
+network deployment and further focus on optimally allocating white space and WiFi bands on a 
+finite set of radios per mesh node along the backhaul tier.  
+
+% Advantages
+In the white mesh networks, the white space spectrum offers not only more allowed frequency resources
+but also a larger service area for a single access point. With the flexible FCC restrictions and 
+artificial activity diversity of white space spectrum, in sparsely-populated rural areas, the 
+lower frequencies of the white space bands might be a more appropriate choice for access point 
+deployment and connections for backhual networks. A white space access point has a larger service
+area comparing with WiFi access point only counting propagation. Long propagation also reduce the 
+hop counts in backhual networks with more capacity.  
+% Drawbacks
+However, as the population and demand scales up (e.g., for urban regions), the reduced spatial 
+reuse and greater levels of interference of white space bands might detract from the overall wireless
+network deployment strategy. In such urban areas, select links with more spatial reuse ability might
+be a more appropriate choice, especially since the number of available channels in white space bands 
+is often inversely proportional to the population (due to the existence of greater TV channels).
+
+
+
+
+\begin{figure}
+\vspace{-0.0in}
+\centering
+\includegraphics[width=84mm]{figures/interferencerange2}
+\vspace{-0.1in}
+\caption{Example WhiteMesh topology with different mesh-node shapes 
+representing different frequency band choices per link.}
+\label{fig:interferencerange}
+\vspace{-0.2in}
+\end{figure}
+
+
+
+
+\subsection{System Model}
+\label{subsec:problem}
+% Talk about the challenges
+Larger propagation range results in cost reducing of access points deployment in access 
+tier deployment through larger service area. Figure \ref{fig:interferencerange} depicts 
+an example of the propagation diversity in white mesh networks. The mesh node $A$ 
+could connect to mesh node $C$ relayed by node $B$ at 2.4 GHz, or directly connect to $C$ at 450 
+MHz. If 2.4 GHz were chosen, link $D,E$ is able to reuse 2.4 GHz when they are out of 
+the interference range. However, in backhual tier network if link $A,C$ used 450 MHz, a 
+lower hop count would result for the path, but lower levels of spatial reuse also result 
+(e.g., for link $D,E$). While the issues of propagation, interference, and spatial reuse are 
+simple to understand, the joint use of white space and WiFi bands to form optimal WhiteMesh 
+topologies is challenging since the optimization is based on the knowledge of prior channel 
+assignment which is not available before the work has been done.
+
+% Need to tell the whole issue
+The prior multi-channel models~\cite{tang2005interference, doraghinejad2014channel} fail to 
+distinguish the propagation range $D_c$, interference range $D_r$ and channel capacity variation 
+among frequency bands. While these works would attempt to minimize the interference in a multihop 
+network topology by an optimal channel assignment for a given set of radios, we hypothesize that
+using radios with a greater diversity in propagation could yield overall network performance gains
+in both access tier and backhual tier networks. Therefore, in the white mesh model, for a given set 
+of radios, we allow the channel choices to come from multiple frequency bands (i.e., multiband channel 
+assignment, which also includes multiple channels in the same band). We assume all channels have 
+the same bandwidth and the same channel capacity of each band with the same transmit power, channel 
+bandwidth, and antenna gain under a classic protocol model~\cite{gupta2000capacity}. 
+
+In sparsely-populated rural areas, the lower frequencies of the white space bands might be a better 
+choice for wireless service in sparsely populated areas for its low utility. However, as the population 
+and traffic demand scales up (e.g., for urban regions), the greater levels of residents traffic demands 
+might detract the white space bands from the overall deployment strategy. That motivate the learning of 
+target area electromagnetic environment in prior of the network design. For spectrum utility and 
+resulting channel availability, we use a long-term measurement for each band.  We define the percentage 
+of sensing samples ($S_\theta$) above an interference threshold ($\theta$) over the total samples ($S$) 
+in a time unit as the activity level ($A$) of inter-network interference:
+\begin{equation}
+\label{eq:actdef}
+A=\frac{S_\theta}{S_a}
+\end{equation}
+
+% Discuss the application of activity level
+Based on the in-field measurements, we can further get the achieved channel capacity through the remaining
+free time according to Eq.\ref{eq:intercap}:
+\begin{equation}
+\label{eq:intercap}
+\delta_r=\delta*(1-\bar{A})
+\end{equation}
+The capacity of a clean channel is denoted by $\delta$ with the protocol model. In a joint white space and 
+WiFi scenario, the activity level varies according to various interfering sources and the propagation 
+characteristics induced by the environmental characteristics of the service area.
+
+% Objective of the work,high level problem
+A white mesh wireless network involves the propagation variation and channel occupancy additional to 
+the previous multichannel works. Wireless networks plays a central role to connect clients to others.
+Position in the carriers, the key issue of wireless network deployment is to provide affordable and 
+quality service to the clients. In the two tiers of wireless network, there are variable objective in
+the access tier and backhual network. For access tier deployment, the key issue is to reduce the cost 
+for access points with quality of service constraints. In the backhual network, the objective of the 
+deployment is to offer more capacity for the mesh nodes which are the access points in the access tier. 
+% 2 sub problems
+As induced, in wireless network deployment, we have to solve \emph{1. Access Tier Network and
+2. Backhual Tier Network} deployment sub problems. 
+
+% Previous works
+\textbf{Access Tier Network} Despite sufficient levels of received signal, interference can cause channels 
+to be unusable (e.g., due to high levels of packet loss) or unavailable (e.g., due to primary users in 
+cognitive radios~\cite{haykin2005cognitive}). Prior work has worked to reduce interference levels via gateway 
+deployment, channel assignment, and routing~\cite{he2008optimizing,tang2005interference}. The interference 
+of a wireless network could be divided into two categories according to the interfering source: {\it (i)} 
+intra-network interference, caused by nodes in the same network, and {\it (ii)} inter-network interference, 
+caused by nodes or devices outside of the network. The definition of activity level provides a method to 
+quantify the inter-network interference in the deployment design. We apply the measurements based activity 
+level in both access tier network design and backhual network design.
+
+% Network Constraint
+Typically, the deployment of wireless access networks is subject to coverage and capacity constraints 
+for a given region. Coverage is defined with respect to the ability of clients to connect to access 
+points within their service area.  We use a coverage constraint ratio of $95\%$ in this work for a 
+target area~\cite{robinson2010deploying}. Capacity is defined with respect to the ability of a network 
+to serve the traffic demand of clients. Spatial reuse allows improved capacity but increases the cost
+of deploying a network by increasing the total number of access points required. Hence, for densely-populated 
+areas, the greatest level of spatial reuse possible is often desired. In contrast, sparsely-populated 
+rural areas have lower traffic demand per unit area.  Thus, aggregating this demand with the use of lower 
+frequencies via white space bands could be highly effective in reducing the total number of access points 
+required to achieve similar coverage and capacity constraints.  Moreover, since less TV channels tend to 
+be occupied in sparsely-populated areas~\cite{msdatabase}, a larger number of white space bands can be 
+leveraged in these areas.
+
+An access network deployment should ideally provide network capacity equal to the demand of the service 
+area to maintain the capacity constraint. The demand of a service area could be calculated as the 
+summation of individual demands all over the service area $D_a=\sum_{p\in P}D_p$. Since household demand 
+for the Internet has been previously characterized~\cite{rosston2011household}, $D_a$ could represent the 
+population distribution $f$ and service area $k$ as $D_a=\sum_{f \in F,k \in K}\bar{D_p}*f*k$. The capacity 
+constraint could be represented with an access point set $M$ according to:
+\begin{equation}
+\label{eq:nlbound}
+\sum_{m \in M}\delta_r^m \ge \sum_{f \in F,k \in K}\bar{D_p}*f*k
+\end{equation}
+At the same time, the wireless network must additionally satisfy the coverage constraint in the service 
+area where the access points provide connectivity for client devices. Generally, a coverage of $95\%$ is 
+acceptable for wireless access networks~\cite{robinson2010deploying}.
+
+
+\textbf{Backhual Network} Most of the existing backhual works try to reduce the intra-network interference 
+without regard to the inter-network interference~\cite{si2010overview,doraghinejad2014channel} and propagation
+variation. To investigate the performance of white space bands in backhual wireless network, we consider the 
+diverse propagation characteristics for four frequency bands: 450 MHz, 800 MHz, 2.4 GHz, and 5.8 GHz. The two 
+former frequency bands are located in white space (WS) bands, whereas the two latter frequency bands are WiFi 
+bands. Thus, in sparsely-populated rural areas, the lower frequencies of the white space bands might be a more 
+appropriate choice for multihop paths to gateways having reduced hop count with more capacity. However, as the 
+population and demand scales up (e.g., for urban regions), the reduced spatial reuse and greater levels of 
+interference of white space bands might detract from the overall channel assignment strategy. In such urban 
+areas, select links of greater distance might be the most appropriate choice for white space bands, especially 
+since the number of available channels is often inversely proportional to the population (due to the existence 
+of greater TV channels).
+
+To distinguish the dynamics of white space bands, we employ the activity level based on multiple measurements 
+in the target area to represent the achieved channel capacity. Correspondingly, a connectivity graph $C$ is 
+formed for each band in $B$ such that $C=(V,L,B)$.  If the received signal for a given band is above an 
+interference-range threshold, then contention occurs between nodes. We extend the conflict matrix in~\cite{tang2005interference} 
+related to various interference per band according to $F=(E_{i,j},I_{Set},B)$, where $E_{i,j}$ represents the 
+link and $I_{Set}$ includes all the links are physically inside the interference range $D_r$ when operating on 
+each band $b \in B$.
+
+Therefore, the problem we model is: to choose the connectivity graph $C'$ which maximizes the served traffic flow obey 
+the constraints of multiband wireless network (defined below). A key challenge is that selecting the optimal channels from
+the set $B$ leads to a conflict graph $F$ which cannot be known {\it a priory}. Previous works have proposed several 
+coloring, cluster-independent set, mixed linear integer methodology for a single band $b$ 
+~\cite{peng2012efficient,tang2005interference,doraghinejad2014channel}. 
+However, these works do not address a reduction in hop count or an increase in spatial reuse and channel occupancy for 
+a set of diverse bands $B$. 
+
+% Metrics
+In network application, the bottleneck of mesh network capacity has been shown to be the gateway's wireless 
+connections~\cite{robinson2008adding}. The metric we use to evaluate the proposed algorithm is the served traffic flow.
+Wireless networks are operated and maintained by vendors, such as AT\&T, T-Mobile, who charge the customers based on their data 
+through Internet. In practice, the traffic demand of the user obey Poisson distribution\cite{saaty1961elements}, 
+we then generated Poisson distributed numbers to represent clients' traffic demands in our simulation. The served traffic 
+flow is correlated to the population of the area since each user has similar traffic demand in long term average. The 
+employed performance metric of served traffic flow $X$, is represented the traffic arrived at the gateway nodes, where 
+in Eq.~\ref{eq:goodput}:
+\begin{equation}
+\label{eq:goodput}
+X=\sum_{w \in W, v \in V}T(w,v)
+\end{equation}
+The traffic arrived gateway node $w\in W$ considers all incoming and outgoing wireless traffic from access node $v\in V$ 
+as $T$ onto the Internet. Obviously, the served traffic flow is also related to the routing and other factors, we use a 
+simple routing method to keep the maximum the traffic arrived at the gateway nodes, the exact calculation of served traffic
+flow is described in Section~\ref{subsec:wmanalysis}.
+
+

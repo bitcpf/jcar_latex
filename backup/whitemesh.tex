@@ -10,21 +10,25 @@
 \usepackage{algorithm}
 \usepackage{amsmath}
 \usepackage{verbatim}
+\usepackage{booktabs}
+\usepackage{authblk}
 \renewcommand{\algorithmicrequire}{\textbf{Input:}}
 \renewcommand{\algorithmicensure}{\textbf{Output:}}
-\renewcommand{\baselinestretch}{0.95}
+\renewcommand{\baselinestretch}{0.915}
 %\renewcommand{\algorithmicforall}{\textbf{Foreach}}
 %\renewcommand{\algorithmicendfor}{\textbf{}}
 
+
 \begin{document}
-\title{WhiteMesh: Leveraging White Spaces in Multihop Wireless Topologies}
-\author{TBA \\
-Dinesh Rajan, and Joseph Camp\\ 
-%Department of Electrical Engineering,\\ Southern Methodist University (SMU), Dallas, TX \\
-%\{camp\}@smu.edu  \\
-}
-
-
+\title{Leveraging White Spaces in Wireless Access Networks}
+\author[1]{Pengfei Cui}
+\author[2]{Yuanyuan Dong}
+\author[1]{Hui Liu}
+\author[1]{Dinesh Rajan}
+\author[2]{Eli Olinick}
+\author[1]{Joseph Camp}
+\affil[1]{Department of Electrical Engineering, Southern Methodist University}
+\affil[2]{Department of Engineering Management, Information, and Systems, Southern Methodist University}
 %\documentclass[10pt]{article}
 
 %\usepackage{xkvltxp}
@@ -34,21 +38,15 @@ Dinesh Rajan, and Joseph Camp\\
 
 
 \input{abstract}
-%
-% Introduce the background and problem, calim contribution
+% Introduce the background and problem, claim contribution
 \input{introduction}
-% Multiband architecture and interference model Linear optimization model
+% Multiband architecture and interference model Linear optimization model, takinkg about frequency occupancy
 \input{problemformulation}
-% Mixed Linear Optimization
-\input{linearopt}
-% Two heuristic algorithms
-\input{wmalgorithms}
-%
-\input{experiment_design}
-%\input{results}
-%\input{related}
+\input{measurements}
+\input{winmee}
+\input{wm}
+\input{related}
 \input{conclusion}
-
 
 \bibliographystyle{IEEEtran}
 

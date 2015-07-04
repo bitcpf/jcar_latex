@@ -1,0 +1,91 @@
+\section{Experiment and Analysis}
+\label{sec:experiment}
+
+In this section, we introduce the measurements experiments setup and 
+evaluate the process of probabilistic forecasting of channel state.
+Based on the probabilistic forecasting result, we perform numeric
+simulation of the Bayesian Beam Schedule. We further compare the 
+performance of BBS to the equal time schedule and maximum channel 
+capacity schedule and show the gain of the BBS with analysis.
+
+
+% Subsec Experiment design
+\subsection{Experiment Design}
+\label{subsec:experimentdesign}
+
+The BBS is a measurements driven method, espicelly for the probabilistic forecasting
+of the channel states of each client. We perform experiments with an Android application, 
+WiEye worldwide measurements. And also we perform small scale local measurements in typical downtown,
+urban, neighborhood and campus area.
+
+% Wieye
+The application for the data collection is currently available for download and usage via the Google 
+Android Marketunder the name WiEye. Users are able to view all Wi-Fi access points that are within range 
+oftheir cellular device in both graphical and tabular form. All datacollection is done in the background, 
+either continuously while theuser is running the application or periodically if the user has optedin to 
+background data collection to assist our study. Our data collection has been approved by the Southern 
+Methodist UniversityInstitutional Review Board, a human subjects research committee, ensuring that all 
+ethical precautions have been taken in collectingdata from the users of our application.
+
+Through this piece of data, we investigate the large scale beam schedule through BBS in a city.
+FIXME
+
+% Local Measurements 
+We employ a Linux-based 802.11 testbed, which includes aGateworks 2358 board with Ubiquiti XR radios 
+(XR9 at 900MHz, XR2 at 2.4 GHz, XR5 at 5.2 GHz) and a DoodleLabsDL475 radio at 450 MHz. We develop shell 
+scripts whichutilize tcpdump to enable the testbed to work as a sniffer,recording all 802.11 packets. 
+However, since the Gateworksplatform only updates its estimate of received signal strengthupon the 
+reception of a new packet (and not all relevantchannel activity is 802.11 based), we employ a spectrumanalyzer 
+to form a notion of inter-network interference withfiner granularity. Hence, we also use a Rohde \& Schwarz FSH 8 
+portable spectrum works from 100 KHz to 8 GHz. Theportable spectrum analyzer is controlled by a Python 
+script on a laptop to measure the received signal strength.
+
+Through the local measurements, we explore the application in small scale which the measurements has more 
+correlation with each other.
+FIXME
+
+\subsection{Numerical Simulation}
+\label{subsec:result}
+
+% Network setup, area, beams,traffic, payoff parameters
+In the part, we set up a measurements driven simulation to evaluate the performance of the BBS framework.
+And we further compare the performance with the non beam forming access, equal time schedule, and the post 
+upper bound of beam schedule. In the non beam forming access, we omit the RTS/CTS time cost in the simulation.
+Equal time schedule is to schedule the beam equally to all the clients in the served area. In the post upper
+bound beam schedule, we already know the best channel state, in such situation, we can update the beam schedule
+with the best options.
+% Area Here
+We choose 3 pieces of measurements data in the simulations. One from the measurements from a public park near
+our campus, one from the WiEye data in a major city in US, the last one set is from the WiEye data in an 
+urban area. Dense area with more traffic demands is more applicable for beam forming technology.
+
+% Setup
+In the first public scenario, we looked up the access points from Google(FIXME) and select the clients from the 
+measurements we got from the area.
+
+
+From the measurements, we analysis the activities across time and output the variation of time domain.
+Large scale application
+
+Small scale application
+
+% Measurements and probabilistic forecasting
+
+
+
+
+% Bayesian beam schedule
+
+
+
+
+% Compare with other method
+
+
+
+
+
+
+
+
+

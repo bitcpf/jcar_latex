@@ -33,35 +33,36 @@ of wireless access networks across a broad range of scenarios from sparse rural 
 (one of the key applications identified by the FCC) to dense urban areas~\cite{carlson}. 
 The white space bands operate in available channels from 54-806 MHz, having a far greater 
 propagation range than WiFi bands for similar transmission power~\cite{balanis2012antenna}.
-These new resources and policies offer opportunities for both industry and academia. 
+These new resources allowed by policies offer opportunities for more efficient wireless networks. 
 
 As shown in the spectrum white space databases (e.g.,~\cite{googledatabase}), the number of available 
 channels in these spectrum varies from city to city in the US but generally is inversely proportional to population levels. 
 Hence, the question arises for 
-improving the performance and costs of wireless mesh networks: {\it (i) how can the 
+improving the performance and costs of wireless mesh networks: {\it (i) How can the 
 white space bands improve large-scale mesh network deployments?}, {\it (ii) To what degree can 
 white space bands reduce the network deployment cost of sparsely-populated, rural areas as opposed 
 to comparable WiFi-only solutions?}, and {\it (iii) Where along the continuum of user population 
 densities do the white space bands no longer offer cost savings for wireless network deployments?} 
 While much work has been done on deploying multiple channel wireless networks, the differences in 
 propagation among diverse carrier frequencies have not been exploited in their models~\cite{tang2005interference, 
-doraghinejad2014channel} and the availability of white spaces is not considered, which could be fundamental issues for the success 
-of mesh networks going forward. 
+doraghinejad2014channel} and the availability of white spaces is not considered, which could be fundamental 
+issues for the success of future mesh networks. 
 
 
 % Paper topic problem and possible solution
-In this paper, we perform a measurement-driven study which jointly considers the propagation 
+In this paper, we discuss the network deployment in access and backhaul tier.
+We perform a measurement-driven study which jointly considers the propagation 
 characteristics and in-field spectrum availability of white space and WiFi channels 
-for optimally building the access and backhual tiers of a wireless mesh network.
+for optimally building the access and backhaul tiers of a wireless mesh network with limited spectral resources.
 As a representative metropolitan area, we measure the spectral activity data in the metropolitan 
 and surrounding areas of Dallas-Fort Worth (DFW).  
 We propose a measurement-driven framework, Multi-band Access Point Estimation (MAPE), to find the 
 number of access points required for wireless network deployments in certain target areas with population 
 densities from our in-situ measurements and census data. 
 %Moreover, we leverage the diversity in propagation with channel occupancy of white space and 
-%WiFi bands in the planning and deployment of the multihop wireless backhual tier. 
+%WiFi bands in the planning and deployment of the multihop wireless backhaul tier. 
 Further, we design a linear program and a heuristic measurement-driven algorithm, Band-based Path Selection (BPS), 
-to address the channel assignment problem in wireless network deployment with both WiFi and white space bands. 
+to address the channel assignment problem in backhaul tier deployment with both WiFi and white space bands. 
 %The performance of our scheme is compared against two well-known multi-channel, 
 %multi-radio channel assignment algorithms across a wide range of scenarios, including 
 %network size, population distribution, deployment distance gap, etc. 
@@ -78,19 +79,20 @@ to jointly leverage propagation and spectrum availability of white space and WiF
 for wireless access networks across environmental settings. We then analyze the framework under capacity and 
 coverage constraints to show that, with white space bands, the number of access points 
 can be greatly reduced from WiFi-only deployments by up to 1650\% in rural areas. 
-\item We build a reduced complexity heuristic-based measurement-driven algorithm, Band-based 
+\item We build a measurement-driven educed complexity heuristic algorithm, Band-based 
 Path Selection (BPS). BPS considers the diverse propagation and overall interference level 
 of WiFi and white space bands. 
 We further perform extensive analysis across offered loads,
 network sizes and mesh nodes spacing across WiFi/white space band combinations to evaluate the 
-performance versus prior multi-channel, multi-radio algorithms. 
+performance and compare to prior multi-channel, multi-radio algorithms. 
 \item We study the channel occupancy and node spacing impacts on mesh performance given similar 
 channel resources (bandwidth and transmission power). The results show the total traffic served 
-improvement of BPS in typical configurations, achieving up to 180\% of previous multi-channel algorithms.
+up to 180\% over previous multi-channel algorithms.
 \end{itemize}
 
 The remainder of this paper is organized as follows. In Section~\ref{sec:problemformulation}, 
-we introduce the challenge of deploying diverse frequency bands in wireless networks. 
+we introduce the network deployment with limited spectral resources, the challenge of deploying 
+diverse frequency bands in wireless networks. 
 In Section~\ref{sec:measurements}, we perform our DFW measurements to drive our algorithms and analysis
 for diverse populations. 
 In Section~\ref{sec:winmee}, we analyze the access tier network deployment, 
